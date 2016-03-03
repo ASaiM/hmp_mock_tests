@@ -1,0 +1,820 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "Single-end workflow", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 159, 
+                "top": 464
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": [], 
+            "uuid": "1a6c9bce-5a77-43a0-a39f-f07d8d53b235"
+        }, 
+        "1": {
+            "annotation": "", 
+            "id": 1, 
+            "input_connections": {
+                "seq_type|input_singles": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "PRINSEQ", 
+            "outputs": [
+                {
+                    "name": "good_sequence_file", 
+                    "type": "fastq"
+                }, 
+                {
+                    "name": "rejected_sequence_file", 
+                    "type": "fastq"
+                }, 
+                {
+                    "name": "good_sequences_1_file", 
+                    "type": "fastq"
+                }, 
+                {
+                    "name": "good_sequences_1_singletons_file", 
+                    "type": "fastq"
+                }, 
+                {
+                    "name": "rejected_sequence_1_file", 
+                    "type": "fastq"
+                }, 
+                {
+                    "name": "good_sequences_2_file", 
+                    "type": "fastq"
+                }, 
+                {
+                    "name": "good_sequences_2_singletons_file", 
+                    "type": "fastq"
+                }, 
+                {
+                    "name": "rejected_sequence_2_file", 
+                    "type": "fastq"
+                }, 
+                {
+                    "name": "html_file", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 345, 
+                "top": 465
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/prinseq/prinseq/0.1.0", 
+            "tool_state": "{\"seq_type\": \"{\\\"seq_type_opt\\\": \\\"single\\\", \\\"input_singles\\\": null, \\\"__current_case__\\\": 0}\", \"__page__\": 0, \"filter_treatments\": \"{\\\"complexity_filter_treatments\\\": {\\\"apply_complexity_filter_treatments\\\": \\\"true\\\", \\\"method_complexity_filter_treatments\\\": \\\"dust\\\", \\\"__current_case__\\\": 0, \\\"threshold_complexity_filter_treatments\\\": \\\"7\\\"}, \\\"length_filter_treatments\\\": {\\\"min_length_filter_treatments\\\": {\\\"min_length_filter_treatment_value\\\": \\\"60\\\", \\\"apply_min_length_filter_treatments\\\": \\\"true\\\", \\\"__current_case__\\\": 0}, \\\"apply_length_filter_treatments\\\": \\\"true\\\", \\\"max_length_filter_treatments\\\": {\\\"apply_max_length_filter_treatments\\\": \\\"false\\\", \\\"__current_case__\\\": 1}, \\\"__current_case__\\\": 0}, \\\"apply_filter_treatments\\\": \\\"true\\\", \\\"__current_case__\\\": 0, \\\"base_content_filter_treatments\\\": {\\\"__current_case__\\\": 0, \\\"N_number_content_filter_treatments\\\": {\\\"apply_N_number_content_filter_treatments\\\": \\\"false\\\", \\\"__current_case__\\\": 1}, \\\"apply_other_base_content_filter_treatments\\\": \\\"False\\\", \\\"N_percentage_content_filter_treatments\\\": {\\\"N_percentage_content_filter_treatment_value\\\": \\\"2\\\", \\\"__current_case__\\\": 0, \\\"apply_N_percentage_content_filter_treatments\\\": \\\"true\\\"}, \\\"GC_perc_content_filter_treatments\\\": {\\\"apply_GC_perc_content_filter_treatments\\\": \\\"false\\\", \\\"__current_case__\\\": 1}, \\\"apply_base_content_filter_treatments\\\": \\\"true\\\"}, \\\"quality_filter_treatments\\\": {\\\"mean_quality_filter_treatments\\\": {\\\"apply_mean_quality_filter_treatments\\\": \\\"true\\\", \\\"max_mean_quality_filter_treatments\\\": {\\\"apply_max_mean_quality_filter_treatments\\\": \\\"false\\\", \\\"__current_case__\\\": 1}, \\\"__current_case__\\\": 0, \\\"min_mean_quality_filter_treatments\\\": {\\\"apply_min_mean_quality_filter_treatments\\\": \\\"true\\\", \\\"__current_case__\\\": 0, \\\"min_mean_quality_filter_treatment_value\\\": \\\"15\\\"}}, \\\"max_quality_filter_treatments\\\": {\\\"apply_max_quality_filter_treatments\\\": \\\"false\\\", \\\"__current_case__\\\": 1}, \\\"min_quality_filter_treatments\\\": {\\\"apply_min_quality_filter_treatments\\\": \\\"false\\\", \\\"__current_case__\\\": 1}, \\\"apply_quality_filter_treatments\\\": \\\"true\\\", \\\"__current_case__\\\": 0}}\", \"__rerun_remap_job_id__\": null, \"graph_stats\": \"[\\\"ld\\\", \\\"gc\\\", \\\"qd\\\", \\\"ns\\\", \\\"pt\\\", \\\"ts\\\", \\\"aq\\\", \\\"de\\\", \\\"da\\\", \\\"sc\\\", \\\"dn\\\"]\", \"trimming_treatments\": \"{\\\"length_trimming_treatments\\\": {\\\"apply_length_trimming_treatments\\\": \\\"false\\\", \\\"__current_case__\\\": 1}, \\\"quality_trimming_treatments\\\": {\\\"type_quality_trimming_treatments\\\": \\\"mean\\\", \\\"step_quality_trimming_treatments\\\": \\\"5\\\", \\\"apply_quality_trimming_treatments\\\": \\\"true\\\", \\\"window_quality_trimming_treatments\\\": \\\"5\\\", \\\"__current_case__\\\": 0, \\\"right_quality_trimming_treatments\\\": {\\\"right_quality_trimming_treatment_value\\\": \\\"20\\\", \\\"apply_right_quality_trimming_treatments\\\": \\\"true\\\", \\\"__current_case__\\\": 0}, \\\"rule_quality_trimming_treatments\\\": \\\"lt\\\", \\\"left_quality_trimming_treatments\\\": {\\\"apply_left_quality_trimming_treatments\\\": \\\"false\\\", \\\"__current_case__\\\": 1}}, \\\"apply_trimming_treatments\\\": \\\"true\\\", \\\"tail_trimming_treatments\\\": {\\\"apply_tail_trimming_treatments\\\": \\\"false\\\", \\\"__current_case__\\\": 1}, \\\"__current_case__\\\": 0, \\\"position_trimming_treatments\\\": {\\\"apply_position_trimming_treatments\\\": \\\"false\\\", \\\"__current_case__\\\": 1}}\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "04a5e4e7-b5ea-4d65-8062-f947e9ce0b48"
+        }, 
+        "2": {
+            "annotation": "", 
+            "id": 2, 
+            "input_connections": {
+                "sequence_file_format|sequence_file": {
+                    "id": 1, 
+                    "output_name": "good_sequence_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Extract", 
+            "outputs": [
+                {
+                    "name": "information_file", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "fasta_sequence_file", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "fastq_sequence_file", 
+                    "type": "fastq"
+                }, 
+                {
+                    "name": "quality_file", 
+                    "type": "qual"
+                }, 
+                {
+                    "name": "fasta_sequence_file_from_fastq", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "report_filepath", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 627, 
+                "top": 493
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/extract_sequence_file/extract_sequence_file/0.1.0", 
+            "tool_state": "{\"__page__\": 0, \"sequence_file_format\": \"{\\\"extraction\\\": {\\\"specific_extraction\\\": \\\"False\\\", \\\"split\\\": {\\\"split_test\\\": \\\"True\\\", \\\"__current_case__\\\": 0, \\\"quality_format\\\": \\\"illumina_1_8\\\"}, \\\"__current_case__\\\": 1}, \\\"sequence_file\\\": null, \\\"__current_case__\\\": 0, \\\"format\\\": \\\"fastq\\\"}\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null, \"constraints\": \"{\\\"constrained_extraction\\\": \\\"False\\\", \\\"__current_case__\\\": 1}\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "9c20a63e-88b6-4f4d-b272-79b097ced009"
+        }, 
+        "3": {
+            "annotation": "", 
+            "id": 3, 
+            "input_connections": {
+                "infile": {
+                    "id": 2, 
+                    "output_name": "fasta_sequence_file_from_fastq"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "VSearch dereplication", 
+            "outputs": [
+                {
+                    "name": "outfile", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "uc_outfile", 
+                    "type": "fasta"
+                }
+            ], 
+            "position": {
+                "left": 907, 
+                "top": 629
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/vsearch/vsearch_dereplication/1.9.7.0", 
+            "tool_state": "{\"sizein\": \"\\\"False\\\"\", \"__page__\": 0, \"maxuniquesize\": \"\\\"\\\"\", \"__rerun_remap_job_id__\": null, \"minuniquesize\": \"\\\"\\\"\", \"topn\": \"\\\"\\\"\", \"sizeout\": \"\\\"True\\\"\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"infile\": \"null\", \"strand\": \"\\\"both\\\"\", \"uc\": \"\\\"False\\\"\"}", 
+            "tool_version": "1.9.7.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "7cfcc3ef-4142-49dc-900d-de079b706a14"
+        }, 
+        "4": {
+            "annotation": "", 
+            "id": 4, 
+            "input_connections": {
+                "input_reads": {
+                    "id": 3, 
+                    "output_name": "outfile"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Filter with SortMeRNA", 
+            "outputs": [
+                {
+                    "name": "output_fastx", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "output_other", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "output_sam", 
+                    "type": "sam"
+                }, 
+                {
+                    "name": "output_blast", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "output_log", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 1113, 
+                "top": 657
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/sortmerna/bg_sortmerna/2.1.0", 
+            "tool_state": "{\"__page__\": 0, \"aligned_fastx\": \"{\\\"aligned_fastx_selector\\\": \\\"--fastx\\\", \\\"other\\\": \\\"True\\\", \\\"__current_case__\\\": 0}\", \"aligned_sam\": \"{\\\"aligned_sam_selector\\\": \\\"--sam\\\", \\\"sq\\\": \\\"False\\\", \\\"__current_case__\\\": 0}\", \"log\": \"\\\"False\\\"\", \"input_reads\": \"null\", \"e_value\": \"\\\"1.0\\\"\", \"mismatch\": \"\\\"-3\\\"\", \"sequencing_type\": \"{\\\"sequencing_type_selector\\\": \\\"not_paired\\\", \\\"__current_case__\\\": 0}\", \"ambiguous_letter\": \"\\\"-3\\\"\", \"aligned_blast\": \"\\\"\\\"\", \"databases_type\": \"{\\\"databases_selector\\\": \\\"cached\\\", \\\"input_databases\\\": {\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": [\\\"rfam-5.8s-id98\\\", \\\"rfam-5s-id98\\\", \\\"silva-arc-16s-id95\\\", \\\"silva-arc-23s-id98\\\", \\\"silva-bac-16s-id90\\\", \\\"silva-bac-23s-id98\\\", \\\"silva-euk-18s-id95\\\", \\\"silva-euk-29s-id98\\\"]}, \\\"__current_case__\\\": 0}\", \"match\": \"\\\"2\\\"\", \"gap_open\": \"\\\"5\\\"\", \"report\": \"{\\\"report_best\\\": {\\\"report_best_min_lis\\\": \\\"2\\\", \\\"report_best_type\\\": \\\"1\\\", \\\"__current_case__\\\": 0}, \\\"report_type\\\": \\\"best\\\", \\\"__current_case__\\\": 0}\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null, \"strand_search\": \"\\\"\\\"\", \"gap_ext\": \"\\\"2\\\"\"}", 
+            "tool_version": "2.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "514484c5-52d9-41d2-9ad7-c54be0bd2818"
+        }, 
+        "5": {
+            "annotation": "", 
+            "id": 5, 
+            "input_connections": {
+                "input_reads": {
+                    "id": 4, 
+                    "output_name": "output_fastx"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Filter with SortMeRNA", 
+            "outputs": [
+                {
+                    "name": "output_fastx", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "output_other", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "output_sam", 
+                    "type": "sam"
+                }, 
+                {
+                    "name": "output_blast", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "output_log", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 1460, 
+                "top": 400
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/sortmerna/bg_sortmerna/2.1.0", 
+            "tool_state": "{\"__page__\": 0, \"aligned_fastx\": \"{\\\"aligned_fastx_selector\\\": \\\"--fastx\\\", \\\"other\\\": \\\"True\\\", \\\"__current_case__\\\": 0}\", \"aligned_sam\": \"{\\\"aligned_sam_selector\\\": \\\"--sam\\\", \\\"sq\\\": \\\"False\\\", \\\"__current_case__\\\": 0}\", \"log\": \"\\\"False\\\"\", \"input_reads\": \"null\", \"e_value\": \"\\\"1.0\\\"\", \"mismatch\": \"\\\"-3\\\"\", \"sequencing_type\": \"{\\\"sequencing_type_selector\\\": \\\"not_paired\\\", \\\"__current_case__\\\": 0}\", \"ambiguous_letter\": \"\\\"-3\\\"\", \"aligned_blast\": \"\\\"\\\"\", \"databases_type\": \"{\\\"databases_selector\\\": \\\"cached\\\", \\\"input_databases\\\": {\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": [\\\"silva-arc-16s-id95\\\", \\\"silva-bac-16s-id90\\\"]}, \\\"__current_case__\\\": 0}\", \"match\": \"\\\"2\\\"\", \"gap_open\": \"\\\"5\\\"\", \"report\": \"{\\\"report_best\\\": {\\\"report_best_min_lis\\\": \\\"2\\\", \\\"report_best_type\\\": \\\"1\\\", \\\"__current_case__\\\": 0}, \\\"report_type\\\": \\\"best\\\", \\\"__current_case__\\\": 0}\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null, \"strand_search\": \"\\\"\\\"\", \"gap_ext\": \"\\\"2\\\"\"}", 
+            "tool_version": "2.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "74c2481e-a604-4e21-8e84-de53741735e8"
+        }, 
+        "6": {
+            "annotation": "", 
+            "id": 6, 
+            "input_connections": {
+                "input_file": {
+                    "id": 4, 
+                    "output_name": "output_other"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "MetaPhlAn2", 
+            "outputs": [
+                {
+                    "name": "output_file", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "sam_output_file", 
+                    "type": "sam"
+                }, 
+                {
+                    "name": "biom_output_file", 
+                    "type": "biom"
+                }
+            ], 
+            "position": {
+                "left": 1455, 
+                "top": 714
+            }, 
+            "post_job_actions": {
+                "ChangeDatatypeActionoutput_file": {
+                    "action_arguments": {
+                        "newtype": "tabular"
+                    }, 
+                    "action_type": "ChangeDatatypeAction", 
+                    "output_name": "output_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/metaphlan_2/metaphlan_2/0.1.0", 
+            "tool_state": "{\"min_cu_len\": \"\\\"2000\\\"\", \"biom_output\": \"\\\"False\\\"\", \"min_alignment_len\": \"\\\"0\\\"\", \"sam_output\": \"\\\"False\\\"\", \"input_file\": \"null\", \"__page__\": 0, \"__rerun_remap_job_id__\": null, \"ignore_eukaryotes\": \"\\\"True\\\"\", \"stat_q\": \"\\\"0.1\\\"\", \"ignore_viruses\": \"\\\"True\\\"\", \"ignore_archaea\": \"\\\"True\\\"\", \"analysis_type\": \"{\\\"taxonomic_level\\\": \\\"a\\\", \\\"analysis_type_select\\\": \\\"rel_ab\\\", \\\"__current_case__\\\": 0}\", \"ignore_bacteria\": \"\\\"True\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "cce09f89-107f-4058-8358-53b0c2fcf526"
+        }, 
+        "7": {
+            "annotation": "", 
+            "id": 7, 
+            "input_connections": {
+                "input_file": {
+                    "id": 4, 
+                    "output_name": "output_other"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "HUMAnN2", 
+            "outputs": [
+                {
+                    "name": "gene_families_tsv", 
+                    "type": "tsv"
+                }, 
+                {
+                    "name": "gene_families_biom", 
+                    "type": "biom"
+                }, 
+                {
+                    "name": "pathcoverage_tsv", 
+                    "type": "tsv"
+                }, 
+                {
+                    "name": "pathcoverage_biom", 
+                    "type": "biom"
+                }, 
+                {
+                    "name": "pathabundance_tsv", 
+                    "type": "tsv"
+                }, 
+                {
+                    "name": "pathabundance_biom", 
+                    "type": "biom"
+                }
+            ], 
+            "position": {
+                "left": 1323, 
+                "top": 1071
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/humann2/humann2/0.1.0", 
+            "tool_state": "{\"__page__\": 0, \"taxonomic_profile\": \"{\\\"taxonomic_profile_test\\\": \\\"False\\\", \\\"__current_case__\\\": 1}\", \"nucleotide_database\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"chocophlan\\\"}\", \"prescreen\": \"\\\"0.01\\\"\", \"input_file\": \"null\", \"e_value\": \"\\\"1.0\\\"\", \"output_format\": \"\\\"tsv\\\"\", \"protein_database\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"uniref\\\"}\", \"minpath\": \"\\\"True\\\"\", \"remove_statified_output\": \"\\\"True\\\"\", \"output_max_dec\": \"\\\"10\\\"\", \"xipe\": \"\\\"False\\\"\", \"pick_frames\": \"\\\"True\\\"\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null, \"identity\": \"\\\"40\\\"\", \"pathways\": \"\\\"metacyc\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "d6cbf083-360c-4d08-9339-d65018d5688f"
+        }, 
+        "8": {
+            "annotation": "", 
+            "id": 8, 
+            "input_connections": {
+                "input_reads": {
+                    "id": 5, 
+                    "output_name": "output_other"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Filter with SortMeRNA", 
+            "outputs": [
+                {
+                    "name": "output_fastx", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "output_other", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "output_sam", 
+                    "type": "sam"
+                }, 
+                {
+                    "name": "output_blast", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "output_log", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 1739, 
+                "top": 207
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/sortmerna/bg_sortmerna/2.1.0", 
+            "tool_state": "{\"__page__\": 0, \"aligned_fastx\": \"{\\\"aligned_fastx_selector\\\": \\\"--fastx\\\", \\\"other\\\": \\\"True\\\", \\\"__current_case__\\\": 0}\", \"aligned_sam\": \"{\\\"aligned_sam_selector\\\": \\\"--sam\\\", \\\"sq\\\": \\\"False\\\", \\\"__current_case__\\\": 0}\", \"log\": \"\\\"False\\\"\", \"input_reads\": \"null\", \"e_value\": \"\\\"1.0\\\"\", \"mismatch\": \"\\\"-3\\\"\", \"sequencing_type\": \"{\\\"sequencing_type_selector\\\": \\\"not_paired\\\", \\\"__current_case__\\\": 0}\", \"ambiguous_letter\": \"\\\"-3\\\"\", \"aligned_blast\": \"\\\"\\\"\", \"databases_type\": \"{\\\"databases_selector\\\": \\\"cached\\\", \\\"input_databases\\\": {\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": [\\\"silva-euk-18s-id95\\\"]}, \\\"__current_case__\\\": 0}\", \"match\": \"\\\"2\\\"\", \"gap_open\": \"\\\"5\\\"\", \"report\": \"{\\\"report_best\\\": {\\\"report_best_min_lis\\\": \\\"2\\\", \\\"report_best_type\\\": \\\"1\\\", \\\"__current_case__\\\": 0}, \\\"report_type\\\": \\\"best\\\", \\\"__current_case__\\\": 0}\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null, \"strand_search\": \"\\\"\\\"\", \"gap_ext\": \"\\\"2\\\"\"}", 
+            "tool_version": "2.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "8da3c81c-001f-4526-a4a9-614feacfb499"
+        }, 
+        "9": {
+            "annotation": "", 
+            "id": 9, 
+            "input_connections": {
+                "lefse_input": {
+                    "id": 6, 
+                    "output_name": "output_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Export to GraPhlAn", 
+            "outputs": [
+                {
+                    "name": "tree", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "annotation", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 1730, 
+                "top": 836
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/export2graphlan/export2graphlan/0.1.0", 
+            "tool_state": "{\"ftop\": \"\\\"\\\"\", \"background_clades\": \"\\\"\\\"\", \"max_clade_size\": \"\\\"250\\\"\", \"def_font_size\": \"\\\"10\\\"\", \"external_annotations\": \"\\\"6,7\\\"\", \"sperc\": \"\\\"\\\"\", \"__page__\": 0, \"skip_rows\": \"\\\"\\\"\", \"title\": \"\\\"\\\"\", \"__rerun_remap_job_id__\": null, \"metadata_rows\": \"\\\"\\\"\", \"least_biomarkers\": \"\\\"\\\"\", \"min_clade_size\": \"\\\"0\\\"\", \"annotation_legend_font_size\": \"\\\"11\\\"\", \"fperc\": \"\\\"\\\"\", \"annotations\": \"\\\"5\\\"\", \"lefse_input\": \"null\", \"background_colors\": \"\\\"\\\"\", \"def_clade_size\": \"\\\"10\\\"\", \"stop\": \"\\\"\\\"\", \"sname_row\": \"\\\"0\\\"\", \"max_font_size\": \"\\\"12\\\"\", \"fname_row\": \"\\\"0\\\"\", \"abundance_threshold\": \"\\\"0.0\\\"\", \"title_font_size\": \"\\\"15\\\"\", \"background_levels\": \"\\\"\\\"\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"min_font_size\": \"\\\"8\\\"\", \"most_abundant\": \"\\\"100\\\"\", \"lefse_output\": \"null\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "ab871e2d-14a0-41c9-a364-4038ef359a23"
+        }, 
+        "10": {
+            "annotation": "", 
+            "id": 10, 
+            "input_connections": {
+                "input_file": {
+                    "id": 6, 
+                    "output_name": "output_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Format MetaPhlAn2", 
+            "outputs": [
+                {
+                    "name": "krona", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1798, 
+                "top": 704
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/metaphlan_2/metaphlan2krona/0.1.0", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"input_file\": \"null\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "e2f19d1d-8d8f-481f-af93-b4d1271a38f9"
+        }, 
+        "11": {
+            "annotation": "", 
+            "id": 11, 
+            "input_connections": {
+                "input_file": {
+                    "id": 6, 
+                    "output_name": "output_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Format MetaPhlAn2", 
+            "outputs": [
+                {
+                    "name": "all_taxo_level_abundance_file", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "kingdom_abundance_file", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "phylum_abundance_file", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "class_abundance_file", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "order_abundance_file", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "family_abundance_file", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "genus_abundance_file", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "species_abundance_file", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "strains_abundance_file", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 2026, 
+                "top": 405.28125
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/format_metaphlan2_output/format_metaphlan2_output/0.1.0", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"input_file\": \"null\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "c09110d3-ccff-4552-818b-25dca5d64ce0"
+        }, 
+        "12": {
+            "annotation": "", 
+            "id": 12, 
+            "input_connections": {
+                "humann2_gene_families_abundance": {
+                    "id": 7, 
+                    "output_name": "gene_families_tsv"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Group HUMAnN2 UniRef50 abundances", 
+            "outputs": [
+                {
+                    "name": "molecular_function_abundance", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "biological_process_abundance", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "cellular_component_abundance", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1569, 
+                "top": 1073
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/group_humann2_uniref_abundances_to_go/group_humann2_uniref_abundances_to_go/1.0.0", 
+            "tool_state": "{\"__page__\": 0, \"gene_ontology\": \"{\\\"gene_ontology_test\\\": \\\"False\\\", \\\"__current_case__\\\": 1}\", \"slim_gene_ontology\": \"{\\\"slim_gene_ontology_test\\\": \\\"False\\\", \\\"__current_case__\\\": 1}\", \"humann2_gene_families_abundance\": \"null\", \"__rerun_remap_job_id__\": null, \"uniref50_go\": \"{\\\"uniref50_go_test\\\": \\\"False\\\", \\\"__current_case__\\\": 1}\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "a13e1a91-b4a9-457a-b713-cd69f4eb8b9f"
+        }, 
+        "13": {
+            "annotation": "", 
+            "id": 13, 
+            "input_connections": {
+                "annot": {
+                    "id": 9, 
+                    "output_name": "annotation"
+                }, 
+                "input_tree": {
+                    "id": 9, 
+                    "output_name": "tree"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Modify an input tree for GraPhlAn", 
+            "outputs": [
+                {
+                    "name": "output_tree", 
+                    "type": "text"
+                }
+            ], 
+            "position": {
+                "left": 2089, 
+                "top": 908
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/graphlan/graphlan_annotate/0.1.0", 
+            "tool_state": "{\"input_tree\": \"null\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"annot\": \"null\", \"__page__\": 0}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "5d048fb7-5307-46ae-8170-3731549eb104"
+        }, 
+        "14": {
+            "annotation": "", 
+            "id": 14, 
+            "input_connections": {
+                "type_of_data|input": {
+                    "id": 10, 
+                    "output_name": "krona"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Krona pie chart", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 2041, 
+                "top": 748.28125
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/iuc/taxonomy_krona_chart/taxonomy_krona_chart/2.0.0", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"combine_inputs\": \"\\\"False\\\"\", \"type_of_data\": \"{\\\"input\\\": null, \\\"type_of_data_selector\\\": \\\"text\\\", \\\"__current_case__\\\": 1}\", \"root_name\": \"\\\"Root\\\"\"}", 
+            "tool_version": "2.0.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "a87540e7-84be-4fbc-92b6-18c3da59b27c"
+        }, 
+        "15": {
+            "annotation": "", 
+            "id": 15, 
+            "input_connections": {
+                "input_file": {
+                    "id": 12, 
+                    "output_name": "molecular_function_abundance"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot barplot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 1919, 
+                "top": 1023
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_barplot/plot_barplot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Abundance of molecular functions\\\"\", \"bottom_margin\": \"\\\"5\\\"\", \"right_margin\": \"\\\"1\\\"\", \"__page__\": 0, \"names_column\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"2\\\"}\", \"output_format\": \"\\\"pdf\\\"\", \"input_file\": \"null\", \"top_margin\": \"\\\"1\\\"\", \"left_margin\": \"\\\"19\\\"\", \"column_with_data\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"3\\\"}\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"col\": \"\\\"blue3\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "a44d81df-386b-4c19-b941-86b621716cfe"
+        }, 
+        "16": {
+            "annotation": "", 
+            "id": 16, 
+            "input_connections": {
+                "input_file": {
+                    "id": 12, 
+                    "output_name": "biological_process_abundance"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot barplot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 1914, 
+                "top": 1187
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_barplot/plot_barplot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Abundance of biological processes\\\"\", \"bottom_margin\": \"\\\"5\\\"\", \"right_margin\": \"\\\"1\\\"\", \"__page__\": 0, \"names_column\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"2\\\"}\", \"output_format\": \"\\\"pdf\\\"\", \"input_file\": \"null\", \"top_margin\": \"\\\"1\\\"\", \"left_margin\": \"\\\"15\\\"\", \"column_with_data\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"3\\\"}\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"col\": \"\\\"forestgreen\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "769b9791-8cce-4373-865f-e28caaa818f8"
+        }, 
+        "17": {
+            "annotation": "", 
+            "id": 17, 
+            "input_connections": {
+                "input_file": {
+                    "id": 12, 
+                    "output_name": "cellular_component_abundance"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot barplot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 1920, 
+                "top": 1360
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_barplot/plot_barplot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Abundance of cellular components\\\"\", \"bottom_margin\": \"\\\"5\\\"\", \"right_margin\": \"\\\"1\\\"\", \"__page__\": 0, \"names_column\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"2\\\"}\", \"output_format\": \"\\\"pdf\\\"\", \"input_file\": \"null\", \"top_margin\": \"\\\"1\\\"\", \"left_margin\": \"\\\"15\\\"\", \"column_with_data\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"3\\\"}\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"col\": \"\\\"tomato\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "de4a7906-86af-4119-a125-a39911fa5f1c"
+        }, 
+        "18": {
+            "annotation": "", 
+            "id": 18, 
+            "input_connections": {
+                "input_tree": {
+                    "id": 13, 
+                    "output_name": "output_tree"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "GraPhlAn", 
+            "outputs": [
+                {
+                    "name": "png_output_image", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "pdf_output_image", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "ps_output_image", 
+                    "type": "ps"
+                }, 
+                {
+                    "name": "eps_output_image", 
+                    "type": "eps"
+                }, 
+                {
+                    "name": "svg_output_image", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 2368, 
+                "top": 954
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/graphlan/graphlan/0.1.0", 
+            "tool_state": "{\"__page__\": 0, \"format\": \"\\\"png\\\"\", \"input_tree\": \"null\", \"__rerun_remap_job_id__\": null, \"pad\": \"\\\"2\\\"\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"dpi\": \"\\\"\\\"\", \"size\": \"\\\"7\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "f0061fc3-7d02-402f-a33f-a1cb40cf4b7f"
+        }
+    }, 
+    "uuid": "d4621df2-5493-4593-8f1d-3c9e678d47d3"
+}
