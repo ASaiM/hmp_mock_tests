@@ -17,10 +17,26 @@ function download_EBI_taxonomic_results {
         mkdir $sample_name
     fi 
     cd $sample_name
+    if [[ ! -d "EBI_results" ]]; then
+        mkdir "EBI_results"
+    fi
+    cd "EBI_results"
     wget $2
-    mv "OTU-TSV" "EBI_taxonomic_assignation.tsv"
-    cd ../
+    mv "OTU-TSV" "EBI_results/taxonomic_assignation.tsv"
+    cd ../../
     echo ""
+}
+
+function format_EBI_taxonomic_results {
+    sample_name=$1
+    python src/format_EBI_taxonomic_results.py \
+        --ebi_taxonomic_results "results/"$sample_name"/EBI_results/taxonomic_assignation.tsv" \
+        --all_taxo_level_abundance_file "results/"$sample_name"/EBI_results/all_taxo_level_abundance_file.tsv" \
+        --kingdom_abundance_file "results/"$sample_name"/EBI_results/kingdom_abundance_file.tsv" \
+        --phylum_abundance_file "results/"$sample_name"/EBI_results/phylum_abundance_file.tsv" \
+        --class_abundance_file "results/"$sample_name"/EBI_results/class_abundance_file.tsv" \
+        --order_abundance_file "results/"$sample_name"/EBI_results/order_abundance_file.tsv" \
+        --family_abundance_file "results/"$sample_name"/EBI_results/family_abundance_file.tsv"
 }
 
 echo "Download input datasets"
@@ -42,3 +58,10 @@ download_EBI_taxonomic_results "SRR072232" \
 download_EBI_taxonomic_results "SRR072233" \
     "https://www.ebi.ac.uk/metagenomics//projects/SRP004311/samples/SRS121011/runs/SRR072233/results/versions/1.0/taxonomy/OTU-TSV"
 cd ../
+echo ""
+
+echo "Format EBI taxonomic results"
+echo "============================"
+format_EBI_taxonomic_results "SRR072232"
+format_EBI_taxonomic_results "SRR072233"
+echo ""
