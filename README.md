@@ -11,10 +11,20 @@ To test ASaiM workflow, we use mock samples from HMP. These datasets have a cont
 
 # Usage
 
-Get the input datasets and EBI data:
+Get the input datasets and EBI result data and format them:
 
 ```
 ./src/download_EBI_data.sh
 ```
 
+Launch ASaiM workflow on both datasets (this task takes several hours):
 
+```
+./src/launch_asaim_workflow.sh <asaim_galaxy_instance_url> <your_api_key_on_asaim_galaxy_instance>
+```
+
+Concatenate results (EBI one and ASaiM one) to compare them:
+
+```
+./src/concatenate_results.sh 
+```
