@@ -20,10 +20,9 @@ function download_EBI_taxonomic_results {
     if [[ ! -d "EBI_results" ]]; then
         mkdir "EBI_results"
     fi
-    cd "EBI_results"
     wget $2
     mv "OTU-TSV" "EBI_results/taxonomic_assignation.tsv"
-    cd ../../
+    cd ../
     echo ""
 }
 
