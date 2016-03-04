@@ -33,10 +33,18 @@ def launch_asaim_workflow(args):
     datamap[wf_input_id] = { 'src':'hda', 'id':dataset_id }
     wf_invocation_details = gi.workflows.run_workflow(wf_id, datamap, 
         history_id=hist_id)
+    wf_invocation_id = wf_invocation_details['id']
+    wf_outputs = wf_invocation_details['outputs']
     
-    print "  Export datasets"
-    jeha_id = gi.histories.export_history(hist_id)
-    gi.histories.download_history(hist_id, jeha_id, )
+    print "  Wait while workflow is running and export output datasets when generated"
+    output_dir_path = "results/" + args.sample_name + "/asaim_results/" 
+    if not os.path.exists(output_dir_path):
+        os.mkdir(output_dir_path)
+    for dataset_id in wf_outputs:
+        while str(gi.datasets.show_dataset(dataset_id)['state']) != 'ok':
+            time.sleep(1)
+            print dataset_id, gi.datasets.show_dataset(dataset_id)['state']
+        gi.histories.download_dataset(hist_id, dataset_id, output_dir_path)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
