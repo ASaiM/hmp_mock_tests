@@ -9,6 +9,8 @@ To test ASaiM workflow, we use mock samples from HMP. These datasets have a cont
 - `bioblend`
 - [ASaiM Galaxy instance](https://github.com/ASaiM/framework), launched and populated with tools and databases (Check also [ASaiM documentation](http://asaim.readthedocs.org/en/latest/framework/index.html))
 
+You need to generate an API key corresponding to your account on ASaiM Galaxy instance (in `User` menu, on top panel).
+
 # Usage
 
 Get the input datasets and EBI result data and format them:
@@ -22,6 +24,14 @@ Launch ASaiM workflow on both datasets (this task takes several hours):
 ```
 ./src/launch_asaim_workflow.sh <asaim_galaxy_instance_url> <your_api_key_on_asaim_galaxy_instance>
 ```
+
+You can visualize workflows running by browsing ASaiM Galaxy instance. 
+
+Export ASaiM workflow outputs (when the workflows are done):
+
+```
+./src/export_asaim_workflow_outputs.sh <asaim_galaxy_instance_url> <your_api_key_on_asaim_galaxy_instance>
+``` 
 
 Concatenate results (EBI one and ASaiM one) to compare them:
 
