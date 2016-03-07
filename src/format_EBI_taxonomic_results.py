@@ -15,11 +15,13 @@ def incremente_taxonomy(taxo_levels, taxo_level_abundances):
     taxo = taxo_levels[0]
     taxo = taxo.split('__')[1]
     taxo = taxo.replace("_"," ")
-    taxo_level_abundances.setdefault(taxo,{})
-    taxo_level_abundances[taxo].setdefault('All', 0)
-    taxo_level_abundances[taxo]['All'] += 1
-    taxo_level_abundances[taxo] = incremente_taxonomy(taxo_levels[1:],
-        taxo_level_abundances[taxo])
+
+    if taxo != '':
+        taxo_level_abundances.setdefault(taxo,{})
+        taxo_level_abundances[taxo].setdefault('All', 0)
+        taxo_level_abundances[taxo]['All'] += 1
+        taxo_level_abundances[taxo] = incremente_taxonomy(taxo_levels[1:],
+            taxo_level_abundances[taxo])
     return taxo_level_abundances
 
 def write_taxo_levels(taxo_level_abundances, all_taxo_level_abundance_file, 
@@ -28,6 +30,7 @@ def write_taxo_levels(taxo_level_abundances, all_taxo_level_abundance_file,
         abundance = 100*taxo_level_abundances['All']/(1.*otu_nb)
         
         all_taxo_level_abundance_file.write('\t'.join(previous_levels))
+        all_taxo_level_abundance_file.write('\t'*len(taxo_level_order[1:]))
         all_taxo_level_abundance_file.write('\t' + str(abundance) + '\n')
 
         taxo_levels_abundance_files[taxo_level_order[0]].write(previous_levels[-1] + '\t')
@@ -51,7 +54,7 @@ def format_EBI_taxonomic_results(args):
             all_taxo = line[:-1].split('\t')[1]
             taxo_levels = all_taxo.split(';')[1:]
             taxo_level_abundances = incremente_taxonomy(taxo_levels, 
-                taxo_level_abundances) 
+                taxo_level_abundances)
 
     taxo_levels_abundance_files = {}
     taxo_levels_abundance_files['kingdom'] = open(args.kingdom_abundance_file, 'w')
