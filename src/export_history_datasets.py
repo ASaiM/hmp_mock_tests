@@ -32,8 +32,13 @@ def export_history_datasets(args):
 
     print "  Export history datasets"
     for dataset_id in gi.histories.show_history(hist_id)['state_ids']['ok']:
-        gi.histories.download_dataset(hist_id, dataset_id, output_dir_path)
-
+        name = str(gi.datasets.show_dataset(dataset_id)['name']).lower()
+        name = name.replace(':', '')
+        name = name.replace(' ','_')
+        extension = str(gi.datasets.show_dataset(dataset_id)['extension'])
+        output_filepath = output_dir_path + '/' + name + '.' + extension
+        gi.histories.download_dataset(hist_id, dataset_id, output_filepath, 
+            use_default_filename=False)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
