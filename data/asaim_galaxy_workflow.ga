@@ -213,8 +213,8 @@
                 }
             ], 
             "position": {
-                "left": 1113, 
-                "top": 657
+                "left": 1079, 
+                "top": 812
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -228,6 +228,92 @@
         "5": {
             "annotation": "", 
             "id": 5, 
+            "input_connections": {
+                "input_file": {
+                    "id": 3, 
+                    "output_name": "outfile"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "MetaPhlAn2", 
+            "outputs": [
+                {
+                    "name": "output_file", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "sam_output_file", 
+                    "type": "sam"
+                }, 
+                {
+                    "name": "biom_output_file", 
+                    "type": "biom"
+                }
+            ], 
+            "position": {
+                "left": 1434, 
+                "top": 137
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/metaphlan_2/metaphlan_2/0.1.0", 
+            "tool_state": "{\"min_cu_len\": \"\\\"2000\\\"\", \"biom_output\": \"\\\"False\\\"\", \"min_alignment_len\": \"\\\"0\\\"\", \"sam_output\": \"\\\"False\\\"\", \"input_file\": \"null\", \"__page__\": 0, \"__rerun_remap_job_id__\": null, \"ignore_eukaryotes\": \"\\\"True\\\"\", \"stat_q\": \"\\\"0.1\\\"\", \"ignore_viruses\": \"\\\"True\\\"\", \"ignore_archaea\": \"\\\"True\\\"\", \"analysis_type\": \"{\\\"analysis_type_select\\\": \\\"rel_ab_w_read_stats\\\", \\\"__current_case__\\\": 1}\", \"ignore_bacteria\": \"\\\"True\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "10dce28e-a734-4ae6-9b5a-c010d8f3d441"
+        }, 
+        "6": {
+            "annotation": "", 
+            "id": 6, 
+            "input_connections": {
+                "input_file": {
+                    "id": 3, 
+                    "output_name": "outfile"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "MetaPhlAn2", 
+            "outputs": [
+                {
+                    "name": "output_file", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "sam_output_file", 
+                    "type": "sam"
+                }, 
+                {
+                    "name": "biom_output_file", 
+                    "type": "biom"
+                }
+            ], 
+            "position": {
+                "left": 1449, 
+                "top": 643
+            }, 
+            "post_job_actions": {
+                "ChangeDatatypeActionoutput_file": {
+                    "action_arguments": {
+                        "newtype": "tabular"
+                    }, 
+                    "action_type": "ChangeDatatypeAction", 
+                    "output_name": "output_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/metaphlan_2/metaphlan_2/0.1.0", 
+            "tool_state": "{\"min_cu_len\": \"\\\"2000\\\"\", \"biom_output\": \"\\\"False\\\"\", \"min_alignment_len\": \"\\\"0\\\"\", \"sam_output\": \"\\\"False\\\"\", \"input_file\": \"null\", \"__page__\": 0, \"__rerun_remap_job_id__\": null, \"ignore_eukaryotes\": \"\\\"True\\\"\", \"stat_q\": \"\\\"0.1\\\"\", \"ignore_viruses\": \"\\\"True\\\"\", \"ignore_archaea\": \"\\\"True\\\"\", \"analysis_type\": \"{\\\"taxonomic_level\\\": \\\"a\\\", \\\"analysis_type_select\\\": \\\"rel_ab\\\", \\\"__current_case__\\\": 0}\", \"ignore_bacteria\": \"\\\"True\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "cce09f89-107f-4058-8358-53b0c2fcf526"
+        }, 
+        "7": {
+            "annotation": "", 
+            "id": 7, 
             "input_connections": {
                 "input_reads": {
                     "id": 4, 
@@ -272,56 +358,9 @@
             "user_outputs": [], 
             "uuid": "74c2481e-a604-4e21-8e84-de53741735e8"
         }, 
-        "6": {
+        "8": {
             "annotation": "", 
-            "id": 6, 
-            "input_connections": {
-                "input_file": {
-                    "id": 4, 
-                    "output_name": "output_other"
-                }
-            }, 
-            "inputs": [], 
-            "label": null, 
-            "name": "MetaPhlAn2", 
-            "outputs": [
-                {
-                    "name": "output_file", 
-                    "type": "txt"
-                }, 
-                {
-                    "name": "sam_output_file", 
-                    "type": "sam"
-                }, 
-                {
-                    "name": "biom_output_file", 
-                    "type": "biom"
-                }
-            ], 
-            "position": {
-                "left": 1455, 
-                "top": 714
-            }, 
-            "post_job_actions": {
-                "ChangeDatatypeActionoutput_file": {
-                    "action_arguments": {
-                        "newtype": "tabular"
-                    }, 
-                    "action_type": "ChangeDatatypeAction", 
-                    "output_name": "output_file"
-                }
-            }, 
-            "tool_errors": null, 
-            "tool_id": "172.21.23.6:9009/repos/bebatut/metaphlan_2/metaphlan_2/0.1.0", 
-            "tool_state": "{\"min_cu_len\": \"\\\"2000\\\"\", \"biom_output\": \"\\\"False\\\"\", \"min_alignment_len\": \"\\\"0\\\"\", \"sam_output\": \"\\\"False\\\"\", \"input_file\": \"null\", \"__page__\": 0, \"__rerun_remap_job_id__\": null, \"ignore_eukaryotes\": \"\\\"True\\\"\", \"stat_q\": \"\\\"0.1\\\"\", \"ignore_viruses\": \"\\\"True\\\"\", \"ignore_archaea\": \"\\\"True\\\"\", \"analysis_type\": \"{\\\"taxonomic_level\\\": \\\"a\\\", \\\"analysis_type_select\\\": \\\"rel_ab\\\", \\\"__current_case__\\\": 0}\", \"ignore_bacteria\": \"\\\"True\\\"\"}", 
-            "tool_version": "0.1.0", 
-            "type": "tool", 
-            "user_outputs": [], 
-            "uuid": "cce09f89-107f-4058-8358-53b0c2fcf526"
-        }, 
-        "7": {
-            "annotation": "", 
-            "id": 7, 
+            "id": 8, 
             "input_connections": {
                 "input_file": {
                     "id": 4, 
@@ -358,8 +397,8 @@
                 }
             ], 
             "position": {
-                "left": 1323, 
-                "top": 1071
+                "left": 1356, 
+                "top": 1069
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -370,91 +409,9 @@
             "user_outputs": [], 
             "uuid": "d6cbf083-360c-4d08-9339-d65018d5688f"
         }, 
-        "8": {
-            "annotation": "", 
-            "id": 8, 
-            "input_connections": {
-                "input_reads": {
-                    "id": 5, 
-                    "output_name": "output_other"
-                }
-            }, 
-            "inputs": [], 
-            "label": null, 
-            "name": "Filter with SortMeRNA", 
-            "outputs": [
-                {
-                    "name": "output_fastx", 
-                    "type": "fasta"
-                }, 
-                {
-                    "name": "output_other", 
-                    "type": "fasta"
-                }, 
-                {
-                    "name": "output_sam", 
-                    "type": "sam"
-                }, 
-                {
-                    "name": "output_blast", 
-                    "type": "tabular"
-                }, 
-                {
-                    "name": "output_log", 
-                    "type": "txt"
-                }
-            ], 
-            "position": {
-                "left": 1739, 
-                "top": 207
-            }, 
-            "post_job_actions": {}, 
-            "tool_errors": null, 
-            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/sortmerna/bg_sortmerna/2.1.0", 
-            "tool_state": "{\"__page__\": 0, \"aligned_fastx\": \"{\\\"aligned_fastx_selector\\\": \\\"--fastx\\\", \\\"other\\\": \\\"True\\\", \\\"__current_case__\\\": 0}\", \"aligned_sam\": \"{\\\"aligned_sam_selector\\\": \\\"--sam\\\", \\\"sq\\\": \\\"False\\\", \\\"__current_case__\\\": 0}\", \"log\": \"\\\"False\\\"\", \"input_reads\": \"null\", \"e_value\": \"\\\"1.0\\\"\", \"mismatch\": \"\\\"-3\\\"\", \"sequencing_type\": \"{\\\"sequencing_type_selector\\\": \\\"not_paired\\\", \\\"__current_case__\\\": 0}\", \"ambiguous_letter\": \"\\\"-3\\\"\", \"aligned_blast\": \"\\\"\\\"\", \"databases_type\": \"{\\\"databases_selector\\\": \\\"cached\\\", \\\"input_databases\\\": {\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": [\\\"silva-euk-18s-id95\\\"]}, \\\"__current_case__\\\": 0}\", \"match\": \"\\\"2\\\"\", \"gap_open\": \"\\\"5\\\"\", \"report\": \"{\\\"report_best\\\": {\\\"report_best_min_lis\\\": \\\"2\\\", \\\"report_best_type\\\": \\\"1\\\", \\\"__current_case__\\\": 0}, \\\"report_type\\\": \\\"best\\\", \\\"__current_case__\\\": 0}\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null, \"strand_search\": \"\\\"\\\"\", \"gap_ext\": \"\\\"2\\\"\"}", 
-            "tool_version": "2.1.0", 
-            "type": "tool", 
-            "user_outputs": [], 
-            "uuid": "8da3c81c-001f-4526-a4a9-614feacfb499"
-        }, 
         "9": {
             "annotation": "", 
             "id": 9, 
-            "input_connections": {
-                "lefse_input": {
-                    "id": 6, 
-                    "output_name": "output_file"
-                }
-            }, 
-            "inputs": [], 
-            "label": null, 
-            "name": "Export to GraPhlAn", 
-            "outputs": [
-                {
-                    "name": "tree", 
-                    "type": "txt"
-                }, 
-                {
-                    "name": "annotation", 
-                    "type": "txt"
-                }
-            ], 
-            "position": {
-                "left": 1730, 
-                "top": 836
-            }, 
-            "post_job_actions": {}, 
-            "tool_errors": null, 
-            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/export2graphlan/export2graphlan/0.1.0", 
-            "tool_state": "{\"ftop\": \"\\\"\\\"\", \"background_clades\": \"\\\"\\\"\", \"max_clade_size\": \"\\\"250\\\"\", \"def_font_size\": \"\\\"10\\\"\", \"external_annotations\": \"\\\"6,7\\\"\", \"sperc\": \"\\\"\\\"\", \"__page__\": 0, \"skip_rows\": \"\\\"\\\"\", \"title\": \"\\\"\\\"\", \"__rerun_remap_job_id__\": null, \"metadata_rows\": \"\\\"\\\"\", \"least_biomarkers\": \"\\\"\\\"\", \"min_clade_size\": \"\\\"0\\\"\", \"annotation_legend_font_size\": \"\\\"11\\\"\", \"fperc\": \"\\\"\\\"\", \"annotations\": \"\\\"5\\\"\", \"lefse_input\": \"null\", \"background_colors\": \"\\\"\\\"\", \"def_clade_size\": \"\\\"10\\\"\", \"stop\": \"\\\"\\\"\", \"sname_row\": \"\\\"0\\\"\", \"max_font_size\": \"\\\"12\\\"\", \"fname_row\": \"\\\"0\\\"\", \"abundance_threshold\": \"\\\"0.0\\\"\", \"title_font_size\": \"\\\"15\\\"\", \"background_levels\": \"\\\"\\\"\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"min_font_size\": \"\\\"8\\\"\", \"most_abundant\": \"\\\"100\\\"\", \"lefse_output\": \"null\"}", 
-            "tool_version": "0.1.0", 
-            "type": "tool", 
-            "user_outputs": [], 
-            "uuid": "ab871e2d-14a0-41c9-a364-4038ef359a23"
-        }, 
-        "10": {
-            "annotation": "", 
-            "id": 10, 
             "input_connections": {
                 "input_file": {
                     "id": 6, 
@@ -482,6 +439,41 @@
             "type": "tool", 
             "user_outputs": [], 
             "uuid": "e2f19d1d-8d8f-481f-af93-b4d1271a38f9"
+        }, 
+        "10": {
+            "annotation": "", 
+            "id": 10, 
+            "input_connections": {
+                "lefse_input": {
+                    "id": 6, 
+                    "output_name": "output_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Export to GraPhlAn", 
+            "outputs": [
+                {
+                    "name": "tree", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "annotation", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 1768, 
+                "top": 869
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/export2graphlan/export2graphlan/0.1.0", 
+            "tool_state": "{\"ftop\": \"\\\"\\\"\", \"background_clades\": \"\\\"\\\"\", \"max_clade_size\": \"\\\"250\\\"\", \"def_font_size\": \"\\\"10\\\"\", \"external_annotations\": \"\\\"6,7\\\"\", \"sperc\": \"\\\"\\\"\", \"__page__\": 0, \"skip_rows\": \"\\\"\\\"\", \"title\": \"\\\"\\\"\", \"__rerun_remap_job_id__\": null, \"metadata_rows\": \"\\\"\\\"\", \"least_biomarkers\": \"\\\"\\\"\", \"min_clade_size\": \"\\\"0\\\"\", \"annotation_legend_font_size\": \"\\\"11\\\"\", \"fperc\": \"\\\"\\\"\", \"annotations\": \"\\\"5\\\"\", \"lefse_input\": \"null\", \"background_colors\": \"\\\"\\\"\", \"def_clade_size\": \"\\\"10\\\"\", \"stop\": \"\\\"\\\"\", \"sname_row\": \"\\\"0\\\"\", \"max_font_size\": \"\\\"12\\\"\", \"fname_row\": \"\\\"0\\\"\", \"abundance_threshold\": \"\\\"0.0\\\"\", \"title_font_size\": \"\\\"15\\\"\", \"background_levels\": \"\\\"\\\"\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"min_font_size\": \"\\\"8\\\"\", \"most_abundant\": \"\\\"100\\\"\", \"lefse_output\": \"null\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "ab871e2d-14a0-41c9-a364-4038ef359a23"
         }, 
         "11": {
             "annotation": "", 
@@ -534,8 +526,8 @@
                 }
             ], 
             "position": {
-                "left": 2026, 
-                "top": 405.28125
+                "left": 2194, 
+                "top": 440.28125
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -550,8 +542,55 @@
             "annotation": "", 
             "id": 12, 
             "input_connections": {
-                "humann2_gene_families_abundance": {
+                "input_reads": {
                     "id": 7, 
+                    "output_name": "output_other"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Filter with SortMeRNA", 
+            "outputs": [
+                {
+                    "name": "output_fastx", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "output_other", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "output_sam", 
+                    "type": "sam"
+                }, 
+                {
+                    "name": "output_blast", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "output_log", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 1739, 
+                "top": 207
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/sortmerna/bg_sortmerna/2.1.0", 
+            "tool_state": "{\"__page__\": 0, \"aligned_fastx\": \"{\\\"aligned_fastx_selector\\\": \\\"--fastx\\\", \\\"other\\\": \\\"True\\\", \\\"__current_case__\\\": 0}\", \"aligned_sam\": \"{\\\"aligned_sam_selector\\\": \\\"--sam\\\", \\\"sq\\\": \\\"False\\\", \\\"__current_case__\\\": 0}\", \"log\": \"\\\"False\\\"\", \"input_reads\": \"null\", \"e_value\": \"\\\"1.0\\\"\", \"mismatch\": \"\\\"-3\\\"\", \"sequencing_type\": \"{\\\"sequencing_type_selector\\\": \\\"not_paired\\\", \\\"__current_case__\\\": 0}\", \"ambiguous_letter\": \"\\\"-3\\\"\", \"aligned_blast\": \"\\\"\\\"\", \"databases_type\": \"{\\\"databases_selector\\\": \\\"cached\\\", \\\"input_databases\\\": {\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": [\\\"silva-euk-18s-id95\\\"]}, \\\"__current_case__\\\": 0}\", \"match\": \"\\\"2\\\"\", \"gap_open\": \"\\\"5\\\"\", \"report\": \"{\\\"report_best\\\": {\\\"report_best_min_lis\\\": \\\"2\\\", \\\"report_best_type\\\": \\\"1\\\", \\\"__current_case__\\\": 0}, \\\"report_type\\\": \\\"best\\\", \\\"__current_case__\\\": 0}\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null, \"strand_search\": \"\\\"\\\"\", \"gap_ext\": \"\\\"2\\\"\"}", 
+            "tool_version": "2.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "8da3c81c-001f-4526-a4a9-614feacfb499"
+        }, 
+        "13": {
+            "annotation": "", 
+            "id": 13, 
+            "input_connections": {
+                "humann2_gene_families_abundance": {
+                    "id": 8, 
                     "output_name": "gene_families_tsv"
                 }
             }, 
@@ -573,8 +612,8 @@
                 }
             ], 
             "position": {
-                "left": 1569, 
-                "top": 1073
+                "left": 1649, 
+                "top": 1079
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -585,47 +624,12 @@
             "user_outputs": [], 
             "uuid": "a13e1a91-b4a9-457a-b713-cd69f4eb8b9f"
         }, 
-        "13": {
-            "annotation": "", 
-            "id": 13, 
-            "input_connections": {
-                "annot": {
-                    "id": 9, 
-                    "output_name": "annotation"
-                }, 
-                "input_tree": {
-                    "id": 9, 
-                    "output_name": "tree"
-                }
-            }, 
-            "inputs": [], 
-            "label": null, 
-            "name": "Modify an input tree for GraPhlAn", 
-            "outputs": [
-                {
-                    "name": "output_tree", 
-                    "type": "text"
-                }
-            ], 
-            "position": {
-                "left": 2089, 
-                "top": 908
-            }, 
-            "post_job_actions": {}, 
-            "tool_errors": null, 
-            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/graphlan/graphlan_annotate/0.1.0", 
-            "tool_state": "{\"input_tree\": \"null\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"annot\": \"null\", \"__page__\": 0}", 
-            "tool_version": "0.1.0", 
-            "type": "tool", 
-            "user_outputs": [], 
-            "uuid": "5d048fb7-5307-46ae-8170-3731549eb104"
-        }, 
         "14": {
             "annotation": "", 
             "id": 14, 
             "input_connections": {
                 "type_of_data|input": {
-                    "id": 10, 
+                    "id": 9, 
                     "output_name": "krona"
                 }
             }, 
@@ -655,86 +659,43 @@
             "annotation": "", 
             "id": 15, 
             "input_connections": {
-                "input_file": {
-                    "id": 12, 
-                    "output_name": "molecular_function_abundance"
+                "annot": {
+                    "id": 10, 
+                    "output_name": "annotation"
+                }, 
+                "input_tree": {
+                    "id": 10, 
+                    "output_name": "tree"
                 }
             }, 
             "inputs": [], 
             "label": null, 
-            "name": "Plot barplot", 
+            "name": "Modify an input tree for GraPhlAn", 
             "outputs": [
                 {
-                    "name": "output_pdf_file", 
-                    "type": "pdf"
-                }, 
-                {
-                    "name": "output_png_file", 
-                    "type": "png"
-                }, 
-                {
-                    "name": "output_svg_file", 
-                    "type": "svg"
+                    "name": "output_tree", 
+                    "type": "text"
                 }
             ], 
             "position": {
-                "left": 1919, 
-                "top": 1023
+                "left": 2128, 
+                "top": 941
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
-            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_barplot/plot_barplot/0.1.0", 
-            "tool_state": "{\"xlab\": \"\\\"Abundance of molecular functions\\\"\", \"bottom_margin\": \"\\\"5\\\"\", \"right_margin\": \"\\\"1\\\"\", \"__page__\": 0, \"names_column\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"2\\\"}\", \"output_format\": \"\\\"pdf\\\"\", \"input_file\": \"null\", \"top_margin\": \"\\\"1\\\"\", \"left_margin\": \"\\\"19\\\"\", \"column_with_data\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"3\\\"}\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"col\": \"\\\"blue3\\\"\"}", 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/graphlan/graphlan_annotate/0.1.0", 
+            "tool_state": "{\"input_tree\": \"null\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"annot\": \"null\", \"__page__\": 0}", 
             "tool_version": "0.1.0", 
             "type": "tool", 
             "user_outputs": [], 
-            "uuid": "a44d81df-386b-4c19-b941-86b621716cfe"
+            "uuid": "5d048fb7-5307-46ae-8170-3731549eb104"
         }, 
         "16": {
             "annotation": "", 
             "id": 16, 
             "input_connections": {
                 "input_file": {
-                    "id": 12, 
-                    "output_name": "biological_process_abundance"
-                }
-            }, 
-            "inputs": [], 
-            "label": null, 
-            "name": "Plot barplot", 
-            "outputs": [
-                {
-                    "name": "output_pdf_file", 
-                    "type": "pdf"
-                }, 
-                {
-                    "name": "output_png_file", 
-                    "type": "png"
-                }, 
-                {
-                    "name": "output_svg_file", 
-                    "type": "svg"
-                }
-            ], 
-            "position": {
-                "left": 1914, 
-                "top": 1187
-            }, 
-            "post_job_actions": {}, 
-            "tool_errors": null, 
-            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_barplot/plot_barplot/0.1.0", 
-            "tool_state": "{\"xlab\": \"\\\"Abundance of biological processes\\\"\", \"bottom_margin\": \"\\\"5\\\"\", \"right_margin\": \"\\\"1\\\"\", \"__page__\": 0, \"names_column\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"2\\\"}\", \"output_format\": \"\\\"pdf\\\"\", \"input_file\": \"null\", \"top_margin\": \"\\\"1\\\"\", \"left_margin\": \"\\\"15\\\"\", \"column_with_data\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"3\\\"}\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"col\": \"\\\"forestgreen\\\"\"}", 
-            "tool_version": "0.1.0", 
-            "type": "tool", 
-            "user_outputs": [], 
-            "uuid": "769b9791-8cce-4373-865f-e28caaa818f8"
-        }, 
-        "17": {
-            "annotation": "", 
-            "id": 17, 
-            "input_connections": {
-                "input_file": {
-                    "id": 12, 
+                    "id": 13, 
                     "output_name": "cellular_component_abundance"
                 }
             }, 
@@ -768,12 +729,90 @@
             "user_outputs": [], 
             "uuid": "de4a7906-86af-4119-a125-a39911fa5f1c"
         }, 
+        "17": {
+            "annotation": "", 
+            "id": 17, 
+            "input_connections": {
+                "input_file": {
+                    "id": 13, 
+                    "output_name": "biological_process_abundance"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot barplot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 2040, 
+                "top": 1250
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_barplot/plot_barplot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Abundance of biological processes\\\"\", \"bottom_margin\": \"\\\"5\\\"\", \"right_margin\": \"\\\"1\\\"\", \"__page__\": 0, \"names_column\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"2\\\"}\", \"output_format\": \"\\\"pdf\\\"\", \"input_file\": \"null\", \"top_margin\": \"\\\"1\\\"\", \"left_margin\": \"\\\"15\\\"\", \"column_with_data\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"3\\\"}\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"col\": \"\\\"forestgreen\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "769b9791-8cce-4373-865f-e28caaa818f8"
+        }, 
         "18": {
             "annotation": "", 
             "id": 18, 
             "input_connections": {
-                "input_tree": {
+                "input_file": {
                     "id": 13, 
+                    "output_name": "molecular_function_abundance"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot barplot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 2140, 
+                "top": 1078
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_barplot/plot_barplot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Abundance of molecular functions\\\"\", \"bottom_margin\": \"\\\"5\\\"\", \"right_margin\": \"\\\"1\\\"\", \"__page__\": 0, \"names_column\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"2\\\"}\", \"output_format\": \"\\\"pdf\\\"\", \"input_file\": \"null\", \"top_margin\": \"\\\"1\\\"\", \"left_margin\": \"\\\"19\\\"\", \"column_with_data\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"3\\\"}\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"col\": \"\\\"blue3\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "a44d81df-386b-4c19-b941-86b621716cfe"
+        }, 
+        "19": {
+            "annotation": "", 
+            "id": 19, 
+            "input_connections": {
+                "input_tree": {
+                    "id": 15, 
                     "output_name": "output_tree"
                 }
             }, 
@@ -803,8 +842,8 @@
                 }
             ], 
             "position": {
-                "left": 2368, 
-                "top": 954
+                "left": 2429, 
+                "top": 1005
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -816,5 +855,5 @@
             "uuid": "f0061fc3-7d02-402f-a33f-a1cb40cf4b7f"
         }
     }, 
-    "uuid": "d4621df2-5493-4593-8f1d-3c9e678d47d3"
+    "uuid": "b269ffe4-f7b1-441d-aa29-e09e8ea5129a"
 }
