@@ -1,5 +1,12 @@
-HMP Mock Community samples
-==========================
+---
+title: Test of HMP Mock Community samples on ASaiM Galaxy instance
+subtitle: Comparison with results from *EBI metagenomics*
+date: March 2016
+author: Bérénice Batut
+geometry: margin=3cm
+header-includes:
+    - \usepackage{dirtree}
+---
 
 # Data
 
@@ -41,43 +48,75 @@ Details about these species, their taxonomy and their expected abundances can be
     - Extract abundances of each clade at different taxonomic levels
     - Compute several abundances measures
         - Relative abundances of clades for all OTUs
-        - Relatvie abundances of clades for OTUs with accurate taxonomic assignation (taxonomic assignation from kingdom to family)
-    - Extract percentage of unassigned clades at different taxonomic levels (clades without more accuration taxonomic assignation)     
+        - Relative abundances of clades for OTUs with accurate taxonomic assignation (taxonomic assignation from kingdom to family)
+    - Extract percentage of unassigned clades at different taxonomic levels (clades without more accurate taxonomic assignation)     
 
 ## Run ASaiM workflow
 
+- Run ASaiM workflow on ASaiM Galaxy instance, with scripts
+- Export generated outputs
+- Format one outputs to extract percentage of unassigned clades at different taxonomic levels (clades without more accuration taxonomic assignation)
+
 ## Compare EBI metagenomics and ASaiM workflow results
+
+### Pretreatments
 
 ### Taxonomic results
 
-*MetaPhlAn*: relative abundance computed on assigned reads (no count of non assigned reads)
-
-*EBI metagenomics* results: relative abundance on all OTUs
-
-Need to get comparable things
-
-
+In *MetaPhlAn*, relative abundance is computed on assigned reads. No count is made of non assigned reads. The comparison of relative abundances between EBI metagenomics and ASaiM results is then made on relative abundances computed on OTUS or reads with an accurate taxonomic assignation (taxonomic assignation from kingdom to family). We compare these results with expected relative abundances obtained from sample descriptions. 
 
 ### Functional results
 
 # Results
 
-## Computation stats
+## Computation statistics on ASaiM
 
-time, computer description, cpu %, memory size
+We launch ASaiM Galaxy instance on Debian GNU/Linux System with 8 cores Intel(R) Xeon(R) at 2.40GHz and with 32 Go of RAM.
+
+Statistics | SRR072232 | SRR072233
+--- | --- | ---
+Execution time | 4h46 | 5h23
+Maximum of %CPU used | | 
+Maximum RAM size used | | 
 
 ## Pretreatments
 
 ## Taxonomic analyses
 
-### Assigned reads
+### Assignation rates
 
-EBI metagenomics: 16S sequences
-ASaiM: non rRNA sequences
+*EBI metagenomics* uses 16S sequences with *QIIME*. In ASaiM, we execute *MetaPhlAn* on non rRNA sequences, to search diverse phylogenetic markers and not only 16S ones. But, with this method, we have also higher unassignation rates:
 
-### Details in 
+Clade | EBI (SRR072232) | ASaiM (SRR072232) | EBI (SRR072233) | ASaiM (SRR072233)
+--- | --- | --- | --- | ---
+All | 6.4% | 62.61% | 13% | 
+Inside Archea | 40.15% | 3.77% | 29.79% | 
+Inside Bacteria | 16% | 96.24% | 50% |
 
-### Comparison with expected abundances
+We also have unexpected taxonomic assignations. For ASaiM, several species are identified as "unclassified":
+
+Species | Relative abundance for SRR072232 | Relative abundance for SRR072233
+--- | --- | ---
+*Escherichia* unclassified | 4.85 | 0.8
+*Pseudomonas* unclassified | 1.12 | 0.56
+*Methanobrevibacter* unclassified | | 0.24
+*Deinococcus* unclassified | 0.16 | 
+
+With *EBI metagenomics*, some taxonomic paths are unexpected:
+
+Taxonomic path | Relative abundance for SRR072232 | Relative abundance for SRR072233
+--- | --- | ---
+Methanopyraceae (family) | 0.09 | 0.21
+Paraprevotellaceae (family) | | 0.09
+Rickettsiales (order) | 5.71 | 1.43
+Cryptosporangiaceae (family) | | 0.5
+
+### Assignation, relative abundances and comparison with expectations
+
+
+![Relative abundances of families for SRR072232 \label{db_query}](results/SRR072232/concatenated_results/family_abundances.pdf)
+
+![Relative abundances of families for SRR072233 \label{db_query}](results/SRR072233/concatenated_results/family_abundances.pdf)
 
 ## Functional analyses
 
