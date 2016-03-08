@@ -6,7 +6,7 @@ import os
 import argparse
 import re
 
-taxo_level_order = ['domain','kingdom','phylum','class','order','family']
+taxo_level_order = ['kingdom','phylum','class','order','family']
 
 def incremente_taxonomy(taxo_levels, taxo_level_abundances, taxo_level_order):
     taxo_level_abundances.setdefault('abundances',
@@ -73,7 +73,7 @@ def write_taxo_levels(taxo_level_abundances, all_taxo_level_abundance_file,
         for taxo in taxo_level_abundances['subclades']:
             write_taxo_levels(taxo_level_abundances['subclades'][taxo], 
                 all_taxo_level_abundance_file, taxo_levels_abundance_files, 
-                taxo_level_order[1:], previous_levels + [taxo], info_type,
+                taxo_level_order, previous_levels + [taxo], info_type,
                 normalization_value)
 
 def write_abundances(taxo_level_abundances, output_dir, info_type, otu_nb = None):
@@ -88,8 +88,10 @@ def write_abundances(taxo_level_abundances, output_dir, info_type, otu_nb = None
         all_taxo_level_abundance_file.write(taxo_level + '\t')
     all_taxo_level_abundance_file.write('abundance\n')    
 
-    write_taxo_levels(taxo_level_abundances, all_taxo_level_abundance_file, 
-        taxo_levels_abundance_files, taxo_level_order, [''], info_type, otu_nb)
+    for taxo in taxo_level_abundances['subclades']:
+        write_taxo_levels(taxo_level_abundances['subclades'][taxo], 
+            all_taxo_level_abundance_file, taxo_levels_abundance_files, 
+            taxo_level_order[1:], [taxo], info_type, otu_nb)
 
     for taxo_level_file in taxo_levels_abundance_files:
         taxo_levels_abundance_files[taxo_level_file].close()
