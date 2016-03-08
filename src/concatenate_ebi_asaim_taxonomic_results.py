@@ -89,7 +89,7 @@ def write_taxo_levels(exp_taxo_w_abund, all_taxo_level_abundance_file,
         all_taxo_level_abundance_file.write('\t' + str(abundances['ebi']) )
         all_taxo_level_abundance_file.write('\t' + str(abundances['asaim']) + '\n')
 
-        taxo_level_files[taxo_level_order[0]].write(previous_levels[-1] + '\t')
+        taxo_level_files[taxo_level_order[0]].write(previous_levels[-1])
         taxo_level_files[taxo_level_order[0]].write('\t' + str(abundances['expected']))
         taxo_level_files[taxo_level_order[0]].write('\t' + str(abundances['ebi']))
         taxo_level_files[taxo_level_order[0]].write('\t' + str(abundances['asaim']) + '\n')
