@@ -5,7 +5,8 @@ function export_asaim_workflow_outputs {
     python src/export_history_datasets.py \
         --api_key $3 \
         --gi_url $2 \
-        --sample_name $sample_name
+        --sample_name $sample_name \
+        --output_dir "results/"$sample_name"/asaim_results/" 
 }
 
 echo "Export ASaiM workflow outputs"

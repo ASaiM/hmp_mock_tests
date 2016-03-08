@@ -26,9 +26,8 @@ def export_history_datasets(args):
     print "  Get history id"
     histories = gi.histories.get_histories()
     hist_id = search_history(histories, args.sample_name)
-    output_dir_path = "results/" + args.sample_name + "/asaim_results/" 
-    if not os.path.exists(output_dir_path):
-        os.mkdir(output_dir_path)
+    if not os.path.exists(args.output_dir):
+        os.mkdir(args.output_dir)
 
     print "  Export history datasets"
     for dataset_id in gi.histories.show_history(hist_id)['state_ids']['ok']:
@@ -36,7 +35,7 @@ def export_history_datasets(args):
         name = name.replace(':', '')
         name = name.replace(' ','_')
         extension = str(gi.datasets.show_dataset(dataset_id)['extension'])
-        output_filepath = output_dir_path + '/' + name + '.' + extension
+        output_filepath = args.output_dir + '/' + name + '.' + extension
         gi.histories.download_dataset(hist_id, dataset_id, output_filepath, 
             use_default_filename=False)
 
@@ -45,6 +44,7 @@ if __name__ == '__main__':
     parser.add_argument('--gi_url', required=True)
     parser.add_argument('--api_key', required=True)
     parser.add_argument('--sample_name', required=True)
+    parser.add_argument('--output_dir', required=True)
     args = parser.parse_args()
 
     export_history_datasets(args)
