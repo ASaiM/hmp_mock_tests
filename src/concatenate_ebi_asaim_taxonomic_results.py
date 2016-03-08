@@ -107,12 +107,12 @@ def concatenate_ebi_asaim_taxonomic_results(args):
         'w')
 
     asaim_result_filepath = args.asaim_result_dir 
-    asaim_result_filepath += '/format_metaphlan2_on_data_15_abundances_for_all_taxonomic_levels.tabular'
+    asaim_result_filepath += '/format_metaphlan2_on_data_13_abundances_for_all_taxonomic_levels.tabular'
     exp_taxo_w_abund = fill_taxo_abund(exp_taxo_w_abund, asaim_result_filepath, 
         'asaim', unexpected_clade_file)
 
     ebi_result_filepath = args.ebi_result_dir 
-    ebi_result_filepath += '/all_taxo_level_abundance_file.tsv'
+    ebi_result_filepath += '/all_taxo_level_assigned_abundance_file.txt'
     exp_taxo_w_abund = fill_taxo_abund(exp_taxo_w_abund, ebi_result_filepath, 
         'ebi', unexpected_clade_file)
 
