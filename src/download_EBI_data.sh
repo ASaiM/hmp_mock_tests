@@ -30,12 +30,7 @@ function format_EBI_taxonomic_results {
     sample_name=$1
     python src/format_EBI_taxonomic_results.py \
         --ebi_taxonomic_results "results/"$sample_name"/EBI_results/taxonomic_assignation.tsv" \
-        --all_taxo_level_abundance_file "results/"$sample_name"/EBI_results/all_taxo_level_abundance_file.tsv" \
-        --kingdom_abundance_file "results/"$sample_name"/EBI_results/kingdom_abundance_file.tsv" \
-        --phylum_abundance_file "results/"$sample_name"/EBI_results/phylum_abundance_file.tsv" \
-        --class_abundance_file "results/"$sample_name"/EBI_results/class_abundance_file.tsv" \
-        --order_abundance_file "results/"$sample_name"/EBI_results/order_abundance_file.tsv" \
-        --family_abundance_file "results/"$sample_name"/EBI_results/family_abundance_file.tsv"
+        --output_dir "results/"$sample_name"/EBI_results/"
 }
 
 echo "Download input datasets"
