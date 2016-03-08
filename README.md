@@ -38,3 +38,13 @@ Concatenate results (EBI one and ASaiM one) to compare them:
 ```
 ./src/concatenate_results.sh 
 ```
+
+# Report
+
+A report of this analysis is available in `doc` directory. It is in markdown. To export it in PDF, you can use:
+
+```
+./doc/build.sh
+```
+
+It requires PANDOC.
