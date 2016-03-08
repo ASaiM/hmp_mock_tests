@@ -36,6 +36,14 @@ Details about these species, their taxonomy and their expected abundances can be
 
 ## Get EBI metagenomics results and format them
 
+- Download interesting datasets on EBI metagenomics website
+- Format taxonomic results
+    - Extract abundances of each clade at different taxonomic levels
+    - Compute several abundances measures
+        - Relative abundances of clades for all OTUs
+        - Relatvie abundances of clades for OTUs with accurate taxonomic assignation (taxonomic assignation from kingdom to family)
+    - Extract percentage of unassigned clades at different taxonomic levels (clades without more accuration taxonomic assignation)     
+
 ## Run ASaiM workflow
 
 ## Compare EBI metagenomics and ASaiM workflow results
