@@ -16,9 +16,21 @@ function concatenate_ebi_asaim_taxonomic_results {
         --sample_name $sample_name
 }
 
+function plot_taxonomic_results {
+    sample_name=$1
+    Rscript src/plot_taxonomic_results.R \
+        "results/"$sample_name"/concatenated_results"
+}
+
 
 echo "Concatenate EBI and ASaiM taxonomic results given expected taxonomy for each sample"
 echo "==================================================================================="
 concatenate_ebi_asaim_taxonomic_results "SRR072232"
-#concatenate_ebi_asaim_taxonomic_results "SRR072233"
+concatenate_ebi_asaim_taxonomic_results "SRR072233"
+echo ""
+
+echo "Plot expected, EBI and ASaiM taxonomic results for each sample"
+echo "=============================================================="
+plot_taxonomic_results "SRR072232"
+plot_taxonomic_results "SRR072233"
 echo ""
