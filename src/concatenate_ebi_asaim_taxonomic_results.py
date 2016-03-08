@@ -57,6 +57,8 @@ def fill_one_taxo_abundance(exp_taxo_w_abund, taxo, abundance, taxo_order,
         taxo_level = taxo_order[0]
         if not exp_taxo_w_abund[taxo_level].has_key(taxo_name):
             unexpected_clade_file.write('|'.join(taxo) + '\t')
+            unexpected_clade_file.write(result_type + '\t')
+            unexpected_clade_file.write(taxo_order[0] + '\t')
             unexpected_clade_file.write(str(abundance) + '\n')
         else:
             exp_taxo_w_abund[taxo_level][taxo_name] = fill_one_taxo_abundance(
