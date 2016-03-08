@@ -71,9 +71,13 @@ def write_taxo_levels(taxo_level_abundances, all_taxo_level_abundance_file,
 
     if taxo_level_abundances.has_key('subclades'):
         for taxo in taxo_level_abundances['subclades']:
+            if taxo == 'Thermi':
+                taxo_name = 'Deinococcus-Thermus'
+            else:
+                taxo_name = taxo
             write_taxo_levels(taxo_level_abundances['subclades'][taxo], 
                 all_taxo_level_abundance_file, taxo_levels_abundance_files, 
-                taxo_level_order, previous_levels + [taxo], info_type,
+                taxo_level_order, previous_levels + [taxo_name], info_type,
                 normalization_value)
 
 def write_abundances(taxo_level_abundances, output_dir, info_type, otu_nb = None):
