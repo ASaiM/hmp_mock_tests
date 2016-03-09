@@ -120,7 +120,7 @@ def concatenate_ebi_asaim_taxonomic_results(args):
 
     unexpected_clade_file.close()
 
-    taxo_level_order = ['domain','kingdom','phylum','class','order','family']
+    taxo_level_order = ['domain','kingdom','phylum','class','order','family','genus','species']
     taxo_level_files = {}
     all_taxo_level_abundance_file = open(args.output_dir + '/all_taxo_level_abundance.txt', 'w')
     for level in taxo_level_order:
