@@ -26,7 +26,7 @@ Details about these analyses (scripts, parameters, ...) are available on a [dedi
 
 # Data
 
-Two datasets are [available](https://www.ebi.ac.uk/metagenomics/projects/SRP004311) for this project. The first dataset ([SRR072233](https://www.ebi.ac.uk/metagenomics/projects/SRP004311/samples/SRS121011/runs/SRR072233/results/versions/1.0)) is a genomic mixture from 22 bacterial strains (Table \ref{expected_species}) containing equimolar riboso-mal RNA operon counts per organism. The second dataset ([SRR072232](https://www.ebi.ac.uk/metagenomics/projects/SRP004311/samples/SRS121012/runs/SRR072232/results/versions/1.0#ui-id-10)) contains also a genomic mixture from the same 22 bacterial strains (Table \ref{expected_species}) but the ribosomal RNA operon counts vary by up to four orders of magnitude per organism (Table \ref{expected_species})
+Two datasets are [available](https://www.ebi.ac.uk/metagenomics/projects/SRP004311) for this project. The first dataset ([SRR072233](https://www.ebi.ac.uk/metagenomics/projects/SRP004311/samples/SRS121011/runs/SRR072233/results/versions/1.0)) is a genomic mixture from 22 bacterial strains (Table \ref{expected_species}) containing equimolar ribosomal RNA operon counts per organism. The second dataset ([SRR072232](https://www.ebi.ac.uk/metagenomics/projects/SRP004311/samples/SRS121012/runs/SRR072232/results/versions/1.0#ui-id-10)) contains also a genomic mixture from the same 22 bacterial strains (Table \ref{expected_species}) but the ribosomal RNA operon counts vary by up to four orders of magnitude per organism (Table \ref{expected_species})
 
 \newpage
 \thispagestyle{empty}
@@ -96,62 +96,67 @@ Eukaryotes & Fungi & Ascomycota & Saccharomycetes & Saccharomycetales & Debaryom
 
 ## Analyses from *EBI Metagenomics*
 
-Both datasets were analysed using [*EBI metagenomics* pipeline (Version 1.0)](https://www.ebi.ac.uk/metagenomics/pipelines/1.0) (Figure )
+Both datasets were analysed using [*EBI metagenomics* pipeline (Version 1.0)](https://www.ebi.ac.uk/metagenomics/pipelines/1.0) (Figure \ref{ebi_pipeline}).
 
-- Download interesting datasets on EBI metagenomics website
-- Format taxonomic results
-    - Extract abundances of each clade at different taxonomic levels
-    - Compute several abundances measures
-        - Relative abundances of clades for all OTUs
-        - Relative abundances of clades for OTUs with accurate taxonomic assignation (taxonomic assignation from kingdom to family)
-    - Extract percentage of unassigned clades at different taxonomic levels (clades without more accurate taxonomic assignation)     
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width = \linewidth]{../images/ebi_workflow.pdf}
+    \caption{\textit{EBI metagenomics} pipeline (version 1.0)}
+    \label{ebi_pipeline}
+\end{figure}
 
-## Run ASaiM workflow
+Interesting results (OTUs with taxonomic assignation and GO slim annotations) are downloaded and formatted. 
 
-- Run ASaiM workflow on ASaiM Galaxy instance, with scripts
+Using OTUs with taxonomic assignation, abundances of each assigned clade are extracted and several relative abundance measures are computed: relative abundances of clades for all OTUs and relative abundances of clades for OTUs with accurate taxonomic assignation (taxonomic assignation from kingdom to family). Percentage of unassigned clades is computed at different taxonomic levels (clades without more accurate taxonomic assignation).
 
-*scheme of ASaiM workflow*
+*GO slim annotations*
 
-- Export generated outputs
-- Format taxonomic results to extract percentage of unassigned clades at different taxonomic levels (clades without more accurate taxonomic assignation)
+## Analyses with ASaiM workflow
 
-## Compare EBI metagenomics and ASaiM workflow results
+Both datasets are analyzed using ASaiM workflow dedicated to single-end microbiota data (Figure \ref{asaim_workflow}).
 
-### Pretreatments
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width = \linewidth]{../images/asaim_workflow.pdf}
+    \caption{ASaiM workflow available with ASaiM Galaxy instance and used to analyze both datasets}
+    \label{asaim_workflow}
+\end{figure}
 
-Manually
-
-### Taxonomic results
-
-In *MetaPhlAn*, relative abundance is computed on assigned reads. No count is made of non assigned reads. The comparison of relative abundances between EBI metagenomics and ASaiM results is then made on relative abundances computed on OTUS or reads with an accurate taxonomic assignation (taxonomic assignation from kingdom to family). We compare these results with expected relative abundances obtained from sample descriptions. 
-
-### Functional results
-
-
-
-# Results
-
-## Computation statistics on ASaiM
-
-We launch ASaiM Galaxy instance on Debian GNU/Linux System with 8 cores Intel(R) Xeon(R) at 2.40GHz and with 32 Go of RAM.
-
-(Table \ref{computation_stats})
+This workflow is available with ASaiM Galaxy instance. For this analysis, ASaiM Galaxy instance are deployed on a Debian GNU/Linux System with 8 cores Intel(R) Xeon(R) at 2.40GHz and with 32 Go of RAM. Several statistics are followed during workflow execution (Table \ref{computation_stats}).
 
 \begin{table}[h!]
 \centering
-\begin{tabular}{lll}
+\begin{tabular}{llrr}
 \hline
-Statistics & SRR072232 & SRR072233 \\
+\multicolumn{2}{l}{Statistics} & SRR072232 & SRR072233 \\
 \hline
-Execution time & 4h46 & 5h23 \\
-Maximum of \%CPU used &  & \\
-Maximum RAM size used & & \\
+Execution time & All & 4h44 & $\simeq$ 5h23 \\
+& PRINSEQ & 0h38 & \\
+& Vsearch & 16s & \\
+& SortMeRNA & 0h55 & \\
+& MetaPhlAN2 & 0h09 & \\
+& HUMAnN2 & 3h01 & \\
+\multicolumn{2}{l}{Maximum of \%CPU used} &  & \\
+\multicolumn{2}{l}{Maximum RAM size used} & & \\
 \hline
 \end{tabular}
 \caption{Computation statistics on ASaiM for both samples (SRR072233 and SRR072233)}
 \label{computation_stats}
 \end{table}
 
+*Comments on the computation statistics, (installation of several hours, but relatively fast analyses after), most time consuming task*
+
+In addition to formatting steps in workflow, taxonomic results are formatted to extract the percentage of unassigned clades at different taxonomic levels (clades without more accurate taxonomic assignation)
+
+## Comparison of results from *EBI metagenomics* and ASaiM
+
+Results from *EBI metagenomics* results and the ones from ASaiM are not directly comparable. Several processing steps are then needed.
+
+With *MetaPhlAn* in ASaiM workflow, relative abundance of clades is computed on assigned reads. No count is made of non assigned reads. To compare relative abundances between *EBI metagenomics* and *ASaiM*, we focus on relative abundances computed on OTUS or reads with an accurate taxonomic assignation (taxonomic assignation from kingdom to family). These results are also compared to expected relative abundances obtained from sample descriptions (Table \ref{expected_species}). 
+
+*Functional results*
+
+# Results
 
 ## Pretreatments
 
@@ -159,15 +164,15 @@ Maximum RAM size used & & \\
 
 \begin{table}[h!]
 \centering
-\begin{tabular}{m{4cm}llll}
+\begin{tabular}{m{4cm}rrrrrrrr}
 \hline
- & \multicolumn{2}{c}{SRR072232} & \multicolumn{2}{c}{SRR072233} \\
-Sequences & EBI & ASaiM & EBI & ASaiM \\
+ & \multicolumn{4}{c}{SRR072232} & \multicolumn{4}{c}{SRR072233} \\
+Sequences & \multicolumn{2}{c}{EBI} & \multicolumn{2}{c}{ASaiM} & \multicolumn{2}{c}{EBI} & \multicolumn{2}{c}{ASaiM} \\
 \hline
-Raw sequences & 1,225,169 & 1,225,169 & 1,386,198 & 1,386,198\\
-Sequences after pretreatments & 997,622 (81.4\%) & 1,175,853 (96\%) & 1,197,748 (86.4\%) & 1,343,451 (96.9\%) \\
-rRNA sequences & 8,910 (0.9\%) & 16,016 (1.4\%) & 9,214 (0.8\%) & 13,850 (1\%)\\
-non rRNA sequences & 988,712 (99.1\%) & 1,159,837 (98.6\%) & 1,188,534 (99.2\%) & 1,329,601 (99\%)\\
+Raw sequences & \multicolumn{4}{c}{1,225,169} & \multicolumn{4}{c}{1,386,198}\\
+Sequences after pretreatments & 997,622 & 81.4\% & 1,175,853 & 96\% & 1,197,748 & 86.4\% & 1,343,451 & 96.9\% \\
+rRNA sequences & 8,910 & 0.9\% & 16,016 & 1.4\% & 9,214 & 0.8\% & 13,850 & 1\%\\
+non rRNA sequences & 988,712 & 99.1\% & 1,159,837 & 98.6\% & 1,188,534 & 99.2\% & 1,329,601 & 99\%\\
 \hline
 \end{tabular}
 \caption{Statistics of pretreatments for EBI and ASaiM on both samples (SRR072233 and SRR072233)}
@@ -175,6 +180,9 @@ non rRNA sequences & 988,712 (99.1\%) & 1,159,837 (98.6\%) & 1,188,534 (99.2\%) 
 \end{table}
 
 
+Different thresholds for min length (100 for EBI, 60 for ASaiM (what about 100 for ASaiM?))
+
+When PRINSEQ is run with exactly same parameters but filtering of sequences with less than 100, 1,135,008 (92.6%) and () sequences are conserved for SRR072232 and SRR072233 respectively after quality treatments. These proportion are still higher than the one for *EBI metagenomics*. Smaller length threshold with ASaiM can not then explain all difference in sequence number after pretreatments.
 
 few rRNA sequences (metagenomics data)
 
@@ -226,7 +234,7 @@ Comparison with expected taxonomy, with relative abundances
 
 \begin{table}[h!]
 \centering
-\begin{tabular}{lllll}
+\begin{tabular}{lrrrr}
 \hline
  & \multicolumn{2}{c}{SRR072232} & \multicolumn{2}{c}{SRR072233} \\
 Clade & EBI & ASaiM & EBI & ASaiM \\
@@ -244,7 +252,7 @@ We also have unexpected taxonomic assignations. For ASaiM, several species are i
 
 \begin{table}[h!]
 \centering
-\begin{tabular}{lll}
+\begin{tabular}{lrr}
 \hline
 Species & SRR072232 & SRR072233\\
 \hline
@@ -262,7 +270,7 @@ With *EBI metagenomics*, some taxonomic paths are unexpected (Table \ref{ebi_une
 
 \begin{table}[h!]
 \centering
-\begin{tabular}{lll}
+\begin{tabular}{lrr}
 \hline
 Clade & SRR072232 & SRR072233\\
 \hline
