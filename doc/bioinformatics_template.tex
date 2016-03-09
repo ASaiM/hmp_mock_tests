@@ -1,0 +1,72 @@
+\documentclass{bioinfo}
+%\documentclass$if(fontsize)$[$fontsize$]$endif${article}
+%\usepackage{amssymb,amsmath}
+%\usepackage{ifxetex,ifluatex}
+\definecolor{grey}{rgb}{0.4,0.4,0.4}
+\usepackage[colorlinks = true,
+            linkcolor = grey,
+            urlcolor  = grey,
+            citecolor = grey,
+            anchorcolor = grey]{hyperref}
+\usepackage[utf8]{inputenc} 
+%\usepackage{geometry}
+%\usepackage{pdflscape}
+%\usepackage{array}
+%\usepackage{graphicx}
+
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+
+\def\tightlist{}
+
+\copyrightyear{$year$} \pubyear{$year$}
+
+\access{Advance Access Publication Date: Day Month Year}
+\appnotes{$subject_session$}
+
+\begin{document}
+%\firstpage{1}
+
+\subtitle{$subtitle$}
+
+\title{$title$}
+\author[]{$for(author)$$author$$$^{\text{\sfb 1}}$$$sep$, $endfor$}
+\address{$$^{\text{\sf 1}}$$ $address$}
+\corresp{}
+
+\history{Received on XXXXX; revised on XXXXX; accepted on XXXXX}
+\editor{Associate Editor: XXXXXXX}
+
+\abstract{$abstract$}
+
+\maketitle
+
+$for(include-before)$
+$include-before$
+$endfor$
+
+$body$
+
+%\bibliographystyle{natbib}
+%\bibliographystyle{achemnat}
+%\bibliographystyle{plainnat}
+%\bibliographystyle{abbrv}
+%\bibliographystyle{bioinformatics}
+%
+%\bibliographystyle{plain}
+%
+%\bibliography{Document}
+
+
+\begin{thebibliography}{}
+
+\end{thebibliography}
+
+$for(include-after)$
+$include-after$
+
+$endfor$
+
+\end{document}
