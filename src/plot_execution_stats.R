@@ -16,3 +16,19 @@ time_diff_matrix = cbind.data.frame(time_diff, time_diff_in_min, time_diff_in_h,
 colnames(time_diff_matrix) = c('diff_s','diff_min','diff_h', 'formatted_time_diff_in_h')
 row.names(time_diff_matrix) = execution_time$process
 print(time_diff_matrix)
+
+start = execution_time[execution_time$process == 'all', ]$start
+stop = execution_time[execution_time$process == 'all', ]$stop
+
+execution_stats = read.table('results/formatted_stat_for_46720.txt', sep = ' ')
+execution_stats$V5 = strptime(paste(execution_stats$V1, execution_stats$V2), "%Y-%m-%d %H:%M:%OS")
+
+interesting_time_range = execution_stats[execution_stats$V5 >= start & execution_stats$V5 <= stop,]
+print("%CPU")
+print(min(interesting_time_range$V3))
+print(mean(interesting_time_range$V3))
+print(max(interesting_time_range$V3))
+print("Size")
+print(min(interesting_time_range$V4))
+print(mean(interesting_time_range$V4))
+print(max(interesting_time_range$V4))
