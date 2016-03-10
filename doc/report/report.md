@@ -101,7 +101,8 @@ Both datasets were analysed using [*EBI metagenomics* pipeline (Version 1.0)](ht
 \begin{figure}[h!]
     \centering
     \includegraphics[width = \linewidth]{../images/ebi_workflow.pdf}
-    \caption{\textit{EBI metagenomics} pipeline (version 1.0)}
+    \caption{\textit{EBI metagenomics} pipeline (version 1.0).
+    The grey boxes correspond to data, the blue boxes to pretreatment steps, the red boxes to functional analysis steps and the green boxes to taxonomic analysis steps.}
     \label{ebi_pipeline}
 \end{figure}
 
@@ -118,7 +119,8 @@ Both datasets are analyzed using ASaiM workflow dedicated to single-end microbio
 \begin{figure}[h!]
     \centering
     \includegraphics[width = \linewidth]{../images/asaim_workflow.pdf}
-    \caption{ASaiM workflow available with ASaiM Galaxy instance and used to analyze both datasets}
+    \caption{ASaiM workflow available with ASaiM Galaxy instance and used to analyze both datasets.
+    The grey boxes correspond to data, the blue boxes to pretreatment steps, the red boxes to functional analysis steps and the green boxes to taxonomic analysis steps.}
     \label{asaim_workflow}
 \end{figure}
 
@@ -130,21 +132,25 @@ This workflow is available with ASaiM Galaxy instance. For this analysis, ASaiM 
 \hline
 \multicolumn{2}{l}{Statistics} & SRR072232 & SRR072233 \\
 \hline
-Execution time & All & 4h44 & $\simeq$ 5h23 \\
-& PRINSEQ & 0h38 & \\
-& Vsearch & 16s & \\
-& SortMeRNA & 0h55 & \\
-& MetaPhlAN2 & 0h09 & \\
-& HUMAnN2 & 3h01 & \\
-\multicolumn{2}{l}{Maximum of \%CPU used} &  & \\
-\multicolumn{2}{l}{Maximum RAM size used} & & \\
+Execution time & All & 4h44 & 5h22 \\
+& PRINSEQ & 0h38 & 0h44\\
+& Vsearch & 16s & 19s\\
+& SortMeRNA & 0h55 & 0h58\\
+& MetaPhlAN2 & 0h09 & 0h10\\
+& HUMAnN2 & 3h01 & 3h26\\
+\%CPU used & Min & 4.8\% & 4.8\%\\
+ & Mean & 4.8\% & 4.8\%\\
+ & Max & 4.8\% & 4.8\%\\
+Size of the process in memory (kb) & Min & 1,515,732 & 1,515,732\\
+ & Mean & 1,515,744 & 1,515,743\\
+ & Max & 1,515,768 & 1,515,764\\
 \hline
 \end{tabular}
 \caption{Computation statistics on ASaiM for both samples (SRR072233 and SRR072233)}
 \label{computation_stats}
 \end{table}
 
-*Comments on the computation statistics, (installation of several hours, but relatively fast analyses after), most time consuming task*
+Once ASaiM Galaxy instance is deployed, a task that can take several hours, datasets analyses are relatively fast: < 5h and < 5h30 for datasets with 1,225,169 and 1,386,198 sequences respectively (Table \ref{computation_stats}). The main time consuming step is the functional assignation with *HUMAnN2* [@abubucker_metabolic_2012] which last $\simeq$ 64% of overall time execution (Table \ref{computation_stats}). The percentage of used CPU is stable over workflow execution, just like the size of the process in memory (variability inferior to 40 kb) (Table \ref{computation_stats}).
 
 In addition to formatting steps in workflow, taxonomic results are formatted to extract the percentage of unassigned clades at different taxonomic levels (clades without more accurate taxonomic assignation)
 
@@ -160,7 +166,7 @@ With *MetaPhlAn* in ASaiM workflow, relative abundance of clades is computed on 
 
 ## Pretreatments
 
-(Table \ref{pretreatment_stats})
+In both workflows (Figures \ref{ebi_pipeline} and \ref{asaim_workflow}), raw sequences are pre-processed before any taxonomic or functional analyses. These preprocessing steps include quality control to remove low quality, small or duplicated sequences and also rRNA sorting to differentiate rRNA sequences from non rRNA sequences (Figures \ref{ebi_pipeline} and \ref{asaim_workflow}). The used tools and parameters for these pretreatments are different between *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}) and ASaiM workflow (Figure \ref{asaim_workflow}). Even with similar raw sequences, pretreatment outputs are different (Table \ref{pretreatment_stats}).
 
 \begin{table}[h!]
 \centering
@@ -170,7 +176,7 @@ With *MetaPhlAn* in ASaiM workflow, relative abundance of clades is computed on 
 Sequences & \multicolumn{2}{c}{EBI} & \multicolumn{2}{c}{ASaiM} & \multicolumn{2}{c}{EBI} & \multicolumn{2}{c}{ASaiM} \\
 \hline
 Raw sequences & \multicolumn{4}{c}{1,225,169} & \multicolumn{4}{c}{1,386,198}\\
-Sequences after pretreatments & 997,622 & 81.4\% & 1,175,853 & 96\% & 1,197,748 & 86.4\% & 1,343,451 & 96.9\% \\
+Sequences after quality control and dereplication & 997,622 & 81.4\% & 1,175,853 & 96\% & 1,197,748 & 86.4\% & 1,343,451 & 96.9\% \\
 rRNA sequences & 8,910 & 0.9\% & 16,016 & 1.4\% & 9,214 & 0.8\% & 13,850 & 1\%\\
 non rRNA sequences & 988,712 & 99.1\% & 1,159,837 & 98.6\% & 1,188,534 & 99.2\% & 1,329,601 & 99\%\\
 \hline
@@ -179,58 +185,57 @@ non rRNA sequences & 988,712 & 99.1\% & 1,159,837 & 98.6\% & 1,188,534 & 99.2\% 
 \label{pretreatment_stats}
 \end{table}
 
+The first interesting point in pretreatments is the difference in sequence number after quality control and dereplication (Table \ref{pretreatment_stats}). With ASaiM, more sequences are conserved during these first steps of quality control and dereplication (> 96\% against < 87\% with *EBI metagenomics*, Table \ref{pretreatment_stats}). This difference may be explained by the difference in thresholds for min length. In *EBI metagenomics* pipeline, sequences with less than 100 nucleotides are removed (Figure \ref{ebi_pipeline}), while in ASaiM the threshold is fixed to 60 nucleotides (Figure \ref{asaim_workflow}). However, this threshold difference can not explained all the observed difference in sequence number after quality control and dereplication. Indeed, when in ASaiM workflow PRINSEQ is run with exactly same parameters but filtering of sequences with less than 100 nucleotides, 1,135,008 (92.6%) and 1,304,023 (94.1%) sequences are conserved for SRR072232 and SRR072233 respectively after quality control and dereplication. These proportion are still higher than the one observed with *EBI metagenomics* pipeline (Table \ref{pretreatment_stats}). Smaller length threshold with ASaiM can not then explain all difference in sequence number after quality control and dereplication.
 
-Different thresholds for min length (100 for EBI, 60 for ASaiM (what about 100 for ASaiM?))
-
-When PRINSEQ is run with exactly same parameters but filtering of sequences with less than 100, 1,135,008 (92.6%) and () sequences are conserved for SRR072232 and SRR072233 respectively after quality treatments. These proportion are still higher than the one for *EBI metagenomics*. Smaller length threshold with ASaiM can not then explain all difference in sequence number after pretreatments.
-
-few rRNA sequences (metagenomics data)
+In both datasets and with both workflows, few rRNA sequences are found in datasets (Table \ref{pretreatment_stats}). Indeed, these datasets are metagenomic datasets and then focus on gene sequences. Few copies of rRNA genes are found in organisms (bacteria, archeae or eukaryotes) and then expected in metagenomic sequences. Despite small number of sequences, a difference is observed between *EBI metagonomics* and ASaiM workflows for the number of rRNA sequences (Table \ref{pretreatment_stats}). Higher proportions of rRNA sequences are systematically found with ASaiM workflow. Indeed, in *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}), *rRNASelector* [@lee_rrnaselector:_2011] is used to select rRNA  bacterial and archaeal sequences. In ASaiM workflow (Figure \ref{asaim_workflow}), rRNA sequences are searched using *SortMeRNA* [@kopylova_sortmerna:_2012] and 8 databases for bacteria, archaea and eukaryotes rRNA. % of sequences are matched against databases dedicated to eukaryotes rRNA sequences, but it does not explain the differences between *EBI metagenomics* and ASaiM. This difference may be due to the completness of the databases: databases used by *rRNASelector* [@lee_rrnaselector:_2011] are older and may be less filled than databases used by *SortMeRNA* [@kopylova_sortmerna:_2012].
 
 ## Taxonomic analyses
 
 ### Raw ASaiM results
 
-GraPhlAn
+In ASaiM workflow (Figure \ref{asaim_workflow}), taxonomic analysis is made using *MetaPhlAN* (2.0) [@truong_metaphlan2_2015;@segata_metagenomic_2012] on sequences after pretreatments. *MetaPhlAn* profiles the composition of microbial communities using a database of unique clade-specific marker genes identified from 17,000 reference genomes. This step of taxonomic assignation with *MetaPhlAn* is fast in ASaiM Galaxy instance (less than 10 minutes for > 1,100,000 sequences, Tables \ref{computation_stats} and \ref{pretreatment_stats}). 
 
-KRONA representation: [SRR072232]() and [SRR072233]()
+Raw *MetaPhlAn* results consist in a plain text file with relative abundance of clades at different taxonomic levels. Visualisation tools help to represent *MetaPhlAn* results. In ASaiM, two such tools are used: *Krona* [@ondov_interactive_2011] for an interactive representation of taxonomic assignation ([SRR072232]() and [SRR072233]()) and *GraPhlan* for a static representation (Figures \ref{graphlan_SRR072232} and \ref{graphlan_SRR072233}). 
 
-\begin{figure}
+\begin{figure}[h!]
     \centering
     \includegraphics[width = .8\linewidth]{../../results/SRR072232/asaim_results/graphlan_on_data_39_image.png}
     \caption{GraPhlAn representation of taxonomic assignation obtained for SRR072232 with ASaiM}
     \label{graphlan_SRR072232}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h!]
     \centering
     \includegraphics[width = .8\linewidth]{../../results/SRR072233/asaim_results/graphlan_on_data_39_image.png}
     \caption{GraPhlAn representation of taxonomic assignation obtained for SRR072233 with ASaiM}
     \label{graphlan_SRR072233}
 \end{figure}
 
-Higher taxonomic diversity for SRR072233 despite same taxonomy expected
+Despite same expected taxonomy, the taxonomic diversity in SRR072232 dataset (Figure \ref{graphlan_SRR072232}) is reduced compared to the one in SRR072233 dataset (Figure \ref{graphlan_SRR072233}). Less taxons are found for each taxonomic levels. 
 
-Comparison with expected taxonomy, with relative abundances 
-
-\begin{figure}
+\begin{figure}[h!]
     \centering
-    \includegraphics[width = .75\linewidth]{../../results/SRR072232/concatenated_results/species_abundances.pdf}
-    \caption{Relative abundances of expected species for SRR072232, comparison between expected abundances and abundances obtained with ASaiM}
-    \label{species_abundances_SRR072232}
+    \begin{minipage}[c]{.49\linewidth}
+    \includegraphics[width = \linewidth]{../../results/SRR072232/concatenated_results/species_abundances.pdf}
+    \end{minipage} \hfill
+    \begin{minipage}[c]{.49\linewidth}
+    \includegraphics[width = \linewidth]{../../results/SRR072233/concatenated_results/species_abundances.pdf}
+    \end{minipage} 
+    \caption{Relative abundances (percentage in log scale) of expected species for SRR072232 (left) and SRR072232 (right) with comparison between expected abundances (red thin bars) and abundances obtained with ASaiM (blue wide bars)}
+    \label{species_abundances}
 \end{figure}
 
-\begin{figure}
-    \centering
-    \includegraphics[width = .75\linewidth]{../../results/SRR072233/concatenated_results/species_abundances.pdf}
-    \caption{Relative abundances of expected species for SRR072233, comparison between expected abundances and abundances obtained with ASaiM}
-    \label{species_abundances_SRR072233}
-\end{figure}
+From the 22 expected species (Table \ref{expected_species}), 17 are found for SRR072232 and 20 for SRR072233 (Figure \ref{species_abundances}). The 2 expected species (*Candidata albicans*  and *Lactobacillus gasseri*) which are not found in SRR072233 dataset are also not found SRR072232 dataset (Figure \ref{species_abundances}). This may be due to a lack of phylogenetic markers for these species in the database used in *MetaPhlAn*. 
+
+Except some species, the observed relative abundances of species for SRR072232 follows the expected ones (Figure \ref{species_abundances}): smaller for small expected abundances and higher for high expected abundances. For SRR072233, same abundance is expected for all species, but more variability is observed (Figure \ref{species_abundances}). 
+
+One species is interesting: *Deinococcus radiodurans*. In both samples, this species is found at abundances $\simeq$ 9 times higher than expected (Figure \ref{species_abundances}). This over-abundance in both samples may be explained by over-abundance in reference database and also by the high resistance of this bacteria.
 
 ### Comparison with EBI results and expected taxonomy
 
-#### Assignation rates
+After these first comparison between ASaiM results taxonomic and expected ones, we compare ASaiM taxonomic results and *EBI metagenomics* taxonomic results.
 
-*EBI metagenomics* uses 16S sequences with *QIIME*. In ASaiM, we execute *MetaPhlAn* on non rRNA sequences, to search diverse phylogenetic markers and not only 16S ones. But, with this method, we have also higher unassignation rates (Table \ref{unassignation_rates}):
+In *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}), *QIIME* [@caporaso_qiime_2010] is used on 16S sequences to identify OTUs and taxonomic assignation for these OTUs. In ASaiM (Figure \ref{asaim_workflow}), *MetaPhlAn* [@truong_metaphlan2_2015;@segata_metagenomic_2012] is computed on sequences after quality control and dereplication, without any sorting step. *MetaPhlAn* [@truong_metaphlan2_2015;@segata_metagenomic_2012] searches diverse phylogenetic markers, and not only 16S ones as *QIIME* [@caporaso_qiime_2010] does, on all type of sequences (rRNA, non rRNA, ...). With so wide type sequences, the interesting information is less clear. Indeed, with *MetaPhlAn* [@truong_metaphlan2_2015;@segata_metagenomic_2012], the rate of non assignation is $\simeq$ 9 times higher than with *QIIME* [@caporaso_qiime_2010] (Table \ref{unassignation_rates}). However, with *MetaPhlAn* [@truong_metaphlan2_2015;@segata_metagenomic_2012], the taxonomic assignations are more accurate, precise (until species level) and statistically supported (more used sequences) and do not focus only on bacteria or archea.
 
 \begin{table}[h!]
 \centering
@@ -248,7 +253,7 @@ Inside Bacteria & 16\% & 96.24\% & 50\% & \\
 \label{unassignation_rates}
 \end{table}
 
-We also have unexpected taxonomic assignations. For ASaiM, several species are identified as "unclassified" (Table \ref{asaim_unexpected_species}):
+With both *EBI metagenomics* and ASaiM, some observed taxonomic assignations are unexpected. For ASaiM, 3 species in each sample are identified as "unclassified" (Table \ref{asaim_unexpected_species}). They are affiliated to the correct genus but not to the species. As the expected assignation is know, these unclassified sequences may be due to incomplete annotations in reference database. 
 
 \begin{table}[h!]
 \centering
@@ -284,32 +289,20 @@ Cryptosporangiaceae (family) & - & 0.5\% \\
 \label{ebi_unexpected_clades}
 \end{table}
 
-#### Assignation, relative abundances and comparison with expectations
-
-
+*EBI metagenomics* less precise
 
 \begin{figure}
     \centering
-    \includegraphics[width = .8\linewidth]{../../results/SRR072232/concatenated_results/family_abundances.pdf}
-    \caption{Relative abundances of families for SRR072232}
-    \label{family_abundances_SRR072232}
+    \begin{minipage}[c]{.49\linewidth}
+    \includegraphics[width = \linewidth]{../../results/SRR072232/concatenated_results/family_abundances.pdf}
+    \end{minipage} \hfill
+    \begin{minipage}[c]{.49\linewidth}
+    \includegraphics[width = \linewidth]{../../results/SRR072233/concatenated_results/family_abundances.pdf}
+    \end{minipage} 
+    \caption{Relative abundances of expected families for SRR072232 (left) and SRR072232 (right) with comparison between expected abundances (red thin bars), abundances obtained with *EBI metagenomics* (green wide bars) and abundances obtained with ASaiM (blue wide bars) and }
+    \label{species_abundances}
 \end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width = .8\linewidth]{../../results/SRR072233/concatenated_results/family_abundances.pdf}
-    \caption{Relative abundances of families for SRR072233}
-    \label{family_abundances_SRR072233}
-\end{figure}
-
-test
-
-tezarezqfds
-
-
-
-tezqfd
 
 ## Functional analyses
 
-
+# Conclusion
