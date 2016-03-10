@@ -5,4 +5,5 @@ pandoc -s report.md \
     -t latex \
     -o report.pdf \
     --template="bioinformatics_template.tex" \
+    --bibliography="references.bib" \
     -N
