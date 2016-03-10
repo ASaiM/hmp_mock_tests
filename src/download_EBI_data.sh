@@ -26,6 +26,26 @@ function download_EBI_taxonomic_results {
     echo ""
 }
 
+function get_rRNA_sequences_number {
+    sample_name=$1
+    run_name=$2
+    echo " $sample_name"
+    echo "  5S sequences:"
+    wget "https://www.ebi.ac.uk/metagenomics//projects/SRP004311/samples/"$run_name"/runs/"$sample_name"/results/versions/1.0/taxonomy/5S-rRNA-FASTA" >/dev/null 2>&1
+    grep ">" "5S-rRNA-FASTA" | wc -l
+    rm "5S-rRNA-FASTA"
+
+    echo "  16S sequences:"
+    wget "https://www.ebi.ac.uk/metagenomics//projects/SRP004311/samples/"$run_name"/runs/"$sample_name"/results/versions/1.0/taxonomy/16S-rRNA-FASTA" >/dev/null 2>&1
+    grep ">" "16S-rRNA-FASTA" | wc -l
+    rm "16S-rRNA-FASTA"
+
+    echo "  23S sequences:"
+    wget "https://www.ebi.ac.uk/metagenomics//projects/SRP004311/samples/"$run_name"/runs/"$sample_name"/results/versions/1.0/taxonomy/23S-rRNA-FASTA" >/dev/null 2>&1
+    grep ">" "23S-rRNA-FASTA" | wc -l
+    rm "23S-rRNA-FASTA"
+}
+
 function format_EBI_taxonomic_results {
     sample_name=$1
     python src/format_EBI_taxonomic_results.py \
@@ -52,6 +72,12 @@ download_EBI_taxonomic_results "SRR072232" \
 download_EBI_taxonomic_results "SRR072233" \
     "https://www.ebi.ac.uk/metagenomics//projects/SRP004311/samples/SRS121011/runs/SRR072233/results/versions/1.0/taxonomy/OTU-TSV"
 cd ../
+echo ""
+
+echo "Get number of rRNA sequences"
+echo "============================"
+get_rRNA_sequences_number "SRR072232" "SRS121012"
+get_rRNA_sequences_number "SRR072233" "SRS121011"
 echo ""
 
 echo "Format EBI taxonomic results"
