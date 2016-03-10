@@ -604,11 +604,17 @@
   \text{\sfb #1.}\space{#2}\par
   \endgroup}
 
-\long\def\@tablecaption#1#2{%
+\long\def\@tablecaption#1#2{\vspace{\abovecaptionskip}%
   \begingroup
-  \fontsize{7.5pt}{10.5pt}\sffamily\selectfont
-  \textbf{#1.}\space{#2\strut\par}
-  \endgroup\vspace{\belowcaptionskip}}
+  \scriptsize\sffamily
+  \text{\sfb #1.}\space{#2}\par
+  \endgroup}
+
+%\long\def\@tablecaption#1#2{%
+%  \begingroup
+%  \fontsize{7.5pt}{10.5pt}\sffamily\selectfont
+%  \textbf{#1.}\space{#2\strut\par}
+%  \endgroup\vspace{\belowcaptionskip}}
 
 % Table rules
 \def\toprule{\noalign{\ifnum0=`}\fi\hrule \@height 0.5pt \hrule \@height 4pt \@width 0pt \futurelet
@@ -632,7 +638,7 @@
 \def\fps@table{tbp}
 \def\ftype@table{2}
 \def\ext@table{lot}
-\def\fnum@table{Table~\thetable}
+\def\fnum@table{\tablename~\thetable}
 \def\table{\let\@makecaption\@tablecaption\let\source\tablesource\@float{table}}
 \def\endtable{\end@float}
 \@namedef{table*}{\let\@makecaption\@tablecaption\@dblfloat{table}}
