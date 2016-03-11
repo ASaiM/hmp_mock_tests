@@ -10,22 +10,6 @@ function download_unarchive {
     fi
 }
 
-function download_EBI_taxonomic_results {
-    sample_name=$1
-    echo " -- "$sample_name" -- "
-    if [[ ! -d $sample_name ]]; then
-        mkdir $sample_name
-    fi 
-    cd $sample_name
-    if [[ ! -d "EBI_results" ]]; then
-        mkdir "EBI_results"
-    fi
-    wget $2
-    mv "OTU-TSV" "EBI_results/taxonomic_assignation.tsv"
-    cd ../
-    echo ""
-}
-
 function get_rRNA_sequences_number {
     sample_name=$1
     run_name=$2
@@ -46,6 +30,23 @@ function get_rRNA_sequences_number {
     rm "23S-rRNA-FASTA"
 }
 
+function download_EBI_taxonomic_results {
+    sample_name=$1
+    run_name=$2
+    echo " -- "$sample_name" -- "
+    if [[ ! -d $sample_name ]]; then
+        mkdir $sample_name
+    fi 
+    cd $sample_name
+    if [[ ! -d "EBI_results" ]]; then
+        mkdir "EBI_results"
+    fi
+    wget "https://www.ebi.ac.uk/metagenomics//projects/SRP004311/samples/"$run_name"/runs/"$sample_name"/results/versions/1.0/taxonomy/OTU-TSV"
+    mv "OTU-TSV" "EBI_results/taxonomic_assignation.tsv"
+    cd ../
+    echo ""
+}
+
 function format_EBI_taxonomic_results {
     sample_name=$1
     python src/format_EBI_taxonomic_results.py \
@@ -61,23 +62,21 @@ download_unarchive "SRR072233"
 cd ../
 echo ""
 
+echo "Get number of rRNA sequences"
+echo "============================"
+get_rRNA_sequences_number "SRR072232" "SRS121012"
+get_rRNA_sequences_number "SRR072233" "SRS121011"
+echo ""
+
 echo "Download EBI taxonomic results"
 echo "=============================="
 if [[ ! -d results ]]; then
     mkdir results
 fi
 cd results 
-download_EBI_taxonomic_results "SRR072232" \
-    "https://www.ebi.ac.uk/metagenomics//projects/SRP004311/samples/SRS121012/runs/SRR072232/results/versions/1.0/taxonomy/OTU-TSV"
-download_EBI_taxonomic_results "SRR072233" \
-    "https://www.ebi.ac.uk/metagenomics//projects/SRP004311/samples/SRS121011/runs/SRR072233/results/versions/1.0/taxonomy/OTU-TSV"
+download_EBI_taxonomic_results "SRR072232" "SRS121012"
+download_EBI_taxonomic_results "SRR072233" "SRS121011"
 cd ../
-echo ""
-
-echo "Get number of rRNA sequences"
-echo "============================"
-get_rRNA_sequences_number "SRR072232" "SRS121012"
-get_rRNA_sequences_number "SRR072233" "SRS121011"
 echo ""
 
 echo "Format EBI taxonomic results"
@@ -85,3 +84,4 @@ echo "============================"
 format_EBI_taxonomic_results "SRR072232"
 format_EBI_taxonomic_results "SRR072233"
 echo ""
+
