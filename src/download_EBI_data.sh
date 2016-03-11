@@ -54,6 +54,23 @@ function format_EBI_taxonomic_results {
         --output_dir "results/"$sample_name"/EBI_results/"
 }
 
+function download_EBI_functional_results {
+    sample_name=$1
+    run_name=$2
+    echo " -- "$sample_name" -- "
+    if [[ ! -d $sample_name ]]; then
+        mkdir $sample_name
+    fi 
+    cd $sample_name
+    if [[ ! -d "EBI_results" ]]; then
+        mkdir "EBI_results"
+    fi
+    wget "https://www.ebi.ac.uk/metagenomics//projects/SRP004311/samples/"$run_name"/runs/"$sample_name"/results/versions/1.0/function/GOSlimAnnotations"
+    mv "GOSlimAnnotations" "EBI_results/go_slim_annotations.csv"
+    cd ../
+    echo ""
+}
+
 echo "Download input datasets"
 echo "======================="
 cd data
@@ -85,3 +102,13 @@ format_EBI_taxonomic_results "SRR072232"
 format_EBI_taxonomic_results "SRR072233"
 echo ""
 
+echo "Download EBI functional results"
+echo "==============================="
+if [[ ! -d results ]]; then
+    mkdir results
+fi
+cd results 
+download_EBI_functional_results "SRR072232" "SRS121012"
+download_EBI_functional_results "SRR072233" "SRS121011"
+cd ../
+echo ""
