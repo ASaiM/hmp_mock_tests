@@ -24,7 +24,6 @@ def fill_taxonomy(taxo_levels, taxo_level_abundances, read_nb):
     return taxo_level_abundances
 
 def write_unassigned_perc(unassigned_clades_perc, output_file, previous_level):
-    print unassigned_clades_perc.keys()
     unassigned_perc = unassigned_clades_perc['subclades_read_nb']/unassigned_clades_perc['read_nb']
     unassigned_perc = 100*(1-unassigned_perc)
     output_file.write('\t'.join(previous_level) + '\t')
@@ -50,8 +49,6 @@ def extract_unassigned_clades_perc(args):
             read_nb = int(split_line[-1])
             unassigned_clades_perc['subclades'] = fill_taxonomy(taxo, 
                 unassigned_clades_perc['subclades'], read_nb)
-
-    print unassigned_clades_perc
 
     with open(args.unassigned_clade_output_file, 'w') as output_file:
         write_unassigned_perc(unassigned_clades_perc, output_file, [], 
