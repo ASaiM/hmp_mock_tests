@@ -47,6 +47,7 @@ def format_characteristic_name(name):
     return formatted_name
 
 def write_more_abundant_charat(abundances,more_abund_charact, output_filepath):
+    
     with open(output_filepath,'w') as output_file:
         output_file.write('\t')
         output_file.write('\t'.join(abundances.keys()) + '\n')
@@ -59,10 +60,42 @@ def write_more_abundant_charat(abundances,more_abund_charact, output_filepath):
                 output_file.write('\t' + str(abund))
             output_file.write('\n')
 
-def extract_similar_characteristics(abundances):
-    sim_characteristics = set()
+def extract_similar_characteristics(abundances, sim_output_filepath,
+    diff_output_base_filepath):
+    sim_characteristics = set(abundances[abundances.keys()[0]].keys())
     for sample in abundances.keys()[1:]:
-        s
+        sim_characteristics.intersection_update(abundances[sample].keys())
+    print '  Similar:', len(sim_characteristics)
+
+    with open(sim_output_filepath, 'w') as sim_output_file:
+        sim_output_file.write('\t' + '\t'.join(abundances.keys()) + '\n')
+        for charact in list(sim_characteristics):
+            sim_output_file.write(format_characteristic_name(charact))
+            for sample in abundances.keys():
+                sim_output_file.write('\t' + str(abundances[sample][charact]))
+            sim_output_file.write('\n')
+
+    print '  for each sample:'
+    diff_characteristics = {}
+    for sample in abundances.keys():
+        print '  ', sample, ""
+        print '    All:', len(abundances[sample].keys())
+        diff_characteristics[sample] = set(abundances[sample].keys())
+        diff_characteristics[sample].difference_update(sim_characteristics)
+        print '    Number of specific characteristics:', len(diff_characteristics[sample])
+        print '    Percentage of specific characteristics:', 100*len(diff_characteristics[sample])/(1.*len(abundances[sample].keys()))
+
+        output_filepath = diff_output_base_filepath + sample + '.txt'
+        relative_abundance = 0
+        with open(output_filepath, 'w') as output_file:
+            output_file.write(sample + '\tabundances\n')
+            for charact in list(diff_characteristics[sample]):
+                output_file.write(format_characteristic_name(charact) + '\t')
+                output_file.write(str(abundances[sample][charact]) + '\n')
+                relative_abundance += 100*abundances[sample][charact]
+        print '    Relative abundance of specific characteristics(%):', relative_abundance
+
+    return sim_characteristics
 
 def extract_functional_characteristics(args):
     abundances = {}
@@ -73,9 +106,18 @@ def extract_functional_characteristics(args):
             args.most_abundant_characteristics_to_extract)
         more_abund_charact += mac
 
+    output_filepath = args.output_dir + "/" 
+    output_filepath += str(args.most_abundant_characteristics_to_extract)
+    output_filepath += "_more_abund_" + args.characteristics + ".txt"
     write_more_abundant_charat(abundances, list(set(more_abund_charact)), 
-        args.more_abund_output_file)
-    
+        output_filepath)
+
+    diff_output_base_filepath = args.output_dir + '/specific_' 
+    diff_output_base_filepath += args.characteristics + '_for_' 
+    sim_output_filepath = args.output_dir + '/similar_' 
+    sim_output_filepath += args.characteristics + '.txt'
+    sim_characteristics = extract_similar_characteristics(abundances, 
+        sim_output_filepath, diff_output_base_filepath)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -83,7 +125,8 @@ if __name__ == '__main__':
     parser.add_argument('--charact_input_file', required=True, action='append')
     parser.add_argument('--most_abundant_characteristics_to_extract', required=True,
         type = int)
-    parser.add_argument('--more_abund_output_file', required=True)
+    parser.add_argument('--characteristics', required=True)
+    parser.add_argument('--output_dir', required=True)
     args = parser.parse_args()
 
     if len(args.sample_name) != len(args.charact_input_file):

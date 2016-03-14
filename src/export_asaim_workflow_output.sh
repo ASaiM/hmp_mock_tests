@@ -23,14 +23,14 @@ function extract_functional_characteristics {
     filename=$2
     charact_nb=$3
     output_dir=$4
-    more_abund_output_file=$output_dir"/"$charact_nb"_more_abund_"$characteristics".txt"
     python src/extract_functional_characteristics.py \
         --sample_name "SRR072232" \
         --sample_name "SRR072233" \
         --charact_input_file "results/SRR072232/asaim_results/"$filename \
         --charact_input_file "results/SRR072233/asaim_results/"$filename \
         --most_abundant_characteristics_to_extract $charact_nb \
-        --more_abund_output_file $more_abund_output_file
+        --characteristics $characteristics \
+        --output_dir $output_dir
 }
 
 echo "Export ASaiM workflow outputs"
@@ -51,8 +51,10 @@ output_dir="results/concatenated_samples"
 if [[ ! -d $output_dir ]]; then
     mkdir $output_dir
 fi
+echo "Gene families"
 extract_functional_characteristics "gene_families" \
     "normalized_table_for______________data_17_(humann2).tsv" 10 $output_dir 
+echo "Pathways"
 extract_functional_characteristics "pathways" \
     "normalized_table_for______________data_19_(humann2).tsv" 10 $output_dir
-Rscript src/plot_more_abund_func_charact.R $output_dir
+Rscript src/plot_asaim_func_charact.R $output_dir
