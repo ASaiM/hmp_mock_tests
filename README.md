@@ -36,7 +36,7 @@ Export ASaiM workflow outputs (when the workflows are done):
 Concatenate results (EBI one and ASaiM one) to compare them:
 
 ```
-./src/concatenate_results.sh 
+./src/concatenate_results.sh <asaim_galaxy_instance_url> <your_api_key_on_asaim_galaxy_instance>
 ```
 
 # Report
