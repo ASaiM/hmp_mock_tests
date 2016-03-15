@@ -11,7 +11,7 @@
             "inputs": [
                 {
                     "description": "", 
-                    "name": "Input Dataset"
+                    "name": "SRR072232"
                 }
             ], 
             "label": null, 
@@ -23,7 +23,7 @@
             }, 
             "tool_errors": null, 
             "tool_id": null, 
-            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_state": "{\"name\": \"SRR072232\"}", 
             "tool_version": null, 
             "type": "data_input", 
             "user_outputs": [], 
@@ -36,7 +36,7 @@
             "inputs": [
                 {
                     "description": "", 
-                    "name": "Input Dataset"
+                    "name": "SRR072233"
                 }
             ], 
             "label": null, 
@@ -48,7 +48,7 @@
             }, 
             "tool_errors": null, 
             "tool_id": null, 
-            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_state": "{\"name\": \"SRR072233\"}", 
             "tool_version": null, 
             "type": "data_input", 
             "user_outputs": [], 
@@ -180,5 +180,5 @@
             "uuid": "9cc8afe3-daff-4347-b215-1501a55fbe4e"
         }
     }, 
-    "uuid": "fea111f5-4206-47ed-b554-234e736b894a"
+    "uuid": "94d58b28-91ad-4418-9ca4-aae103e8c78f"
 }
