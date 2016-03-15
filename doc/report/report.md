@@ -338,21 +338,20 @@ In these families with expected low abundance, one family is an exception: Deino
 Similar & Number & \multicolumn{2}{c}{44,933} & \multicolumn{2}{c}{475} \\
 & \% of similar & 45.59\% & 34.65\% & 97.54\% & 95\% \\
 & Relative abundance (\%) & 89.16\% & 50.67\% & 99.85\% & 99.53\%\\
-& Median of normalized relative abundance (\%) & 1.47 $\cdot 10^{-6}$ & 2.73 $\cdot 10^{-6}$ & 1.76 $\cdot 10^{-3}$ & 1.67 $\cdot 10^{-3}$ \\
-& \textit{p-value} of Wilcoxon test on normalized relative abundance & \multicolumn{2}{c}{1.31 $\cdot 10^{-14}$ (***)} & \multicolumn{2}{c}{0.23} \\
+& \textit{p-value} of Wilcoxon test on normalized relative abundance & \multicolumn{2}{c}{1.31 $\cdot 10^{-14}$ (***)} & \multicolumn{2}{c}{0.24} \\
 \hline
 \end{tabular}
-\caption{Global information about UniRef50 gene families and MetaCyc pathways obtained with \textit{HUMAnN2} for both samples (SRR072233 and SRR072233). For each characteristics (gene families and pathways), several information is extracted: all number, number percentage and relative abundance (\%) of similar characteristics, median and \textit{p-value} of Wilcoxon test on relative abundance normalized by the sum of relative abundance for all similar characteristics.}
+\caption{Global information about UniRef50 gene families and MetaCyc pathways obtained with \textit{HUMAnN2} for both samples (SRR072233 and SRR072233). For each characteristics (gene families and pathways), several information is extracted: all number, number percentage and relative abundance (\%) of similar characteristics and \textit{p-value} of Wilcoxon test on relative abundance normalized by the sum of relative abundance for all similar characteristics.}
 \label{humann2_informations}
 \end{table}
 
 \begin{figure}[h!]
     \centering
     \begin{minipage}[c]{.49\linewidth}
-    \includegraphics[width = \linewidth]{../../results/concatenated_samples/similar_gene_families.pdf}
+    \includegraphics[width = \linewidth]{../../results/concatenated_samples/gene_families/plot_generic_x-y_plot_on_data_7_pdf_x-y_plot.pdf}
     \end{minipage} \hfill
     \begin{minipage}[c]{.49\linewidth}
-    \includegraphics[width = \linewidth]{../../results/concatenated_samples/similar_pathways.pdf}
+    \includegraphics[width = \linewidth]{../../results/concatenated_samples/pathways/plot_generic_x-y_plot_on_data_7_pdf_x-y_plot.pdf}
     \end{minipage} 
     \caption{Normalized relative abundances (\%) for similar UniRef50 gene families (left graphics) and MetaCyc pathways (right graphics) for both samples (SRR072233 and SRR072233). The relative abundances of each similar characteristics (gene families or pathways) is computed with \textit{HUMAnN2} and normalized by the sum of relative abundance for all similar characteristics.}
     \label{similar_characteristics_abundances}
