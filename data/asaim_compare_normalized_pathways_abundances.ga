@@ -107,6 +107,37 @@
             "input_connections": {
                 "input_file": {
                     "id": 2, 
+                    "output_name": "similar_output_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Normalize a dataset by", 
+            "outputs": [
+                {
+                    "name": "output_file", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 807.5, 
+                "top": 582
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/normalize_dataset/normalize_dataset/0.1.0", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"format\": \"\\\"percentage\\\"\", \"normalization\": \"\\\"column\\\"\", \"input_file\": \"null\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "c62ea939-6669-4e32-b1d0-11db914698f4"
+        }, 
+        "4": {
+            "annotation": "", 
+            "id": 4, 
+            "input_connections": {
+                "input_file": {
+                    "id": 2, 
                     "output_name": "more_abundant_output_file"
                 }
             }, 
@@ -140,13 +171,13 @@
             "user_outputs": [], 
             "uuid": "8fe08604-179f-43f1-b4b0-83d5dc3e91d8"
         }, 
-        "4": {
+        "5": {
             "annotation": "", 
-            "id": 4, 
+            "id": 5, 
             "input_connections": {
                 "input_file": {
-                    "id": 2, 
-                    "output_name": "similar_output_file"
+                    "id": 3, 
+                    "output_name": "output_file"
                 }
             }, 
             "inputs": [], 
@@ -167,8 +198,8 @@
                 }
             ], 
             "position": {
-                "left": 1150, 
-                "top": 586
+                "left": 1139, 
+                "top": 469
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -178,7 +209,38 @@
             "type": "tool", 
             "user_outputs": [], 
             "uuid": "9cc8afe3-daff-4347-b215-1501a55fbe4e"
+        }, 
+        "6": {
+            "annotation": "", 
+            "id": 6, 
+            "input_connections": {
+                "input_file": {
+                    "id": 3, 
+                    "output_name": "output_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Compute Wilcoxon test", 
+            "outputs": [
+                {
+                    "name": "output_file", 
+                    "type": "text"
+                }
+            ], 
+            "position": {
+                "left": 1153, 
+                "top": 686
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/compute_wilcoxon_test/compute_wilcoxon_test/0.1.0", 
+            "tool_state": "{\"__page__\": 0, \"column1_id\": \"\\\"2\\\"\", \"__rerun_remap_job_id__\": null, \"input_file\": \"null\", \"add_data\": \"{\\\"test\\\": \\\"true\\\", \\\"paired\\\": \\\"True\\\", \\\"column2_id\\\": \\\"3\\\", \\\"__current_case__\\\": 0}\", \"mu\": \"\\\"0\\\"\", \"alternative\": \"\\\"two.sided\\\"\", \"exact\": \"\\\"False\\\"\", \"correct\": \"\\\"True\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "9a4e468e-a433-434a-a327-6da224d057f4"
         }
     }, 
-    "uuid": "78d564a9-53fa-4ce6-a483-8136b5e64269"
+    "uuid": "0f97185f-0e51-4fe9-b912-10dada29eb02"
 }
