@@ -18,19 +18,18 @@ function extract_unassigned_clades_perc {
         --unassigned_clade_output_file "results/"$sample_name"/asaim_results/unassigned_clade_perc.txt"
 }
 
-function extract_functional_characteristics {
-    characteristics=$1
-    filename=$2
-    charact_nb=$3
-    output_dir=$4
-    python src/extract_functional_characteristics.py \
+function compare_humann2_output {
+    charact_output_dir=$4"/"$1
+    if [[ ! -d $charact_output_dir ]]; then
+        mkdir $charact_output_dir
+    fi
+    python src/compare_humann2_output.py \
+        --gi_url $2 \
+        --api_key $3 \
+        --characteristics $1 \
         --sample_name "SRR072232" \
         --sample_name "SRR072233" \
-        --charact_input_file "results/SRR072232/asaim_results/"$filename \
-        --charact_input_file "results/SRR072233/asaim_results/"$filename \
-        --most_abundant_characteristics_to_extract $charact_nb \
-        --characteristics $characteristics \
-        --output_dir $output_dir
+        --output_dir $charact_output_dir
 }
 
 echo "Export ASaiM workflow outputs"
@@ -52,9 +51,8 @@ if [[ ! -d $output_dir ]]; then
     mkdir $output_dir
 fi
 echo "Gene families"
-extract_functional_characteristics "gene_families" \
-    "normalized_table_for______________data_17_(humann2).tsv" 10 $output_dir 
+echo "-------------"
+compare_humann2_output "gene_families"  $1 $2 $output_dir 
 echo "Pathways"
-extract_functional_characteristics "pathways" \
-    "normalized_table_for______________data_19_(humann2).tsv" 10 $output_dir
-Rscript src/plot_asaim_func_charact.R $output_dir
+echo "--------"
+compare_humann2_output "pathways"  $1 $2 $output_dir
