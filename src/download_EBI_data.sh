@@ -71,6 +71,13 @@ function download_EBI_functional_results {
     echo ""
 }
 
+function format_EBI_functional_results {
+    sample_name=$1
+    python src/format_EBI_functional_results.py \
+        --ebi_functional_results "results/"$sample_name"/EBI_results/go_slim_annotations.csv" \
+        --output_dir "results/"$sample_name"/EBI_results/"
+}
+
 echo "Download input datasets"
 echo "======================="
 cd data
@@ -111,4 +118,10 @@ cd results
 download_EBI_functional_results "SRR072232" "SRS121012"
 download_EBI_functional_results "SRR072233" "SRS121011"
 cd ../
+echo ""
+
+echo "Format EBI functional results"
+echo "============================="
+format_EBI_functional_results "SRR072232"
+format_EBI_functional_results "SRR072233"
 echo ""
