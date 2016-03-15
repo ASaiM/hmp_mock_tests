@@ -23,6 +23,34 @@ function plot_taxonomic_results {
 }
 
 
+function concatenate_ebi_asaim_functional_results {
+    sample_name=$1
+    result_dir="results/"$sample_name
+    output_dir=$result_dir"/concatenated_results"
+    if [[ ! -d $output_dir ]]; then
+        mkdir $output_dir
+    fi
+
+    python src/concatenate_ebi_asaim_functional_results.py \
+        --asaim_result_dir $result_dir"/asaim_results" \
+        --ebi_result_dir $result_dir"/EBI_results" \
+        --output_dir $output_dir \
+        --gi_url $2 \
+        --api_key $3
+}
+
+function concatenate_both_samples_functional_results {
+    output_dir="results/concatenated_samples/"
+    python src/concatenate_both_samples_functional_results.py \
+        --gi_url $1 \
+        --api_key $2 \
+        --sample1_dir "results/SRR072232/concatenated_results" \
+        --sample2_dir "results/SRR072233/concatenated_results" \
+        --sample1_name "SRR072232" \
+        --sample2_name "SRR072233" \
+        --output_dir $output_dir
+}
+
 echo "Concatenate EBI and ASaiM taxonomic results given expected taxonomy for each sample"
 echo "==================================================================================="
 concatenate_ebi_asaim_taxonomic_results "SRR072232"
@@ -33,4 +61,18 @@ echo "Plot expected, EBI and ASaiM taxonomic results for each sample"
 echo "=============================================================="
 plot_taxonomic_results "SRR072232"
 plot_taxonomic_results "SRR072233"
+echo ""
+
+echo "Concatenate EBI and ASaiM functional results (GO slim terms)"
+echo "============================================================"
+echo "SRR072232"
+echo "---------"
+concatenate_ebi_asaim_functional_results "SRR072232" $1 $2
+echo "SRR072233"
+echo "---------"
+concatenate_ebi_asaim_functional_results "SRR072233" $1 $2
+echo ""
+echo "All samples"
+echo "-----------"
+concatenate_both_samples_functional_results $1 $2
 echo ""
