@@ -49,6 +49,7 @@ function concatenate_both_samples_functional_results {
         --sample1_name "SRR072232" \
         --sample2_name "SRR072233" \
         --output_dir $output_dir
+    Rscript src/plot_go_slim_pca.R
 }
 
 echo "Concatenate EBI and ASaiM taxonomic results given expected taxonomy for each sample"
