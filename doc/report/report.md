@@ -110,7 +110,13 @@ Interesting results (OTUs with taxonomic assignation and GO slim annotations) ar
 
 Using OTUs with taxonomic assignation, abundances of each assigned clade are extracted and several relative abundance measures are computed: relative abundances of clades for all OTUs and relative abundances of clades for OTUs with accurate taxonomic assignation (taxonomic assignation from kingdom to family). Percentage of unassigned clades is computed at different taxonomic levels (clades without more accurate taxonomic assignation).
 
-*GO slim annotations*
+For functional analysis, *EBI metagenomics* offers 3 types of results:
+
+- Matches with InterPro
+- Complete GO annotations
+- GO slim annotations
+
+As in ASaiM, GO slim annotations are used. They are downloaded and formatted to extract relative abundances (in percentage) of GO slim annotations for the tree annotation classes (cellular components, biological processes and molecular functions).
 
 ## Analyses with ASaiM workflow
 
@@ -152,7 +158,16 @@ Size of the process in memory (kb) & Min & 1,515,732 & 1,515,732\\
 
 Once ASaiM Galaxy instance is deployed, a task that can take several hours, datasets analyses are relatively fast: < 5h and < 5h30 for datasets with 1,225,169 and 1,386,198 sequences respectively (Table \ref{computation_stats}). The main time consuming step is the functional assignation with *HUMAnN2* [@abubucker_metabolic_2012] which last $\simeq$ 64% of overall time execution (Table \ref{computation_stats}). The percentage of used CPU is stable over workflow execution, just like the size of the process in memory (variability inferior to 40 kb) (Table \ref{computation_stats}).
 
-In addition to formatting steps in workflow, taxonomic results are formatted to extract the percentage of unassigned clades at different taxonomic levels (clades without more accurate taxonomic assignation)
+In addition to formatting steps in workflow, taxonomic results are formatted to extract the percentage of unassigned clades at different taxonomic levels (clades without more accurate taxonomic assignation). 
+
+No further formatting step is needed for functional results (relative abundance of gene families, pathways and GO slim terms) of one sample. A workflow is developed and executed to compare raw *HUMAnN2* results (gene families and pathways) between both samples (SRR072232 and SRR072233) (Figure \ref{asaim_humann2_comparison_results}).
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width = .8\linewidth]{../images/asaim_humann2_comparison_results.pdf}
+    \caption{Workflow to compare normalized \textit{HUMANnN2} outputs (abundances of gene families and pathways). This workflow is available with ASaiM Galaxy instance. The grey boxes correspond to data, the blue boxes to processing steps.}
+    \label{asaim_humann2_comparison_results}
+\end{figure}
 
 ## Comparison of results from *EBI metagenomics* and ASaiM
 
@@ -160,7 +175,14 @@ Results from *EBI metagenomics* results and the ones from ASaiM are not directly
 
 With *MetaPhlAn* in ASaiM workflow, relative abundance of clades is computed on assigned reads. No count is made of non assigned reads. To compare relative abundances between *EBI metagenomics* and *ASaiM*, we focus on relative abundances computed on OTUS or reads with an accurate taxonomic assignation (taxonomic assignation from kingdom to family). These results are also compared to expected relative abundances obtained from sample descriptions (Table \ref{expected_species}). 
 
-*Functional results*
+In both *EBI metagenomics* and ASaiM workflows, functional matches are grouped into GO slims terms. These terms are a subset of the terms in the whole Gene Ontology. They give a broad overview of the ontology content. To compare *EBI metagenomics* and ASaiM results, relative abundance of GO slim terms for both samples and both workflows are concatenated and compared, given the workflow depicted in Figure \ref{go_slim_comparison_workflow}. 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width = \linewidth]{../images/go_slim_comparison_workflow.pdf}
+    \caption{Workflow to compare GO slim annotation abundances between samples (SRR072232, SRR072233) and workflows (\textit{EBI metagenomics}, ASaiM). This workflow is available with ASaiM Galaxy instance. The grey boxes correspond to data, the blue boxes to processing steps.}
+    \label{go_slim_comparison_workflow}
+\end{figure}
 
 # Results
 
