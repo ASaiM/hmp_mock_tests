@@ -69,7 +69,7 @@ def export_workflow_outputs(hist_id, output_dir, gi):
             use_default_filename=False)
 
 def run_workflow(workflow_name, workflow_file_path, input_filepaths, gi, 
-        output_dir):
+        output_dir, export = True, delete = True):
     print "  Create an history for ", workflow_name, " and import input data"
     hist_id = create_history(workflow_name,gi)
     datasets_id = upload_files(input_filepaths, hist_id, gi)
@@ -79,11 +79,13 @@ def run_workflow(workflow_name, workflow_file_path, input_filepaths, gi,
     datamap = create_input_datamap(wf_inputs, datasets_id)
     launch_workflow(wf_id, datamap, hist_id, gi)
     
-    print "  Export workflow results"
-    export_workflow_outputs(hist_id,output_dir,gi)
+    if export:
+        print "  Export workflow results"
+        export_workflow_outputs(hist_id,output_dir,gi)
 
-    print "  Delete workflow"
-    gi.workflows.delete_workflow(wf_id)
+    if delete:
+        print "  Delete workflow"
+        gi.workflows.delete_workflow(wf_id)
 
 def connect_to_galaxy_instance(gi_url, api_key):
     print "  Connect to Galaxy instance on ", gi_url
