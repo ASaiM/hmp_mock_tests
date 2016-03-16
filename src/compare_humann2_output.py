@@ -16,60 +16,19 @@ def check_history_state(gi, hist_id):
 def compare_humann2_output(args):
     workflow_file_path = "data/asaim_compare_normalized_" 
     workflow_file_path += args.characteristics + "_abundances.ga"
+
+    input_filepaths  = {}
     if args.characteristics == 'gene_families':
-        filename = "normalized_table_for______________data_17_(humann2).tsv" 
+        filename = "normalize_a_dataset_by_on_data_17_normalized_dataset.tabular" 
     else:
-        filename = "normalized_table_for______________data_19_(humann2).tsv" 
-
-    print "  Connect to Galaxy instance on ", args.gi_url
-    gi = galaxy.GalaxyInstance(url=args.gi_url, key=args.api_key)
-
-    print "  Create an history for ", args.characteristics, " and import input data"
-    history_details = gi.histories.create_history(args.characteristics)
-    hist_id = history_details['id']
-    datasets_id = {}
+        filename = "normalize_a_dataset_by_on_data_19_normalized_dataset.tabular" 
     for sample_name in args.sample_name:
-        filepath = "results/" + sample_name + "/asaim_results/" + filename        
-        upload_file_details = gi.tools.upload_file(filepath, hist_id, 
-            file_name = sample_name)
-        datasets_id[sample_name] = upload_file_details['outputs'][0]['id']
-        #print gi.datasets.show_dataset(upload_file_details['outputs'][0]['id'])
-        upload_file_job_id = upload_file_details['jobs'][0]['id']
-        while str(gi.jobs.get_state(upload_file_job_id)) != 'ok':
-            time.sleep(1)
+        filepath = "results/" + sample_name + "/asaim_results/" + filename
+        input_filepaths[sample_name] = filepath
 
-    print "  Import workflow and launch it"
-    wf_details = gi.workflows.import_workflow_from_local_path(workflow_file_path)
-    wf_id = wf_details['id']
-    wf = gi.workflows.show_workflow(wf_id)
-    datamap = dict()
-
-    for wf_input in wf['inputs'].keys():
-        name = str(wf['inputs'][wf_input]['label'])
-        if not datasets_id.has_key(name):
-            raise ValueError(name + ' not found in datasets')
-        datamap[wf_input] = { 'src':'hda', 'id': datasets_id[name]}
-
-    wf_invocation_details = gi.workflows.run_workflow(wf_id, datamap, history_id=hist_id)
-    wf_invocation_id = wf_invocation_details['id']
-    wf_outputs = wf_invocation_details['outputs']
-
-    while check_history_state(gi, hist_id):
-        time.sleep(1)
-
-    print "  Export workflow results"
-    for dataset_id in gi.histories.show_history(hist_id)['state_ids']['ok']:
-        name = str(gi.datasets.show_dataset(dataset_id)['name']).lower()
-        name = name.replace(':', '')
-        name = name.replace(' ','_')
-        extension = gi.datasets.show_dataset(dataset_id)['extension']
-        if extension == None:
-            extension = ''
-        else:
-            extension = '.' + str(extension)
-        output_filepath = args.output_dir + '/' + name + extension
-        gi.histories.download_dataset(hist_id, dataset_id, output_filepath, 
-            use_default_filename=False)
+    gi = galaxy_api_commands.connect_to_galaxy_instance(args.gi_url, args.api_key)
+    galaxy_api_commands.run_workflow(args.sample_name, workflow_file_path, input_filepaths, 
+        gi, args.output_dir)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
