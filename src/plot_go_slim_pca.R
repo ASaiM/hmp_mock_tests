@@ -38,7 +38,7 @@ scatter(cc$pca, clab.row = 0, posieig = "none", sub = paste('First axis (' ,
     round(100*cc$pca$eig[2]/sum(cc$pca$eig)),'%)', sep = ''))
 text(cc$order_axis1[1,1],cc$order_axis1[1,2], label = cc$go_names[1], pos = 4)
 text(cc$order_axis1[2,1],4.1, label = cc$go_names[2], pos = 1)
-text(cc$order_axis1[3,1],-2.4, label = cc$go_names[3], pos = 3)
+text(cc$order_axis1[3,1],-2.3, label = cc$go_names[3], pos = 3)
 #text(cc$order_axis1[4,1],cc$order_axis1[4,2], label = cc$go_names[4], pos = 3)
 #text(cc$order_axis1[5,1],cc$order_axis1[5,2], label = cc$go_names[5], pos = 3)
 dev.off()
