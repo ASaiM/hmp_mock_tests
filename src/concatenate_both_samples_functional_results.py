@@ -11,7 +11,7 @@ import galaxy_api_commands
 
 def launch_concatenation(workflow_name,workflow_file_path, gi, args):
     input_filepaths = {}
-    filepath = workflow_name + '/cut_on_data_7.tabular'
+    filepath = workflow_name + '/normalize_a_dataset_by_on_data_8_normalized_dataset.tabular'
     input_filepaths[args.sample1_name] = args.sample1_dir + '/' + filepath
     input_filepaths[args.sample2_name] = args.sample2_dir + '/' + filepath
     output_dir = args.output_dir + '/' + workflow_name
