@@ -366,6 +366,39 @@ ASaiM: HUMAnN2
 
 GO slim
 
+\begin{table}[h!]
+\centering
+\begin{tabular}{llrrrr}
+\hline
+ & & \multicolumn{2}{c}{SRR072232} & \multicolumn{2}{c}{SRR072233}\\
+GO id & GO name & EBI & ASaiM & EBI & ASaiM \\
+\hline
+\multicolumn{2}{l}{Cellular components} & & & & \\
+GO:0031012 & Extracellular matrix & 1.71 $\cdot 10^{-2}$ & - & 2.74 $\cdot 10^{-2}$ & 1.37 $\cdot 10^{-5}$ \\
+GO:0005667 & Transcription factor complex & 0 & - & 9.81 $\cdot 10^{-3}$ & -\\
+GO:0005694 & Chromosome & 2.80 & - & 2.61 & -\\
+GO:0005856 & Cytoskeleton & 2.23 $\cdot 10^{-1}$ & - & 8.44 $\cdot 10^{-2}$ & -\\
+GO:0016469 & Proton-transporting two-sector ATPase complex & 1.34 & - & 1.44 & -\\
+GO:0019861 & Flagellum & 9.78 $\cdot 10^{-1}$ & - & 6.24 $\cdot 10^{-1}$ & -\\
+GO:0005575 & Cellular component & - & 19.29 & - & 19.84 \\
+\hline
+\multicolumn{2}{l}{Biological processes} & & & & \\
+GO:0006351 & Transcription, DNA-dependent & 3.27 & - & 3.06 & - \\
+GO:0044403 & Symbiosis, encompassing mutualism through parasitism & 1.91 $ \cdot 10^{-2}$ & - & 4.35 $\cdot 10^{-3}$ & - \\
+GO:0046039 & GTP metabolic process & 5.59 $\cdot 10^{-2}$ & - & 5.29 $\cdot 10^{-2}$ & - \\
+GO:0008150 & Biological process & - & 6.84 & - & 5.29 \\
+\hline
+\multicolumn{2}{l}{Molecular functions} & & & & \\
+GO:0001071 & Nucleic acid binding transcription factor activity & 1.56 & - & 1.33 & - \\
+GO:0003774 & Motor activity & 9.87 $\cdot 10^{-2}$ & - & 5.32 $\cdot 10^{-2}$ & - \\
+GO:0045182 & Translation regulator activity & 1.38 $\cdot 10^{-3}$ & - & 0 & - \\
+GO:0003674 & Molecular function & - & 9.34 & - & 10.88 \\
+\hline
+\end{tabular}
+\caption{GO slim terms not found in both samples (SRR072232, SRR072233) and/or with both workflows (EBI metagenomics, ASaiM), with the relative abundance (in percentage) in GO slim groups (cellular components, biological processes and molecular functions)}
+\label{incomplete_go_slims}
+\end{table}
+
 # Conclusion
 
 Fast analysis, direct results
