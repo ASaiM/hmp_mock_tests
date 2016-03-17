@@ -54,7 +54,21 @@ def create_input_datamap(wf_inputs, datasets_id):
         datamap[wf_input] = { 'src':'hda', 'id': datasets_id[input_name]}
     return datamap
 
+def get_hist_id(hist_name, gi):
+    histories = gi.histories.get_histories()
+    hist_id = None
+
+    for history in histories:
+        if history['name'] == hist_name:
+            hist_id = history['id']
+            print history
+
+    if hist_id == None:
+        raise ValueError('No history found for', hist_name)
+    return hist_id
+
 def export_workflow_outputs(hist_id, output_dir, gi):
+    print "  Export history content of ", hist_id
     for dataset_id in gi.histories.show_history(hist_id)['state_ids']['ok']:
         dataset_name = str(gi.datasets.show_dataset(dataset_id)['name']).lower()
         dataset_name = dataset_name.replace(':', '')
