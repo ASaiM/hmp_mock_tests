@@ -7,37 +7,15 @@ import argparse
 import re
 import time
 from bioblend import galaxy
-
-def search_history(histories, history_name):
-    hist_id = None
-    for history in histories:
-        if history['name'] == history_name:
-            hist_id = history['id']
-
-    if hist_id == None:
-        raise ValueError('No history found for', history_name)
-
-    return hist_id
+import galaxy_api_commands
 
 def export_history_datasets(args):
-    print "  Connect to Galaxy instance on ", args.gi_url
-    gi = galaxy.GalaxyInstance(url=args.gi_url, key=args.api_key)
-
-    print "  Get history id"
-    histories = gi.histories.get_histories()
-    hist_id = search_history(histories, args.sample_name)
     if not os.path.exists(args.output_dir):
         os.mkdir(args.output_dir)
 
-    print "  Export history datasets"
-    for dataset_id in gi.histories.show_history(hist_id)['state_ids']['ok']:
-        name = str(gi.datasets.show_dataset(dataset_id)['name']).lower()
-        name = name.replace(':', '')
-        name = name.replace(' ','_')
-        extension = str(gi.datasets.show_dataset(dataset_id)['extension'])
-        output_filepath = args.output_dir + '/' + name + '.' + extension
-        gi.histories.download_dataset(hist_id, dataset_id, output_filepath, 
-            use_default_filename=False)
+    gi = galaxy_api_commands.connect_to_galaxy_instance(args.gi_url, args.api_key)
+    hist_id = galaxy_api_commands.get_hist_id(args.sample_name, gi)
+    galaxy_api_commands.export_workflow_outputs(hist_id, args.output_dir, gi)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
