@@ -7,28 +7,28 @@ import argparse
 import re
 import time
 from bioblend import galaxy
-
-def check_history_state(gi, hist_id):
-    state = len(gi.histories.show_history(hist_id)['state_ids']['running']) > 0 
-    state |= len(gi.histories.show_history(hist_id)['state_ids']['queued']) > 0
-    return state
+import galaxy_api_commands
 
 def compare_humann2_output(args):
-    workflow_file_path = "data/asaim_compare_normalized_" 
-    workflow_file_path += args.characteristics + "_abundances.ga"
+    workflow_file_path = "data/asaim_compare_normalized_characteristics_abundances.ga"
 
     input_filepaths  = {}
     if args.characteristics == 'gene_families':
-        filename = "normalize_a_dataset_by_on_data_17_normalized_dataset.tabular" 
+        humann2_filename = "51_normalize_a_dataset_by_on_data_40_normalized_dataset.tabular" 
+        combined_humann2_metaphlan2_filename = "37_combine_metaphlan2_and_humann2_outputs_on_data_29_and_data_10_gene_family_abundances_related_to_genus_species_abundances.tabular"
     else:
-        filename = "normalize_a_dataset_by_on_data_19_normalized_dataset.tabular" 
+        humann2_filename = "52_normalize_a_dataset_by_on_data_41_normalized_dataset.tabular" 
+        combined_humann2_metaphlan2_filename = "38_combine_metaphlan2_and_humann2_outputs_on_data_31_and_data_10_pathway_abundances_related_to_genus_species_abundances.tabular"
+
     for sample_name in args.sample_name:
-        filepath = "results/" + sample_name + "/asaim_results/" + filename
-        input_filepaths[sample_name] = filepath
+        filepath = "results/" + sample_name + "/asaim_results/" + humann2_filename
+        input_filepaths[sample_name + '_humann2'] = filepath
+        filepath = "results/" + sample_name + "/asaim_results/" + combined_humann2_metaphlan2_filename
+        input_filepaths[sample_name + '_combined_humann2_metaphlan2'] = filepath
 
     gi = galaxy_api_commands.connect_to_galaxy_instance(args.gi_url, args.api_key)
-    galaxy_api_commands.run_workflow(args.sample_name, workflow_file_path, input_filepaths, 
-        gi, args.output_dir)
+    galaxy_api_commands.run_workflow(args.characteristics, workflow_file_path, 
+        input_filepaths, gi, args.output_dir)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
