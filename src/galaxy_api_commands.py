@@ -12,19 +12,22 @@ def create_history(name, gi):
     history_details = gi.histories.create_history(name)
     return history_details['id']
 
-def upload_file(filepath, name, hist_id, gi):
+def upload_file(filepath, name, hist_id, gi, file_type):
     upload_file_details = gi.tools.upload_file(filepath, hist_id, 
-        file_name = name, file_type = 'txt')
+        file_name = name, file_type = file_type)
     upload_file_job_id = upload_file_details['jobs'][0]['id']
     while str(gi.jobs.get_state(upload_file_job_id)) != 'ok':
         time.sleep(1)
     return upload_file_details['outputs'][0]['id']
 
-def upload_files(input_filepaths, hist_id, gi):
+def upload_files(input_filepaths, hist_id, gi, file_types = {}):
     datasets_id = {} 
     for input_name in input_filepaths:
+        file_type = 'tabular'
+        if file_types.has_key(input_name):
+            file_type = file_types[input_name]
         datasets_id[input_name] = upload_file(input_filepaths[input_name], 
-            input_name, hist_id, gi)
+            input_name, hist_id, gi, file_type)
     return datasets_id
 
 def import_workflow(workflow_file_path, gi):
@@ -60,8 +63,9 @@ def get_hist_id(hist_name, gi):
 
     for history in histories:
         if history['name'] == hist_name:
+            if hist_id != None:
+                raise ValueError(hist_name, 'already found')
             hist_id = history['id']
-            print history
 
     if hist_id == None:
         raise ValueError('No history found for', hist_name)
@@ -69,24 +73,28 @@ def get_hist_id(hist_name, gi):
 
 def export_workflow_outputs(hist_id, output_dir, gi):
     print "  Export history content of ", hist_id
+    count = 1
     for dataset_id in gi.histories.show_history(hist_id)['state_ids']['ok']:
         dataset_name = str(gi.datasets.show_dataset(dataset_id)['name']).lower()
         dataset_name = dataset_name.replace(':', '')
         dataset_name = dataset_name.replace(' ','_')
+        dataset_name = dataset_name.replace('/','_')
+        dataset_name = str(count) + '_' + dataset_name
         extension = gi.datasets.show_dataset(dataset_id)['extension']
         if extension == None:
             extension = ''
         else:
             extension = '.' + str(extension)
         output_filepath = output_dir + '/' + dataset_name + extension
+        count += 1
         gi.histories.download_dataset(hist_id, dataset_id, output_filepath, 
             use_default_filename=False)
 
 def run_workflow(workflow_name, workflow_file_path, input_filepaths, gi, 
-        output_dir, export = True, delete = True):
+        output_dir, export = True, delete = True, file_types = {}):
     print "  Create an history for ", workflow_name, " and import input data"
     hist_id = create_history(workflow_name,gi)
-    datasets_id = upload_files(input_filepaths, hist_id, gi)
+    datasets_id = upload_files(input_filepaths, hist_id, gi, file_types)
     
     print "  Import workflow and launch it"
     wf_id, wf_inputs = import_workflow(workflow_file_path, gi)
