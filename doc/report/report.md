@@ -221,14 +221,14 @@ Raw *MetaPhlAn* results consist in a plain text file with relative abundance of 
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width = .8\linewidth]{../../results/SRR072232/asaim_results/graphlan_on_data_39_image.png}
+    \includegraphics[width = .8\linewidth]{../images/SRR072232/graphlan.png}
     \caption{GraPhlAn representation of taxonomic assignation obtained for SRR072232 with ASaiM}
     \label{graphlan_SRR072232}
 \end{figure}
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width = .8\linewidth]{../../results/SRR072233/asaim_results/graphlan_on_data_39_image.png}
+    \includegraphics[width = .8\linewidth]{../images/SRR072233/graphlan.png}
     \caption{GraPhlAn representation of taxonomic assignation obtained for SRR072233 with ASaiM}
     \label{graphlan_SRR072233}
 \end{figure}
@@ -238,10 +238,10 @@ Despite same expected taxonomy, the taxonomic diversity in SRR072232 dataset (Fi
 \begin{figure}[h!]
     \centering
     \begin{minipage}[c]{.49\linewidth}
-    \includegraphics[width = \linewidth]{../../results/SRR072232/concatenated_results/species_abundances.pdf}
+    \includegraphics[width = \linewidth]{../images/SRR072232/species_abundances.pdf}
     \end{minipage} \hfill
     \begin{minipage}[c]{.49\linewidth}
-    \includegraphics[width = \linewidth]{../../results/SRR072233/concatenated_results/species_abundances.pdf}
+    \includegraphics[width = \linewidth]{../images/SRR072233/species_abundances.pdf}
     \end{minipage} 
     \caption{Relative abundances (percentage in log scale) of expected species for SRR072232 (left) and SRR072232 (right) with comparison between expected abundances (red thin bars) and abundances obtained with ASaiM (blue wide bars)}
     \label{species_abundances}
@@ -326,10 +326,10 @@ Taxonomic results obtained with *EBI metagenomics* pipeline are less precise tha
 \begin{figure}[h!]
     \centering
     \begin{minipage}[c]{.49\linewidth}
-    \includegraphics[width = \linewidth]{../../results/SRR072232/concatenated_results/family_abundances.pdf}
+    \includegraphics[width = \linewidth]{../images/SRR072232/concatenated_family_abundances.pdf}
     \end{minipage} \hfill
     \begin{minipage}[c]{.49\linewidth}
-    \includegraphics[width = \linewidth]{../../results/SRR072233/concatenated_results/family_abundances.pdf}
+    \includegraphics[width = \linewidth]{../images/SRR072233/concatenated_family_abundances.pdf}
     \end{minipage} 
     \caption{Relative abundances of expected families for SRR072232 (left) and SRR072232 (right) with comparison between expected abundances (red thin bars), abundances obtained with \textit{EBI metagenomics} (green wide bars) and abundances obtained with ASaiM (blue wide bars) and }
     \label{family_abundances}
@@ -347,6 +347,73 @@ In these families with expected low abundance, one family is an exception: Deino
 
 ### Raw ASaiM results
 
+In ASaiM workflow (Figure \ref{asaim_workflow}), functional analyses is made using [*HUMAnN*2](http://huttenhower.sph.harvard.edu/humann2) [@abubucker_metabolic_2012]. This tool profiles the presence/absence and abundance of UniRef50 gene families and MetaCyc pathways using *MinPath* from metagenomic/metatranscriptomic datasets. It is helpful to describe the metabolic profil of a microbiol community. This step of functional profiling with *HUMAnN*2 is the longest step in ASaiM workflow (Table \ref{computation_stats}). 
+
+*HUMAnN*2 generates three outputs: UniRef50 gene families, coverage and abundance of MetaCyc pathways. In both samples, > 90,000 UniRef50 gene families and > 480 MetaCyc pathways (Table \ref{humann2_informations}) are reconstructed from > 1,100,000 non rRNA sequences (Table \ref{pretreatment_stats}). More gene families and pathways are found for SRR072233 than for SRR072232 (Table \ref{humann2_informations}) but the values are similar. 
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{m{3cm}m{5cm}rrrr}
+\hline
+ & & \multicolumn{2}{c}{UniRef50 gene families} & \multicolumn{2}{c}{MetaCyc pathways}\\
+ & & SRR072232 & SRR072233 & SRR072232 & SRR072233 \\
+\hline
+All & Number & 98,569 & 129,691 & 487 & 500\\
+ & Similar & \multicolumn{2}{c}{44,933} & \multicolumn{2}{c}{475} \\
+& \% of similar inside all & 45.59\% & 34.65\% & 97.54\% & 95\% \\
+& Relative abundance (\%) & 89.16\% & 50.67\% & 99.85\% & 99.53\%\\
+& \textit{p-value} of Wilcoxon test on normalized relative abundance & \multicolumn{2}{c}{1.31 $\cdot 10^{-14}$ (***)} & \multicolumn{2}{c}{0.24} \\
+\hline
+Associated to a species & Number & 26,219 & 41,005 & 402 & 400 \\
+& \% of associated to a species inside all & 26.60\% & 31.62\% & 82.56\% & 80\% \\
+& Relative abundance (\%) & 93.40\% & 90.24\% & 61.08\% & 51.52\%\\
+& Similar & \multicolumn{2}{c}{19,815} & \multicolumn{2}{c}{363} \\
+& \% of similar inside associated to a species  & 68.02\% & 48.32\% & 90.30\% & 90.75\% \\
+& Relative abundance of similar inside associated to a species (\%) & 89.17\% & 44.75\% & 91.87\% & 42.70\%\\
+\hline
+\end{tabular}
+\caption{Global information about UniRef50 gene families and MetaCyc pathways obtained with \textit{HUMAnN2} for both samples (SRR072233 and SRR072233). For each characteristics (gene families and pathways), several information is extracted: all number, number percentage and relative abundance (\%) of similar characteristics and \textit{p-value} of Wilcoxon test on relative abundance normalized by the sum of relative abundance for all similar characteristics.}
+\label{humann2_informations}
+\end{table}
+
+44,933 gene families are found in both samples (Table \ref{humann2_informations}). Even if less than 50\% of gene families are similar, the similar gene families represent more than 50\% of the relative abundance in both samples (Table \ref{humann2_informations}). Inside similar gene families, relative abundance of gene families in both samples is different (Figure \ref{similar_characteristics_abundances}): the median value of normalized abundance of similar gene families is smaller for SRR072232 (significant *p-value* for Wilcoxon test, Table \ref{humann2_informations}).
+
+\begin{figure}[h!]
+    \centering
+    \begin{minipage}[c]{.49\linewidth}
+    \includegraphics[width = \linewidth]{../images/concatenated_samples/gene_families_SRR072232_SRR072233.pdf}
+    \end{minipage} \hfill
+    \begin{minipage}[c]{.49\linewidth}
+    \includegraphics[width = \linewidth]{../images/concatenated_samples/pathways_SRR072232_SRR072233.pdf}
+    \end{minipage} 
+    \caption{Normalized relative abundances (\%) for similar UniRef50 gene families (left graphics) and MetaCyc pathways (right graphics) for both samples (SRR072233 and SRR072233). The relative abundances of each similar characteristics (gene families or pathways) is computed with \textit{HUMAnN2} and normalized by the sum of relative abundance for all similar characteristics.}
+    \label{similar_characteristics_abundances}
+\end{figure}
+
+Similarly, a high proportion (> 95 \%) of pathways are found in both samples (Table \ref{humann2_informations}) and they represents nearly all abundance (> 99.5 \%, Table \ref{humann2_informations}). Unlike gene families, relative abundance of pathways are similar in both samples (non-significant *p-value* for Wilcoxon test, Table \ref{humann2_informations} and Figure \ref{similar_characteristics_abundances}).
+
+In *HUMAnN2* results, abundances of gene families and pathways are stratified at the community level. Contribution of identified species for < 35\% of gene families and > 80\% pathways are then accessible and they represent > 90\% of relative abundance for gene families and > 50\% for pathways (Table \ref{humann2_informations}). This taxonomic information (relation between species and gene families or pathways) can be related to taxonomic information and species abundances from *MetaPhlAN2* (Figure \ref{gene_family_pathway_nb_mean}). 
+
+(Table \ref{correlation_information})
+The relations are identical for SRR072233 (Table \ref{correlation_information})
+
+\begin{figure}[h!]
+    \centering
+    \begin{minipage}[c]{.49\linewidth}
+    \includegraphics[width = \linewidth]{../images/SRR072232/gene_family_nb.pdf}
+    \end{minipage} \hfill
+    \begin{minipage}[c]{.49\linewidth}
+    \includegraphics[width = \linewidth]{../images/SRR072232/mean_gene_family_abundance.pdf}
+    \end{minipage} 
+    \begin{minipage}[c]{.49\linewidth}
+    \includegraphics[width = \linewidth]{../images/SRR072232/pathway_nb.pdf}
+    \end{minipage} \hfill
+    \begin{minipage}[c]{.49\linewidth}
+    \includegraphics[width = \linewidth]{../images/SRR072232/mean_pathway_abundance.pdf}
+    \end{minipage}
+    \caption{Number (left, log scale) and mean (right), log scale abundances of gene families (top) and pathways (bottom) in fonction of related species abundance for SRR072232. Correlation coefficients and p-values are detailed in Table \ref{correlation_information}}
+    \label{gene_family_pathway_nb_mean}
+\end{figure}
 
 \begin{table}[h!]
 \centering
@@ -355,31 +422,56 @@ In these families with expected low abundance, one family is an exception: Deino
  & & \multicolumn{2}{c}{UniRef50 gene families} & \multicolumn{2}{c}{MetaCyc pathways}\\
  & & SRR072232 & SRR072233 & SRR072232 & SRR072233 \\
 \hline
-\multicolumn{2}{l}{All} & 98,569 & 129,691 & 487 & 500\\
+Number & $r^{2}$ &  &  &  & \\
+& \textit{p-value} & &  &  & \\
 \hline
-Similar & Number & \multicolumn{2}{c}{44,933} & \multicolumn{2}{c}{475} \\
-& \% of similar & 45.59\% & 34.65\% & 97.54\% & 95\% \\
-& Relative abundance (\%) & 89.16\% & 50.67\% & 99.85\% & 99.53\%\\
-& \textit{p-value} of Wilcoxon test on normalized relative abundance & \multicolumn{2}{c}{1.31 $\cdot 10^{-14}$ (***)} & \multicolumn{2}{c}{0.24} \\
+Mean abundance & $r^{2}$ & 0.91 & 0.98 & 0.90 & 0.93\\
+& \textit{p-value} & 1.51 $\cdot 10^{-7}$ & $<$ 2.2 $\cdot 10^{-16}$ & 1.91 $\cdot 10^{-7}$ & 5.88 $\cdot 10{-12}$ \\
 \hline
 \end{tabular}
-\caption{Global information about UniRef50 gene families and MetaCyc pathways obtained with \textit{HUMAnN2} for both samples (SRR072233 and SRR072233). For each characteristics (gene families and pathways), several information is extracted: all number, number percentage and relative abundance (\%) of similar characteristics and \textit{p-value} of Wilcoxon test on relative abundance normalized by the sum of relative abundance for all similar characteristics.}
-\label{humann2_informations}
+\caption{Indicators of correlation between relative species abudance and number and mean abundance for UniRef50 gene families and MetaCyc pathways obtained with \textit{HUMAnN2} for both samples (SRR072233 and SRR072233).}
+\label{correlation_information}
 \end{table}
+
+
+Same taxonomy expected but in different abundance.
 
 \begin{figure}[h!]
     \centering
     \begin{minipage}[c]{.49\linewidth}
-    \includegraphics[width = \linewidth]{../../results/concatenated_samples/gene_families/plot_generic_x-y_plot_on_data_7_pdf_x-y_plot.pdf}
+    \includegraphics[width = \linewidth]{../images/concatenated_samples/gene_family_nb.pdf}
     \end{minipage} \hfill
     \begin{minipage}[c]{.49\linewidth}
-    \includegraphics[width = \linewidth]{../../results/concatenated_samples/pathways/plot_generic_x-y_plot_on_data_7_pdf_x-y_plot.pdf}
+    \includegraphics[width = \linewidth]{../images/concatenated_samples/mean_gene_family_abundance.pdf}
     \end{minipage} 
-    \caption{Normalized relative abundances (\%) for similar UniRef50 gene families (left graphics) and MetaCyc pathways (right graphics) for both samples (SRR072233 and SRR072233). The relative abundances of each similar characteristics (gene families or pathways) is computed with \textit{HUMAnN2} and normalized by the sum of relative abundance for all similar characteristics.}
-    \label{similar_characteristics_abundances}
+    \begin{minipage}[c]{.49\linewidth}
+    \includegraphics[width = \linewidth]{../images/concatenated_samples/pathway_nb.pdf}
+    \end{minipage} \hfill
+    \begin{minipage}[c]{.49\linewidth}
+    \includegraphics[width = \linewidth]{../images/concatenated_samples/mean_pathway_abundance.pdf}
+    \end{minipage}
+    \caption{Difference in number (left) and mean (right) abundances for gene families (top) and pathways (bottom) between SRR072233 and SRR072232 in fonction of difference of related species abundance between SRR072233 and SRR072232}
+    \label{diff_gene_family_pathway_nb_mean}
 \end{figure}
 
-pltooo
+GO terms
+
+\begin{figure}[h!]
+    \centering
+    \begin{minipage}[c]{.49\linewidth}
+    \includegraphics[width = \linewidth]{../images/SRR072232/cellular_components.pdf}
+    \end{minipage} \hfill
+    \begin{minipage}[c]{.49\linewidth}
+    \includegraphics[width = \linewidth]{../images/SRR072232/biological_processes.pdf}
+    \end{minipage} 
+    \begin{minipage}[c]{.49\linewidth}
+    \includegraphics[width = \linewidth]{../images/SRR072232/molecular_functions.pdf}
+    \end{minipage}
+    \caption{Relative abundances of GO slim terms in SRR072232 for cellular components (top left), biological processes (top right) and molecular function (bottom)}
+    \label{SRR072232_go_abundances}
+\end{figure}
+
+Comparison between both samples further
 
 ### Comparison of *EBI metagenomics* and ASaiM results
 
@@ -396,30 +488,56 @@ GO slim
 GO id & GO name & EBI & ASaiM & EBI & ASaiM \\
 \hline
 \multicolumn{2}{l}{Cellular components} & & & & \\
-GO:0031012 & Extracellular matrix & 1.71 $\cdot 10^{-2}$ & - & 2.74 $\cdot 10^{-2}$ & 1.37 $\cdot 10^{-5}$ \\
-GO:0005667 & Transcription factor complex & 0 & - & 9.81 $\cdot 10^{-3}$ & -\\
-GO:0005694 & Chromosome & 2.80 & - & 2.61 & -\\
-GO:0005856 & Cytoskeleton & 2.23 $\cdot 10^{-1}$ & - & 8.44 $\cdot 10^{-2}$ & -\\
-GO:0016469 & Proton-transporting two-sector ATPase complex & 1.34 & - & 1.44 & -\\
-GO:0019861 & Flagellum & 9.78 $\cdot 10^{-1}$ & - & 6.24 $\cdot 10^{-1}$ & -\\
-GO:0005575 & Cellular component & - & 19.29 & - & 19.84 \\
+\href{http://amigo.geneontology.org/amigo/term/GO:0031012}{GO:0031012} & Extracellular matrix & 1.71 $\cdot 10^{-2}$ & - & 2.74 $\cdot 10^{-2}$ & 1.37 $\cdot 10^{-5}$ \\
+\href{http://amigo.geneontology.org/amigo/term/GO:0005667}{GO:0005667} & Transcription factor complex & 0 & - & 9.81 $\cdot 10^{-3}$ & -\\
+\href{http://amigo.geneontology.org/amigo/term/GO:0005694}{GO:0005694} & Chromosome & 2.80 & - & 2.61 & -\\
+\href{http://amigo.geneontology.org/amigo/term/GO:0005856}{GO:0005856} & Cytoskeleton & 2.23 $\cdot 10^{-1}$ & - & 8.44 $\cdot 10^{-2}$ & -\\
+\href{http://amigo.geneontology.org/amigo/term/GO:0016469}{GO:0016469} & Proton-transporting two-sector ATPase complex & 1.34 & - & 1.44 & -\\
+\href{http://amigo.geneontology.org/amigo/term/GO:0019861}{GO:0019861} & Flagellum & 9.78 $\cdot 10^{-1}$ & - & 6.24 $\cdot 10^{-1}$ & -\\
+\href{http://amigo.geneontology.org/amigo/term/GO:0005575}{GO:0005575} & Unknown cellular component & - & 19.29 & - & 19.84 \\
 \hline
 \multicolumn{2}{l}{Biological processes} & & & & \\
-GO:0006351 & Transcription, DNA-dependent & 3.27 & - & 3.06 & - \\
-GO:0044403 & Symbiosis, encompassing mutualism through parasitism & 1.91 $ \cdot 10^{-2}$ & - & 4.35 $\cdot 10^{-3}$ & - \\
-GO:0046039 & GTP metabolic process & 5.59 $\cdot 10^{-2}$ & - & 5.29 $\cdot 10^{-2}$ & - \\
-GO:0008150 & Biological process & - & 6.84 & - & 5.29 \\
+\href{http://amigo.geneontology.org/amigo/term/GO:0006351}{GO:0006351} & Transcription, DNA-dependent & 3.27 & - & 3.06 & - \\
+\href{http://amigo.geneontology.org/amigo/term/GO:0044403}{GO:0044403} & Symbiosis, encompassing mutualism through parasitism & 1.91 $ \cdot 10^{-2}$ & - & 4.35 $\cdot 10^{-3}$ & - \\
+\href{http://amigo.geneontology.org/amigo/term/GO:0046039}{GO:0046039} & GTP metabolic process & 5.59 $\cdot 10^{-2}$ & - & 5.29 $\cdot 10^{-2}$ & - \\
+\href{http://amigo.geneontology.org/amigo/term/GO:0008150}{GO:0008150} & Unknown biological process & - & 6.84 & - & 5.29 \\
 \hline
 \multicolumn{2}{l}{Molecular functions} & & & & \\
-GO:0001071 & Nucleic acid binding transcription factor activity & 1.56 & - & 1.33 & - \\
-GO:0003774 & Motor activity & 9.87 $\cdot 10^{-2}$ & - & 5.32 $\cdot 10^{-2}$ & - \\
-GO:0045182 & Translation regulator activity & 1.38 $\cdot 10^{-3}$ & - & 0 & - \\
-GO:0003674 & Molecular function & - & 9.34 & - & 10.88 \\
+\href{http://amigo.geneontology.org/amigo/term/GO:0001071}{GO:0001071} & Nucleic acid binding transcription factor activity & 1.56 & - & 1.33 & - \\
+\href{http://amigo.geneontology.org/amigo/term/GO:0003774}{GO:0003774} & Motor activity & 9.87 $\cdot 10^{-2}$ & - & 5.32 $\cdot 10^{-2}$ & - \\
+\href{http://amigo.geneontology.org/amigo/term/GO:0045182}{GO:0045182} & Translation regulator activity & 1.38 $\cdot 10^{-3}$ & - & 0 & - \\
+\href{http://amigo.geneontology.org/amigo/term/GO:0003674}{GO:0003674} & M
+Unknown molecular function & - & 9.34 & - & 10.88 \\
 \hline
 \end{tabular}
 \caption{GO slim terms not found in both samples (SRR072232, SRR072233) and/or with both workflows (EBI metagenomics, ASaiM), with the relative abundance (in percentage) in GO slim groups (cellular components, biological processes and molecular functions)}
 \label{incomplete_go_slims}
 \end{table}
+
+\begin{figure}[h!]
+    \centering
+    \begin{minipage}[c]{.55\linewidth}
+    \includegraphics[width = \linewidth]{../images/concatenated_samples//cellular_component_barplot.pdf}
+    \end{minipage} \hfill
+    \begin{minipage}[c]{.43\linewidth}
+    \includegraphics[width = \linewidth]{../images/concatenated_samples//cellular_component_pca.pdf}
+    \end{minipage} 
+    \caption{Barplot representation (in left, logarithm scale) and scatter diagram of principal component analysis of the normalized relative abundances (in percentage) of the cellular component GO slim terms for both samples (SRR072233 and SRR072233) and both workflows (\textit{EBI metagenomics} and ASaiM). The relative abundances of each GO slim terms is normalized by the sum of relative abundance for the found cellular component GO slim terms in both samples and with both workflows.}
+    \label{cellular_components}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \begin{minipage}[c]{.49\linewidth}
+    \includegraphics[width = \linewidth]{../images/concatenated_samples/biological_process_pca.pdf}
+    \end{minipage} \hfill
+    \begin{minipage}[c]{.49\linewidth}
+    \includegraphics[width = \linewidth]{../images/concatenated_samples/molecular_function_pca.pdf}
+    \end{minipage} 
+    \caption{Scatter diagram of principal component analysis of the normalized relative abundances (in percentage) of the biological process (in left) and of the molecular functions (in right) GO slim terms for both samples (SRR072233 and SRR072233) and both workflows (\textit{EBI metagenomics} and ASaiM). The relative abundances of each GO slim terms is normalized by the sum of relative abundance for the found biological process GO slim terms in both samples and with both workflows.}
+    \label{biological_process}
+\end{figure}
+
 
 # Conclusion
 
