@@ -11,9 +11,9 @@ function export_asaim_workflow_outputs {
 
 function extract_unassigned_clades_perc {
     sample_name=$1
-    read_number=`grep -o ">" results/$sample_name/asaim_results/vsearch_dereplication_on_data_6.fasta | wc -l`
+    read_number=`grep -o ">" results/$sample_name/asaim_results/8_vsearch_dereplication_on_data_6.fasta | wc -l`
     python src/extract_unassigned_clades_perc.py \
-        --metaphlan_output "results/"$sample_name"/asaim_results/profile_of_communities_on_data_8_(metaphlan).txt" \
+        --metaphlan_output "results/"$sample_name"/asaim_results/9_profile_of_communities_on_data_8_(metaphlan).txt" \
         --read_number $read_number \
         --unassigned_clade_output_file "results/"$sample_name"/asaim_results/unassigned_clade_perc.txt"
 }
@@ -44,8 +44,8 @@ extract_unassigned_clades_perc "SRR072232"
 extract_unassigned_clades_perc "SRR072233"
 echo ""
 
-echo "Extract more abundant gene families and pathways and plot comparison"
-echo "===================================================================="
+echo "Compare functional analyses"
+echo "==========================="
 output_dir="results/concatenated_samples"
 if [[ ! -d $output_dir ]]; then
     mkdir $output_dir
