@@ -14,6 +14,7 @@ header-includes:
     - \usepackage{geometry}
     - \usepackage{pdflscape}
     - \usepackage{array}
+    - \usepackage{multirow}
 abstract: "The HMP metagenomes mock pilot represents the shotgun sequencing of HMP even and staggered Mock communities, distributed to each of the four HMP sequencing centers. The goal of the pilot was to test the sequencing protocol and to evaluate accuracy and consistency between centers.\\
 
 These controlled datasets are available in [*EBI metagenomics* database](https://www.ebi.ac.uk/metagenomics/projects/SRP004311), with taxonomic and functional analyses obtained with [*EBI metagenomics* pipeline (version 1.0)](https://www.ebi.ac.uk/metagenomics/pipelines/1.0).\\
@@ -392,28 +393,22 @@ Associated to a species & Number & 26,219 & 41,005 & 402 & 400 \\
 
 Similarly, a high proportion (> 95 \%) of pathways are found in both samples (Table \ref{humann2_informations}) and they represents nearly all abundance (> 99.5 \%, Table \ref{humann2_informations}). Unlike gene families, relative abundance of pathways are similar in both samples (non-significant *p-value* for Wilcoxon test, Table \ref{humann2_informations} and Figure \ref{similar_characteristics_abundances}).
 
-In *HUMAnN2* results, abundances of gene families and pathways are stratified at the community level. Contribution of identified species for < 35\% of gene families and > 80\% pathways are then accessible and they represent > 90\% of relative abundance for gene families and > 50\% for pathways (Table \ref{humann2_informations}). This taxonomic information (relation between species and gene families or pathways) can be related to taxonomic information and species abundances from *MetaPhlAN2* (Figure \ref{gene_family_pathway_nb_mean}). 
-
-(Table \ref{correlation_information})
-The relations are identical for SRR072233 (Table \ref{correlation_information})
+In *HUMAnN2* results, abundances of gene families and pathways are stratified at the community level. Contribution of identified species for < 35\% of gene families and > 80\% pathways are then accessible and they represent > 90\% of relative abundance for gene families and > 50\% for pathways (Table \ref{humann2_informations}). This taxonomic information (relation between species and gene families or pathways) can be related to taxonomic information and species abundances from *MetaPhlAN2* (Figure \ref{gene_family_pathway_mean}). 
 
 \begin{figure}[h!]
     \centering
     \begin{minipage}[c]{.49\linewidth}
-    \includegraphics[width = \linewidth]{../images/SRR072232/gene_family_nb.pdf}
-    \end{minipage} \hfill
-    \begin{minipage}[c]{.49\linewidth}
     \includegraphics[width = \linewidth]{../images/SRR072232/mean_gene_family_abundance.pdf}
-    \end{minipage} 
-    \begin{minipage}[c]{.49\linewidth}
-    \includegraphics[width = \linewidth]{../images/SRR072232/pathway_nb.pdf}
     \end{minipage} \hfill
     \begin{minipage}[c]{.49\linewidth}
     \includegraphics[width = \linewidth]{../images/SRR072232/mean_pathway_abundance.pdf}
     \end{minipage}
-    \caption{Number (left, log scale) and mean (right), log scale abundances of gene families (top) and pathways (bottom) in fonction of related species abundance for SRR072232. Correlation coefficients and p-values are detailed in Table \ref{correlation_information}}
-    \label{gene_family_pathway_nb_mean}
+    \caption{Mean abundances of gene families (left) and pathways (right) in fonction of related species abundance for SRR072232 (log scale). Correlation coefficients and p-values are detailed in Table \ref{correlation_information}}
+    \label{gene_family_pathway_mean}
 \end{figure}
+
+For both samples, relative abundances of gene families and pathways are highly correlated to observed relative abundance of corresponding species (Figure \ref{gene_family_pathway_mean} and Table \ref{correlation_information}). This relation is expected for gene families: a species is more abundant if more sequences corresponding to this species are found and then the relative abundance of these sequences is high. It applies to all sequences, even sequences corresponding to gene families. For pathways, the relation is more complex: a pathway is identified if a high proportion of the gene families expected for this pathway is found. And the abundance of a pathway is proportional to the number of complete "copies" of this pathway in the species.
+Then, a pathway is abundant if its parts are all found in numerous copies. The high correlations between species relative abundance and mean relative pathway abundance (Figure \ref{gene_family_pathway_mean}, Table \ref{correlation_information}) confirm the correct pathway reconstruction with *HUMAnN2*.
 
 \begin{table}[h!]
 \centering
@@ -422,39 +417,78 @@ The relations are identical for SRR072233 (Table \ref{correlation_information})
  & & \multicolumn{2}{c}{UniRef50 gene families} & \multicolumn{2}{c}{MetaCyc pathways}\\
  & & SRR072232 & SRR072233 & SRR072232 & SRR072233 \\
 \hline
-Number & $r^{2}$ &  &  &  & \\
-& \textit{p-value} & &  &  & \\
+\multicolumn{2}{c}{Mean abundance (Figure \ref{gene_family_pathway_mean})} & & & &\\
+\cline{1-2}
+Correlation with species abundance & $r^{2}$ & 0.91 & 0.98 & 0.90 & 0.93\\
+ & \textit{p-value} & 1.51 $\cdot 10^{-7}$ & $<$ 2.2 $\cdot 10^{-16}$ & 1.91 $\cdot 10^{-7}$ & 5.88 $\cdot 10{-12}$ \\
 \hline
-Mean abundance & $r^{2}$ & 0.91 & 0.98 & 0.90 & 0.93\\
-& \textit{p-value} & 1.51 $\cdot 10^{-7}$ & $<$ 2.2 $\cdot 10^{-16}$ & 1.91 $\cdot 10^{-7}$ & 5.88 $\cdot 10{-12}$ \\
+\multicolumn{2}{c}{Difference of mean abundance between SRR072233 and SRR072232} & & & &\\
+\multicolumn{2}{c}{(Figure \ref{diff_gene_family_pathway_mean})} & & & &\\
+\cline{1-2}
+Correlation with difference of species abundance & $r^{2}$ & \multicolumn{2}{c}{0.89} & \multicolumn{2}{c}{0.84}\\
+ & \textit{p-value} & \multicolumn{2}{c}{4.121 $\cdot 10^{-7}$} & \multicolumn{2}{c}{4.651 $\cdot 10^{-6}$} \\
+\hline
+\multicolumn{2}{c}{Number (Figure \ref{gene_family_nb_protein_nb})} & & & &\\
+\cline{1-2}
+Correlation with species abundance & $r^{2}$ & 0.1 & 0.04 & & \\
+  & \textit{p-value} & 0.27 & 0.39 & & \\
+\cline{1-2}
+Correlation with species median protein number & $r^{2}$ & 0.56 & 0.37 & & \\
+& \textit{p-value} & 2.027 $\cdot 10^{-3}$ & 4.28 $\cdot 10^{-3}$ & & \\
+\hline
+\multicolumn{2}{c}{Difference of number between SRR072233 and SRR072232} & & & &\\
+\cline{1-2}
+Correlation with difference of species abundance & $r^{2}$ & \multicolumn{2}{c}{0.42} & \multicolumn{2}{c}{0.29}\\
+& \textit{p-value} & \multicolumn{2}{c}{0.013} & \multicolumn{2}{c}{0.046} \\
 \hline
 \end{tabular}
-\caption{Indicators of correlation between relative species abudance and number and mean abundance for UniRef50 gene families and MetaCyc pathways obtained with \textit{HUMAnN2} for both samples (SRR072233 and SRR072233).}
+\caption{Correlation coefficients and p-values (Pearson's test) for UniRef50 gene families and MetaCyc pathways obtained with \textit{HUMAnN2} for both samples (SRR072233 and SRR072233).}
 \label{correlation_information}
 \end{table}
 
-
-Same taxonomy expected but in different abundance.
+Similar relations between species abundances and gene family or pathway mean abundances are found in both samples (Table \ref{correlation_information}). Indeed, differences in gene families and pathways abundances between both samples are mostly explained by differences in abundance of corresponding species (high correlation, Figure \ref{diff_gene_family_pathway_mean}, Table \ref{correlation_information}).
 
 \begin{figure}[h!]
     \centering
     \begin{minipage}[c]{.49\linewidth}
-    \includegraphics[width = \linewidth]{../images/concatenated_samples/gene_family_nb.pdf}
-    \end{minipage} \hfill
-    \begin{minipage}[c]{.49\linewidth}
     \includegraphics[width = \linewidth]{../images/concatenated_samples/mean_gene_family_abundance.pdf}
-    \end{minipage} 
-    \begin{minipage}[c]{.49\linewidth}
-    \includegraphics[width = \linewidth]{../images/concatenated_samples/pathway_nb.pdf}
     \end{minipage} \hfill
     \begin{minipage}[c]{.49\linewidth}
     \includegraphics[width = \linewidth]{../images/concatenated_samples/mean_pathway_abundance.pdf}
     \end{minipage}
-    \caption{Difference in number (left) and mean (right) abundances for gene families (top) and pathways (bottom) between SRR072233 and SRR072232 in fonction of difference of related species abundance between SRR072233 and SRR072232}
-    \label{diff_gene_family_pathway_nb_mean}
+    \caption{Difference in mean abundances for gene families (left) and pathways (right) in fonction of difference of related species abundance between SRR072233 and SRR072232. Correlation coefficients and p-values are detailed in Table \ref{correlation_information}}
+    \label{diff_gene_family_pathway_mean}
 \end{figure}
 
-GO terms
+Unlike mean abundance, number of different gene families for each species is not correlated to species abundances (Figure \ref{gene_family_nb_protein_nb}, Table \ref{correlation_information}). Then, a highly abundant species is abundant because of numerous copies of its gene families but not necessarily because of numerous different gene families. The number of different gene families for each species is more correlated with the median number of protein for these species (Figure \ref{gene_family_nb_protein_nb}, Table \ref{correlation_information}). We expect also a correlation with the number of gene families corresponding to these species in reference database (UniRef50) of *HUMAnN2*.
+
+\begin{figure}[h!]
+    \centering
+    \begin{minipage}[c]{.49\linewidth}
+    \includegraphics[width = \linewidth]{../images/SRR072232/gene_family_nb.pdf}
+    \end{minipage} \hfill
+    \begin{minipage}[c]{.49\linewidth}
+    \includegraphics[width = \linewidth]{../images/SRR072232/gene_family_nb_protein_nb.pdf}
+    \end{minipage} 
+    \caption{Number of gene families in fonction of corresponding species abundance (left) and median protein number for species (right) for SRR072232. Correlation coefficients and p-values are detailed in Table \ref{correlation_information}. The median protein number for each species has been extracted from NCBI. }
+    \label{gene_family_nb_protein_nb}
+\end{figure}
+
+In both samples, less abundant a species is, higher is the difference between number of observed gene families for this species and expected median protein number (Figure \ref{gene_family_nb_protein_nb}). Indeed, less abundant species have fewer sequences than more abundant species in overall dataset of sequences. And, the signal to identify these sequences and corresponding gene families is low and noisy. Lower proportion of expected gene families are then identified for less abundant species.
+
+\begin{figure}[h!]
+    \centering
+    \begin{minipage}[c]{.49\linewidth}
+    \includegraphics[width = \linewidth]{../images/SRR072232/diff_prot_nb_gene_family_number.pdf}
+    \end{minipage} \hfill
+    \begin{minipage}[c]{.49\linewidth}
+    \includegraphics[width = \linewidth]{../images/SRR072233/diff_prot_nb_gene_family_number.pdf}
+    \end{minipage} 
+    \caption{Difference between observed number of different gene families and expected median protein number in function of relative abundance of corresponding species (log scale) for SRR072232 (left) and SRR072233 (right). The median protein number for each species has been extracted from NCBI. }
+    \label{gene_family_nb_protein_nb}
+\end{figure}
+
+With more than 40,000 gene families and almost 500 pathways, it is difficult to get a broad overview of metabolic profil of the studied microbial community. Each gene family and pathway is precise and related to specific metabolic functions. This information is interesting when you need detailed metabolic information and to go deeply inside metabolic profil. However, to get a general overview of the metabolic processes, UniRef50 gene families and even MetaCyc pathways are too numerous and too precise. UniRef50 gene families and their abundances can be grouped into slim Gene Ontology terms (Figure \ref{SRR072232_go_abundances}). These results are commented in relation with *EBI metagenomics* results in next section.
 
 \begin{figure}[h!]
     \centering
@@ -470,8 +504,6 @@ GO terms
     \caption{Relative abundances of GO slim terms in SRR072232 for cellular components (top left), biological processes (top right) and molecular function (bottom)}
     \label{SRR072232_go_abundances}
 \end{figure}
-
-Comparison between both samples further
 
 ### Comparison of *EBI metagenomics* and ASaiM results
 

@@ -18,20 +18,27 @@ cp $SRR072232_result_dir"/concatenated_results/family_abundances.pdf" \
 cp $SRR072233_result_dir"/concatenated_results/family_abundances.pdf" \
     "doc/images/SRR072233/concatenated_family_abundances.pdf"
 
-cp $SRR072232_result_dir"/asaim_results/58_plot_generic_x-y_plot_on_data_53_pdf_x-y_plot.pdf" \
+cp $SRR072232_result_dir"/asaim_results/60_plot_generic_x-y_plot_on_data_53_pdf_x-y_plot.pdf" \
     "doc/images/SRR072232/gene_family_nb.pdf"
 cp $SRR072232_result_dir"/asaim_results/58_plot_generic_x-y_plot_on_data_53_pdf_x-y_plot.pdf" \
     "doc/images/SRR072232/mean_gene_family_abundance.pdf"
-cp $SRR072232_result_dir"/asaim_results/60_plot_generic_x-y_plot_on_data_54_pdf_x-y_plot.pdf" \
+cp $SRR072232_result_dir"/asaim_results/62_plot_generic_x-y_plot_on_data_54_pdf_x-y_plot.pdf" \
     "doc/images/SRR072232/pathway_nb.pdf"
-cp $SRR072232_result_dir"/asaim_results/60_plot_generic_x-y_plot_on_data_54_pdf_x-y_plot.pdf" \
+cp $SRR072232_result_dir"/asaim_results/61_plot_generic_x-y_plot_on_data_54_pdf_x-y_plot.pdf" \
     "doc/images/SRR072232/mean_pathway_abundance.pdf"
+cp $SRR072232_result_dir"/asaim_results/plot_prot_nb_gene_family_number.pdf" \
+    "doc/images/SRR072232/gene_family_nb_protein_nb.pdf"
+cp $SRR072232_result_dir"/asaim_results/plot_diff_prot_nb_gene_family_number.pdf" \
+    "doc/images/SRR072232/diff_prot_nb_gene_family_number.pdf"
 
-cp $SRR072232_result_dir"/asaim_results/62_plot_barplot_on_data_55_pdf_barplot.pdf" \
+cp $SRR072233_result_dir"/asaim_results/plot_diff_prot_nb_gene_family_number.pdf" \
+    "doc/images/SRR072233/diff_prot_nb_gene_family_number.pdf"
+
+cp $SRR072232_result_dir"/asaim_results/64_plot_barplot_on_data_55_pdf_barplot.pdf" \
     "doc/images/SRR072232/molecular_functions.pdf"
-cp $SRR072232_result_dir"/asaim_results/63_plot_barplot_on_data_56_pdf_barplot.pdf" \
+cp $SRR072232_result_dir"/asaim_results/65_plot_barplot_on_data_56_pdf_barplot.pdf" \
     "doc/images/SRR072232/biological_processes.pdf"
-cp $SRR072232_result_dir"/asaim_results/64_plot_barplot_on_data_57_pdf_barplot.pdf" \
+cp $SRR072232_result_dir"/asaim_results/66_plot_barplot_on_data_57_pdf_barplot.pdf" \
     "doc/images/SRR072232/cellular_components.pdf"
 
 cp $concatenated_results_dir"/gene_families/15_similar_charact_x_y_plot.pdf" \
@@ -39,13 +46,13 @@ cp $concatenated_results_dir"/gene_families/15_similar_charact_x_y_plot.pdf" \
 cp $concatenated_results_dir"/pathways/15_similar_charact_x_y_plot.pdf" \
     "doc/images/concatenated_samples/pathways_SRR072232_SRR072233.pdf" 
 
-cp $concatenated_results_dir"/gene_families/35_plot_diff_orga_abund_diff_charact_nb.pdf" \
+cp $concatenated_results_dir"/gene_families/36_plot_diff_orga_abund_diff_charact_nb.pdf" \
     "doc/images/concatenated_samples/gene_family_nb.pdf" 
-cp $concatenated_results_dir"/gene_families/40_plot_diff_orga_abund_diff_charat_mean_abund.pdf" \
+cp $concatenated_results_dir"/gene_families/42_plot_diff_orga_abund_diff_charat_mean_abund.pdf" \
     "doc/images/concatenated_samples/mean_gene_family_abundance.pdf" 
-cp $concatenated_results_dir"/pathways/35_plot_diff_orga_abund_diff_charact_nb.pdf" \
+cp $concatenated_results_dir"/pathways/37_plot_diff_orga_abund_diff_charact_nb.pdf" \
     "doc/images/concatenated_samples/pathway_nb.pdf" 
-cp $concatenated_results_dir"/pathways/40_plot_diff_orga_abund_diff_charat_mean_abund.pdf" \
+cp $concatenated_results_dir"/pathways/42_plot_diff_orga_abund_diff_charat_mean_abund.pdf" \
     "doc/images/concatenated_samples/mean_pathway_abundance.pdf" 
 
 cp $concatenated_results_dir"/biological_process/plot_grouped_barplot_on_data_7_pdf_barplot.pdf" \
@@ -70,5 +77,4 @@ pandoc -s report.md \
     --template="bioinformatics_template.tex" \
     --bibliography="references.bib" \
     --csl="bioinformatics.csl" \
-    --natbib \
     -N
