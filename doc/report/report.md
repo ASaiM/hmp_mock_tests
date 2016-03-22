@@ -599,11 +599,15 @@ None of the first two axes discriminates both samples. Variability between both 
 
 # Conclusion
 
-Fast analysis, direct results
+ASaiM workflow allow a fast analysis (few hours) of raw sequences from a metagenomic dataset. Relying on Galaxy, ASaiM workflow posseses all forces of Galaxy: accessibility, reproducibility and also modularity (possibility to change parameters or steps). The results can be accessed during workflow execution.
 
-Accurate analysis
+Taxonomic analysis is accurate with *MetaPhlAn2*. From the expected taxonomy of both samples, few clades are not found or unexpected. The lowest accurate taxonomic level (species) is more precise than the one obtained with *EBI metagenomics*. 
 
-Few unexpected clades and low taxonomic level (species): EBI (order and family level)
+With *HUMAnN2* results combined to *MetaPhlan2* results and GO slim term grouping, functional analyses are complete: precise and also broad overview of metabolic profile of studied microbial community and relation with observed community structure. 
+
+Many post-treatments are also possible in ASaiM Galaxy instance. For example, most of graphic representations and most statistical analyses of this report are done inside ASaiM Galaxy instance with [dedicated workflows available for reproducibility]().
+
+ASaiM Galaxy instance with its workflows and tools is a powerful framework to analyze shotgun raw sequence data from microbiota.
 
 # References
 
