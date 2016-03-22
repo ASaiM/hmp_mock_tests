@@ -1179,13 +1179,13 @@
                 }
             ], 
             "position": {
-                "left": 2883.140625, 
-                "top": 1113.328125
+                "left": 2861.140625, 
+                "top": 1065.328125
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
             "tool_id": "Grouping1", 
-            "tool_state": "{\"operations\": \"[{\\\"opcol\\\": \\\"4\\\", \\\"__index__\\\": 0, \\\"optype\\\": \\\"mean\\\", \\\"opround\\\": \\\"no\\\"}, {\\\"opcol\\\": \\\"7\\\", \\\"__index__\\\": 1, \\\"optype\\\": \\\"mean\\\", \\\"opround\\\": \\\"no\\\"}, {\\\"opcol\\\": \\\"7\\\", \\\"__index__\\\": 2, \\\"optype\\\": \\\"median\\\", \\\"opround\\\": \\\"no\\\"}, {\\\"opcol\\\": \\\"7\\\", \\\"__index__\\\": 3, \\\"optype\\\": \\\"std\\\", \\\"opround\\\": \\\"no\\\"}]\", \"__page__\": 0, \"input1\": \"null\", \"ignorelines\": \"null\", \"groupcol\": \"\\\"3\\\"\", \"__rerun_remap_job_id__\": null, \"ignorecase\": \"\\\"False\\\"\"}", 
+            "tool_state": "{\"operations\": \"[{\\\"opcol\\\": \\\"4\\\", \\\"__index__\\\": 0, \\\"optype\\\": \\\"mean\\\", \\\"opround\\\": \\\"no\\\"}, {\\\"opcol\\\": \\\"7\\\", \\\"__index__\\\": 1, \\\"optype\\\": \\\"mean\\\", \\\"opround\\\": \\\"no\\\"}, {\\\"opcol\\\": \\\"7\\\", \\\"__index__\\\": 2, \\\"optype\\\": \\\"median\\\", \\\"opround\\\": \\\"no\\\"}, {\\\"opcol\\\": \\\"7\\\", \\\"__index__\\\": 3, \\\"optype\\\": \\\"std\\\", \\\"opround\\\": \\\"no\\\"}, {\\\"opcol\\\": \\\"5\\\", \\\"__index__\\\": 4, \\\"optype\\\": \\\"length\\\", \\\"opround\\\": \\\"no\\\"}]\", \"__page__\": 0, \"input1\": \"null\", \"ignorelines\": \"null\", \"groupcol\": \"\\\"3\\\"\", \"__rerun_remap_job_id__\": null, \"ignorecase\": \"\\\"False\\\"\"}", 
             "tool_version": "2.1.0", 
             "type": "tool", 
             "user_outputs": [], 
@@ -1216,7 +1216,7 @@
             "post_job_actions": {}, 
             "tool_errors": null, 
             "tool_id": "Grouping1", 
-            "tool_state": "{\"operations\": \"[{\\\"opcol\\\": \\\"4\\\", \\\"__index__\\\": 0, \\\"optype\\\": \\\"mean\\\", \\\"opround\\\": \\\"no\\\"}, {\\\"opcol\\\": \\\"7\\\", \\\"__index__\\\": 1, \\\"optype\\\": \\\"mean\\\", \\\"opround\\\": \\\"no\\\"}, {\\\"opcol\\\": \\\"7\\\", \\\"__index__\\\": 2, \\\"optype\\\": \\\"median\\\", \\\"opround\\\": \\\"no\\\"}, {\\\"opcol\\\": \\\"7\\\", \\\"__index__\\\": 3, \\\"optype\\\": \\\"std\\\", \\\"opround\\\": \\\"no\\\"}]\", \"__page__\": 0, \"input1\": \"null\", \"ignorelines\": \"null\", \"groupcol\": \"\\\"3\\\"\", \"__rerun_remap_job_id__\": null, \"ignorecase\": \"\\\"False\\\"\"}", 
+            "tool_state": "{\"operations\": \"[{\\\"opcol\\\": \\\"4\\\", \\\"__index__\\\": 0, \\\"optype\\\": \\\"mean\\\", \\\"opround\\\": \\\"no\\\"}, {\\\"opcol\\\": \\\"7\\\", \\\"__index__\\\": 1, \\\"optype\\\": \\\"mean\\\", \\\"opround\\\": \\\"no\\\"}, {\\\"opcol\\\": \\\"7\\\", \\\"__index__\\\": 2, \\\"optype\\\": \\\"median\\\", \\\"opround\\\": \\\"no\\\"}, {\\\"opcol\\\": \\\"7\\\", \\\"__index__\\\": 3, \\\"optype\\\": \\\"std\\\", \\\"opround\\\": \\\"no\\\"}, {\\\"opcol\\\": \\\"5\\\", \\\"__index__\\\": 4, \\\"optype\\\": \\\"length\\\", \\\"opround\\\": \\\"no\\\"}]\", \"__page__\": 0, \"input1\": \"null\", \"ignorelines\": \"null\", \"groupcol\": \"\\\"3\\\"\", \"__rerun_remap_job_id__\": null, \"ignorecase\": \"\\\"False\\\"\"}", 
             "tool_version": "2.1.0", 
             "type": "tool", 
             "user_outputs": [], 
@@ -1342,8 +1342,8 @@
                 }
             ], 
             "position": {
-                "left": 3112.640625, 
-                "top": 979.328125
+                "left": 3123.640625, 
+                "top": 914.328125
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -1381,8 +1381,8 @@
                 }
             ], 
             "position": {
-                "left": 3112.640625, 
-                "top": 1165.328125
+                "left": 3159.640625, 
+                "top": 1059.328125
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -1398,7 +1398,7 @@
             "id": 36, 
             "input_connections": {
                 "input_file": {
-                    "id": 30, 
+                    "id": 29, 
                     "output_name": "out_file1"
                 }
             }, 
@@ -1420,17 +1420,17 @@
                 }
             ], 
             "position": {
-                "left": 3054.640625, 
-                "top": 1347.328125
+                "left": 3337.5, 
+                "top": 1242
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
             "tool_id": "172.21.23.6:9009/repos/bebatut/plot_generic_x_y_plot/plot_generic_x_y_plot/0.1.0", 
-            "tool_state": "{\"xlab\": \"\\\"Relative abundance of species (percentage)\\\"\", \"__page__\": 0, \"bottom_margin\": \"\\\"5\\\"\", \"abline\": \"\\\"False\\\"\", \"input_file\": \"null\", \"color\": \"\\\"grey25\\\"\", \"lim\": \"\\\"False\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"ylog\": \"\\\"True\\\"\", \"y_column_id\": \"\\\"3\\\"\", \"left_margin\": \"\\\"5\\\"\", \"pch\": \"\\\"21\\\"\", \"__rerun_remap_job_id__\": null, \"ylab\": \"\\\"Mean relative abundance of found pathways for these species (percentage)\\\"\", \"x_column_id\": \"\\\"2\\\"\", \"xlog\": \"\\\"True\\\"\"}", 
+            "tool_state": "{\"xlab\": \"\\\"Relative abundance of species (percentage)\\\"\", \"__page__\": 0, \"bottom_margin\": \"\\\"5\\\"\", \"abline\": \"\\\"False\\\"\", \"input_file\": \"null\", \"color\": \"\\\"grey25\\\"\", \"lim\": \"\\\"False\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"ylog\": \"\\\"False\\\"\", \"y_column_id\": \"\\\"6\\\"\", \"left_margin\": \"\\\"5\\\"\", \"pch\": \"\\\"21\\\"\", \"__rerun_remap_job_id__\": null, \"ylab\": \"\\\"Number of found gene families for these species\\\"\", \"x_column_id\": \"\\\"2\\\"\", \"xlog\": \"\\\"True\\\"\"}", 
             "tool_version": "0.1.0", 
             "type": "tool", 
             "user_outputs": [], 
-            "uuid": "c1669aa2-78e4-4599-808a-7469f37e5925"
+            "uuid": "a64db69d-3625-4bf7-8b59-3abc579783f6"
         }, 
         "37": {
             "annotation": "", 
@@ -1460,7 +1460,85 @@
             ], 
             "position": {
                 "left": 3051.640625, 
-                "top": 1513.328125
+                "top": 1266.328125
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_generic_x_y_plot/plot_generic_x_y_plot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Relative abundance of species (percentage)\\\"\", \"__page__\": 0, \"bottom_margin\": \"\\\"5\\\"\", \"abline\": \"\\\"False\\\"\", \"input_file\": \"null\", \"color\": \"\\\"grey25\\\"\", \"lim\": \"\\\"False\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"ylog\": \"\\\"True\\\"\", \"y_column_id\": \"\\\"3\\\"\", \"left_margin\": \"\\\"5\\\"\", \"pch\": \"\\\"21\\\"\", \"__rerun_remap_job_id__\": null, \"ylab\": \"\\\"Mean relative abundance of found pathways for these species (percentage)\\\"\", \"x_column_id\": \"\\\"2\\\"\", \"xlog\": \"\\\"True\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "c1669aa2-78e4-4599-808a-7469f37e5925"
+        }, 
+        "38": {
+            "annotation": "", 
+            "id": 38, 
+            "input_connections": {
+                "input_file": {
+                    "id": 30, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot generic X-Y plot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 3014.5, 
+                "top": 1505
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_generic_x_y_plot/plot_generic_x_y_plot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Relative abundance of species (percentage)\\\"\", \"__page__\": 0, \"bottom_margin\": \"\\\"5\\\"\", \"abline\": \"\\\"False\\\"\", \"input_file\": \"null\", \"color\": \"\\\"grey25\\\"\", \"lim\": \"\\\"False\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"ylog\": \"\\\"False\\\"\", \"y_column_id\": \"\\\"6\\\"\", \"left_margin\": \"\\\"5\\\"\", \"pch\": \"\\\"21\\\"\", \"__rerun_remap_job_id__\": null, \"ylab\": \"\\\"Number of found pathways for these species\\\"\", \"x_column_id\": \"\\\"2\\\"\", \"xlog\": \"\\\"True\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "03f8c3ca-70ae-4648-acae-59c9543eeb10"
+        }, 
+        "39": {
+            "annotation": "", 
+            "id": 39, 
+            "input_connections": {
+                "input_file": {
+                    "id": 30, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot generic X-Y plot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 3202.640625, 
+                "top": 1422.328125
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -1471,9 +1549,9 @@
             "user_outputs": [], 
             "uuid": "ac9667e3-8d73-4e4b-b85a-c808f55d0967"
         }, 
-        "38": {
+        "40": {
             "annotation": "", 
-            "id": 38, 
+            "id": 40, 
             "input_connections": {
                 "input_file": {
                     "id": 31, 
@@ -1510,9 +1588,9 @@
             "user_outputs": [], 
             "uuid": "a44d81df-386b-4c19-b941-86b621716cfe"
         }, 
-        "39": {
+        "41": {
             "annotation": "", 
-            "id": 39, 
+            "id": 41, 
             "input_connections": {
                 "input_file": {
                     "id": 32, 
@@ -1549,9 +1627,9 @@
             "user_outputs": [], 
             "uuid": "769b9791-8cce-4373-865f-e28caaa818f8"
         }, 
-        "40": {
+        "42": {
             "annotation": "", 
-            "id": 40, 
+            "id": 42, 
             "input_connections": {
                 "input_file": {
                     "id": 33, 
@@ -1589,5 +1667,5 @@
             "uuid": "de4a7906-86af-4119-a125-a39911fa5f1c"
         }
     }, 
-    "uuid": "a0ddd512-6be8-4889-8a24-3720253e9e17"
+    "uuid": "e75bca63-0f5f-497b-8352-ba182b20302e"
 }
