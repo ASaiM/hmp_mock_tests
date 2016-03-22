@@ -507,10 +507,9 @@ With more than 40,000 gene families and almost 500 pathways, it is difficult to 
 
 ### Comparison of *EBI metagenomics* and ASaiM results
 
-*EBI metagenomics*: InterPro --> interpro id
-ASaiM: HUMAnN2
+In *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}), functional analyses are based on InterPro and its identifiants. In ASaiM workflow (Figure \ref{asaim_workflow}), we have access to UniRef50 gene families and their abundances computed with *HUMAnN2*. These functional results are then not directly comparable. But, in both workflows, UniRef50 gene families and InterPro proteins are grouped in slim Gene Ontology terms to get a broad overview of the functional profile of the community. The GO slim terms are grouped inside 3 groups: cellular processes, biological processes and molecular functions.
 
-GO slim
+Few GO slim terms are not similar for *EBI metagenomics* and ASaiM (Table \ref{incomplete_go_slims}). They represent low relative abundance inside the three groups (< 20\%).
 
 \begin{table}[h!]
 \centering
@@ -538,13 +537,14 @@ GO id & GO name & EBI & ASaiM & EBI & ASaiM \\
 \href{http://amigo.geneontology.org/amigo/term/GO:0001071}{GO:0001071} & Nucleic acid binding transcription factor activity & 1.56 & - & 1.33 & - \\
 \href{http://amigo.geneontology.org/amigo/term/GO:0003774}{GO:0003774} & Motor activity & 9.87 $\cdot 10^{-2}$ & - & 5.32 $\cdot 10^{-2}$ & - \\
 \href{http://amigo.geneontology.org/amigo/term/GO:0045182}{GO:0045182} & Translation regulator activity & 1.38 $\cdot 10^{-3}$ & - & 0 & - \\
-\href{http://amigo.geneontology.org/amigo/term/GO:0003674}{GO:0003674} & M
-Unknown molecular function & - & 9.34 & - & 10.88 \\
+\href{http://amigo.geneontology.org/amigo/term/GO:0003674}{GO:0003674} & Unknown molecular function & - & 9.34 & - & 10.88 \\
 \hline
 \end{tabular}
 \caption{GO slim terms not found in both samples (SRR072232, SRR072233) and/or with both workflows (EBI metagenomics, ASaiM), with the relative abundance (in percentage) in GO slim groups (cellular components, biological processes and molecular functions)}
 \label{incomplete_go_slims}
 \end{table}
+
+Barplot representations of GO slim term abundances for both samples and both workflows can be difficult to interpret (*e.g* for the cellular component on Figure \ref{cellular_components}). A principal component analysis (PCA) on normalized relative abundance of GO slim term abundance inside each group simplifies visualization and interpretation (Figures \ref{cellular_components} and \ref{biological_process}).
 
 \begin{figure}[h!]
     \centering
@@ -570,6 +570,32 @@ Unknown molecular function & - & 9.34 & - & 10.88 \\
     \label{biological_process}
 \end{figure}
 
+Scatter representation of first plan (constitued of first two axes) of the PCA is similar for the three groups (Figures \ref{cellular_components} and \ref{biological_process}). First axis explains most of data variability (between 64\% and 87\%) and is highly negatively correlated with total abundance on both samples and both workflows of GO slim terms (Table \ref{pca_info}). Then GO slim terms found on left part of scatter representation (Figures \ref{cellular_components} and \ref{biological_process}) are highly abundant. Cellular processes related to membrane and cytoplasm are more abundant (Figure \ref{cellular_components}). Similarly, biosynthetic processes, nitrogen compound metabolic process, small molecular metabolic process, transport and DNA metabolic process are the more abundant biological processes (Figure \ref{biological_process}). Nucleotide binding is highly more abundant than other other molecular functions (Figure \ref{biological_process}). This first axis does not discrimate samples or workflows (Figures \ref{cellular_components} and \ref{biological_process}). Previous conclusions can be then extrapolated for both workflows and both samples. Results from ASaiM workflow are then similar in term of GO slim term abundances to the one obtained with *EBI metagenomics* pipeline.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{llrrr}
+\hline
+ & & Cellular components & Biological processes & Molecular functions\\
+\hline
+\multicolumn{2}{c}{First axis} & & & \\
+\cline{1-2}
+\multicolumn{2}{l}{Explained variability} & 64\% & 87 \% & 85\%\\
+Correlation with total abundance & $r^{2}$ & 0.999 & 0.999 & 0.996\\
+& \textit{p-value} & $<$ 2.2 $\cdot 10^{-16}$ & $<$ 2.2 $\cdot 10^{-16}$ & $<$ 2.2 $\cdot 10^{-16}$\\
+\hline
+\multicolumn{2}{c}{Second axis} & & & \\
+\cline{1-2}
+\multicolumn{2}{l}{Explained variability} & 35\% & 13 \% & 15\%\\
+\hline
+\end{tabular}
+\caption{Principal component analysis (PCA) axes and correlations. Total abundance corresponds for each GO slim terms to the sum of abundance of this GO slim term for both samples and both workflows.}
+\label{pca_info}
+\end{table}
+
+The second axis explaining between 13\% and 35\% of overall data variability (Table \ref{pca_info}) discriminate data obtained with *EBI metagenomics* pipeline from the ones obtained with ASaiM workflow. This discrimination is secondary relatively to abundance differences in first axis. Some GO slim terms such as membrane, hydrolase activity or nitrogen compound metabolic process are over-expressed in *EBI metagenomics* results and some like biosynthetic process, plasma membrane or nucleotide binding are under-expressed (Figures \ref{cellular_components} and \ref{biological_process}).
+
+None of the first two axes discriminates both samples. Variability between both samples is then less important than variability between both workflows and mostly variability between GO slim terms.
 
 # Conclusion
 
