@@ -18,10 +18,16 @@ get_data <- function(type){
     l$order_2 = order(abs(l$pca$li[,2]),decreasing = T)
     l$order_axis2 = l$pca$li[l$order_2,]
     l$go_names_axis2 = l$data[l$order_2,2]
+
+    print("Correlation of first axis with total abundance")
+    print(cor.test(l$pca$li[,1],apply(l$extracted_data,1,sum)))
+
     return(l)
 }
 
+
 type = 'biological_process'
+print(type)
 bp = get_data(type)
 pdf(paste('results/concatenated_samples/', type, '/pca.pdf', sep = ''))
 scatter(bp$pca, clab.row = 0, posieig = "none", sub = paste('First axis (' ,
@@ -38,6 +44,7 @@ text(bp$order_axis2[4,1],bp$order_axis2[4,2], label = bp$go_names_axis2[4], pos 
 dev.off()
 
 type = 'cellular_component'
+print(type)
 cc = get_data(type)
 pdf(paste('results/concatenated_samples/', type, '/pca.pdf', sep = ''))
 scatter(cc$pca, clab.row = 0, posieig = "none", sub = paste('First axis (' ,
@@ -51,6 +58,7 @@ text(cc$order_axis1[3,1],-2.3, label = cc$go_names_axis1[3], pos = 3)
 dev.off()
 
 type = 'molecular_function'
+print(type)
 mf = get_data(type)
 pdf(paste('results/concatenated_samples/', type, '/pca.pdf', sep = ''))
 scatter(mf$pca, clab.row = 0, posieig = "none", sub = paste('First axis (' ,
