@@ -1,7 +1,7 @@
 ---
 title: "Supplementary material: Test of HMP Mock community samples on ASaiM Galaxy instance and comparison with *EBI metagenomics* results"
 subject_session: Sequence analysis
-subtitle: "ASaiM: a Galaxy-based framework to analyze shotgun sequence data from microbiota"
+subtitle: "ASaiM: a Galaxy-based framework to analyze raw shotgun sequence data from microbiota"
 author: 
     - Bérénice Batut
     - Jean-François Brugère
@@ -15,19 +15,17 @@ header-includes:
     - \usepackage{pdflscape}
     - \usepackage{array}
     - \usepackage{multirow}
-abstract: "The HMP metagenomes mock pilot represents the shotgun sequencing of HMP even and staggered Mock communities, distributed to each of the four HMP sequencing centers. The goal of the pilot was to test the sequencing protocol and to evaluate accuracy and consistency between centers.\\
+abstract: "The HMP metagenomes mock pilot is a project with metagenomic shotgun sequences from a controlled microbiota community (with 22 known microbial species). Two datasets are available: even and staggered mock communities. These controlled datasets are available in [*EBI metagenomics* database](https://www.ebi.ac.uk/metagenomics/projects/SRP004311).\\
 
-These controlled datasets are available in [*EBI metagenomics* database](https://www.ebi.ac.uk/metagenomics/projects/SRP004311), with taxonomic and functional analyses obtained with [*EBI metagenomics* pipeline (version 1.0)](https://www.ebi.ac.uk/metagenomics/pipelines/1.0).\\
+We analyzed these datasets with the workflow available with ASaiM Galaxy instance and compared taxonomic and functional results with the ones obtained with [*EBI metagenomics* pipeline (version 1.0)](https://www.ebi.ac.uk/metagenomics/pipelines/1.0).\\
 
-We analyzed these datasets with the workflow available with ASaiM Galaxy instance and compared taxonomic and functional results with the ones available on [*EBI metagenomics* database](https://www.ebi.ac.uk/metagenomics/projects/SRP004311).\\
-
-Details about these analyses (scripts, parameters, ...) are available on a [dedicated GitHub repository](https://github.com/ASaiM/hmp_mock_tests).
+Details about these analyses (workflows, scripts, results, parameters, ...) are available on a [dedicated GitHub repository](https://github.com/ASaiM/hmp_mock_tests).
 "
 ---
 
 # Data
 
-Two datasets are [available](https://www.ebi.ac.uk/metagenomics/projects/SRP004311) for this project. The first dataset ([SRR072233](https://www.ebi.ac.uk/metagenomics/projects/SRP004311/samples/SRS121011/runs/SRR072233/results/versions/1.0)) is a genomic mixture from 22 bacterial strains (Table \ref{expected_species}) containing equimolar ribosomal RNA operon counts per organism. The second dataset ([SRR072232](https://www.ebi.ac.uk/metagenomics/projects/SRP004311/samples/SRS121012/runs/SRR072232/results/versions/1.0#ui-id-10)) contains also a genomic mixture from the same 22 bacterial strains (Table \ref{expected_species}) but the ribosomal RNA operon counts vary by up to four orders of magnitude per organism (Table \ref{expected_species})
+Two datasets are [available](https://www.ebi.ac.uk/metagenomics/projects/SRP004311) for this project. The first dataset ([SRR072232](https://www.ebi.ac.uk/metagenomics/projects/SRP004311/samples/SRS121012/runs/SRR072232/results/versions/1.0#ui-id-10)) contains a genomic mixture of 22 microbial species (Table \ref{expected_species}) where the ribosomal RNA operon counts vary by up to four orders of magnitude per organism (Table \ref{expected_species}). The second dataset ([SRR072233](https://www.ebi.ac.uk/metagenomics/projects/SRP004311/samples/SRS121011/runs/SRR072233/results/versions/1.0)) is a genomic mixture from 22 same microbial species (Table \ref{expected_species}) containing equimolar ribosomal RNA operon counts per organism. After shotgun sequencing, first dataset (SRR072232) is constitued of 1,225,169 metagenomic sequences and the second dataset of 1,386,198 metagenomic sequences.
 
 \newpage
 \thispagestyle{empty}
@@ -86,7 +84,7 @@ Eukaryotes & Fungi & Ascomycota & Saccharomycetes & Saccharomycetales & Debaryom
 & & & & & & & \textbf{Total} & 5,566,000 & 2,200,000\\
 \cline{8-10}
 \end{tabular}
-\caption{Expected species, their taxonomy and their abundances on both samples (SRR072233 and SRR072233)}
+\caption{Expected species, their taxonomy and their abundances on both samples (SRR072232 and SRR072233)}
 \label{expected_species}
 \end{table} 
 \end{landscape}
@@ -97,7 +95,7 @@ Eukaryotes & Fungi & Ascomycota & Saccharomycetes & Saccharomycetales & Debaryom
 
 ## Analyses from *EBI Metagenomics*
 
-Both datasets were analysed using [*EBI metagenomics* pipeline (Version 1.0)](https://www.ebi.ac.uk/metagenomics/pipelines/1.0) (Figure \ref{ebi_pipeline}).
+Both datasets have been analysed with [*EBI metagenomics* pipeline (Version 1.0)](https://www.ebi.ac.uk/metagenomics/pipelines/1.0) (Figure \ref{ebi_pipeline}). 
 
 \begin{figure}[h!]
     \centering
@@ -107,17 +105,11 @@ Both datasets were analysed using [*EBI metagenomics* pipeline (Version 1.0)](ht
     \label{ebi_pipeline}
 \end{figure}
 
-Interesting results (OTUs with taxonomic assignation and GO slim annotations) are downloaded and formatted. 
+The results are available on [*EBI metagenomics* database](https://www.ebi.ac.uk/metagenomics/projects/SRP004311), which have been downloaded and formatted. 
 
-Using OTUs with taxonomic assignation, abundances of each assigned clade are extracted and several relative abundance measures are computed: relative abundances of clades for all OTUs and relative abundances of clades for OTUs with accurate taxonomic assignation (taxonomic assignation from kingdom to family). Percentage of unassigned clades is computed at different taxonomic levels (clades without more accurate taxonomic assignation).
+From OTUs with taxonomic assignation, abundances of each assigned clade are extracted and several relative abundance measures are computed: relative abundances of clades for all OTUs and relative abundances of clades for OTUs with complete taxonomic assignation from kingdom to family. Percentage of unassigned clades (without complete taxonomic assignation) is also computed at all taxonomic levels.
 
-For functional analysis, *EBI metagenomics* offers 3 types of results:
-
-- Matches with InterPro
-- Complete GO annotations
-- GO slim annotations
-
-As in ASaiM, GO slim annotations are used. They are downloaded and formatted to extract relative abundances (in percentage) of GO slim annotations for the tree annotation classes (cellular components, biological processes and molecular functions).
+For functional analysis, *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}) offers 3 types of results: matches with InterPro, complete GO annotations and GO slim annotations. Here, we focus on GO slim annotations for easy comparison with ASaiM workflow results (Figure \ref{asaim_workflow}). The annotations are formatted to extract relative abundances (in percentage) of GO slim annotations inside three groups (cellular components, biological processes and molecular functions).
 
 ## Analyses with ASaiM workflow
 
@@ -126,12 +118,11 @@ Both datasets are analyzed using ASaiM workflow dedicated to single-end microbio
 \begin{figure}[h!]
     \centering
     \includegraphics[width = \linewidth]{../images/asaim_workflow.pdf}
-    \caption{ASaiM workflow available with ASaiM Galaxy instance and used to analyze both datasets.
-    The grey boxes correspond to data, the blue boxes to pretreatment steps, the red boxes to functional analysis steps and the green boxes to taxonomic analysis steps.}
+    \caption{ASaiM workflow for analysis of raw single-end microbiota sequences. This workflow is available with ASaiM Galaxy instance and used to analyze both datasets. The grey boxes correspond to data, the blue boxes to pretreatment steps, the red boxes to functional analysis steps and the green boxes to taxonomic analysis steps.}
     \label{asaim_workflow}
 \end{figure}
 
-This workflow is available with ASaiM Galaxy instance. For this analysis, ASaiM Galaxy instance are deployed on a Debian GNU/Linux System with 8 cores Intel(R) Xeon(R) at 2.40GHz and with 32 Go of RAM. Several statistics are followed during workflow execution (Table \ref{computation_stats}).
+This workflow is available with ASaiM Galaxy instance. For this analysis, the ASaiM Galaxy instance is deployed on a Debian GNU/Linux System with 8 cores Intel(R) Xeon(R) at 2.40GHz and with 32 Go of RAM. Several statistics are followed during workflow execution (Table \ref{computation_stats}).
 
 \begin{table}[h!]
 \centering
@@ -139,7 +130,7 @@ This workflow is available with ASaiM Galaxy instance. For this analysis, ASaiM 
 \hline
 \multicolumn{2}{l}{Statistics} & SRR072232 & SRR072233 \\
 \hline
-Execution time & All & 4h44 & 5h22 \\
+Execution time & Whole workflow & 4h44 & 5h22 \\
 & PRINSEQ & 0h38 & 0h44\\
 & Vsearch & 16s & 19s\\
 & SortMeRNA & 0h55 & 0h58\\
@@ -157,16 +148,16 @@ Size of the process in memory (kb) & Min & 1,515,732 & 1,515,732\\
 \label{computation_stats}
 \end{table}
 
-Once ASaiM Galaxy instance is deployed, a task that can take several hours, datasets analyses are relatively fast: < 5h and < 5h30 for datasets with 1,225,169 and 1,386,198 sequences respectively (Table \ref{computation_stats}). The main time consuming step is the functional assignation with *HUMAnN2* [@abubucker_metabolic_2012] which last $\simeq$ 64% of overall time execution (Table \ref{computation_stats}). The percentage of used CPU is stable over workflow execution, just like the size of the process in memory (variability inferior to 40 kb) (Table \ref{computation_stats}).
+Once ASaiM Galaxy instance is deployed (a task that can take several hours), datasets analyses inside the workflow are relatively fast: < 5h and < 5h30 for datasets with 1,225,169 and 1,386,198 sequences respectively (Table \ref{computation_stats}). The main time consuming step is the functional assignation with *HUMAnN2* [@abubucker_metabolic_2012] which last $\simeq$ 64% of overall time execution (Table \ref{computation_stats}). The percentage of used CPU is stable over workflow execution, just like the size of the process in memory (variability inferior to 40 kb) (Table \ref{computation_stats}).
 
-In addition to formatting steps in workflow, taxonomic results are formatted to extract the percentage of unassigned clades at different taxonomic levels (clades without more accurate taxonomic assignation). 
+After workflow execution, taxonomic results are formatted to extract the percentage of unassigned clades at different taxonomic levels (clades without more accurate taxonomic assignation). 
 
-No further formatting step is needed for functional results (relative abundance of gene families, pathways and GO slim terms) of one sample. A workflow is developed and executed to compare raw *HUMAnN2* results (gene families and pathways) between both samples (SRR072232 and SRR072233) (Figure \ref{asaim_humann2_comparison_results}).
+No further formatting step is needed for functional results (relative abundance of gene families, pathways with and without species relation and GO slim terms) of one sample. To compare functional results (gene families and pathways) between both samples (SRR072232 and SRR072233), a workflow is developed and executed (Figure \ref{asaim_humann2_comparison_results}).
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width = .8\linewidth]{../images/asaim_humann2_comparison_results.pdf}
-    \caption{Workflow to compare normalized \textit{HUMANnN2} outputs (abundances of gene families and pathways). This workflow is available with ASaiM Galaxy instance. The grey boxes correspond to data, the blue boxes to processing steps.}
+    \includegraphics[width = .7\linewidth]{../images/asaim_humann2_comparison_results.pdf}
+    \caption{Workflow to compare ASaiM functional results (gene families or pathways) between both samples. This workflow is available with ASaiM Galaxy instance. The grey boxes correspond to data, the blue boxes to processing steps.}
     \label{asaim_humann2_comparison_results}
 \end{figure}
 
@@ -174,9 +165,9 @@ No further formatting step is needed for functional results (relative abundance 
 
 Results from *EBI metagenomics* results and the ones from ASaiM are not directly comparable. Several processing steps are then needed.
 
-With *MetaPhlAn* in ASaiM workflow, relative abundance of clades is computed on assigned reads. No count is made of non assigned reads. To compare relative abundances between *EBI metagenomics* and *ASaiM*, we focus on relative abundances computed on OTUS or reads with an accurate taxonomic assignation (taxonomic assignation from kingdom to family). These results are also compared to expected relative abundances obtained from sample descriptions (Table \ref{expected_species}). 
+With *MetaPhlAn* in ASaiM workflow, relative abundance of clades is computed on assigned reads. No count is made of non assigned reads. To compare relative abundances between *EBI metagenomics* and *ASaiM*, we focus on relative abundances computed on OTUS or reads with a complete taxonomic assignation from kingdom to family. These results are also compared to expected relative abundances obtained from sample descriptions (Table \ref{expected_species}). 
 
-In both *EBI metagenomics* and ASaiM workflows, functional matches are grouped into GO slims terms. These terms are a subset of the terms in the whole Gene Ontology. They give a broad overview of the ontology content. To compare *EBI metagenomics* and ASaiM results, relative abundance of GO slim terms for both samples and both workflows are concatenated and compared, given the workflow depicted in Figure \ref{go_slim_comparison_workflow}. 
+In both *EBI metagenomics* and ASaiM workflows (Figures \ref{ebi_pipeline} and \ref{asaim_workflow}), functional matches are grouped into GO slims terms. These terms are a subset of the terms in the whole Gene Ontology with a focus on microbial metabolic functions. They give a broad overview of the ontology content. To compare *EBI metagenomics* and ASaiM results, relative abundance of GO slim terms for both samples and both workflows are concatenated and compared, given the workflow depicted in Figure \ref{go_slim_comparison_workflow}. 
 
 \begin{figure}[h!]
     \centering
@@ -343,6 +334,22 @@ The first reason relies on incompletness of reference databases used to assign t
 However, this incompletness of reference databases can not explain families not found with both *EBI metagenomics* and ASaiM (different tools and reference databases). An other explanation for these not found families can be proposed: too few sequences corresponding to the expected families in datasets despite the expected abundance. This phenomenon may be due to experimental or sequencing errors. Sequences corresponding to expected families are then underrepresented in overall sequences and can not be spotted in taxonomic analyses. Bacillaceae family seems a good example for this explanation. This family is not found neither by *EBI metagenomics* taxonomic analyses for both samples nor by ASaiM taxonomic analyses for SRR072232 (Figure \ref{family_abundances}), but it is found in low abundance by ASaiM taxonomic analyses for SRR072233 (abundance 29 times smaller than expected). The taxonomic signal of this family is really low, too low to be detected by *EBI metagnomics*. This under abundance of sequences corresponding to some families is a good explanation for families not found by the two methods, particularly when the expected abundance for these families is low (\textit{e.g} Debaryomycetaceae, Actinomycetaceae, Bacteroidaceae, Enterococcaceae, Figure \ref{family_abundances}).
 
 In these families with expected low abundance, one family is an exception: Deinococcaceae (Figure \ref{family_abundances}). In SRR072232 sample, unlike other families with low expected abundance, this family is found and with an abundance > 10 times higher than expected. In SRR072233 sample, the observed abundance is > 7 times higher than expected with both methods (Figure \ref{family_abundances}). In this family, one species is expected: \textit{Deinococcus radiodurans}. An over-abundance of this species has already been observed in ASaiM taxonomic results (Figure \ref{species_abundances}). 
+
+To get a broader comparison of expected family abundances and *EBI metagenomics* and ASaiM observed family abundances, one principal component analysis (PCA) is made for each sample on observed families (for which abundance is not null in *EBI metagenomics* or ASaiM results). First axis of these analyses explains most of data variability (84\% and 65\% for SRR072232 and SRR072233 respectively, Figure \ref{family_pca}) and is highly correlated ($r^2$ = 0.997 and $r^2$ = 0.994 for SRR072232 and SRR072233 respectively) with total abundance of families (sum of expected, *EBI metagenomics* and ASaiM abundances for each family). 
+
+\begin{figure}[h!]
+    \centering
+    \begin{minipage}[c]{.43\linewidth}
+    \includegraphics[width = \linewidth]{../images/SRR072232/concatenated_family_abundance_pca.pdf}
+    \end{minipage} \hfill
+    \begin{minipage}[c]{.43\linewidth}
+    \includegraphics[width = \linewidth]{../images/SRR072233/concatenated_family_abundance_pca.pdf}
+    \end{minipage} 
+    \caption{Scatter diagram of principal component analysis of the relative abundances (in percentage) of observed families for SRR072232 (in left) and SRR072233(in right). Only observed families in EBI metagenomics or ASaiM are used in these analyses.}
+    \label{family_pca}
+\end{figure}
+
+In both samples, observed results (with *EBI metagenomics* and ASaiM) are grouped and orthogonal to expected results (Figure \ref{family_pca}). And none of the workflows (*EBI metagenomics* one or ASaiM one) is closer to expected results. Both workflows have then similar results for family abundances.
 
 ## Functional analyses
 
@@ -560,10 +567,10 @@ Barplot representations of GO slim term abundances for both samples and both wor
 
 \begin{figure}[h!]
     \centering
-    \begin{minipage}[c]{.49\linewidth}
+    \begin{minipage}[c]{.43\linewidth}
     \includegraphics[width = \linewidth]{../images/concatenated_samples/biological_process_pca.pdf}
     \end{minipage} \hfill
-    \begin{minipage}[c]{.49\linewidth}
+    \begin{minipage}[c]{.43\linewidth}
     \includegraphics[width = \linewidth]{../images/concatenated_samples/molecular_function_pca.pdf}
     \end{minipage} 
     \caption{Scatter diagram of principal component analysis of the normalized relative abundances (in percentage) of the biological process (in left) and of the molecular functions (in right) GO slim terms for both samples (SRR072233 and SRR072233) and both workflows (\textit{EBI metagenomics} and ASaiM). The relative abundances of each GO slim terms is normalized by the sum of relative abundance for the found biological process GO slim terms in both samples and with both workflows.}
