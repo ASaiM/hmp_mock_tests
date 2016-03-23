@@ -13,11 +13,11 @@ def launch_concatenation(workflow_name,workflow_file_path, gi, args):
     input_filepaths = {}
 
     if workflow_name == 'biological_process':
-        asaim_filename = 'normalize_a_dataset_by_on_data_36_normalized_dataset.tabular'
+        asaim_filename = '56_normalize_a_dataset_by_on_data_49_normalized_dataset.tabular'
     elif workflow_name == 'cellular_component':
-        asaim_filename = 'normalize_a_dataset_by_on_data_37_normalized_dataset.tabular'
+        asaim_filename = '57_normalize_a_dataset_by_on_data_50_normalized_dataset.tabular'
     elif workflow_name == 'molecular_function':
-        asaim_filename = 'normalize_a_dataset_by_on_data_35_normalized_dataset.tabular'
+        asaim_filename = '55_normalize_a_dataset_by_on_data_48_normalized_dataset.tabular'
     else:
         raise ValueError('Unknow workflow_name:' + workflow_name)
 
