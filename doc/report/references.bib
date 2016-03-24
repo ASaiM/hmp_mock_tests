@@ -1,4 +1,115 @@
 
+@misc{aronesty_ea-utils_2011,
+	title = {ea-utils : "{Command}-line tools for processing biological sequencing data"},
+	url = {http://code.google.com/p/ea-utils},
+	author = {Aronesty, Erik},
+	year = {2011}
+}
+
+@article{camacho_blast+:_2009,
+	title = {{BLAST}+: architecture and applications},
+	volume = {10},
+	copyright = {2009 Camacho et al; licensee BioMed Central Ltd.},
+	issn = {1471-2105},
+	shorttitle = {{BLAST}+},
+	url = {http://www.biomedcentral.com/1471-2105/10/421/abstract},
+	doi = {10.1186/1471-2105-10-421},
+	abstract = {Sequence similarity searching is a very important bioinformatics task. While Basic Local Alignment Search Tool (BLAST) outperforms exact methods through its use of heuristics, the speed of the current BLAST software is suboptimal for very long queries or database sequences. There are also some shortcomings in the user-interface of the current command-line applications.
+PMID: 20003500},
+	language = {en},
+	number = {1},
+	urldate = {2014-01-09},
+	journal = {BMC Bioinformatics},
+	author = {Camacho, Christiam and Coulouris, George and Avagyan, Vahram and Ma, Ning and Papadopoulos, Jason and Bealer, Kevin and Madden, Thomas L.},
+	month = dec,
+	year = {2009},
+	pmid = {20003500},
+	pages = {421}
+}
+
+@article{buchfink_fast_2015,
+	title = {Fast and sensitive protein alignment using {DIAMOND}},
+	volume = {12},
+	copyright = {© 2014 Nature Publishing Group, a division of Macmillan Publishers Limited. All Rights Reserved.},
+	issn = {1548-7091},
+	url = {http://www.nature.com.gate1.inist.fr/nmeth/journal/v12/n1/full/nmeth.3176.html},
+	doi = {10.1038/nmeth.3176},
+	abstract = {The alignment of sequencing reads against a protein reference database is a major computational bottleneck in metagenomics and data-intensive evolutionary projects. Although recent tools offer improved performance over the gold standard BLASTX, they exhibit only a modest speedup or low sensitivity. We introduce DIAMOND, an open-source algorithm based on double indexing that is 20,000 times faster than BLASTX on short reads and has a similar degree of sensitivity.},
+	language = {en},
+	number = {1},
+	urldate = {2015-08-27},
+	journal = {Nat Meth},
+	author = {Buchfink, Benjamin and Xie, Chao and Huson, Daniel H.},
+	month = jan,
+	year = {2015},
+	pages = {59--60}
+}
+
+@article{yuan_reconstructing_2015,
+	title = {Reconstructing 16S {rRNA} genes in metagenomic data},
+	volume = {31},
+	issn = {1367-4803, 1460-2059},
+	url = {http://bioinformatics.oxfordjournals.org/content/31/12/i35},
+	doi = {10.1093/bioinformatics/btv231},
+	abstract = {Metagenomic data, which contains sequenced DNA reads of uncultured microbial species from environmental samples, provide a unique opportunity to thoroughly analyze microbial species that have never been identified before. Reconstructing 16S ribosomal RNA, a phylogenetic marker gene, is usually required to analyze the composition of the metagenomic data. However, massive volume of dataset, high sequence similarity between related species, skewed microbial abundance and lack of reference genes make 16S rRNA reconstruction difficult. Generic de novo assembly tools are not optimized for assembling 16S rRNA genes. In this work, we introduce a targeted rRNA assembly tool, REAGO (REconstruct 16S ribosomal RNA Genes from metagenOmic data). It addresses the above challenges by combining secondary structure-aware homology search, zproperties of rRNA genes and de novo assembly. Our experimental results show that our tool can correctly recover more rRNA genes than several popular generic metagenomic assembly tools and specially designed rRNA construction tools.
+Availability and implementation: The source code of REAGO is freely available at https://github.com/chengyuan/reago.
+Contact: yannisun@msu.edu},
+	language = {en},
+	number = {12},
+	urldate = {2015-09-18},
+	journal = {Bioinformatics},
+	author = {Yuan, Cheng and Lei, Jikai and Cole, James and Sun, Yanni},
+	month = jun,
+	year = {2015},
+	pmid = {26072503},
+	pages = {i35--i43}
+}
+
+@article{cock_ncbi_2015,
+	title = {{NCBI} {BLAST}+ integrated into {Galaxy}},
+	volume = {4},
+	copyright = {2015 Cock et al.},
+	issn = {2047-217X},
+	url = {http://www.gigasciencejournal.com/content/4/1/39/abstract},
+	doi = {10.1186/s13742-015-0080-7},
+	abstract = {The NCBI BLAST suite has become ubiquitous in modern molecular biology and is used for small tasks such as checking capillary sequencing results of single PCR products, genome annotation or even larger scale pan-genome analyses. For early adopters of the Galaxy web-based biomedical data analysis platform, integrating BLAST into Galaxy was a natural step for sequence comparison workflows.},
+	language = {en},
+	number = {1},
+	urldate = {2015-10-08},
+	journal = {GigaScience},
+	author = {Cock, Peter JA and Chilton, John M. and Grüning, Björn and Johnson, James E. and Soranzo, Nicola},
+	month = aug,
+	year = {2015},
+	pmid = {26336600},
+	pages = {39}
+}
+
+@article{wang_ecological_2013,
+	title = {Ecological {Patterns} of {nifH} {Genes} in {Four} {Terrestrial} {Climatic} {Zones} {Explored} with {Targeted} {Metagenomics} {Using} {FrameBot}, a {New} {Informatics} {Tool}},
+	volume = {4},
+	issn = {, 2150-7511},
+	url = {http://mbio.asm.org/content/4/5/e00592-13},
+	doi = {10.1128/mBio.00592-13},
+	abstract = {Biological nitrogen fixation is an important component of sustainable soil fertility and a key component of the nitrogen cycle. We used targeted metagenomics to study the nitrogen fixation-capable terrestrial bacterial community by targeting the gene for nitrogenase reductase (nifH). We obtained 1.1 million nifH 454 amplicon sequences from 222 soil samples collected from 4 National Ecological Observatory Network (NEON) sites in Alaska, Hawaii, Utah, and Florida. To accurately detect and correct frameshifts caused by indel sequencing errors, we developed FrameBot, a tool for frameshift correction and nearest-neighbor classification, and compared its accuracy to that of two other rapid frameshift correction tools. We found FrameBot was, in general, more accurate as long as a reference protein sequence with 80\% or greater identity to a query was available, as was the case for virtually all nifH reads for the 4 NEON sites. Frameshifts were present in 12.7\% of the reads. Those nifH sequences related to the Proteobacteria phylum were most abundant, followed by those for Cyanobacteria in the Alaska and Utah sites. Predominant genera with nifH sequences similar to reads included Azospirillum, Bradyrhizobium, and Rhizobium, the latter two without obvious plant hosts at the sites. Surprisingly, 80\% of the sequences had greater than 95\% amino acid identity to known nifH gene sequences. These samples were grouped by site and correlated with soil environmental factors, especially drainage, light intensity, mean annual temperature, and mean annual precipitation. FrameBot was tested successfully on three ecofunctional genes but should be applicable to any.
+IMPORTANCE High-throughput phylogenetic analysis of microbial communities using rRNA-targeted sequencing is now commonplace; however, such data often allow little inference with respect to either the presence or the diversity of genes involved in most important ecological processes. To study the gene pool for these processes, it is more straightforward to assess the genes directly responsible for the ecological function (ecofunctional genes). However, analyzing these genes involves technical challenges beyond those seen for rRNA. In particular, frameshift errors cause garbled downstream protein translations. Our FrameBot tool described here both corrects frameshift errors in query reads and determines their closest matching protein sequences in a set of reference sequences. We validated this new tool with sequences from defined communities and demonstrated the tool’s utility on nifH gene fragments sequenced from soils in well-characterized and major terrestrial ecosystem types.},
+	language = {en},
+	number = {5},
+	urldate = {2015-10-16},
+	journal = {mBio},
+	author = {Wang, Qiong and Quensen, John F. and Fish, Jordan A. and Lee, Tae Kwon and Sun, Yanni and Tiedje, James M. and Cole, James R.},
+	month = nov,
+	year = {2013},
+	pmid = {24045641},
+	pages = {e00592--13}
+}
+
+@misc{rognes_vsearch:_2015,
+	title = {vsearch: {VSEARCH} 1.4.0},
+	url = {https://github.com/torognes/vsearch},
+	author = {Rognes, Torbjørn and Mahé, Frédéric and Flouri, Tomas and McDonal, Daniel and Schloss, Pat},
+	year = {2015}
+}
+
 @article{truong_metaphlan2_2015,
 	title = {{MetaPhlAn}2 for enhanced metagenomic taxonomic profiling},
 	volume = {12},
@@ -16,39 +127,47 @@
 	pages = {902--903}
 }
 
-@article{ondov_interactive_2011,
-	title = {Interactive metagenomic visualization in a {Web} browser},
-	volume = {12},
-	issn = {1471-2105},
-	doi = {10.1186/1471-2105-12-385},
-	abstract = {BACKGROUND: A critical output of metagenomic studies is the estimation of abundances of taxonomical or functional groups. The inherent uncertainty in assignments to these groups makes it important to consider both their hierarchical contexts and their prediction confidence. The current tools for visualizing metagenomic data, however, omit or distort quantitative hierarchical relationships and lack the facility for displaying secondary variables.
-RESULTS: Here we present Krona, a new visualization tool that allows intuitive exploration of relative abundances and confidences within the complex hierarchies of metagenomic classifications. Krona combines a variant of radial, space-filling displays with parametric coloring and interactive polar-coordinate zooming. The HTML5 and JavaScript implementation enables fully interactive charts that can be explored with any modern Web browser, without the need for installed software or plug-ins. This Web-based architecture also allows each chart to be an independent document, making them easy to share via e-mail or post to a standard Web server. To illustrate Krona's utility, we describe its application to various metagenomic data sets and its compatibility with popular metagenomic analysis tools.
-CONCLUSIONS: Krona is both a powerful metagenomic visualization tool and a demonstration of the potential of HTML5 for highly accessible bioinformatic visualizations. Its rich and interactive displays facilitate more informed interpretations of metagenomic analyses, while its implementation as a browser-based application makes it extremely portable and easily adopted into existing analysis packages. Both the Krona rendering code and conversion tools are freely available under a BSD open-source license, and available from: http://krona.sourceforge.net.},
-	language = {eng},
-	journal = {BMC Bioinformatics},
-	author = {Ondov, Brian D. and Bergman, Nicholas H. and Phillippy, Adam M.},
-	year = {2011},
-	pmid = {21961884},
-	pmcid = {PMC3190407},
-	pages = {385}
+@misc{batut_group_humann2_uniref_abundances_to_go:_2016,
+	title = {group\_humann2\_uniref\_abundances\_to\_GO: {First} stable version},
+	url = {https://github.com/ASaiM/group_humann2_uniref_abundances_to_GO},
+	author = {Batut, Bérénice},
+	year = {2016}
 }
 
-@article{lee_rrnaselector:_2011,
-	title = {{rRNASelector}: {A} computer program for selecting ribosomal {RNA} encoding sequences from metagenomic and metatranscriptomic shotgun libraries},
-	volume = {49},
-	issn = {1225-8873, 1976-3794},
-	shorttitle = {{rRNASelector}},
-	url = {http://link.springer.com/article/10.1007/s12275-011-1213-z},
-	doi = {10.1007/s12275-011-1213-z},
-	abstract = {Metagenomic and metatranscriptomic shotgun sequencing techniques are gaining popularity as more cost-effective next-generation sequencing technologies become commercially available. The initial stage of bioinfor-matic analysis generally involves the identification of phylogenetic markers such as ribosomal RNA genes. The sequencing reads that do not code for rRNA can then be used for protein-based analysis. Hidden Markov model is a well-known method for pattern recognition. Hidden Markov models that are trained on well-curated rRNA sequence databases have been successfully used to identify DNA sequence coding for rRNAs in pro-karyotes. Here, we introduce rRNASelector, which is a computer program for selecting rRNA genes from massive metagenomic and metatranscriptomic sequences using hidden Markov models. The program successfully identified prokaryotic 5S, 26S, and 23S rRNA genes from Roche 454 FLX Titanium-based metagenomic and metatranscriptomic libraries. The rRNASelector program is available at http://​sw.​ezbiocloud.​net/​rrnaselector.},
+@article{blankenberg_manipulation_2010,
+	title = {Manipulation of {FASTQ} data with {Galaxy}},
+	volume = {26},
+	issn = {1367-4803, 1460-2059},
+	url = {http://bioinformatics.oxfordjournals.org/content/26/14/1783},
+	doi = {10.1093/bioinformatics/btq281},
+	abstract = {Summary: Here, we describe a tool suite that functions on all of the commonly known FASTQ format variants and provides a pipeline for manipulating next generation sequencing data taken from a sequencing machine all the way through the quality filtering steps.
+Availability and Implementation: This open-source toolset was implemented in Python and has been integrated into the online data analysis platform Galaxy (public web access: http://usegalaxy.org; download: http://getgalaxy.org). Two short movies that highlight the functionality of tools described in this manuscript as well as results from testing components of this tool suite against a set of previously published files are available at http://usegalaxy.org/u/dan/p/fastq
+Contact: james.taylor@emory.edu; anton@bx.psu.edu
+Supplementary information: Supplementary data are available at Bioinformatics online.},
 	language = {en},
-	number = {4},
-	urldate = {2016-03-10},
-	journal = {J Microbiol.},
-	author = {Lee, Jae-Hak and Yi, Hana and Chun, Jongsik},
+	number = {14},
+	urldate = {2016-02-29},
+	journal = {Bioinformatics},
+	author = {Blankenberg, Daniel and Gordon, Assaf and Kuster, Gregory Von and Coraor, Nathan and Taylor, James and Nekrutenko, Anton and Team, the Galaxy},
+	month = jul,
+	year = {2010},
+	pmid = {20562416},
+	pages = {1783--1785}
+}
+
+@article{cock_galaxy_2013,
+	title = {Galaxy tools and workflows for sequence analysis with applications in molecular plant pathology},
+	volume = {1},
+	issn = {2167-8359},
+	url = {https://peerj.com/articles/167},
+	doi = {10.7717/peerj.167},
+	language = {en},
+	urldate = {2016-03-01},
+	journal = {PeerJ},
+	author = {Cock, Peter J.A. and Grüning, Björn A. and Paszkiewicz, Konrad and Pritchard, Leighton},
 	month = sep,
-	year = {2011},
-	pages = {689--691}
+	year = {2013},
+	pages = {e167}
 }
 
 @article{caporaso_qiime_2010,
@@ -69,6 +188,25 @@ CONCLUSIONS: Krona is both a powerful metagenomic visualization tool and a demon
 	pages = {335--336}
 }
 
+@article{lee_rrnaselector:_2011,
+	title = {{rRNASelector}: {A} computer program for selecting ribosomal {RNA} encoding sequences from metagenomic and metatranscriptomic shotgun libraries},
+	volume = {49},
+	issn = {1225-8873, 1976-3794},
+	shorttitle = {{rRNASelector}},
+	url = {http://link.springer.com/article/10.1007/s12275-011-1213-z},
+	doi = {10.1007/s12275-011-1213-z},
+	abstract = {Metagenomic and metatranscriptomic shotgun sequencing techniques are gaining popularity as more cost-effective next-generation sequencing technologies become commercially available. The initial stage of bioinfor-matic analysis generally involves the identification of phylogenetic markers such as ribosomal RNA genes. The sequencing reads that do not code for rRNA can then be used for protein-based analysis. Hidden Markov model is a well-known method for pattern recognition. Hidden Markov models that are trained on well-curated rRNA sequence databases have been successfully used to identify DNA sequence coding for rRNAs in pro-karyotes. Here, we introduce rRNASelector, which is a computer program for selecting rRNA genes from massive metagenomic and metatranscriptomic sequences using hidden Markov models. The program successfully identified prokaryotic 5S, 26S, and 23S rRNA genes from Roche 454 FLX Titanium-based metagenomic and metatranscriptomic libraries. The rRNASelector program is available at http://sw.ezbiocloud.net/rrnaselector.},
+	language = {en},
+	number = {4},
+	urldate = {2015-01-09},
+	journal = {J Microbiol.},
+	author = {Lee, Jae-Hak and Yi, Hana and Chun, Jongsik},
+	month = aug,
+	year = {2011},
+	keywords = {Computer program, HMMER, metagenomics, metatranscriptomics, Microbiology, rRNA, rRNASelector},
+	pages = {689--691}
+}
+
 @article{segata_metagenomic_2012,
 	title = {Metagenomic microbial community profiling using unique clade-specific marker genes},
 	volume = {9},
@@ -85,6 +223,24 @@ CONCLUSIONS: Krona is both a powerful metagenomic visualization tool and a demon
 	month = aug,
 	year = {2012},
 	pages = {811--814}
+}
+
+@article{li_cd-hit:_2006,
+	title = {Cd-hit: a fast program for clustering and comparing large sets of protein or nucleotide sequences},
+	volume = {22},
+	issn = {1367-4803},
+	shorttitle = {Cd-hit},
+	doi = {10.1093/bioinformatics/btl158},
+	abstract = {MOTIVATION: In 2001 and 2002, we published two papers (Bioinformatics, 17, 282-283, Bioinformatics, 18, 77-82) describing an ultrafast protein sequence clustering program called cd-hit. This program can efficiently cluster a huge protein database with millions of sequences. However, the applications of the underlying algorithm are not limited to only protein sequences clustering, here we present several new programs using the same algorithm including cd-hit-2d, cd-hit-est and cd-hit-est-2d. Cd-hit-2d compares two protein datasets and reports similar matches between them; cd-hit-est clusters a DNA/RNA sequence database and cd-hit-est-2d compares two nucleotide datasets. All these programs can handle huge datasets with millions of sequences and can be hundreds of times faster than methods based on the popular sequence comparison and database search tools, such as BLAST.},
+	language = {eng},
+	number = {13},
+	journal = {Bioinformatics},
+	author = {Li, Weizhong and Godzik, Adam},
+	month = jul,
+	year = {2006},
+	pmid = {16731699},
+	keywords = {Algorithms, Animals, Cluster Analysis, computational biology, Databases, Nucleic Acid, Databases, Protein, DNA, Expressed Sequence Tags, Humans, Programming Languages, RNA, Sequence Analysis, DNA, Sequence Analysis, Protein, software},
+	pages = {1658--1659}
 }
 
 @article{kopylova_sortmerna:_2012,
@@ -124,6 +280,48 @@ RESULTS: We present SortMeRNA, a new software designed to rapidly filter rRNA fr
 	pages = {1451--1455}
 }
 
+@article{ondov_interactive_2011,
+	title = {Interactive metagenomic visualization in a {Web} browser},
+	volume = {12},
+	copyright = {2011 Ondov et al; licensee BioMed Central Ltd.},
+	issn = {1471-2105},
+	url = {http://www.biomedcentral.com/1471-2105/12/385/abstract},
+	doi = {10.1186/1471-2105-12-385},
+	abstract = {A critical output of metagenomic studies is the estimation of abundances of taxonomical or functional groups. The inherent uncertainty in assignments to these groups makes it important to consider both their hierarchical contexts and their prediction confidence. The current tools for visualizing metagenomic data, however, omit or distort quantitative hierarchical relationships and lack the facility for displaying secondary variables.
+PMID: 21961884},
+	language = {en},
+	number = {1},
+	urldate = {2015-01-14},
+	journal = {BMC Bioinformatics},
+	author = {Ondov, Brian D. and Bergman, Nicholas H. and Phillippy, Adam M.},
+	month = sep,
+	year = {2011},
+	pmid = {21961884},
+	pages = {385}
+}
+
+@article{fu_cd-hit:_2012,
+	title = {{CD}-{HIT}: accelerated for clustering the next-generation sequencing data},
+	volume = {28},
+	issn = {1367-4811},
+	shorttitle = {{CD}-{HIT}},
+	doi = {10.1093/bioinformatics/bts565},
+	abstract = {SUMMARY: CD-HIT is a widely used program for clustering biological sequences to reduce sequence redundancy and improve the performance of other sequence analyses. In response to the rapid increase in the amount of sequencing data produced by the next-generation sequencing technologies, we have developed a new CD-HIT program accelerated with a novel parallelization strategy and some other techniques to allow efficient clustering of such datasets. Our tests demonstrated very good speedup derived from the parallelization for up to ∼24 cores and a quasi-linear speedup for up to ∼8 cores. The enhanced CD-HIT is capable of handling very large datasets in much shorter time than previous versions.
+AVAILABILITY: http://cd-hit.org.
+CONTACT: liwz@sdsc.edu
+SUPPLEMENTARY INFORMATION: Supplementary data are available at Bioinformatics online.},
+	language = {eng},
+	number = {23},
+	journal = {Bioinformatics},
+	author = {Fu, Limin and Niu, Beifang and Zhu, Zhengwei and Wu, Sitao and Li, Weizhong},
+	month = dec,
+	year = {2012},
+	pmid = {23060610},
+	pmcid = {PMC3516142},
+	keywords = {Algorithms, Cluster Analysis, computational biology, Sequence Analysis, Protein, software},
+	pages = {3150--3152}
+}
+
 @article{abubucker_metabolic_2012,
 	title = {Metabolic {Reconstruction} for {Metagenomic} {Data} and {Its} {Application} to the {Human} {Microbiome}},
 	volume = {8},
@@ -160,22 +358,22 @@ PMID: 20738864},
 	pages = {R86}
 }
 
-@article{yuan_reconstructing_2015,
-	title = {Reconstructing 16S {rRNA} genes in metagenomic data},
-	volume = {31},
+@article{schmieder_quality_2011,
+	title = {Quality control and preprocessing of metagenomic datasets},
+	volume = {27},
 	issn = {1367-4803, 1460-2059},
-	url = {http://bioinformatics.oxfordjournals.org/content/31/12/i35},
-	doi = {10.1093/bioinformatics/btv231},
-	abstract = {Metagenomic data, which contains sequenced DNA reads of uncultured microbial species from environmental samples, provide a unique opportunity to thoroughly analyze microbial species that have never been identified before. Reconstructing 16S ribosomal RNA, a phylogenetic marker gene, is usually required to analyze the composition of the metagenomic data. However, massive volume of dataset, high sequence similarity between related species, skewed microbial abundance and lack of reference genes make 16S rRNA reconstruction difficult. Generic de novo assembly tools are not optimized for assembling 16S rRNA genes. In this work, we introduce a targeted rRNA assembly tool, REAGO (REconstruct 16S ribosomal RNA Genes from metagenOmic data). It addresses the above challenges by combining secondary structure-aware homology search, zproperties of rRNA genes and de novo assembly. Our experimental results show that our tool can correctly recover more rRNA genes than several popular generic metagenomic assembly tools and specially designed rRNA construction tools.
-Availability and implementation: The source code of REAGO is freely available at https://github.com/chengyuan/reago.
-Contact: yannisun@msu.edu},
+	url = {http://bioinformatics.oxfordjournals.org/content/27/6/863},
+	doi = {10.1093/bioinformatics/btr026},
+	abstract = {Summary: Here, we present PRINSEQ for easy and rapid quality control and data preprocessing of genomic and metagenomic datasets. Summary statistics of FASTA (and QUAL) or FASTQ files are generated in tabular and graphical form and sequences can be filtered, reformatted and trimmed by a variety of options to improve downstream analysis.
+Availability and Implementation: This open-source application was implemented in Perl and can be used as a stand alone version or accessed online through a user-friendly web interface. The source code, user help and additional information are available at http://prinseq.sourceforge.net/.
+Contact: rschmied@sciences.sdsu.edu; redwards@cs.sdsu.edu},
 	language = {en},
-	number = {12},
-	urldate = {2015-09-18},
+	number = {6},
+	urldate = {2015-04-07},
 	journal = {Bioinformatics},
-	author = {Yuan, Cheng and Lei, Jikai and Cole, James and Sun, Yanni},
-	month = jun,
-	year = {2015},
-	pmid = {26072503},
-	pages = {i35--i43}
+	author = {Schmieder, Robert and Edwards, Robert},
+	month = mar,
+	year = {2011},
+	pmid = {21278185},
+	pages = {863--864}
 }
