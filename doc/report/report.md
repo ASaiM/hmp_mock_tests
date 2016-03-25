@@ -4,6 +4,7 @@ subject_session: Sequence analysis
 subtitle: "ASaiM: a Galaxy-based framework to analyze raw shotgun sequence data from microbiota"
 author: 
     - Bérénice Batut
+    - Eric Peyretaillade
     - Jean-François Brugère
     - Pierre Peyret
 address: EA-4678 CIDAM, Clermont Université, Université d’Auvergne, Clermont-Ferrand, France
