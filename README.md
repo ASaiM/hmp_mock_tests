@@ -27,7 +27,7 @@ Get the input datasets and EBI result data and format them:
 Get reference genomes and mapped input datasets on them:
 
 ```
-./src/src/download_extract_map_reference_genomes.sh
+./src/download_extract_map_reference_genomes.sh
 ```
 
 Launch ASaiM workflow on both datasets (this task takes several hours):
