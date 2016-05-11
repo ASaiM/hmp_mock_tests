@@ -16,13 +16,9 @@ header-includes:
     - \usepackage{pdflscape}
     - \usepackage{array}
     - \usepackage{multirow}
-abstract: "The HMP metagenomes mock pilot is a project with metagenomic shotgun sequences from a controlled microbiota community (with 22 known microbial species). Two datasets are available: even and staggered mock communities. These controlled datasets are available in [*EBI metagenomics* database](https://www.ebi.ac.uk/metagenomics/projects/SRP004311).\\
-
-We analyzed these datasets with the workflow available with ASaiM Galaxy instance and compared taxonomic and functional results with the ones obtained with [*EBI metagenomics* pipeline (version 1.0)](https://www.ebi.ac.uk/metagenomics/pipelines/1.0).\\
-
-Details about these analyses (workflows, scripts, results, parameters, ...) are available on a [dedicated GitHub repository](https://github.com/ASaiM/hmp_mock_tests).
-"
 ---
+
+The HMP metagenomes mock pilot is a project with metagenomic shotgun sequences from a controlled microbiota community (with 22 known microbial species). Two datasets are available: even and staggered mock communities. These controlled datasets are available in [*EBI metagenomics* database](https://www.ebi.ac.uk/metagenomics/projects/SRP004311). We analyzed these datasets with the workflow available with ASaiM Galaxy instance and compared taxonomic and functional results with the ones obtained with [*EBI metagenomics* pipeline (version 1.0)](https://www.ebi.ac.uk/metagenomics/pipelines/1.0). Details about these analyses (workflows, scripts, results, parameters, ...) are available on a [dedicated GitHub repository](https://github.com/ASaiM/hmp_mock_tests).
 
 # Data
 
@@ -30,60 +26,60 @@ Two datasets are [available](https://www.ebi.ac.uk/metagenomics/projects/SRP0043
 
 \newpage
 \thispagestyle{empty}
-\newgeometry{top=2cm, bottom=3cm, left=3cm, right=2cm}
+\newgeometry{top=2cm, bottom=2cm, left=2cm, right=2cm}
 \begin{landscape}
 \begin{table}
-\begin{tabular}{llm{2.5cm}llllm{2.5cm}|rr}
+\begin{tabular}{llm{2.5cm}llllm{2.5cm}m{2.5cm}|rr}
 \hline
-\multicolumn{8}{c|}{Taxonomy} & \multicolumn{2}{c}{Abundances}\\
-Domain & Kingdom & Phylum & Class & Order & Family & Genus & Species & SRR072232 & SRR072233 \\
+\multicolumn{9}{c|}{Taxonomy} & \multicolumn{2}{c}{Abundances}\\
+Domain & Kingdom & Phylum & Class & Order & Family & Genus & Species & Strains & SRR072232 & SRR072233 \\
 \hline
-Archaea & Archaea & Euryarchaeota & Methanobacteria & Methanobacteriales& Methanobacteriaceae & \textit{Methanobrevibacter} & \textit{Methanobrevibacter smithii} & 1,000,000 & 100,000 \\
+Archaea & Archaea & Euryarchaeota & Methanobacteria & Methanobacteriales& Methanobacteriaceae & \textit{Methanobrevibacter} & \textit{Methanobrevibacter smithii} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000016525.1_ASM1652v1/}{ATCC 35061} & 1,000,000 & 100,000 \\
 \hline
-Bacteria & Bacteria & Actinobacteria & Actinobacteria & Actinomycetales & Actinomycetaceae & \textit{Actinomyces} & \textit{Actinomyces odontolyticus} & 1,000 & 100,000 \\
-\cline{6-10}
- &  &  &  &  & Propionibacteriaceae & \textit{Propionibacterium} & \textit{Propionibacterium acnes} & 10,000 & 100,000 \\
- \cline{3-10}
- & & Bacteroidetes & Bacteroidia & Bacteroidales & Bacteroidaceae & \textit{Bacteroides} & \textit{Bacteroides vulgatus} & 1,000 & 100,000 \\
- \cline{3-10}
-& & Deinococcus-Thermus & Deinococci & Deinococcales & Deinococcaceae & \textit{Deinococcus} & \textit{Deinococcus radiodurans} & 1,000 & 100,000 \\
- \cline{3-10}
-& & Firmicutes & Bacilli & Bacillales & Bacillaceae & \textit{Bacillus} & \textit{Bacillus cereus thuringiensis} & 100,000 & 100,000\\
- \cline{6-10}
-& & & & & Listeriaceae & \textit{Listeria} & \textit{Listeria monocytogenes} & 10,000 & 100,000 \\
-\cline{6-10}
-& & & & & Staphylococcaceae & \textit{Staphylococcus} & \textit{Staphylococcus aureus} & 100,000 & 100,000 \\
-\cline{8-10}
-& & & & & & & \textit{Staphylococcus epidermidis} & 1,000,000 & 100,000 \\
-\cline{5-10}
-& & & & Lactobacillales & Enterococcaceae & \textit{Enterococcus} & \textit{Enterococcus faecalis} & 1,000 & 100,000\\
-\cline{6-10}
-& & & & & Lactobacillaceae & \textit{Lactobacillus} & \textit{Lactobacillus gasseri} & 10,000 & 100,000\\
-\cline{6-10}
-& & & & & Streptococcaceae & \textit{Streptococcus} & \textit{Streptococcus agalactiae} & 100,000 & 100,000\\
-\cline{8-10}
-& & & & & & & \textit{Streptococcus mutans} & 1,000,000 & 100,000\\
-\cline{8-10}
-& & & & & & & \textit{Streptococcus mitis oralis pneumoniae} & 1,000 & 100,000\\
-\cline{4-10}
-& & & Clostridia & Clostridiales & Clostridiaceae & \textit{Clostridium} & \textit{Clostridium beijerinckii} & 100,000 & 100,000\\
-\cline{3-10}
-& & Proteobacteria & Alphaproteobacteria & Rhodobacterales & Rhodobacteraceae & \textit{Rhodobacter} & \textit{Rhodobacter sphaeroides} & 1,000,000 & 100,000\\
-\cline{4-10}
-& & & Betaproteobacteria & Neisseriales & Neisseriaceae & \textit{Neisseria} & \textit{Neisseria meningitidis} & 10,000 & 100,000\\
-\cline{4-10}
-& & & Epsilonproteobacteria & Campylobacterales & Helicobacteraceae & \textit{Helicobacter} & \textit{Helicobacter pylori} & 10,000 & 100,000\\
-\cline{4-10}
-& & & Gammaproteobacteria & Pseudomonadales & Moraxellaceae & \textit{Acinetobacter} & \textit{Acinetobacter baumannii} & 10,000 & 100,000\\
-\cline{6-10}
-& & & & & Pseudomonadaceae & \textit{Pseudomonas} & \textit{Pseudomonas aeruginosa} & 100,000 & 100,000\\
-\cline{5-10}
-& & & & Enterobacteriales & Enterobacteriaceae & \textit{Escherichia} & \textit{Escherichia coli} & 1,000,000 & 100,000\\
+Bacteria & Bacteria & Actinobacteria & Actinobacteria & Actinomycetales & Actinomycetaceae & \textit{Actinomyces} & \textit{Actinomyces odontolyticus} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000154225.1_ASM15422v1/}{ATCC 17982} & 1,000 & 100,000 \\
+\cline{6-11}
+ &  &  &  &  & Propionibacteriaceae & \textit{Propionibacterium} & \textit{Propionibacterium acnes} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000008345.1_ASM834v1/}{DSM 16379} & 10,000 & 100,000 \\
+ \cline{3-11}
+ & & Bacteroidetes & Bacteroidia & Bacteroidales & Bacteroidaceae & \textit{Bacteroides} & \textit{Bacteroides vulgatus} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000012825.1_ASM1282v1/}{ATCC 8482} & 1,000 & 100,000 \\
+ \cline{3-11}
+& & Deinococcus-Thermus & Deinococci & Deinococcales & Deinococcaceae & \textit{Deinococcus} & \textit{Deinococcus radiodurans} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000008565.1_ASM856v1/}{DSM 20539} & 1,000 & 100,000 \\
+ \cline{3-11}
+& & Firmicutes & Bacilli & Bacillales & Bacillaceae & \textit{Bacillus} & \textit{Bacillus cereus thuringiensis} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000008005.1_ASM800v1/}{ATCC 10987} & 100,000 & 100,000\\
+ \cline{6-11}
+& & & & & Listeriaceae & \textit{Listeria} & \textit{Listeria monocytogenes} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000196035.1_ASM19603v1/}{ATCC BAA-679} & 10,000 & 100,000 \\
+\cline{6-11}
+& & & & & Staphylococcaceae & \textit{Staphylococcus} & \textit{Staphylococcus aureus} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000153665.1_ASM15366v1/}{ATCC BAA-1718} & 100,000 & 100,000 \\
+\cline{8-11}
+& & & & & & & \textit{Staphylococcus epidermidis} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000007645.1_ASM764v1/}{ATCC 12228} & 1,000,000 & 100,000 \\
+\cline{5-11}
+& & & & Lactobacillales & Enterococcaceae & \textit{Enterococcus} & \textit{Enterococcus faecalis} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000172575.2_ASM17257v2/{ATCC 47077} & 1,000 & 100,000\\
+\cline{6-11}
+& & & & & Lactobacillaceae & \textit{Lactobacillus} & \textit{Lactobacillus gasseri} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000014425.1_ASM1442v1/}{DSM 20243} & 10,000 & 100,000\\
+\cline{6-11}
+& & & & & Streptococcaceae & \textit{Streptococcus} & \textit{Streptococcus agalactiae} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000007265.1_ASM726v1/}{ATCC BAA-611} & 100,000 & 100,000\\
+\cline{8-11}
+& & & & & & & \textit{Streptococcus mutans} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000007465.2_ASM746v2/}{ATCC 700610} & 1,000,000 & 100,000\\
+\cline{8-11}
+& & & & & & & \textit{Streptococcus mitis oralis pneumoniae} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000006885.1_ASM688v1/}{ATCC BAA-334} & 1,000 & 100,000\\
+\cline{4-11}
+& & & Clostridia & Clostridiales & Clostridiaceae & \textit{Clostridium} & \textit{Clostridium beijerinckii} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000016965.1_ASM1696v1/}{ATCC 51743} & 100,000 & 100,000\\
+\cline{3-11}
+& & Proteobacteria & Alphaproteobacteria & Rhodobacterales & Rhodobacteraceae & \textit{Rhodobacter} & \textit{Rhodobacter sphaeroides} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000012905.2_ASM1290v2/}{ATCC 17023} & 1,000,000 & 100,000\\
+\cline{4-11}
+& & & Betaproteobacteria & Neisseriales & Neisseriaceae & \textit{Neisseria} & \textit{Neisseria meningitidis} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000008805.1_ASM880v1/}{ATCC BAA-335} & 10,000 & 100,000\\
+\cline{4-11}
+& & & Epsilonproteobacteria & Campylobacterales & Helicobacteraceae & \textit{Helicobacter} & \textit{Helicobacter pylori} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000008525.1_ASM852v1/}{ATCC 700392} & 10,000 & 100,000\\
+\cline{4-11}
+& & & Gammaproteobacteria & Pseudomonadales & Moraxellaceae & \textit{Acinetobacter} & \textit{Acinetobacter baumannii} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000015425.1_ASM1542v1/}{ATCC 17978} & 10,000 & 100,000\\
+\cline{6-11}
+& & & & & Pseudomonadaceae & \textit{Pseudomonas} & \textit{Pseudomonas aeruginosa} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000006765.1_ASM676v1/}{ATCC 47085} & 100,000 & 100,000\\
+\cline{5-11}
+& & & & Enterobacteriales & Enterobacteriaceae & \textit{Escherichia} & \textit{Escherichia coli} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000005845.2_ASM584v2/}{ATCC 70096} & 1,000,000 & 100,000\\
 \hline
-Eukaryotes & Fungi & Ascomycota & Saccharomycetes & Saccharomycetales & Debaryomycetaceae & \textit{Candida} & \textit{Candida albicans} & 1,000 & 100,000 \\
+Eukaryotes & Fungi & Ascomycota & Saccharomycetes & Saccharomycetales & Debaryomycetaceae & \textit{Candida} & \textit{Candida albicans} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000182965.2_ASM18296v2/}{SC5314} & 1,000 & 100,000 \\
 \hline
-& & & & & & & \textbf{Total} & 5,566,000 & 2,200,000\\
-\cline{8-10}
+& & & & & & & & \textbf{Total} & 5,566,000 & 2,200,000\\
+\cline{8-11}
 \end{tabular}
 \caption{Expected species, their taxonomy and their abundances on both samples (SRR072232 and SRR072233)}
 \label{expected_species}
