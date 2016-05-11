@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+. src/misc.sh
 
 function download_unarchive {
     sample_name=$1

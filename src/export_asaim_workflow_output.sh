@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+. src/misc.sh
 
 function export_asaim_workflow_outputs {
     sample_name=$1
@@ -32,10 +33,12 @@ function compare_humann2_output {
         --output_dir $charact_output_dir
 }
 
+
+
 echo "Export ASaiM workflow outputs"
 echo "============================="
-export_asaim_workflow_outputs "SRR072232" $1 $2
-export_asaim_workflow_outputs "SRR072233" $1 $2
+export_asaim_workflow_outputs "SRR072232" $asaim_galaxy_instance_url $api_key_on_asaim_galaxy_instance
+export_asaim_workflow_outputs "SRR072233" $asaim_galaxy_instance_url $api_key_on_asaim_galaxy_instance
 echo ""
 
 echo "Extract percentage of unassigned clades with MetaPhlAn output"
@@ -52,7 +55,7 @@ if [[ ! -d $output_dir ]]; then
 fi
 echo "Gene families"
 echo "-------------"
-compare_humann2_output "gene_families"  $1 $2 $output_dir 
+compare_humann2_output "gene_families" $asaim_galaxy_instance_url $api_key_on_asaim_galaxy_instance $output_dir 
 echo "Pathways"
 echo "--------"
-compare_humann2_output "pathways"  $1 $2 $output_dir
+compare_humann2_output "pathways" $asaim_galaxy_instance_url $api_key_on_asaim_galaxy_instance $output_dir

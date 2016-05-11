@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+. src/misc.sh
 
 function launch_asaim_workflow {
     sample_name=$1
@@ -10,6 +11,6 @@ function launch_asaim_workflow {
 
 echo "Launch ASaiM workflow"
 echo "====================="
-launch_asaim_workflow "SRR072232" $1 $2
-launch_asaim_workflow "SRR072233" $1 $2
+launch_asaim_workflow "SRR072232" $$asaim_galaxy_instance_url $api_key_on_asaim_galaxy_instance
+launch_asaim_workflow "SRR072233" $asaim_galaxy_instance_url $api_key_on_asaim_galaxy_instance
 echo ""

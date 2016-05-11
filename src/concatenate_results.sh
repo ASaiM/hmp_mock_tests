@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+. src/misc.sh
 
 function concatenate_ebi_asaim_taxonomic_results {
     sample_name=$1
@@ -68,12 +69,12 @@ echo "Concatenate EBI and ASaiM functional results (GO slim terms)"
 echo "============================================================"
 echo "SRR072232"
 echo "---------"
-concatenate_ebi_asaim_functional_results "SRR072232" $1 $2
+concatenate_ebi_asaim_functional_results "SRR072232" $asaim_galaxy_instance_url $api_key_on_asaim_galaxy_instance
 echo "SRR072233"
 echo "---------"
-concatenate_ebi_asaim_functional_results "SRR072233" $1 $2
+concatenate_ebi_asaim_functional_results "SRR072233" $asaim_galaxy_instance_url $api_key_on_asaim_galaxy_instance
 echo ""
 echo "All samples"
 echo "-----------"
-concatenate_both_samples_functional_results $1 $2
+concatenate_both_samples_functional_results $asaim_galaxy_instance_url $api_key_on_asaim_galaxy_instance
 echo ""

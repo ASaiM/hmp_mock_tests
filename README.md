@@ -13,6 +13,15 @@ You need to generate an API key corresponding to your account on ASaiM Galaxy in
 
 # Usage
 
+Generate an API key corresponding to your account on the custom Galaxy instance (in `User` menu, on top panel) of ASaiM framework, and fill the [`config.yml`](config.yml) file:
+
+```
+asaim_galaxy_instance_url: "http://0.0.0.0:8080/"
+api_key_on_asaim_galaxy_instance: "apikey"
+```
+
+Get 
+
 Get the input datasets and EBI result data and format them:
 
 ```
@@ -22,7 +31,7 @@ Get the input datasets and EBI result data and format them:
 Launch ASaiM workflow on both datasets (this task takes several hours):
 
 ```
-./src/launch_asaim_workflow.sh <asaim_galaxy_instance_url> <your_api_key_on_asaim_galaxy_instance>
+./src/launch_asaim_workflow.sh
 ```
 
 You can visualize workflows running by browsing ASaiM Galaxy instance. 
@@ -30,13 +39,13 @@ You can visualize workflows running by browsing ASaiM Galaxy instance.
 Export ASaiM workflow outputs (when the workflows are done):
 
 ```
-./src/export_asaim_workflow_outputs.sh <asaim_galaxy_instance_url> <your_api_key_on_asaim_galaxy_instance>
+./src/export_asaim_workflow_outputs.sh
 ``` 
 
 Concatenate results (EBI one and ASaiM one) to compare them:
 
 ```
-./src/concatenate_results.sh <asaim_galaxy_instance_url> <your_api_key_on_asaim_galaxy_instance>
+./src/concatenate_results.sh
 ```
 
 # Report
