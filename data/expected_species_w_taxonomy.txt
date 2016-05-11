@@ -1,23 +1,22 @@
-Domain	Kingdom	Phylum	Class	Order	Family	Genus	Species	SRR072232	SRR072233
-Archaea	Archaea	Euryarchaeota	Methanobacteria	Methanobacteriales	Methanobacteriaceae	Methanobrevibacter	Methanobrevibacter smithii	1000000	100000
-Bacteria	Bacteria	Actinobacteria	Actinobacteria	Actinomycetales	Actinomycetaceae	Actinomyces	Actinomyces odontolyticus	1000	100000
-Bacteria	Bacteria	Actinobacteria	Actinobacteria	Actinomycetales	Propionibacteriaceae	Propionibacterium	Propionibacterium acnes	10000	100000
-Bacteria	Bacteria	Bacteroidetes	Bacteroidia	Bacteroidales	Bacteroidaceae	Bacteroides	Bacteroides vulgatus	1000	100000
-Bacteria	Bacteria	Deinococcus-Thermus	Deinococci	Deinococcales	Deinococcaceae	Deinococcus	Deinococcus radiodurans	1000	100000
-Bacteria	Bacteria	Firmicutes	Bacilli	Bacillales	Bacillaceae	Bacillus	Bacillus cereus thuringiensis	100000	100000
-Bacteria	Bacteria	Firmicutes	Bacilli	Bacillales	Listeriaceae	Listeria	Listeria monocytogenes	10000	100000
-Bacteria	Bacteria	Firmicutes	Bacilli	Bacillales	Staphylococcaceae	Staphylococcus	Staphylococcus aureus	100000	100000
-Bacteria	Bacteria	Firmicutes	Bacilli	Bacillales	Staphylococcaceae	Staphylococcus	Staphylococcus epidermidis	1000000	100000
-Bacteria	Bacteria	Firmicutes	Bacilli	Lactobacillales	Enterococcaceae	Enterococcus	Enterococcus faecalis	1000	100000
-Bacteria	Bacteria	Firmicutes	Bacilli	Lactobacillales	Lactobacillaceae	Lactobacillus	Lactobacillus gasseri	10000	100000
-Bacteria	Bacteria	Firmicutes	Bacilli	Lactobacillales	Streptococcaceae	Streptococcus	Streptococcus agalactiae	100000	100000
-Bacteria	Bacteria	Firmicutes	Bacilli	Lactobacillales	Streptococcaceae	Streptococcus	Streptococcus mutans	1000000	100000
-Bacteria	Bacteria	Firmicutes	Bacilli	Lactobacillales	Streptococcaceae	Streptococcus	Streptococcus mitis oralis pneumoniae	1000	100000
-Bacteria	Bacteria	Firmicutes	Clostridia	Clostridiales	Clostridiaceae	Clostridium	Clostridium beijerinckii	100000	100000
-Bacteria	Bacteria	Proteobacteria	Alphaproteobacteria	Rhodobacterales	Rhodobacteraceae	Rhodobacter	Rhodobacter sphaeroides	1000000	100000
-Bacteria	Bacteria	Proteobacteria	Betaproteobacteria	Neisseriales	Neisseriaceae	Neisseria	Neisseria meningitidis	10000	100000
-Bacteria	Bacteria	Proteobacteria	Epsilonproteobacteria	Campylobacterales	Helicobacteraceae	Helicobacter	Helicobacter pylori	10000	100000
-Bacteria	Bacteria	Proteobacteria	Gammaproteobacteria	Pseudomonadales	Moraxellaceae	Acinetobacter	Acinetobacter baumannii	10000	100000
-Bacteria	Bacteria	Proteobacteria	Gammaproteobacteria	Pseudomonadales	Pseudomonadaceae	Pseudomonas	Pseudomonas aeruginosa	100000	100000
-Bacteria	Bacteria	Proteobacteria	Gammaproteobacteria	Enterobacteriales	Enterobacteriaceae	Escherichia	Escherichia coli	1000000	100000
-Eukaryotes	Fungi	Ascomycota	Saccharomycetes	Saccharomycetales	Debaryomycetaceae	Candida	Candida albicans	1000	100000
+Archaea	Archaea	Euryarchaeota	Methanobacteria	Methanobacteriales	Methanobacteriaceae	Methanobrevibacter	Methanobrevibacter smithii	ATCC 35061	ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000016525.1_ASM1652v1/GCF_000016525.1_ASM1652v1
+Bacteria	Bacteria	Actinobacteria	Actinobacteria	Actinomycetales	Actinomycetaceae	Actinomyces	Actinomyces odontolyticus	ATCC 17982	ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000154225.1_ASM15422v1/GCF_000154225.1_ASM15422v1
+Bacteria	Bacteria	Actinobacteria	Actinobacteria	Actinomycetales	Propionibacteriaceae	Propionibacterium	Propionibacterium acnes	DSM 16379	ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000008345.1_ASM834v1/GCF_000008345.1_ASM834v1
+Bacteria	Bacteria	Bacteroidetes	Bacteroidia	Bacteroidales	Bacteroidaceae	Bacteroides	Bacteroides vulgatus	ATCC 8482	ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000012825.1_ASM1282v1/GCF_000012825.1_ASM1282v1
+Bacteria	Bacteria	Deinococcus-Thermus	Deinococci	Deinococcales	Deinococcaceae	Deinococcus	Deinococcus radiodurans	DSM 20539	ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000008565.1_ASM856v1/GCF_000008565.1_ASM856v1
+Bacteria	Bacteria	Firmicutes	Bacilli	Bacillales	Bacillaceae	Bacillus	Bacillus cereus thuringiensis	ATCC 10987	ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000008005.1_ASM800v1/GCF_000008005.1_ASM800v1
+Bacteria	Bacteria	Firmicutes	Bacilli	Bacillales	Listeriaceae	Listeria	Listeria monocytogenes	ATCC BAA-679	ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000196035.1_ASM19603v1/GCF_000196035.1_ASM19603v1
+Bacteria	Bacteria	Firmicutes	Bacilli	Bacillales	Staphylococcaceae	Staphylococcus	Staphylococcus aureus	ATCC BAA-1718	ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000153665.1_ASM15366v1/GCF_000153665.1_ASM15366v1
+Bacteria	Bacteria	Firmicutes	Bacilli	Bacillales	Staphylococcaceae	Staphylococcus	Staphylococcus epidermidis	ATCC 12228	ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000007645.1_ASM764v1/GCF_000007645.1_ASM764v1
+Bacteria	Bacteria	Firmicutes	Bacilli	Lactobacillales	Enterococcaceae	Enterococcus	Enterococcus faecalis	ATCC 47077	ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000172575.2_ASM17257v2/GCF_000172575.2_ASM17257v2
+Bacteria	Bacteria	Firmicutes	Bacilli	Lactobacillales	Lactobacillaceae	Lactobacillus	Lactobacillus gasseri	DSM 20243	ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000014425.1_ASM1442v1/GCF_000014425.1_ASM1442v1
+Bacteria	Bacteria	Firmicutes	Bacilli	Lactobacillales	Streptococcaceae	Streptococcus	Streptococcus agalactiae	ATCC BAA-611	ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000007265.1_ASM726v1/GCF_000007265.1_ASM726v1
+Bacteria	Bacteria	Firmicutes	Bacilli	Lactobacillales	Streptococcaceae	Streptococcus	Streptococcus mutans	ATCC 700610	ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000007465.2_ASM746v2/GCF_000007465.2_ASM746v2
+Bacteria	Bacteria	Firmicutes	Bacilli	Lactobacillales	Streptococcaceae	Streptococcus	Streptococcus mitis oralis pneumoniae	ATCC BAA-334	ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000006885.1_ASM688v1/GCF_000006885.1_ASM688v1
+Bacteria	Bacteria	Firmicutes	Clostridia	Clostridiales	Clostridiaceae	Clostridium	Clostridium beijerinckii	ATCC 51743	ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000016965.1_ASM1696v1/GCF_000016965.1_ASM1696v1
+Bacteria	Bacteria	Proteobacteria	Alphaproteobacteria	Rhodobacterales	Rhodobacteraceae	Rhodobacter	Rhodobacter sphaeroides	ATCC 17023	ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000012905.2_ASM1290v2/GCF_000012905.2_ASM1290v2
+Bacteria	Bacteria	Proteobacteria	Betaproteobacteria	Neisseriales	Neisseriaceae	Neisseria	Neisseria meningitidis	ATCC BAA-335	ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000008805.1_ASM880v1/GCF_000008805.1_ASM880v1
+Bacteria	Bacteria	Proteobacteria	Epsilonproteobacteria	Campylobacterales	Helicobacteraceae	Helicobacter	Helicobacter pylori	ATCC 700392	ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000008525.1_ASM852v1/GCF_000008525.1_ASM852v1
+Bacteria	Bacteria	Proteobacteria	Gammaproteobacteria	Pseudomonadales	Moraxellaceae	Acinetobacter	Acinetobacter baumannii	ATCC 17978	ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000015425.1_ASM1542v1/GCF_000015425.1_ASM1542v1
+Bacteria	Bacteria	Proteobacteria	Gammaproteobacteria	Pseudomonadales	Pseudomonadaceae	Pseudomonas	Pseudomonas aeruginosa	ATCC 47085	ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000006765.1_ASM676v1/GCF_000006765.1_ASM676v1
+Bacteria	Bacteria	Proteobacteria	Gammaproteobacteria	Enterobacteriales	Enterobacteriaceae	Escherichia	Escherichia coli	ATCC 70096	ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000005845.2_ASM584v2/GCF_000005845.2_ASM584v2
+Eukaryotes	Fungi	Ascomycota	Saccharomycetes	Saccharomycetales	Debaryomycetaceae	Candida	Candida albicans	SC5314	ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000182965.2_ASM18296v2/GCF_000182965.2_ASM18296v2
