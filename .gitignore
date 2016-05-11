@@ -1,4 +1,9 @@
 data/SRR072232.fastq
+data/SRR072232.fastq.gz
 data/SRR072233.fastq
+data/SRR072233.fastq.gz
+data/reference_genomes/
+data/expected_species_w_protein_nb.txt
+
 results/
 *.pyc
