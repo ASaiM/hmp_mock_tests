@@ -1,7 +1,7 @@
-Test of ASaiM workflow on HMP Mock Community samples
-====================================================
+Validation of ASaiM framework on HMP Mock Community samples
+==========================================================
 
-To test ASaiM workflow, we use mock samples from HMP. These datasets have a controlled community content. Moreover, these datasets were analyzed using EBI metagenomic workflow and the corresponding results are [available](https://www.ebi.ac.uk/metagenomics/projects/SRP004311).
+We test ASaiM framework on mock samples from HMP which have a controlled community content. The results were compared to [EBI metagenomic pipeline results](https://www.ebi.ac.uk/metagenomics/projects/SRP004311).
 
 # Requirements
 
@@ -18,12 +18,16 @@ asaim_galaxy_instance_url: "http://0.0.0.0:8080/"
 api_key_on_asaim_galaxy_instance: "apikey"
 ```
 
-Get 
-
 Get the input datasets and EBI result data and format them:
 
 ```
-./src/download_EBI_data.sh
+./src/download_format_EBI_data.sh
+```
+
+Get reference genomes and mapped input datasets on them:
+
+```
+./src/src/download_extract_map_reference_genomes.sh
 ```
 
 Launch ASaiM workflow on both datasets (this task takes several hours):
