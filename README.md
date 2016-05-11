@@ -6,10 +6,8 @@ To test ASaiM workflow, we use mock samples from HMP. These datasets have a cont
 # Requirements
 
 - `wget`
-- `bioblend`
-- [ASaiM Galaxy instance](https://github.com/ASaiM/framework), launched and populated with tools and databases (Check also [ASaiM documentation](http://asaim.readthedocs.org/en/latest/framework/index.html))
-
-You need to generate an API key corresponding to your account on ASaiM Galaxy instance (in `User` menu, on top panel).
+- `pip` and some Python modules you can install using `pip install -r requirements.txt`
+- [ASaiM framework](https://github.com/ASaiM/framework) with its custom Galaxy instance launched and populated with tools and databases. You can also check [ASaiM documentation](http://asaim.readthedocs.org/en/latest/framework/index.html) for further information.
 
 # Usage
 
