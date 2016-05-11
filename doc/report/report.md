@@ -1,7 +1,7 @@
 ---
-title: "Supplementary material: Test of HMP Mock community samples on ASaiM Galaxy instance and comparison with *EBI metagenomics* results"
+title: "Test of HMP Mock community samples on ASaiM Galaxy instance and comparison with *EBI metagenomics* results"
 subject_session: Sequence analysis
-subtitle: "ASaiM: a Galaxy-based framework to analyze raw shotgun sequence data from microbiota"
+subtitle: "Supplementary material 2"
 author: 
     - Bérénice Batut
     - Eric Peyretaillade

@@ -152,7 +152,7 @@
 \setlength\topskip{10\p@}           % height of first line of text
 \setlength\headsep{8\p@}        %   space below running head --
 
-\setlength\footskip{10\p@}          % space above footer line
+\setlength\footskip{0\p@}          % space above footer line
 \setlength\maxdepth{.5\topskip}     % pages can be short or deep by half a line?
 
 \setlength\textwidth{40.5pc}          % text measure excluding margins
@@ -209,7 +209,7 @@
 % Space between floats and text
 \setlength\textfloatsep{20\p@ \@plus 2\p@ \@minus 4\p@}
 % Space above and below an inline figure
-\setlength\intextsep   {18\p@ \@plus 2\p@ \@minus 2\p@}
+\setlength\intextsep   {10\p@ \@plus 2\p@ \@minus 2\p@}
 
 % For double column floats
 \setlength\dblfloatsep    {12\p@ \@plus 2\p@ \@minus 2\p@}
@@ -257,15 +257,15 @@
 
 \def\ps@opening
   {%
-  \def\@oddfoot{{
-        \hbox to \textwidth{\helvetica
-        \fontsize{7}{9}\fontshape{n}\selectfont \copyright\space The Author \@copyrightyear. Published by Oxford University Press. All rights reserved. For permissions, please e-mail: journals.permissions@oup.com%
-          \hfill\small\helveticabold\thepage}%
-        }}%
-  \def\@evenfoot{{
-        \hbox to \textwidth{\helvetica\thepage\hfill
-          \fontsize{7}{9}\fontshape{n}\selectfont The Author \@copyrightyear. Published by Oxford University Press. All rights reserved. For permissions, please e-mail: journals.permissions@oup.com}%
-        }}%
+  %\def\@oddfoot{{
+  %      \hbox to \textwidth{\helvetica
+  %      \fontsize{7}{9}\fontshape{n}\selectfont \copyright\space The Author \@copyrightyear. Published by Oxford University Press. All rights reserved. For permissions, please e-mail: journals.permissions@oup.com%
+  %        \hfill\small\helveticabold\thepage}%
+  %      }}%
+  %\def\@evenfoot{{
+  %      \hbox to \textwidth{\helvetica\thepage\hfill
+  %        \fontsize{7}{9}\fontshape{n}\selectfont The Author \@copyrightyear. Published by Oxford University Press. All rights reserved. For permissions, please e-mail: journals.permissions@oup.com}%
+  %      }}%
   \let\@evenhead\relax
   \let\@oddhead\relax}
 
@@ -481,26 +481,27 @@
     \checkoddpage\ifcpoddpage\setlength{\aboveskipchk}{-16pt}\else\setlength{\aboveskipchk}{-16pt}\fi%for checking oddpage or evenpage top skip%%
   \vspace*{\aboveskipchk}%
   \vspace{\dropfromtop}%
-  \hbox to \textwidth{\raisebox{5pt}[0pt]{%
-  \parbox[b]{415pt}{\raggedleft{\helveticacnitalic\fontsize{8}{12}\selectfont {Bioinformatics}}\\[1pt]
-  {\helveticacn doi.10.1093/bioinformatics/xxxxxx}\\[1pt]
-  {\ifx\@access\@empty
-  \else
-  {\helveticacn \@access}\fi}
-  \vskip1pt
-  {\ifx\@appnotes\@empty
-  \else
-  {\helveticacn \@appnotes}\fi}
-    }}%
+  %\hbox to \textwidth{\raisebox{5pt}[0pt]{%
+  %\parbox[b]{415pt}{\raggedleft{\helveticacnitalic\fontsize{8}{12}\selectfont {Bioinformatics}}\\[1pt]
+  %{\helveticacn doi.10.1093/bioinformatics/xxxxxx}\\[1pt]
+  %{\ifx\@access\@empty
+  %\else
+  %{\helveticacn \@access}\fi}
+  %\vskip1pt
+  %{\ifx\@appnotes\@empty
+  %\else
+  %{\helveticacn \@appnotes}\fi}
+  %  }
+  %  }%
 %\enskip  \parbox[b]{11.3pc}{%
 %    \helvetica
 %    \flushright\fontsize{8}{10}\fontshape{it}\selectfont
 %        Vol. 00\ no. 00 \@pubyear\\
 %        \hfill Pages \thepagerange
 %  }
-  \hfill\includegraphics{OUP_First_SBk_Bot_8401.eps}}
+  %\hfill\includegraphics{OUP_First_SBk_Bot_8401.eps}}
   \vskip2pt
-  \rule{415pt}{2\p@}\par%
+  \rule{400pt}{2\p@}\par%
   \helvetica
   \hbox to \textwidth{%
   \parbox[t]{36.5pc}{%
@@ -518,23 +519,23 @@
     \vspace{6\p@}
     {\helveticacn\fontsize{8.5}{12}\selectfont\raggedright \@corresp \par}%
     \vspace{2\p@}
-    {\helvetica\fontsize{8.5}{12}\selectfont\raggedright \@editor \par}
-    \vspace{4\p@}
-    {\helvetica\fontsize{7}{12}\selectfont\raggedright \@history \par}
-    \vspace{14\p@}
-    {
-  \let\section\absection  
-  {\helvetica\fontsize{10}{12}\bfseries\selectfont Abstract}\par}
-  \vskip5pt
-    \begingroup\begin{minipage}[t]{415pt}\parindent=0pt
-    {\helvetica\fontsize{9}{12}\selectfont \@abstract\par}
-    \end{minipage}
-    \endgroup
-    %\vspace{20\p@}
+    %{\helvetica\fontsize{8.5}{12}\selectfont\raggedright \@editor \par}
+    %\vspace{4\p@}
+    %{\helvetica\fontsize{7}{12}\selectfont\raggedright \@history \par}
+    %\vspace{14\p@}
+    %{
+  %\let\section\absection  
+  %{\helvetica\fontsize{10}{12}\bfseries\selectfont Abstract}\par}
+  %\vskip5pt
+    %\begingroup\begin{minipage}[t]{415pt}\parindent=0pt
+    %{\helvetica\fontsize{9}{12}\selectfont \@abstract\par}
+    %\end{minipage}
+    %\endgroup
+   %\vspace{20\p@}
     }%
   }
   \vspace{13.5\p@}%
-  \rule{415pt}{2\p@}%
+  \rule{400pt}{2\p@}%
   \vspace{12\p@ plus 6\p@ minus 6\p@}%
   \vspace{\extraspace}
   }
@@ -634,6 +635,7 @@
 \let\endfigure\end@float
 \@namedef{figure*}{\@dblfloat{figure}}
 \@namedef{endfigure*}{\end@dblfloat}
+
 \def\thetable{\@arabic\c@table}
 \def\fps@table{tbp}
 \def\ftype@table{2}
@@ -641,6 +643,7 @@
 \def\fnum@table{\tablename~\thetable}
 \def\table{\let\@makecaption\@tablecaption\let\source\tablesource\@float{table}}
 \def\endtable{\end@float}
+
 \@namedef{table*}{\let\@makecaption\@tablecaption\@dblfloat{table}}
 \@namedef{endtable*}{\end@dblfloat}
 
@@ -881,7 +884,7 @@
       \setlength{\itemindent}{-4mm}}\small}
 {\end{list}\endgroup}
 
-\RequirePackage{natbib}
+%\RequirePackage{natbib}
 
 % **********
 % Appendix *
@@ -920,8 +923,8 @@
 \doublehyphendemerits 640000   % corresponds to badness 800
 \finalhyphendemerits  1000000  % corresponds to badness 1000
 
-\flushbottom
-\frenchspacing
+%\flushbottom
+%\frenchspacing
 \ps@headings
 %\twocolumn
 
