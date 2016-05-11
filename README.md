@@ -52,10 +52,11 @@ Concatenate results (EBI one and ASaiM one) to compare them:
 
 # Report
 
-A report of this analysis is available in `doc` directory. It is in markdown. To export it in PDF, you can use:
+A [report](doc/report/report.pdf) of this analysis is available in `doc/report` directory.
+
+
+To generate the PDF from the markdown file (requiring PANDOC):
 
 ```
 ./doc/report/build.sh
 ```
-
-It requires PANDOC.
