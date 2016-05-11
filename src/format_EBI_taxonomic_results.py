@@ -62,7 +62,6 @@ def write_taxo_levels(taxo_level_abundances, all_taxo_level_abundance_file,
     else:
         abundance /= (1.*taxo_level_abundances['abundances']['all'])
     
-    print taxo_level_order
     all_taxo_level_abundance_file.write('\t'.join(previous_levels))
     all_taxo_level_abundance_file.write('\t'*len(taxo_level_order[1:]))
     all_taxo_level_abundance_file.write('\t' + str(abundance) + '\n')
