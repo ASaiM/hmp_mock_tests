@@ -1,5 +1,5 @@
 ---
-title: "Test of HMP Mock community samples on ASaiM Galaxy instance and comparison with *EBI metagenomics* results"
+title: "Validation of ASaiM framework and its workflows on HMP mock community smaples and comparison with *EBI metagenomics* results"
 subject_session: Sequence analysis
 subtitle: "Supplementary material 2"
 author: 
@@ -18,7 +18,11 @@ header-includes:
     - \usepackage{multirow}
 ---
 
-The HMP metagenomes mock pilot is a project with metagenomic shotgun sequences from a controlled microbiota community (with 22 known microbial species). Two datasets are available: even and staggered mock communities. These controlled datasets are available in [*EBI metagenomics* database](https://www.ebi.ac.uk/metagenomics/projects/SRP004311). We analyzed these datasets with the workflow available with ASaiM Galaxy instance and compared taxonomic and functional results with the ones obtained with [*EBI metagenomics* pipeline (version 1.0)](https://www.ebi.ac.uk/metagenomics/pipelines/1.0). Details about these analyses (workflows, scripts, results, parameters, ...) are available on a [dedicated GitHub repository](https://github.com/ASaiM/hmp_mock_tests).
+ASaiM framework, particularly the main workflow, was tested and validated on two mock metagenomic datasets from a controlled microbiota community (with 22 known microbial strains). These datasets are available on *EBI metagenomics* dataset.
+
+Taxonomic and functional results produced by ASaiM framework have been extensively analyzed and compared with results obtained with *EBI metagenomics* pipleine (https://www.ebi.ac.uk/metagenomics/pipelines/1.0) [@hunter_ebi_2014]. Details about these analyses (workflows, scripts) are available on a [dedicated GitHub repository](https://github.com/ASaiM/hmp_mock_tests) and the results on [Zenodo]().
+
+These analyses validate ASaiM framework and its main workflow. Hence, the main workflow produces accurate and precise taxonomic assignations, wide functional results (gene families, pathways, GO slim terms) and relations between taxonomic and functional results, in few hours on a standard computer. 
 
 # Data
 
