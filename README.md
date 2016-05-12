@@ -18,37 +18,19 @@ asaim_galaxy_instance_url: "http://0.0.0.0:8080/"
 api_key_on_asaim_galaxy_instance: "apikey"
 ```
 
-Get the input datasets and EBI result data and format them:
+Launch analyses:
 
 ```
-./src/download_format_EBI_data.sh
+./src/launch_hmp_mock_analyses.sh
 ```
 
-Get reference genomes and mapped input datasets on them:
+This script will
 
-```
-./src/download_extract_map_reference_genomes.sh
-```
-
-Launch ASaiM workflow on both datasets (this task takes several hours):
-
-```
-./src/launch_asaim_workflow.sh
-```
-
-You can visualize workflows running by browsing ASaiM Galaxy instance. 
-
-Export ASaiM workflow outputs (when the workflows are done):
-
-```
-./src/export_asaim_workflow_outputs.sh
-``` 
-
-Concatenate results (EBI one and ASaiM one) to compare them:
-
-```
-./src/concatenate_results.sh
-```
+- Get the input datasets and EBI result data and format them
+- Get reference genomes and mapped input datasets on them
+- Launch ASaiM workflow on both datasets (this task takes several hours). You can visualize workflows running by browsing ASaiM Galaxy instance. 
+- Export ASaiM workflow outputs (when the workflows are done)
+- Concatenate results (EBI one and ASaiM one) to compare them
 
 # Report
 
