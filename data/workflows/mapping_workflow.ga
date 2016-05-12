@@ -1,0 +1,658 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "Mapping", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "raw sequences"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 207, 
+                "top": 176
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"raw sequences\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "92d15abe-16bf-483e-8aeb-30b18bc16d3c", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output", 
+                    "uuid": "3e1ccd59-cf45-4d39-9c2a-58a19506f43d"
+                }
+            ]
+        }, 
+        "1": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "reference genomes"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 173, 
+                "top": 354
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"reference genomes\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "ead54dd1-d0fa-415d-916c-e9ac130f3532", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output", 
+                    "uuid": "f622302a-73ac-45db-ae58-67f15c82d354"
+                }
+            ]
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa_mem/0.7.12.1", 
+            "id": 2, 
+            "input_connections": {
+                "fastq_input|fastq_input1": {
+                    "id": 0, 
+                    "output_name": "output"
+                }, 
+                "reference_source|ref_file": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Map with BWA-MEM", 
+            "outputs": [
+                {
+                    "name": "bam_output", 
+                    "type": "bam"
+                }
+            ], 
+            "position": {
+                "left": 501, 
+                "top": 232
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionbam_output": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "bam_output"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa_mem/0.7.12.1", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"rg\": \"{\\\"rg_selector\\\": \\\"do_not_set\\\", \\\"__current_case__\\\": 3}\", \"fastq_input\": \"{\\\"fastq_input_selector\\\": \\\"single\\\", \\\"__current_case__\\\": 1, \\\"fastq_input1\\\": null}\", \"analysis_type\": \"{\\\"analysis_type_selector\\\": \\\"full\\\", \\\"algorithmic_options\\\": {\\\"algorithmic_options_selector\\\": \\\"do_not_set\\\", \\\"__current_case__\\\": 1}, \\\"io_options\\\": {\\\"a\\\": \\\"False\\\", \\\"C\\\": \\\"False\\\", \\\"__current_case__\\\": 0, \\\"h\\\": \\\"5\\\", \\\"M\\\": \\\"False\\\", \\\"T\\\": \\\"20\\\", \\\"io_options_selector\\\": \\\"set\\\", \\\"V\\\": \\\"False\\\", \\\"Y\\\": \\\"False\\\"}, \\\"__current_case__\\\": 2, \\\"scoring_options\\\": {\\\"scoring_options_selector\\\": \\\"do_not_set\\\", \\\"__current_case__\\\": 1}}\", \"reference_source\": \"{\\\"ref_file\\\": null, \\\"reference_source_selector\\\": \\\"history\\\", \\\"__current_case__\\\": 1, \\\"index_a\\\": \\\"auto\\\"}\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-master/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "0.7.12.1", 
+            "type": "tool", 
+            "uuid": "05260c8a-8cc4-4052-8559-c69be891ceff", 
+            "workflow_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bebatut/convert_extract_sequence_file/convert_extract_sequence_file/1.0.0", 
+            "id": 3, 
+            "input_connections": {
+                "sequence_file_format|sequence_file": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Convert/ Extract information", 
+            "outputs": [
+                {
+                    "name": "information_file", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "fasta_sequence_file", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "fastq_sequence_file", 
+                    "type": "fastq"
+                }, 
+                {
+                    "name": "quality_file", 
+                    "type": "qual"
+                }, 
+                {
+                    "name": "fasta_sequence_file_from_fastq", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "report_filepath", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 591, 
+                "top": 571
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionfasta_sequence_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "fasta_sequence_file"
+                }, 
+                "HideDatasetActionfasta_sequence_file_from_fastq": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "fasta_sequence_file_from_fastq"
+                }, 
+                "HideDatasetActionfastq_sequence_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "fastq_sequence_file"
+                }, 
+                "HideDatasetActioninformation_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "information_file"
+                }, 
+                "HideDatasetActionquality_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "quality_file"
+                }, 
+                "HideDatasetActionreport_filepath": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "report_filepath"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bebatut/convert_extract_sequence_file/convert_extract_sequence_file/1.0.0", 
+            "tool_state": "{\"__page__\": 0, \"sequence_file_format\": \"{\\\"extraction\\\": {\\\"specific_extraction\\\": \\\"True\\\", \\\"__current_case__\\\": 0, \\\"to_extract\\\": [\\\"description\\\"]}, \\\"sequence_file\\\": null, \\\"__current_case__\\\": 1, \\\"format\\\": \\\"fasta\\\"}\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-master/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null, \"constraints\": \"{\\\"constrained_extraction\\\": \\\"False\\\", \\\"__current_case__\\\": 1}\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "adc80d81-ce08-4ead-bdf6-c453e5bb0009", 
+            "workflow_outputs": []
+        }, 
+        "4": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/samtools_idxstats/samtools_idxstats/2.0", 
+            "id": 4, 
+            "input_connections": {
+                "input": {
+                    "id": 2, 
+                    "output_name": "bam_output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "IdxStats", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 824, 
+                "top": 213
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/samtools_idxstats/samtools_idxstats/2.0", 
+            "tool_state": "{\"input\": \"null\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-master/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__page__\": 0}", 
+            "tool_version": "2.0", 
+            "type": "tool", 
+            "uuid": "691b2d74-6f07-44d8-a91d-85522cd800bd", 
+            "workflow_outputs": []
+        }, 
+        "5": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/convert_characters/Convert characters1/1.0.0", 
+            "id": 5, 
+            "input_connections": {
+                "input": {
+                    "id": 3, 
+                    "output_name": "information_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Convert", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 813, 
+                "top": 388
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/convert_characters/Convert characters1/1.0.0", 
+            "tool_state": "{\"__page__\": 0, \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-master/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null, \"convert_from\": \"\\\"s\\\"\", \"input\": \"null\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "369b1abc-aec0-407d-b579-d0c3726de471", 
+            "workflow_outputs": []
+        }, 
+        "6": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/cut_columns/Cut1/1.0.1", 
+            "id": 6, 
+            "input_connections": {
+                "input": {
+                    "id": 4, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Cut", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1033, 
+                "top": 268
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/cut_columns/Cut1/1.0.1", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"delimiter\": \"\\\"T\\\"\", \"columnList\": \"\\\"c1,c3\\\"\", \"input\": \"null\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-master/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "uuid": "979d543d-4f81-4d67-8a7f-cec6f2959d18", 
+            "workflow_outputs": []
+        }, 
+        "7": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/cut_columns/Cut1/1.0.1", 
+            "id": 7, 
+            "input_connections": {
+                "input": {
+                    "id": 5, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Cut", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1033, 
+                "top": 388
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/cut_columns/Cut1/1.0.1", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"delimiter\": \"\\\"T\\\"\", \"columnList\": \"\\\"c1,c2,c3\\\"\", \"input\": \"null\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-master/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "uuid": "adb6271c-c259-4a9a-9796-d68989379f4c", 
+            "workflow_outputs": []
+        }, 
+        "8": {
+            "annotation": "", 
+            "content_id": "join1", 
+            "id": 8, 
+            "input_connections": {
+                "input1": {
+                    "id": 7, 
+                    "output_name": "out_file1"
+                }, 
+                "input2": {
+                    "id": 6, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Join two Datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1253, 
+                "top": 268
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "join1", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"field1\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"1\\\"}\", \"partial\": \"\\\"\\\"\", \"field2\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"1\\\"}\", \"__rerun_remap_job_id__\": null, \"fill_empty_columns\": \"{\\\"fill_empty_columns_switch\\\": \\\"no_fill\\\", \\\"__current_case__\\\": 0}\", \"unmatched\": \"\\\"\\\"\", \"input1\": \"null\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-master/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "2.0.2", 
+            "type": "tool", 
+            "uuid": "d9fbf4be-5aad-4aa6-8265-904252da9a7d", 
+            "workflow_outputs": []
+        }, 
+        "9": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/cut_columns/Cut1/1.0.1", 
+            "id": 9, 
+            "input_connections": {
+                "input": {
+                    "id": 8, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Cut", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1473, 
+                "top": 268
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/cut_columns/Cut1/1.0.1", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"delimiter\": \"\\\"T\\\"\", \"columnList\": \"\\\"c2,c3,c5\\\"\", \"input\": \"null\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-master/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "uuid": "9d6c3bad-4e74-496d-b2db-3511f09dd52c", 
+            "workflow_outputs": []
+        }, 
+        "10": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/add_value/addValue/1.0.0", 
+            "id": 10, 
+            "input_connections": {
+                "input": {
+                    "id": 9, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Add column", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1693, 
+                "top": 268
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/add_value/addValue/1.0.0", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"exp\": \"\\\" \\\"\", \"iterate\": \"\\\"no\\\"\", \"input\": \"null\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-master/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "492a2003-13ea-4580-a5d2-ee3a02d6212a", 
+            "workflow_outputs": []
+        }, 
+        "11": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/cut_columns/Cut1/1.0.1", 
+            "id": 11, 
+            "input_connections": {
+                "input": {
+                    "id": 10, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Cut", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1913, 
+                "top": 268
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/cut_columns/Cut1/1.0.1", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"delimiter\": \"\\\"T\\\"\", \"columnList\": \"\\\"c1,c4,c2,c3\\\"\", \"input\": \"null\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-master/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "uuid": "406d5ad1-ee76-46e7-80c1-43b99e3496ef", 
+            "workflow_outputs": []
+        }, 
+        "12": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/merge_cols/mergeCols1/1.0.1", 
+            "id": 12, 
+            "input_connections": {
+                "input1": {
+                    "id": 11, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Merge Columns", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 2133, 
+                "top": 268
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/merge_cols/mergeCols1/1.0.1", 
+            "tool_state": "{\"__page__\": 0, \"input1\": \"null\", \"__rerun_remap_job_id__\": null, \"col2\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"2\\\"}\", \"col1\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"1\\\"}\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-master/tool-data/shared/ucsc/chrom/?.len\\\"\", \"columns\": \"[{\\\"__index__\\\": 0, \\\"datacol\\\": {\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"3\\\"}}]\"}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "uuid": "981a6595-6515-4070-8bf7-f6bfa4eddadc", 
+            "workflow_outputs": []
+        }, 
+        "13": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/cut_columns/Cut1/1.0.1", 
+            "id": 13, 
+            "input_connections": {
+                "input": {
+                    "id": 12, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Cut", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 2353, 
+                "top": 268
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/cut_columns/Cut1/1.0.1", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"delimiter\": \"\\\"T\\\"\", \"columnList\": \"\\\"c5,c4\\\"\", \"input\": \"null\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-master/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "uuid": "d509558a-a9b4-4316-b286-b0d318c0178b", 
+            "workflow_outputs": []
+        }, 
+        "14": {
+            "annotation": "", 
+            "content_id": "Grouping1", 
+            "id": 14, 
+            "input_connections": {
+                "input1": {
+                    "id": 13, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Group", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 2573, 
+                "top": 268
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "Grouping1", 
+            "tool_state": "{\"operations\": \"[{\\\"opcol\\\": {\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"2\\\"}, \\\"__index__\\\": 0, \\\"optype\\\": \\\"sum\\\", \\\"opround\\\": \\\"no\\\"}]\", \"__page__\": 0, \"input1\": \"null\", \"ignorelines\": \"null\", \"groupcol\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"1\\\"}\", \"__rerun_remap_job_id__\": null, \"ignorecase\": \"\\\"False\\\"\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-master/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "2.1.0", 
+            "type": "tool", 
+            "uuid": "a52ac09c-aa63-42cc-a46b-ceabde8cb83a", 
+            "workflow_outputs": []
+        }, 
+        "15": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bebatut/normalize_dataset/normalize_dataset/0.1.0", 
+            "id": 15, 
+            "input_connections": {
+                "input_file": {
+                    "id": 14, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Normalize a dataset by", 
+            "outputs": [
+                {
+                    "name": "output_file", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 2793, 
+                "top": 268
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bebatut/normalize_dataset/normalize_dataset/0.1.0", 
+            "tool_state": "{\"__page__\": 0, \"format\": \"\\\"percentage\\\"\", \"__rerun_remap_job_id__\": null, \"input_file\": \"null\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-master/tool-data/shared/ucsc/chrom/?.len\\\"\", \"normalization\": \"\\\"column\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "b5ff4eb7-b34f-4707-8bb9-f326e1f866c6", 
+            "workflow_outputs": []
+        }
+    }, 
+    "uuid": "c083727f-dcef-4ae8-9916-f2bad21c9ced"
+}
