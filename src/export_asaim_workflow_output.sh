@@ -19,21 +19,19 @@ function extract_unassigned_clades_perc {
         --unassigned_clade_output_file "results/"$sample_name"/asaim_results/unassigned_clade_perc.txt"
 }
 
-function compare_humann2_output {
+function functional_results_comparison {
     charact_output_dir=$4"/"$1
     if [[ ! -d $charact_output_dir ]]; then
         mkdir $charact_output_dir
     fi
-    python src/compare_humann2_output.py \
+    python src/asaim_functional_results_comparison.py \
         --gi_url $2 \
         --api_key $3 \
         --characteristics $1 \
-        --sample_name "SRR072232" \
-        --sample_name "SRR072233" \
+        --first_dataset "SRR072232" \
+        --second_dataset "SRR072233" \
         --output_dir $charact_output_dir
 }
-
-
 
 echo "Export ASaiM workflow outputs"
 echo "============================="
@@ -47,15 +45,15 @@ extract_unassigned_clades_perc "SRR072232"
 extract_unassigned_clades_perc "SRR072233"
 echo ""
 
-echo "Compare functional analyses"
-echo "==========================="
-output_dir="results/concatenated_samples"
+echo "Compare functional resuls, taxonomically-related functional results and GO slim terms"
+echo "====================================================================================="
+output_dir="results/concatenated_samples/functional_results"
 if [[ ! -d $output_dir ]]; then
     mkdir $output_dir
 fi
-echo "Gene families"
-echo "-------------"
-compare_humann2_output "gene_families" $asaim_galaxy_instance_url $api_key_on_asaim_galaxy_instance $output_dir 
-echo "Pathways"
-echo "--------"
-compare_humann2_output "pathways" $asaim_galaxy_instance_url $api_key_on_asaim_galaxy_instance $output_dir
+python src/asaim_functional_results_comparison.py \
+    --gi_url $2 \
+    --api_key $3 \
+    --first_dataset "SRR072232" \
+    --second_dataset "SRR072233" \
+    --output_dir $output_dir 
