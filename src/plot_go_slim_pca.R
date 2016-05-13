@@ -1,8 +1,8 @@
 library(ade4)
 
 get_data <- function(type){
-    input_filepath = paste('results/concatenated_samples/',type, 
-        '/normalize_a_dataset_by_on_data_6_normalized_dataset.tabular', sep = '')
+    input_filepath = paste('results/concatenated_go_slim_terms/',type, 
+        '/23_normalize_a_dataset_by_on_data_22_normalized_dataset.tabular', sep = '')
 
     l = list()
     l$data = read.table(input_filepath, sep = '\t')
@@ -19,8 +19,8 @@ get_data <- function(type){
     l$order_axis2 = l$pca$li[l$order_2,]
     l$go_names_axis2 = l$data[l$order_2,2]
 
-    print("Correlation of first axis with total abundance")
-    print(cor.test(l$pca$li[,1],apply(l$extracted_data,1,sum)))
+    #print("Correlation of first axis with total abundance")
+    #print(cor.test(l$pca$li[,1],apply(l$extracted_data,1,sum)))
 
     return(l)
 }
@@ -29,7 +29,7 @@ get_data <- function(type){
 type = 'biological_process'
 print(type)
 bp = get_data(type)
-pdf(paste('results/concatenated_samples/', type, '/pca.pdf', sep = ''))
+pdf(paste('results/concatenated_go_slim_terms/', type, '_pca.pdf', sep = ''))
 scatter(bp$pca, clab.row = 0, posieig = "none", sub = paste('First axis (' ,
     round(100*bp$pca$eig[1]/sum(bp$pca$eig)), '%) - Second axis (', 
     round(100*bp$pca$eig[2]/sum(bp$pca$eig)),'%)', sep = ''))
@@ -46,7 +46,7 @@ dev.off()
 type = 'cellular_component'
 print(type)
 cc = get_data(type)
-pdf(paste('results/concatenated_samples/', type, '/pca.pdf', sep = ''))
+pdf(paste('results/concatenated_go_slim_terms/', type, '_pca.pdf', sep = ''))
 scatter(cc$pca, clab.row = 0, posieig = "none", sub = paste('First axis (' ,
     round(100*cc$pca$eig[1]/sum(cc$pca$eig)), '%) - Second axis (', 
     round(100*cc$pca$eig[2]/sum(cc$pca$eig)),'%)', sep = ''))
@@ -60,7 +60,7 @@ dev.off()
 type = 'molecular_function'
 print(type)
 mf = get_data(type)
-pdf(paste('results/concatenated_samples/', type, '/pca.pdf', sep = ''))
+pdf(paste('results/concatenated_go_slim_terms/', type, '_pca.pdf', sep = ''))
 scatter(mf$pca, clab.row = 0, posieig = "none", sub = paste('First axis (' ,
     round(100*mf$pca$eig[1]/sum(mf$pca$eig)), '%) - Second axis (', 
     round(100*mf$pca$eig[2]/sum(mf$pca$eig)),'%)', sep = ''))
