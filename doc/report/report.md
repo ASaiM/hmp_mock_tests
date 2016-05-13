@@ -370,9 +370,9 @@ In both samples, observed results (with *EBI metagenomics* and ASaiM) are groupe
 
 ### Raw ASaiM results
 
-In ASaiM workflow (Figure \ref{asaim_workflow}), functional analyses is made using [*HUMAnN*2](http://huttenhower.sph.harvard.edu/humann2) [@abubucker_metabolic_2012]. This tool profiles presence/absence and abundance of UniRef50 gene families and MetaCyc pathways from metagenomic/metatranscriptomic datasets. It is helpful to describe the metabolic profil of a microbial community. This step of functional profiling with *HUMAnN*2 is the longest step in ASaiM workflow (Table \ref{computation_stats}). 
+In ASaiM framework (Figure \ref{asaim_workflow}), [*HUMAnN*2](http://huttenhower.sph.harvard.edu/humann2) [@abubucker_metabolic_2012] is used for functional analyses. This tool profiles presence/absence and abundance of UniRef50 gene families and MetaCyc pathways from metagenomic/metatranscriptomic datasets. It then describes the metabolic profil of a microbial community. 
 
-*HUMAnN*2 generates three outputs: UniRef50 gene families, coverage and abundance of MetaCyc pathways. In both samples, > 90,000 UniRef50 gene families and > 480 MetaCyc pathways (Table \ref{humann2_informations}) are reconstructed from > 1,100,000 non rRNA sequences (Table \ref{pretreatment_stats}). More gene families and pathways are found for SRR072233 than for SRR072232 (Table \ref{humann2_informations}) but the values are similar. 
+*HUMAnN*2 generates three outputs: abundances of UniRef50 gene families, coverage and abundance of MetaCyc pathways. In both samples, > 90,000 UniRef50 gene families and > 480 MetaCyc pathways (Table \ref{humann2_informations}) are reconstructed from > 1,100,000 non rDNA sequences (Table \ref{pretreatment_stats}).
 
 \begin{table}[h!]
 \centering
@@ -392,38 +392,43 @@ All & Number & 98,569 & 129,691 & 487 & 500\\
 \label{humann2_informations}
 \end{table}
 
-44,933 gene families are found in both samples (Table \ref{humann2_informations}). Even if less than 50\% of gene families are similar, similar gene families represent more than 50\% of relative abundance in both samples (Table \ref{humann2_informations}). Inside similar gene families, relative abundance of gene families in both samples is different (Figure \ref{similar_characteristics_abundances}): the median value of normalized abundance of similar gene families is smaller for SRR072232 (significant *p-value* for Wilcoxon test, Table \ref{humann2_informations}).
+Datasets are constitued of metagenomic sequences from genomic mixture of identical 22 microbioal strains (Table \ref{expected_species}). Differences between datasets are on abundance of these strains. Similar metabolic functions made by same species are then supposed to be found in both datasets, but with different abundances.
+
+However, differences of metabolic functions between both datasets are observed. Sets of gene families are different: 44,933 gene families are found in both samples (<46\% for both samples, Table \ref{humann2_informations}). However, different gene families have a limited impaxt on overall metabolism (< 50\% of relative abundance, Table \ref{humann2_informations}). Global metabolism functions such as pathways are similar in both datasets (> 95\% of similar pathways representing > 99.5\% of overall abundance, Table \ref{humann2_informations}). Hence, the unexpected observed differences are limited and may be due to bias induced by biological manipulations or sequencing. 
+
+On the other hand, abundances of similar metabolic functions are different (Figure \ref{similar_characteristics_abundances}), as expected.
+
 
 \begin{figure}[h!]
     \centering
     \begin{minipage}[c]{.49\linewidth}
-    \includegraphics[width = \linewidth]{../images/concatenated_samples/gene_families_SRR072232_SRR072233.pdf}
+    \includegraphics[width = \linewidth]{../images/concatenated_asaim_results/functional_results/raw_gene_families.pdf}
     \end{minipage} \hfill
     \begin{minipage}[c]{.49\linewidth}
-    \includegraphics[width = \linewidth]{../images/concatenated_samples/pathways_SRR072232_SRR072233.pdf}
+    \includegraphics[width = \linewidth]{../images/concatenated_asaim_results/functional_results/raw_pathways.pdf}
     \end{minipage} 
     \caption{Normalized relative abundances (\%) for similar UniRef50 gene families (left graphics) and MetaCyc pathways (right graphics) for both samples (SRR072233 and SRR072233). The relative abundances of each similar characteristics (gene families or pathways) is computed with \textit{HUMAnN2} and normalized by the sum of relative abundance for all similar characteristics.}
     \label{similar_characteristics_abundances}
 \end{figure}
 
-Similarly, a high proportion (> 95 \%) of pathways are found in both samples (Table \ref{humann2_informations}) and they represents nearly all abundance (> 99.5 \%, Table \ref{humann2_informations}). Unlike gene families, relative abundance of pathways are similar in both samples (non-significant *p-value* for Wilcoxon test, Table \ref{humann2_informations} and Figure \ref{similar_characteristics_abundances}).
-
-With more than 40,000 gene families and almost 500 pathways, it is difficult to get a broad overview of the metabolic profile of studied microbial community. Each gene family and pathway is precise and related to specific metabolic functions. This information is interesting when you need detailed metabolic information and to go deeply inside metabolic profil. However, to get a general overview of the metabolic processes, UniRef50 gene families and even MetaCyc pathways are too numerous and too precise. UniRef50 gene families and their abundances can be grouped into slim Gene Ontology terms (Figure \ref{SRR072232_go_abundances}). These results are commented in relation with *EBI metagenomics* results in next section.
+With more than 90,000 gene families and almost 500 pathways, the metabolic profile of studied microbial community is too large to get a broad overview. Each gene family and pathway is precise and related to specific metabolic functions. This information is interesting when you need detailed metabolic information and to go deeply inside metabolic profil. However, to get a broad overview of the metabolic processes, UniRef50 gene families and even MetaCyc pathways are too numerous and too precise. UniRef50 gene families and their abundances are then grouped into slim Gene Ontology terms (Figure \ref{SRR072232_go_abundances}). Inside the 3 groups, the GO slim terms have similar abundances in both samples (Figure \ref{go_abundances}).
 
 \begin{figure}[h!]
     \centering
     \begin{minipage}[c]{.49\linewidth}
-    \includegraphics[width = \linewidth]{../images/SRR072232/cellular_components.pdf}
+    \includegraphics[width = \linewidth]{../images/concatenated_asaim_results/functional_results/cellular_components.pdf}
     \end{minipage} \hfill
     \begin{minipage}[c]{.49\linewidth}
-    \includegraphics[width = \linewidth]{../images/SRR072232/biological_processes.pdf}
+    \includegraphics[width = \linewidth]{../images/concatenated_asaim_results/functional_results/biological_process.pdf}
     \end{minipage} 
     \begin{minipage}[c]{.49\linewidth}
-    \includegraphics[width = \linewidth]{../images/SRR072232/molecular_functions.pdf}
+    \includegraphics[width = \linewidth]{../images/concatenated_asaim_results/functional_results/molecular_functions.pdf}
     \end{minipage}
-    \caption{Relative abundances of GO slim terms in SRR072232 for cellular components (top left), biological processes (top right) and molecular function (bottom)}
-    \label{SRR072232_go_abundances}
+    \caption{Relative abundances of GO slim terms in SRR072232 and SRR072233 for cellular components (top left), biological processes (top right) and molecular function (bottom)}
+    \label{go_abundances}
 \end{figure}
+
+Both communities, with same expected strains but with different abundances of these species, are similarly doing metabolic tasks. Hence, functional results obtained with ASaiM fill the expectations.
 
 ### Comparison of *EBI metagenomics* and ASaiM results
 
