@@ -17,6 +17,15 @@ function launch_mapping_workflow {
         --output_dir $output_dir
 }
 
+function format_mapping_results {
+    python src/format_mapping_results.py \
+        --mapping_results "results/"$1"/mapping/19_normalize_a_dataset_by_on_data_18_normalized_dataset.tabular" \
+        --expected_taxonomy "data/expected_species_w_taxonomy.txt" \
+        --output_dir "results/"$1"/mapping/" \
+        --api_key $3 \
+        --gi_url $2
+}
+
 echo "Download reference genomes and extract some data"
 echo "================================================"
 cd data
@@ -42,4 +51,11 @@ echo "========================================================================="
 launch_mapping_workflow "SRR072232" $asaim_galaxy_instance_url $api_key_on_asaim_galaxy_instance
 echo ""
 launch_mapping_workflow "SRR072233" $asaim_galaxy_instance_url $api_key_on_asaim_galaxy_instance
+echo ""
+
+echo "Format mapping to get full taxonomy and nice representation"
+echo "==========================================================="
+format_mapping_results "SRR072232" $asaim_galaxy_instance_url $api_key_on_asaim_galaxy_instance
+format_mapping_results "SRR072233" $asaim_galaxy_instance_url $api_key_on_asaim_galaxy_instance
+
 echo ""

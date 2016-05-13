@@ -16,10 +16,12 @@ def launch_mapping_workflow(args):
     input_filepaths = {}
     input_filepaths['raw sequences'] = "data/" + args.sample_name + ".fastq"
     input_filepaths['reference genomes'] = "data/reference_genomes/reference_genomes.fna.gz"
+    input_filepaths['Expected ribosomal rna operon counts'] = "data/" + args.sample_name + "_expected_ribosomal_rna_operon_counts.txt"
 
     file_types = {}
     file_types['raw sequences'] = "fastqsanger"
     file_types['reference genomes'] = "fasta"
+    file_types['Expected ribosomal rna operon counts'] = "tabular"
 
     galaxy_api_commands.run_workflow('Mapping for ' + args.sample_name, 
         workflow_file_path, input_filepaths, gi, args.output_dir, 
