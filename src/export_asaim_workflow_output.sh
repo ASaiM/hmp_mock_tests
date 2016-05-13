@@ -47,13 +47,25 @@ echo ""
 
 echo "Compare functional resuls, taxonomically-related functional results and GO slim terms"
 echo "====================================================================================="
-output_dir="results/concatenated_samples/functional_results"
+output_dir="results/concatenated_asaim_results/functional_results"
 if [[ ! -d $output_dir ]]; then
-    mkdir $output_dir
+    mkdir -p $output_dir
 fi
 python src/asaim_functional_results_comparison.py \
-    --gi_url $2 \
-    --api_key $3 \
+    --gi_url $asaim_galaxy_instance_url \
+    --api_key $api_key_on_asaim_galaxy_instance \
     --first_dataset "SRR072232" \
     --second_dataset "SRR072233" \
     --output_dir $output_dir 
+
+echo "Compute correlation and plot additional representation for taxonomically-related functional results"
+echo "==================================================================================================="
+output_dir="results/SRR072232/additional_results"
+if [[ ! -d $output_dir ]]; then
+    mkdir -p $output_dir
+fi
+output_dir="results/SRR072233/additional_results"
+if [[ ! -d $output_dir ]]; then
+    mkdir -p $output_dir
+fi
+Rscript src/compute_plot_correlation.R

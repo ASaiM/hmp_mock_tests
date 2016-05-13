@@ -221,7 +221,7 @@
             }, 
             "tool_errors": null, 
             "tool_id": "toolshed.g2.bx.psu.edu/repos/bebatut/plot_generic_x_y_plot/plot_generic_x_y_plot/0.1.0", 
-            "tool_state": "{\"xlab\": \"\\\"Relative abundance for first dataset\\\"\", \"__page__\": 0, \"bottom_margin\": \"\\\"5\\\"\", \"abline\": \"\\\"True\\\"\", \"input_file\": \"null\", \"color\": \"\\\"grey25\\\"\", \"lim\": \"\\\"True\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"ylog\": \"\\\"True\\\"\", \"y_column_id\": \"\\\"4\\\"\", \"left_margin\": \"\\\"5\\\"\", \"header\": \"\\\"True\\\"\", \"pch\": \"\\\"21\\\"\", \"__rerun_remap_job_id__\": null, \"ylab\": \"\\\"Relative abundance for second dataset\\\"\", \"x_column_id\": \"\\\"3\\\"\", \"xlog\": \"\\\"True\\\"\"}", 
+            "tool_state": "{\"xlab\": \"\\\"Relative abundance for SRR072233\\\"\", \"__page__\": 0, \"bottom_margin\": \"\\\"5\\\"\", \"abline\": \"\\\"True\\\"\", \"input_file\": \"null\", \"color\": \"\\\"grey25\\\"\", \"lim\": \"\\\"True\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"ylog\": \"\\\"True\\\"\", \"y_column_id\": \"\\\"4\\\"\", \"left_margin\": \"\\\"5\\\"\", \"header\": \"\\\"True\\\"\", \"pch\": \"\\\"21\\\"\", \"__rerun_remap_job_id__\": null, \"ylab\": \"\\\"Relative abundance for SRR072232\\\"\", \"x_column_id\": \"\\\"3\\\"\", \"xlog\": \"\\\"True\\\"\"}", 
             "tool_version": "0.1.0", 
             "type": "tool", 
             "uuid": "c6957090-5b57-4aaf-9b03-a1364b040579", 
