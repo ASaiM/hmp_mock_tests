@@ -22,8 +22,8 @@ def launch_mapping_workflow(args):
     file_types['reference genomes'] = "fasta"
 
     galaxy_api_commands.run_workflow('Mapping for ' + args.sample_name, 
-        workflow_file_path, input_filepaths, gi, args.output_dir, export = True, 
-        file_types = file_types, check_history_state = True)
+        workflow_file_path, input_filepaths, gi, args.output_dir, 
+        file_types = file_types)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
