@@ -62,18 +62,34 @@ if $image_update ; then
     cp $concatenated_results_dir"/pathways/42_plot_diff_orga_abund_diff_charat_mean_abund.pdf" \
         "doc/images/concatenated_samples/mean_pathway_abundance.pdf" 
 
-    cp $concatenated_results_dir"/biological_process/plot_grouped_barplot_on_data_7_pdf_barplot.pdf" \
-        "doc/images/concatenated_samples/biological_process_barplot.pdf"
-    cp $concatenated_results_dir"/biological_process/pca.pdf" \
-        "doc/images/concatenated_samples/biological_process_pca.pdf"
-    cp $concatenated_results_dir"/molecular_function/plot_grouped_barplot_on_data_7_pdf_barplot.pdf" \
-        "doc/images/concatenated_samples/molecular_function_barplot.pdf"
-    cp $concatenated_results_dir"/molecular_function/pca.pdf" \
-        "doc/images/concatenated_samples/molecular_function_pca.pdf"
-    cp $concatenated_results_dir"/cellular_component/plot_grouped_barplot_on_data_7_pdf_barplot.pdf" \
-        "doc/images/concatenated_samples/cellular_component_barplot.pdf"
-    cp $concatenated_results_dir"/cellular_component/pca.pdf" \
-        "doc/images/concatenated_samples/cellular_component_pca.pdf"
+    # Functional results
+    ## Only ASaiM
+    cp "results/concatenated_asaim_results/functional_results/raw_gene_families/7_plot_generic_x-y_plot_on_data_7_pdf_x-y_plot.pdf" \
+        "doc/images/concatenated_asaim_results/functional_results/raw_gene_families.pdf"
+    cp "results/concatenated_asaim_results/functional_results/raw_pathways/7_plot_generic_x-y_plot_on_data_7_pdf_x-y_plot.pdf" \
+        "doc/images/concatenated_asaim_results/functional_results/raw_pathways.pdf"
+
+    cp "results/concatenated_asaim_results/functional_results/taxonomically_related_gene_families/23_plot_generic_x-y_plot_on_data_22_pdf_x-y_plot.pdf" \
+        "doc/images/concatenated_asaim_results/functional_results/taxonomically_related_gene_families.pdf"
+    cp "results/concatenated_asaim_results/functional_results/taxonomically_related_pathways/23_plot_generic_x-y_plot_on_data_22_pdf_x-y_plot.pdf" \
+        "doc/images/concatenated_asaim_results/functional_results/taxonomically_related_pathways.pdf"
+
+    cp "results/concatenated_asaim_results/functional_results/biological_process/10_plot_grouped_barplot_on_data_9_pdf_barplot.pdf" \
+        "doc/images/concatenated_asaim_results/functional_results/biological_process.pdf"
+    cp "results/concatenated_asaim_results/functional_results/molecular_function/10_plot_grouped_barplot_on_data_9_pdf_barplot.pdf" \
+        "doc/images/concatenated_asaim_results/functional_results/molecular_function.pdf"
+    cp "results/concatenated_asaim_results/functional_results/cellular_component/10_plot_grouped_barplot_on_data_9_pdf_barplot.pdf" \
+        "doc/images/concatenated_asaim_results/functional_results/cellular_component.pdf"
+
+    # Concatenated GO slim terms
+    cp "results/concatenated_go_slim_terms/biological_process_pca.pdf" \
+        "doc/images/concatenated_go_slim_terms/biological_process_pca.pdf"
+    cp "results/concatenated_go_slim_terms/cellular_component/24_plot_grouped_barplot_on_data_23_pdf_barplot.pdf" \
+        "doc/images/concatenated_go_slim_terms/cellular_component_barplot.pdf"
+    cp "results/concatenated_go_slim_terms/cellular_component_pca.pdf" \
+        "doc/images/concatenated_go_slim_terms/cellular_component_pca.pdf"
+    cp "results/concatenated_go_slim_terms/molecular_function_pca.pdf" \
+        "doc/images/concatenated_go_slim_terms/molecular_function_pca.pdf"
 fi
 
 
