@@ -36,10 +36,7 @@ Both datasets have been analyzed using ASaiM framework. The results extensively 
 
 ## Abundance computation using mapping on reference genomes
 
-The expected abundances based on ribosomal RNA operon counts. During biological manipulations and sequencing, some bias may arise that modify the abundances of strains. Indeed, to get "real" abundances of expected strains, raw metagenomic sequences of both samples are mapped on genomes of expected strains. 
-
-details...
-
+The expected abundances based on ribosomal RNA operon counts. During biological manipulations and sequencing, some bias may arise that modify the abundances of strains. Indeed, to get "real" abundances of expected strains, raw metagenomic sequences of both samples are mapped on genomes of expected strains using BWA [@li_fast_2009;@li_fast_2010].
 
 \newpage
 \thispagestyle{empty}
@@ -104,7 +101,6 @@ Eukaryotes & Fungi & Ascomycota & Saccharomycetes & Saccharomycetales & Debaryom
 \end{landscape}
 \newpage
 \restoregeometry
-
 
 ## Analyses using *EBI Metagenomics*
 
@@ -184,15 +180,6 @@ In both *EBI metagenomics* and ASaiM workflows (Figures \ref{ebi_pipeline} and \
 
 # Results
 
-## Abundances of expected strains and taxonomy
-
-The expected abundances based on ribosomal RNA operon counts. During biological manipulations and sequencing, some bias may arise that modify the abundances of strains. Indeed, to get "real" abundances of expected strains, raw metagenomic sequences of both samples are mapped on genomes of expected strains. 
-
-We observe differences between expected abundances based on ribosomal RNA operon counts from metadata and abundances based on mapping counts (Figure \ref{}).
-
-As further taxonomic analyses are based on raw metagenomic sequences, we decide to use abundances based on mapping counts instead of abundances based on ribosomal RNA operon counts from metadata. 
-
-
 ## Results of pretreatments in pipelines
 
 In both workflows (Figures \ref{ebi_pipeline} and \ref{asaim_workflow}), raw sequences are pre-processed before any taxonomic or functional analysis. These preprocessing steps include quality control to remove low quality, small or duplicated sequences and also rRNA sorting to sort rRNA/rDNA sequences from non rRNA sequences (Figures \ref{ebi_pipeline} and \ref{asaim_workflow}). The used tools and parameters for these pretreatments are different between *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}) and ASaiM workflow (Figure \ref{asaim_workflow}). So, even with similar raw input sequences, pretreatment outputs are different (Table \ref{pretreatment_stats}).
@@ -221,6 +208,26 @@ In both datasets and with both workflows, few rDNA sequences are found in datase
 After pretreatments, more sequences are then conserved for taxonomic and functional analyses in ASaiM workflow than in *EBI metagenomics* pipeline, for both samples (Table \ref{pretreatment_stats}).
 
 ## Taxonomic analyses
+
+### Abundances of expected strains and taxonomy
+
+The expected abundances based on ribosomal RNA operon counts. During biological manipulations and sequencing, some bias may arise that modify the abundances of strains. Indeed, to get "real" abundances of expected strains, raw metagenomic sequences of both samples are mapped on genomes of expected strains. 
+
+We observe strong differences between expected abundances based on ribosomal RNA operon counts from metadata and abundances based on mapping counts (Figure \ref{}).
+
+\begin{figure}[h!]
+    \centering
+    \begin{minipage}[c]{.49\linewidth}
+    \includegraphics[width = \linewidth]{../images/SRR072232/mapping_expectation_barplot.pdf}
+    \end{minipage} \hfill
+    \begin{minipage}[c]{.49\linewidth}
+    \includegraphics[width = \linewidth]{../images/SRR072233/mapping_expectation_barplot.pdf}
+    \end{minipage} 
+    \caption{Comparison of relative abundances between expectation given the ribosomal RNA operon counts (green, Table \ref{expected_species}) and mapping against reference genomes for both samples (SRR072232 on left, SRR072233 on right)}
+    \label{mapping_comparison}
+\end{figure}
+
+As further taxonomic analyses are based on raw metagenomic sequences, abundances based on mapping counts are used on further analyses instead of abundances based on ribosomal RNA operon counts from metadata.
 
 ### Raw ASaiM results
 
