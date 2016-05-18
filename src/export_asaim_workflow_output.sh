@@ -33,6 +33,14 @@ function functional_results_comparison {
         --output_dir $charact_output_dir
 }
 
+function run_graphlan_workflow {
+    python src/run_graphlan_workflow.py \
+        --taxonomy_file "previous_results/"$1"/asaim_results/10_profile_of_communities_on_data_8_(metaphlan).tabular" \
+        --output_dir "previous_results/"$1"/asaim_results/graphlan_representations" \
+        --api_key $3 \
+        --gi_url $2
+}
+
 echo "Export ASaiM workflow outputs"
 echo "============================="
 export_asaim_workflow_outputs "SRR072232" $asaim_galaxy_instance_url $api_key_on_asaim_galaxy_instance
@@ -43,6 +51,13 @@ echo "Extract percentage of unassigned clades with MetaPhlAn output"
 echo "============================================================="
 extract_unassigned_clades_perc "SRR072232"
 extract_unassigned_clades_perc "SRR072233"
+echo ""
+
+echo "Run workflow to get graphlan representations"
+echo "============================================"
+run_graphlan_workflow "SRR072232" $asaim_galaxy_instance_url $api_key_on_asaim_galaxy_instance
+echo ""
+run_graphlan_workflow "SRR072233" $asaim_galaxy_instance_url $api_key_on_asaim_galaxy_instance
 echo ""
 
 echo "Compare functional resuls, taxonomically-related functional results and GO slim terms"
