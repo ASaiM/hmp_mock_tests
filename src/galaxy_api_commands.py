@@ -36,9 +36,10 @@ def import_workflow(workflow_file_path, gi):
     return wf_id, gi.workflows.show_workflow(wf_id)['inputs']
 
 def check_history_state(gi, hist_id):
-    state = len(gi.histories.show_history(hist_id)['state_ids']['running']) > 0 
-    state |= len(gi.histories.show_history(hist_id)['state_ids']['queued']) > 0
-    state |= len(gi.histories.show_history(hist_id)['state_ids']['new']) > 0
+    hist_state = gi.histories.show_history(hist_id)['state_ids']
+    state = len(hist_state['running']) > 0 
+    state |= len(hist_state['queued']) > 0
+    state |= len(hist_state['new']) > 0
     return state
 
 def launch_workflow(wf_id, datamap, hist_id, gi, to_check_history_state = True):
