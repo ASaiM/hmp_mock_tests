@@ -213,7 +213,7 @@ After pretreatments, more sequences are then conserved for taxonomic and functio
 
 The expected abundances based on ribosomal RNA operon counts. During biological manipulations and sequencing, some bias may arise that modify the abundances of strains. Indeed, to get "real" abundances of expected strains, raw metagenomic sequences of both samples are mapped on genomes of expected strains. 
 
-We observe strong differences between expected abundances based on ribosomal RNA operon counts from metadata and abundances based on mapping counts (Figure \ref{}).
+For SRR02232, variations in abundances between species are similar using mapping than RNA operon count (Figure \ref{mapping_comparison}). Observations are different for SRR072233 (Figure \ref{mapping_comparison}): expected abundances (based on RNA operon abundances) are identical for all species, but unexpected variations exist for mapping based abundances. 
 
 \begin{figure}[h!]
     \centering
@@ -227,7 +227,15 @@ We observe strong differences between expected abundances based on ribosomal RNA
     \label{mapping_comparison}
 \end{figure}
 
-As further taxonomic analyses are based on raw metagenomic sequences, abundances based on mapping counts are used on further analyses instead of abundances based on ribosomal RNA operon counts from metadata.
+These differences between expected abundances (from RNA operon counts) and mapping-based abundances may be due to bias induced during biological manipulations or sequencing. As next taxonomic analyses are based on raw metagenomic sequences, abundances based on mapping counts are used on further analyses instead of abundances based on ribosomal RNA operon counts from metadata (Figure \ref{expected_taxonomy_SRR072232}).
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width = .8\linewidth]{../images/SRR072232/expected_taxonomy.pdf}
+    \caption{Expected taxonomy for SRR072232 from domains to species. Circle diameters at each taxonomic levels are proportional to mapping-based relative abundance of corresponding taxon.}
+    \label{expected_taxonomy_SRR072232}
+\end{figure}
+
 
 ### Raw ASaiM results
 

@@ -1,11 +1,22 @@
 #!/usr/bin/env bash
-image_update=false
+image_update=true
 if $image_update ; then
     echo "Get last version of each images..."
 
     SRR072232_result_dir="results/SRR072232/"
     SRR072233_result_dir="results/SRR072233/"
-    concatenated_results_dir="results/concatenated_samples/"
+    concatenated_results_dir="results/concatenated_asaim_results/functional_results/"
+
+    # Taxonomic results
+    ## Mapping
+    cp "results/SRR072232/mapping/22_plot_grouped_barplot_on_data_20_pdf_barplot.pdf" \
+        "doc/images/SRR072232/mapping_expectation_barplot.pdf"
+    cp "results/SRR072233/mapping/22_plot_grouped_barplot_on_data_20_pdf_barplot.pdf" \
+        "doc/images/SRR072233/mapping_expectation_barplot.pdf"
+    cp "results/SRR072232/mapping/23_plot_barplot_on_data_21_pdf_barplot.pdf" \
+        "doc/images/SRR072232/ratio_mapping_expectation_barplot.pdf"
+    cp "results/SRR072233/mapping/23_plot_barplot_on_data_21_pdf_barplot.pdf" \
+        "doc/images/SRR072233/ratio_mapping_expectation_barplot.pdf"
 
     cp $SRR072232_result_dir"/asaim_results/43_graphlan_on_data_33_image.png" \
         "doc/images/SRR072232/graphlan.png"
