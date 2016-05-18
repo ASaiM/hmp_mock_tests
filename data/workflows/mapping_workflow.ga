@@ -767,8 +767,46 @@
         }, 
         "19": {
             "annotation": "", 
-            "content_id": "toolshed.g2.bx.psu.edu/repos/bebatut/plot_grouped_barplot/plot_grouped_barplot/0.1.0", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/1.1.0", 
             "id": 19, 
+            "input_connections": {
+                "input": {
+                    "id": 18, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Compute", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 3209, 
+                "top": 899.5
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/1.1.0", 
+            "tool_state": "{\"input\": \"null\", \"__rerun_remap_job_id__\": null, \"cond\": \"\\\"c2/c4\\\"\", \"round\": \"\\\"no\\\"\", \"__page__\": 0}", 
+            "tool_version": "1.1.0", 
+            "type": "tool", 
+            "uuid": "531b890a-9c93-4cba-aabf-80ea379bdd43", 
+            "workflow_outputs": []
+        }, 
+        "20": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bebatut/plot_grouped_barplot/plot_grouped_barplot/0.1.0", 
+            "id": 20, 
             "input_connections": {
                 "input_file": {
                     "id": 18, 
@@ -793,8 +831,8 @@
                 }
             ], 
             "position": {
-                "left": 3289.5, 
-                "top": 818.5
+                "left": 3312.5, 
+                "top": 555.5
             }, 
             "post_job_actions": {
                 "HideDatasetActionoutput_png_file": {
@@ -821,7 +859,63 @@
                     "uuid": "93c297d7-6657-4605-ae3e-ec659ee58170"
                 }
             ]
+        }, 
+        "21": {
+            "annotation": "", 
+            "content_id": "172.21.23.6:9009/repos/bebatut/plot_barplot/plot_barplot/0.1.0", 
+            "id": 21, 
+            "input_connections": {
+                "input_file": {
+                    "id": 19, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot barplot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 3442, 
+                "top": 995.5
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_pdf_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_pdf_file"
+                }, 
+                "HideDatasetActionoutput_png_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_png_file"
+                }, 
+                "HideDatasetActionoutput_svg_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_svg_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_barplot/plot_barplot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Ratio between mapping based and RNA operon count abundance\\\"\", \"bottom_margin\": \"\\\"5\\\"\", \"log\": \"\\\"True\\\"\", \"input_file\": \"null\", \"__page__\": 0, \"names_column\": \"\\\"1\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"left_margin\": \"\\\"10\\\"\", \"column_with_data\": \"\\\"5\\\"\", \"header\": \"\\\"False\\\"\", \"__rerun_remap_job_id__\": null, \"col\": \"\\\"grey\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "2644c0c8-7ef2-4570-b2d3-d18343c0a713", 
+            "workflow_outputs": []
         }
     }, 
-    "uuid": "ae743186-7811-453b-af81-05f366916d0f"
+    "uuid": "b2ce02e0-7238-4fff-b20d-aedac54f310b"
 }
