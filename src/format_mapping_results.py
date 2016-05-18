@@ -101,7 +101,8 @@ def format_mapping_results(args):
     input_filepaths = {}
     input_filepaths['Taxonomy'] = args.output_dir + "graphlan2_formatted_mapping_results"
     galaxy_api_commands.run_workflow('GraPhlAn representation', workflow_file_path, 
-        input_filepaths, gi, args.output_dir + "/graphlan_generation")
+        input_filepaths, gi, args.output_dir + "/graphlan_generation", export = True, 
+        delete = True, check_history_state = True)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
