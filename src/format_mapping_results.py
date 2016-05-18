@@ -81,35 +81,21 @@ def format_mapping_results(args):
 
     taxonomy, abund = fill_taxonomy(taxonomy, mapping_results)
 
-    with open(args.output_dir  + "formatted_mapping_results", "w") as tab_output_results:
+    with open(args.output_dir  + "formatted_mapping_results.txt", "w") as tab_output_results:
         for taxo_level in whole_taxo_level_order:
             tab_output_results.write(taxo_level + '\t')
         tab_output_results.write('abundances\n')
 
-        with open(args.output_dir + "graphlan2_formatted_mapping_results", "w") as output_results:
+        with open(args.output_dir + "graphlan2_formatted_mapping_results.txt", "w") as output_results:
             output_results.write('#SampleID\tMetaphlan2_Analysis\n')
 
             write_taxonomy_abundance(taxonomy, [], 
                 tab_output_results, output_results)
 
-    if not os.path.exists(args.output_dir + "/graphlan_generation"):
-        os.makedirs(args.output_dir + "/graphlan_generation")
-
-    workflow_file_path = "data/workflows/generate_graphlan_output.ga"
-    gi = galaxy_api_commands.connect_to_galaxy_instance(args.gi_url, args.api_key)
-
-    input_filepaths = {}
-    input_filepaths['Taxonomy'] = args.output_dir + "graphlan2_formatted_mapping_results"
-    galaxy_api_commands.run_workflow('GraPhlAn representation', workflow_file_path, 
-        input_filepaths, gi, args.output_dir + "/graphlan_generation", export = True, 
-        delete = True, check_history_state = True)
-
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--mapping_results', required=True)
     parser.add_argument('--expected_taxonomy', required=True)
-    parser.add_argument('--gi_url', required=True)
-    parser.add_argument('--api_key', required=True)
     parser.add_argument('--output_dir', required=True)
     args = parser.parse_args()
 
