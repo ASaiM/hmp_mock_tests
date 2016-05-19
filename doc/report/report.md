@@ -227,13 +227,13 @@ For SRR02232, variations in abundances between species are similar using mapping
     \label{mapping_comparison}
 \end{figure}
 
-These differences between expected abundances (from RNA operon counts) and mapping-based abundances may be due to bias induced during biological manipulations or sequencing. As next taxonomic analyses are based on raw metagenomic sequences, abundances based on mapping counts are used on further analyses instead of abundances based on ribosomal RNA operon counts from metadata (Figure \ref{expected_taxonomy_SRR072232}).
+These differences between expected abundances (from RNA operon counts) and mapping-based abundances may be due to bias induced during biological manipulations or sequencing. As next taxonomic analyses are based on raw metagenomic sequences, abundances based on mapping counts are used on further analyses instead of abundances based on ribosomal RNA operon counts from metadata (Figure \ref{expected_taxonomy}).
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width = .8\linewidth]{../images/SRR072232/expected_taxonomy.pdf}
-    \caption{Expected taxonomy for SRR072232 from domains to species. Circle diameters at each taxonomic levels are proportional to mapping-based relative abundance of corresponding taxon.}
-    \label{expected_taxonomy_SRR072232}
+    \includegraphics[width = \linewidth]{../images/expected_taxonomy.pdf}
+    \caption{Expected taxonomy for SRR072232 (left) and SRR072233 (right) from domains to species. Circle diameters at each taxonomic levels are proportional to mapping-based relative abundance of corresponding taxon.}
+    \label{expected_taxonomy}
 \end{figure}
 
 
@@ -241,20 +241,13 @@ These differences between expected abundances (from RNA operon counts) and mappi
 
 In ASaiM workflow (Figure \ref{asaim_workflow}), taxonomic analysis is made using *MetaPhlAN* (2.0) [@truong_metaphlan2_2015;@segata_metagenomic_2012] on sequences after pretreatments. *MetaPhlAn* profiles the microbial community structure using a database of unique clade-specific marker genes identified from 17,000 reference genomes. This step of taxonomic assignation with *MetaPhlAn* is fast in ASaiM Galaxy instance (less than 10 minutes for > 1,100,000 sequences, Tables \ref{computation_stats} and \ref{pretreatment_stats}). 
 
-Raw *MetaPhlAn* results consist in a plain text file with relative abundance of clades at different taxonomic levels. Visualisation tools help to represent *MetaPhlAn* results. In ASaiM, two such tools are used: *Krona* [@ondov_interactive_2011] for interactive representations of taxonomic assignation and *GraPhlan* for static representations (Figures \ref{graphlan_SRR072232} and \ref{graphlan_SRR072233}). To help comparison with expected taxonomy, *GraPhlAn* outputs are formatted (Figure \ref{}).
+Raw *MetaPhlAn* results consist in a plain text file with relative abundance of clades at different taxonomic levels. Visualisation tools help to represent *MetaPhlAn* results. In ASaiM, two such tools are used: *Krona* [@ondov_interactive_2011] for interactive representations of taxonomic assignation and *GraPhlan* for static representations. These static representations are modified (legend *e.g.* colors, numbers for families) to help comparison with expected taxonomy (Figure \ref{asaim_taxonomy}).
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width = .8\linewidth]{../images/SRR072232/graphlan.png}
-    \caption{GraPhlAn representation of taxonomic assignation obtained for SRR072232 with ASaiM}
-    \label{graphlan_SRR072232}
-\end{figure}
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width = .8\linewidth]{../images/SRR072233/graphlan.png}
-    \caption{GraPhlAn representation of taxonomic assignation obtained for SRR072233 with ASaiM}
-    \label{graphlan_SRR072233}
+    \includegraphics[width = \linewidth]{../images/asaim_taxonomy.pdf}
+    \caption{Taxonomy for SRR072232 (left) and SRR072233 (right) from domains to species, found with ASaiM framework. Circle diameters at each taxonomic levels are proportional to mapping-based relative abundance of corresponding taxon. Colors and family numbers are the same as the ones used in Figure \ref{expected_taxonomy}. Gray circles and lines represent unexpected lineages.}
+    \label{asaim_taxonomy}
 \end{figure}
 
 \begin{figure}[h!]
@@ -269,7 +262,7 @@ Raw *MetaPhlAn* results consist in a plain text file with relative abundance of 
     \label{species_abundances}
 \end{figure}
 
-Despite same expected species, the taxonomic diversity in SRR072232 dataset (Figure \ref{graphlan_SRR072232}) is reduced compared to the one in SRR072233 dataset (Figure \ref{graphlan_SRR072233}). Less taxons are found for each taxonomic levels. From the 22 expected species (Table \ref{expected_species}), 17 are found for SRR072232 and 20 for SRR072233 (Figure \ref{species_abundances}). The 2 expected species (*Candidata albicans*  and *Lactobacillus gasseri*) missing in SRR072233 dataset are also missing in SRR072232 dataset (Figure \ref{species_abundances}). This may be due to a lack of phylogenetic markers for these species in the database used in *MetaPhlAn*. 
+Despite same expected species, taxonomic diversity in SRR072232 dataset is reduced compared to the one in SRR072233 dataset (Figure \ref{asaim_taxonomy}). Less taxons are found for each taxonomic levels. From 22 expected species (Table \ref{expected_species}), 17 are found for SRR072232 and 20 for SRR072233 (Figure \ref{species_abundances}). The 2 expected species (*Candidata albicans*  and *Lactobacillus gasseri*) missing in SRR072233 dataset are also missing in SRR072232 dataset (Figure \ref{species_abundances}). This may be due to a lack of phylogenetic markers for these species in the database used in *MetaPhlAn*. 
 
 Except *Staphylococcus*, the observed relative abundances of species for SRR072232 follows the expected ones, with some variability (Figure \ref{species_abundances}): smaller for small expected abundances and higher for high expected abundances. For SRR072233, same abundance is expected for all species, but a high variability is observed (Figure \ref{species_abundances}). 
 
@@ -280,6 +273,13 @@ One species is interesting: *Deinococcus radiodurans*. In both samples, this spe
 After these first comparisons between ASaiM results taxonomic and expected ones, we compare ASaiM taxonomic results and *EBI metagenomics* taxonomic results.
 
 In *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}), *QIIME* [@caporaso_qiime_2010] is used on 16S sequences to identify OTUs and taxonomic assignation for these OTUs. In ASaiM (Figure \ref{asaim_workflow}), *MetaPhlAn* [@truong_metaphlan2_2015;@segata_metagenomic_2012] is computed on sequences after quality control and dereplication, without any sorting step. *MetaPhlAn* [@truong_metaphlan2_2015;@segata_metagenomic_2012] searches diverse phylogenetic markers, and not only 16S ones as *QIIME* [@caporaso_qiime_2010] does, on all sequence types (rRNA, non rRNA, ...). Inside so different sequences, the proportion of sequences with phylogenetic markers is smaller. Indeed, with *MetaPhlAn* [@truong_metaphlan2_2015;@segata_metagenomic_2012], the percentage of unassigned reads is $\simeq$ 9 times higher than with *QIIME* [@caporaso_qiime_2010] (SRR072232: 6.4\% with *EBI metagenomics* against 62.61\% with ASaiM; SRR072233: 13\% with *EBI metagenomics* against 53.93\% with ASaiM). However, with *MetaPhlAn* [@truong_metaphlan2_2015;@segata_metagenomic_2012], the taxonomic assignations are more accurate, complete (until species level) and statistically supported (based on more sequences). Moreover, they do not focus only on bacteria or archea.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width = \linewidth]{../images/ebi_taxonomy.pdf}
+    \caption{Taxonomy for SRR072232 (left) and SRR072233 (right) from domains to families, found with EBI metagenomics pipeline. Circle diameters at each taxonomic levels are proportional to mapping-based relative abundance of corresponding taxon. Colors and family numbers are the same as the ones used in Figure \ref{expected_taxonomy}. Gray circles and lines represent unexpected lineages.}
+    \label{asaim_taxonomy}
+\end{figure}
 
 With both *EBI metagenomics* and ASaiM, some observed taxonomic assignations are unexpected (Tables \ref{asaim_unexpected_species} and \ref{ebi_unexpected_clades}). For ASaiM, 3 species in each sample are identified as "unclassified" (Table \ref{asaim_unexpected_species}). They are affiliated to the correct genus but not to the species. These unclassified sequences may be due to incomplete annotations in reference database, because expected species are known and observed. These expected species are observed in lower abundance than expected (Figure \ref{species_abundances}) and would be closer to expected abundances with correct annotation of unclassified species.
 
