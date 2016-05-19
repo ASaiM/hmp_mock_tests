@@ -55,6 +55,14 @@ function format_EBI_taxonomic_results {
         --output_dir "results/"$sample_name"/EBI_results/"
 }
 
+function run_graphlan_workflow {
+    python src/run_graphlan_workflow.py \
+        --taxonomy_file "results/"$1"/EBI_results/all_taxo_level_assigned_abundance_graphlan2_formatted_file.txt" \
+        --output_dir "results/"$1"/EBI_results/graphlan_representations" \
+        --api_key $3 \
+        --gi_url $2
+}
+
 function download_EBI_functional_results {
     sample_name=$1
     run_name=$2
@@ -108,6 +116,13 @@ echo "Format EBI taxonomic results"
 echo "============================"
 format_EBI_taxonomic_results "SRR072232"
 format_EBI_taxonomic_results "SRR072233"
+echo ""
+
+echo "Run workflow to get graphlan representations"
+echo "============================================"
+run_graphlan_workflow "SRR072232" $asaim_galaxy_instance_url $api_key_on_asaim_galaxy_instance
+echo ""
+run_graphlan_workflow "SRR072233" $asaim_galaxy_instance_url $api_key_on_asaim_galaxy_instance
 echo ""
 
 echo "Download EBI functional results"
