@@ -54,8 +54,8 @@ def get_precisely_assigned_otu_abundances(taxo_level_abundances):
     return taxo_level_abundances, taxo_level_abundances['abundances']['assigned']
 
 def write_taxo_levels(taxo_level_abundances, all_taxo_level_abundance_file, 
-        taxo_levels_abundance_files, taxo_level_order, previous_levels, 
-        info_type, normalization_value = None):
+        graphlan2_formatted_file, taxo_levels_abundance_files, taxo_level_order, 
+        previous_levels, info_type, normalization_value = None):
     abundance = 100*taxo_level_abundances['abundances'][info_type]
     if info_type != 'unassigned':
         abundance /= (1.*normalization_value)
@@ -65,6 +65,15 @@ def write_taxo_levels(taxo_level_abundances, all_taxo_level_abundance_file,
     all_taxo_level_abundance_file.write('\t'.join(previous_levels))
     all_taxo_level_abundance_file.write('\t'*len(taxo_level_order[1:]))
     all_taxo_level_abundance_file.write('\t' + str(abundance) + '\n')
+
+    taxo_string = ''
+    sep = ''
+    for i in range(len(previous_levels)):
+        taxo_string += sep + whole_taxo_level_order[i][0] + '__'
+        taxo_string += previous_levels[i].replace('[','').replace(']','')
+        sep = '|'
+    graphlan2_formatted_file.write(taxo_string + '\t')
+    graphlan2_formatted_file.write(str(abundance) + '\n')
 
     taxo_levels_abundance_files[taxo_level_order[0]].write(previous_levels[-1] + '\t')
     taxo_levels_abundance_files[taxo_level_order[0]].write(str(abundance) + '\n')
@@ -76,14 +85,18 @@ def write_taxo_levels(taxo_level_abundances, all_taxo_level_abundance_file,
             else:
                 taxo_name = taxo
             write_taxo_levels(taxo_level_abundances['subclades'][taxo], 
-                all_taxo_level_abundance_file, taxo_levels_abundance_files, 
-                taxo_level_order[1:], previous_levels + [taxo_name], info_type,
-                normalization_value)
+                all_taxo_level_abundance_file, graphlan2_formatted_file,
+                taxo_levels_abundance_files, taxo_level_order[1:], 
+                previous_levels + [taxo_name], info_type, normalization_value)
 
 def write_abundances(taxo_level_abundances, output_dir, info_type, otu_nb = None):
     taxo_levels_abundance_files = {}
     all_taxo_level_abundance_file = open(output_dir + 
         '/all_taxo_level_' + info_type + '_abundance_file.txt', 'w')
+    graphlan2_formatted_file = open(output_dir + 
+        '/all_taxo_level_' + info_type + '_abundance_graphlan2_formatted_file.txt', 'w')
+    graphlan2_formatted_file.write('#SampleID\tMetaphlan2_Analysis\n')
+
     for taxo_level in whole_taxo_level_order:
         taxo_levels_abundance_files[taxo_level] = open(output_dir + 
             '/' + taxo_level + '_' + info_type + '_abundance.txt', 'w')
@@ -94,12 +107,14 @@ def write_abundances(taxo_level_abundances, output_dir, info_type, otu_nb = None
 
     for taxo in taxo_level_abundances['subclades']:
         write_taxo_levels(taxo_level_abundances['subclades'][taxo], 
-            all_taxo_level_abundance_file, taxo_levels_abundance_files, 
-            whole_taxo_level_order, [taxo], info_type, otu_nb)
+            all_taxo_level_abundance_file, graphlan2_formatted_file, 
+            taxo_levels_abundance_files, whole_taxo_level_order, [taxo], 
+            info_type, otu_nb)
 
     for taxo_level_file in taxo_levels_abundance_files:
         taxo_levels_abundance_files[taxo_level_file].close()
     all_taxo_level_abundance_file.close()
+    graphlan2_formatted_file.close()
 
 def format_EBI_taxonomic_results(args):
     taxo_level_abundances, otu_nb = extract_taxo_level_abundances(
