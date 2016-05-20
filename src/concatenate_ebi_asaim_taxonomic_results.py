@@ -9,8 +9,8 @@ import re
 def init_exp_taxo(split_line, exp_taxo_w_abund, exp_taxo_order, exp_abundance):
     taxo_name = split_line[0].lower()
     taxo_name = taxo_name.replace(' ','-')
-    if len(exp_taxo_order) > 0:
-        sub_taxons = exp_taxo_order[0].lower()
+    if len(exp_taxo_order) > 1:
+        sub_taxons = exp_taxo_order[1].lower()
         exp_taxo_w_abund.setdefault(taxo_name, 
             {'abundances' : {'ebi': 0, 'asaim': 0, 'expected': 0}, sub_taxons: {}})
         exp_taxo_w_abund[taxo_name]['abundances']['expected'] += exp_abundance
@@ -23,25 +23,20 @@ def init_exp_taxo(split_line, exp_taxo_w_abund, exp_taxo_order, exp_abundance):
 
     return exp_taxo_w_abund
 
-def extract_expected_taxonomy(expected_taxonomy_filepath, sample_name):
+def extract_expected_taxonomy(expected_taxonomy_filepath):
     exp_taxo_w_abund = {}
     exp_taxo_w_abund['kingdom'] = {}
     with open(expected_taxonomy_filepath, 'r') as expected_taxonomy_file:
         expected_taxonomy_file_content = expected_taxonomy_file.readlines()
-        exp_taxo_order = expected_taxonomy_file_content[0][:-1].split('\t')[:-2]
+        exp_taxo_order = expected_taxonomy_file_content[0][:-1].split('\t')[:-1]
         for line in expected_taxonomy_file_content[1:]:
             split_line = line[:-1].split('\t')
+            exp_abund = float(split_line[-1])
 
-            if sample_name == 'SRR072232':
-                exp_abund = 100*float(split_line[-2])/5566000
-            elif sample_name == 'SRR072233':
-                exp_abund = 100*float(split_line[-1])/2200000
-            else:
-                raise ValueError('Unknow sample name:', sample_name)
-
-            exp_taxo_w_abund['kingdom'] = init_exp_taxo(split_line[1:-2], 
-                exp_taxo_w_abund['kingdom'], exp_taxo_order[2:], 
-                exp_abund)
+            if (len(split_line)-2) == len(exp_taxo_order):
+                exp_taxo_w_abund['kingdom'] = init_exp_taxo(split_line[:-2], 
+                    exp_taxo_w_abund['kingdom'], exp_taxo_order, 
+                    exp_abund)
     return exp_taxo_w_abund
 
 def fill_one_taxo_abundance(exp_taxo_w_abund, taxo, abundance, taxo_order, 
@@ -102,8 +97,7 @@ def write_taxo_levels(exp_taxo_w_abund, all_taxo_level_abundance_file,
                 taxo_level_order[1:], previous_levels + [taxo_name])
 
 def concatenate_ebi_asaim_taxonomic_results(args):
-    exp_taxo_w_abund = extract_expected_taxonomy(args.expected_taxonomy, 
-        args.sample_name)
+    exp_taxo_w_abund = extract_expected_taxonomy(args.expected_taxonomy)
 
     unexpected_clade_file = open(args.output_dir + '/unexpected_clades.txt', 
         'w')
@@ -143,7 +137,6 @@ if __name__ == '__main__':
     parser.add_argument('--asaim_result_dir', required=True)
     parser.add_argument('--ebi_result_dir', required=True)
     parser.add_argument('--output_dir', required=True)
-    parser.add_argument('--sample_name', required=True)
     args = parser.parse_args()
 
     concatenate_ebi_asaim_taxonomic_results(args)

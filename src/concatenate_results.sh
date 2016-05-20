@@ -10,11 +10,10 @@ function concatenate_ebi_asaim_taxonomic_results {
     fi
 
     python src/concatenate_ebi_asaim_taxonomic_results.py \
-        --expected_taxonomy "data/expected_species_w_taxonomy.txt" \
-        --asaim_result_dir $result_dir"/asaim_results" \
+        --expected_taxonomy $result_dir"/mapping/formatted_mapping_results.txt" \
+        --asaim_result_dir "previous_results/"$sample_name"/asaim_results" \
         --ebi_result_dir $result_dir"/EBI_results" \
-        --output_dir $output_dir \
-        --sample_name $sample_name
+        --output_dir $output_dir
 }
 
 function plot_taxonomic_results {
