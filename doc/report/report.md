@@ -262,26 +262,24 @@ Raw *MetaPhlAn* results consist in a plain text file with relative abundance of 
     \label{species_abundances}
 \end{figure}
 
-Despite same expected species, taxonomic diversity in SRR072232 dataset is reduced compared to the one in SRR072233 dataset (Figure \ref{asaim_taxonomy}). Less taxons are found for each taxonomic levels. From 22 expected species (Table \ref{expected_species}), 17 are found for SRR072232 and 20 for SRR072233 (Figure \ref{species_abundances}). The 2 expected species (*Candidata albicans*  and *Lactobacillus gasseri*) missing in SRR072233 dataset are also missing in SRR072232 dataset (Figure \ref{species_abundances}). This may be due to a lack of phylogenetic markers for these species in the database used in *MetaPhlAn*. 
+Despite same expected species, taxonomic diversity in SRR072232 dataset is reduced compared to the one in SRR072233 dataset (Figure \ref{asaim_taxonomy}). Less taxons are found for each taxonomic levels. From 22 expected species (Table \ref{expected_species}), 17 are found for SRR072232 and 20 for SRR072233 (Figure \ref{species_abundances}). The 2 expected species (*Candidata albicans* and *Lactobacillus gasseri*) missing in SRR072233 dataset are also missing in SRR072232 dataset (Figure \ref{species_abundances}). This may be due to a lack of phylogenetic markers for these species in the database used in *MetaPhlAn*. On the other hand, few sequences of these species in SRR072233 are found using mapping on expected species genomes. The signal may be too low to detect the species. Indeed, all species with mapping-based abundance smaller than 0.1\% are not found using ASaiM for both datasets  (Figure \ref{species_abundances}).
 
-Except *Staphylococcus*, the observed relative abundances of species for SRR072232 follows the expected ones, with some variability (Figure \ref{species_abundances}): smaller for small expected abundances and higher for high expected abundances. For SRR072233, same abundance is expected for all species, but a high variability is observed (Figure \ref{species_abundances}). 
-
-One species is interesting: *Deinococcus radiodurans*. In both samples, this species is found at abundances $\simeq$ 9 times higher than expected (Figure \ref{species_abundances}). This over-abundance in both samples may be explained by over-abundance in reference database and also by the high resistance of this particuliar bacteria.
+For SRR072232 datasets, two species with mapping-based abundance higher than 0.1\% are not found: *Candida albicans* and *Bacillus cereus thuringiensis*. The first species is not found also with ASaiM in SRR072333, phylogenetic markers for this species may be lacking in *MetaPhlAn2* database. As the second species is found with ASaiM in SRR072333, same explanation based on lack on corresponding phylogenetic markers does not hold. 
 
 ### Comparison with EBI results and expected taxonomy
 
 After these first comparisons between ASaiM results taxonomic and expected ones, we compare ASaiM taxonomic results and *EBI metagenomics* taxonomic results.
 
-In *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}), *QIIME* [@caporaso_qiime_2010] is used on 16S sequences to identify OTUs and taxonomic assignation for these OTUs. In ASaiM (Figure \ref{asaim_workflow}), *MetaPhlAn* [@truong_metaphlan2_2015;@segata_metagenomic_2012] is computed on sequences after quality control and dereplication, without any sorting step. *MetaPhlAn* [@truong_metaphlan2_2015;@segata_metagenomic_2012] searches diverse phylogenetic markers, and not only 16S ones as *QIIME* [@caporaso_qiime_2010] does, on all sequence types (rRNA, non rRNA, ...). Inside so different sequences, the proportion of sequences with phylogenetic markers is smaller. Indeed, with *MetaPhlAn* [@truong_metaphlan2_2015;@segata_metagenomic_2012], the percentage of unassigned reads is $\simeq$ 9 times higher than with *QIIME* [@caporaso_qiime_2010] (SRR072232: 6.4\% with *EBI metagenomics* against 62.61\% with ASaiM; SRR072233: 13\% with *EBI metagenomics* against 53.93\% with ASaiM). However, with *MetaPhlAn* [@truong_metaphlan2_2015;@segata_metagenomic_2012], the taxonomic assignations are more accurate, complete (until species level) and statistically supported (based on more sequences). Moreover, they do not focus only on bacteria or archea.
+In *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}), *QIIME* [@caporaso_qiime_2010] is used on 16S sequences to identify OTUs and taxonomic assignation for these OTUs. In ASaiM (Figure \ref{asaim_workflow}), *MetaPhlAn* [@truong_metaphlan2_2015;@segata_metagenomic_2012] is computed on sequences after quality control and dereplication, without any sorting step. *MetaPhlAn* [@truong_metaphlan2_2015;@segata_metagenomic_2012] searches diverse phylogenetic markers, and not only 16S ones as *QIIME* [@caporaso_qiime_2010] does, on all sequence types (rRNA, non rRNA, ...). Inside so different sequences, the proportion of sequences with phylogenetic markers is smaller. Indeed, with *MetaPhlAn* [@truong_metaphlan2_2015;@segata_metagenomic_2012], the percentage of unassigned reads is $\simeq$ 9 times higher than with *QIIME* [@caporaso_qiime_2010] (SRR072232: 6.4\% with *EBI metagenomics* against 62.61\% with ASaiM; SRR072233: 13\% with *EBI metagenomics* against 53.93\% with ASaiM). Nevertheless, taxonomic lineages from *EBI metagenomics* are limited to family level (Figure \ref{ebi_taxonomy}), while they go to species level with ASaiM (Figure \ref{asaim_taxonomy}). Hence, with *MetaPhlAn* [@truong_metaphlan2_2015;@segata_metagenomic_2012], the taxonomic assignations are more accurate, complete (until species level) and statistically supported (based on more sequences).
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width = \linewidth]{../images/ebi_taxonomy.pdf}
     \caption{Taxonomy for SRR072232 (left) and SRR072233 (right) from domains to families, found with EBI metagenomics pipeline. Circle diameters at each taxonomic levels are proportional to mapping-based relative abundance of corresponding taxon. Colors and family numbers are the same as the ones used in Figure \ref{expected_taxonomy}. Gray circles and lines represent unexpected lineages.}
-    \label{asaim_taxonomy}
+    \label{ebi_taxonomy}
 \end{figure}
 
-With both *EBI metagenomics* and ASaiM, some observed taxonomic assignations are unexpected (Tables \ref{asaim_unexpected_species} and \ref{ebi_unexpected_clades}). For ASaiM, 3 species in each sample are identified as "unclassified" (Table \ref{asaim_unexpected_species}). They are affiliated to the correct genus but not to the species. These unclassified sequences may be due to incomplete annotations in reference database, because expected species are known and observed. These expected species are observed in lower abundance than expected (Figure \ref{species_abundances}) and would be closer to expected abundances with correct annotation of unclassified species.
+With both *EBI metagenomics* and ASaiM, some observed taxonomic assignations are unexpected (Tables \ref{asaim_unexpected_species} and \ref{ebi_unexpected_clades}, Figures \ref{asaim_taxonomy} and \ref{ebi_taxonomy}). For ASaiM, 3 species in each sample are identified as "unclassified" (Table \ref{asaim_unexpected_species}). They are affiliated to the correct genus but not to the species. These unclassified sequences may be due to incomplete annotations in reference database, because expected species are known and observed. These expected species are observed in lower abundance than expected (Figure \ref{species_abundances}) and would be closer to expected abundances with correct annotation of unclassified species. Similarly, some observed clades and their sub-clades are unexpected in *EBI metagenomics* taxonomic results (Table \ref{ebi_unexpected_clades}). The taxonomic levels of these unexpected clades are higher (class, order and family) than unexpected taxonomic level in ASaiM (species, Table \ref{unexpected_clades}, Figure \ref{ebi_taxonomy}). Taxonomic assignations with *MetaPhlAN* [@truong_metaphlan2_2015;@segata_metagenomic_2012] are then more accurate and precise.
 
 \begin{table}[h!]
 \centering
@@ -298,8 +296,6 @@ Species & SRR072232 & SRR072233\\
 \caption{Relative abundances of unclassified species in ASaiM taxonomic results for both samples (SRR072233 and SRR072233)}
 \label{asaim_unexpected_species}
 \end{table}
-
-Similarly, some observed clades and their sub-clades are unexpected in *EBI metagenomics* taxonomic results (Table \ref{ebi_unexpected_clades}). The taxonomic levels of these unexpected clades are higher (class, order and family) than unexpected taxonomic level in ASaiM (species, Table \ref{unexpected_clades}). Taxonomic assignations with *MetaPhlAN* [@truong_metaphlan2_2015;@segata_metagenomic_2012] are then more accurate and precise.
 
 \begin{table}[h!]
 \centering
@@ -341,9 +337,7 @@ Species & \textit{No information} & 6.13\% & \textit{No information} & 1.6\%\\
 \label{unexpected_clades}
 \end{table}
 
-Interestingly, for both workflows (*EBI metagenomics* and ASaiM), the proportion of unexpected clades is higher for SRR072232 than for SRR072233 (Table \ref{unexpected_clades}). We do not have a good explanation for this phenomenon.
-
-Taxonomic results obtained with *EBI metagenomics* pipeline are less precise than the one obtained with ASaiM workflow. Indeed, the most precise taxonomic level is family for *EBI metagenomics* and species for ASaiM. Then, to compare taxonomic results, we focus on family level (Figure \ref{family_abundances}).
+Taxonomic results obtained with *EBI metagenomics* pipeline are less precise than the one obtained with ASaiM workflow. Indeed, the most precise taxonomic level is family for *EBI metagenomics* (Figure \ref{ebi_taxonomy}) and species for ASaiM (Figure \ref{asaim_taxonomy}). Comparison of taxonomic results focus then on family level (Figure \ref{family_abundances}).
 
 \begin{figure}[h!]
     \centering
@@ -357,15 +351,11 @@ Taxonomic results obtained with *EBI metagenomics* pipeline are less precise tha
     \label{family_abundances}
 \end{figure}
 
-Except Listeriacecae and Bacillaceae, all families found with *EBI metagenomics* are found with ASaiM (Figure \ref{family_abundances}). Some families are not found with both workflows. There may be two possibles explanation for these missing families.  
+Similarly, to previous observations on raw ASaiM results, species with mapping-based abundance smaller than 0.1\% are not found either with ASaiM or with *EBI metagenomics* (Figure \ref{family_abundances}). Nonetheless, the detection threshold seems slightly smaller for *EBI metagenomics*: for SRR072232, Listeriaceae family is detected with *EBI metagenomics* and not with ASaiM (Figure \ref{family_abundances}). On the other hand, Bacillaceae and Debaryomycetaceae families are not found with *EBI metagenomics* for both datasets (Figure \ref{family_abundances}), despite mapping-based abundance higher than 0.1\%. Used databases may be then incomplete regarding some phylogenetic markers, particularly the ones for missing families. 
 
-The first reason relies on incompletness of reference databases used to assign taxonomy in workflows. Indeed, if sequences of some expected families do no match with any sequence in references databases, the corresponding families and the corresponding taxonomy will not be found. It can be the case of Listeriaceae: this family is found with correct abundance with *EBI metagenomics* pipeline, but with ASaiM, this family is not found for SRR072232 and found in under-abundance for SRR072233 (Figure \ref{family_abundances}). Then, sequences corresponding to this family match some sequences in *MetaPhlAn* reference database, but this database is incomplete to match all expected sequences and correctly estimate abundance. 
+Except missing species, variations in observed abundances for *EBI metagenomics* or ASaiM correspond to variations in mapping-based abundances (Figure \ref{species_abundances}): small observed abundances for small mapping-based abundances and high observed abundances for high mapping-based abundances. 
 
-However, this incompletness of reference databases can not explain missing families in both *EBI metagenomics* and ASaiM (different tools and reference databases). An other explanation for these missing families can be proposed: too few sequences corresponding to the expected families are in datasets despite the expected abundance. This phenomenon may be due to experimental or sequencing errors. Sequences corresponding to expected families are then underrepresented in overall sequences and can not be detected in taxonomic analyses. Bacillaceae family seems a good example of this phenomenon. This family is not found neither by *EBI metagenomics* taxonomic analyses for both samples nor by ASaiM taxonomic analyses for SRR072232 (Figure \ref{family_abundances}), but it is found in low abundance by ASaiM taxonomic analyses for SRR072233 (abundance 29 times smaller than expected). The taxonomic signal of this family is really low, too low to be detected by *EBI metagnomics*. This under abundance of sequences corresponding to some families is a good explanation for families not found by the two methods, particularly when the expected abundance for these families is low (\textit{e.g} Debaryomycetaceae, Actinomycetaceae, Bacteroidaceae, Enterococcaceae, Figure \ref{family_abundances}).
-
-In these families with expected low abundance, one family is an exception: Deinococcaceae (Figure \ref{family_abundances}). In SRR072232 sample, unlike other families with low expected abundance, this family is found and with an abundance > 10 times higher than expected. In SRR072233 sample, the observed abundance is > 7 times higher than expected with both methods (Figure \ref{family_abundances}). In this family, one species is expected: \textit{Deinococcus radiodurans}. An over-abundance of this species has already been observed in ASaiM taxonomic results (Figure \ref{species_abundances}). 
-
-To get a broader comparison of expected family abundances and *EBI metagenomics* and ASaiM observed family abundances, one principal component analysis (PCA) is made, for each sample, on observed families (for which abundance is not null in *EBI metagenomics* or ASaiM results). First axis of these analyses explains most of data variability (84\% and 65\% for SRR072232 and SRR072233 respectively, Figure \ref{family_pca}) and is highly correlated ($r^2$ = 0.997 and $r^2$ = 0.994 for SRR072232 and SRR072233 respectively) with total abundance of families (sum of expected, *EBI metagenomics* and ASaiM abundances for each family). 
+For a broader comparison, a principal component analysis (PCA) is runned, for each sample, on observed families (for which abundance is not null in *EBI metagenomics* or ASaiM results). First axis of these analyses explains most of data variability (98\% for both datasets, Figure \ref{family_pca}). Mapping-based, *EBI metagenomics* and ASaiM abundances are not discriminated on this first axis (Figure \ref{family_pca}), only on the second one which explains less than 2\% of overall data variability. Differences between mapping-based, *EBI metagenomics* and ASaiM abundances are then reduced. Hence, similar abundances for observed families are then obtained for *EBI metagenomics* and ASaiM and these abundances are close to abundances computed using mapping to expected species.
 
 \begin{figure}[h!]
     \centering
@@ -375,11 +365,11 @@ To get a broader comparison of expected family abundances and *EBI metagenomics*
     \begin{minipage}[c]{.43\linewidth}
     \includegraphics[width = \linewidth]{../images/SRR072233/concatenated_family_abundance_pca.pdf}
     \end{minipage} 
-    \caption{Scatter diagram of principal component analysis of the relative abundances (in percentage) of observed families for SRR072232 (in left) and SRR072233(in right). Only observed families in EBI metagenomics or ASaiM are used in these analyses.}
+    \caption{Scatter diagram of principal component analysis of the relative abundances (in percentage) of families for SRR072232 (in left) and SRR072233 (in right). Only observed families in EBI metagenomics or ASaiM are used in these analyses.}
     \label{family_pca}
 \end{figure}
 
-In both samples, observed results (with *EBI metagenomics* and ASaiM) are grouped together and are orthogonal to expected results (Figure \ref{family_pca}). And none of the workflows (*EBI metagenomics* one or ASaiM one) is closer to expected results. Both workflows have then similar results concerning family abundances.
+ASaiM framework gives taxonomic results which are more accurate, complete (until species level) and statistically supported (based on more sequences) than *EBI metagenomics*. Moreover, community structure found with ASaiM framework is close to expected community structure of these mock datasets.
 
 ## Functional analyses
 
@@ -605,13 +595,11 @@ Hence, our approach based on MetaPhlAn2 and HUMAnN2 gives accurate and relevant 
 
 # Conclusion
 
-With ASaiM workflow, raw sequences from a metagenomic dataset are rapidly analyzed (in few hours in a standard computer). It makes it a powerful tools. Moreover, based on Galaxy, ASaiM workflow posseses all Galaxy's strength: accessibility, reproducibility and also modularity. The numerous results can also be accessed during workflow execution.
+With ASaiM framework, raw sequences from a metagenomic dataset are fast analyzed (in few hours in a standard computer). Moreover, based on Galaxy, ASaiM framework posseses all Galaxy's strength: accessibility, reproducibility and also modularity. Numerous intermediary results can also be accessed during whole workflow execution.
 
-Taxonomic analysis is complete and accurate with *MetaPhlAn2*. From the expected taxonomy of both samples, few clades are not found or unexpected. The lowest accurate taxonomic level (species) is more precise than the one obtained with *EBI metagenomics*. With *HUMAnN2* results combined to *MetaPhlan2* results and GO slim term grouping, functional analyses are complete: precise functional assignations, broad overview of metabolic profile of studied microbial community and relation with observed community structure. 
+Taxonomic analysis using *MetaPhlAn2* gives a great insight on community structure wtih complete, accurate and statistically supported information. With *HUMAnN2* results and post-treatments on functional results, we get a broad overview of metabolic profile of studied microbial community. Furthermore, this metabolic profile is related to community structure to get information such as which species is involved in which metabolic function. This relation between function and taxonomy is really specific to ASaiM and not found in solutions like *EBI metagenomics*.
 
-Many post-treatments are also possible in ASaiM Galaxy instance. For example, most of graphic representations and most statistical analyses of this report are done inside ASaiM Galaxy instance with [available dedicated workflows]().
-
-ASaiM Galaxy instance with its workflows and tools is a then powerful framework to analyze shotgun raw sequence data from microbiota.
+ASaiM framework based on Galaxy, numerous tools and workflows is a then powerful framework to analyze microbiota from shotgun raw sequence data.
 
 # References
 
