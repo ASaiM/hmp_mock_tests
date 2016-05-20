@@ -18,22 +18,17 @@ if $image_update ; then
     cp "results/SRR072233/mapping/23_plot_barplot_on_data_21_pdf_barplot.pdf" \
         "doc/images/SRR072233/ratio_mapping_expectation_barplot.pdf"
 
-    cp $SRR072232_result_dir"/asaim_results/43_graphlan_on_data_33_image.png" \
-        "doc/images/SRR072232/graphlan.png"
-    cp $SRR072233_result_dir"/asaim_results/43_graphlan_on_data_33_image.png" \
-        "doc/images/SRR072233/graphlan.png"
-
-    cp $SRR072232_result_dir"/concatenated_results/species_abundances.pdf" \
+    cp "results/SRR072232/concatenated_results/species_abundances.pdf" \
         "doc/images/SRR072232/species_abundances.pdf"
-    cp $SRR072233_result_dir"/concatenated_results/species_abundances.pdf" \
+    cp "results/SRR072233/concatenated_results/species_abundances.pdf" \
         "doc/images/SRR072233/species_abundances.pdf"
-    cp $SRR072232_result_dir"/concatenated_results/family_abundances.pdf" \
+    cp "results/SRR072232/concatenated_results/family_abundances.pdf" \
         "doc/images/SRR072232/concatenated_family_abundances.pdf"
-    cp $SRR072233_result_dir"/concatenated_results/family_abundances.pdf" \
+    cp "results/SRR072233/concatenated_results/family_abundances.pdf" \
         "doc/images/SRR072233/concatenated_family_abundances.pdf"
-    cp $SRR072232_result_dir"/concatenated_results/family_abundance_pca.pdf" \
+    cp "results/SRR072232/concatenated_results/family_abundance_pca.pdf" \
         "doc/images/SRR072232/concatenated_family_abundance_pca.pdf"
-    cp $SRR072233_result_dir"/concatenated_results/family_abundance_pca.pdf" \
+    cp "results/SRR072233/concatenated_results/family_abundance_pca.pdf" \
         "doc/images/SRR072233/concatenated_family_abundance_pca.pdf"
 
     cp $SRR072232_result_dir"/asaim_results/60_plot_generic_x-y_plot_on_data_53_pdf_x-y_plot.pdf" \
