@@ -271,65 +271,43 @@ Moreover, taxonomic lineages from *EBI metagenomics* are limited to family level
     \label{ebi_taxonomy}
 \end{figure}
 
-With both *EBI metagenomics* and ASaiM, some observed taxonomic assignations are unexpected (Tables \ref{asaim_unexpected_species} and \ref{ebi_unexpected_clades}, Figures \ref{asaim_taxonomy} and \ref{ebi_taxonomy}). For ASaiM, 3 species in each sample are identified as "unclassified" (Table \ref{asaim_unexpected_species}). They are affiliated to the correct genus but not to correct species. Corresponding sequences may be then incompletely annotated and affiliated. The expected species (*Escherichia* unclassified, *Pseudomonas* unclassified, *Methanobrevibacter* unclassified, *Deinococcus* unclassified) are observed in datasets (Figure \ref{asaim_taxonomy}), but in lower abundance than expected. If sequences corresponding to close unclassified species are correctly affiliated, these species would have observed relative abundances closer to mapping-based abundances. The taxonomic levels of these unexpected clades are higher (class, order and family) than taxonomic level of unexpected clades in ASaiM results (species, Table \ref{unexpected_clades}, Figure \ref{ebi_taxonomy}). Taxonomic assignations with *MetaPhlAN* [@truong_metaphlan2_2015;@segata_metagenomic_2012] are then more accurate and precise.
+With both *EBI metagenomics* pipeline and ASaiM framework, some observed taxonomic assignations are unexpected (Table \ref{unexpected_clades}, Figures \ref{asaim_taxonomy} and \ref{ebi_taxonomy}). For ASaiM framework, 3 species in each sample are identified as "unclassified" (Table \ref{unexpected_clades}): they are affiliated to the correct genus but not to correct species. Corresponding sequences may be then incompletely annotated and affiliated. The expected species (*Escherichia* unclassified, *Pseudomonas* unclassified, *Methanobrevibacter* unclassified, *Deinococcus* unclassified) are observed in datasets (Figure \ref{asaim_taxonomy}), but in lower abundance than expected. If sequences corresponding to close unclassified species are correctly affiliated, these species would have observed relative abundances closer to mapping-based abundances.
 
 \begin{table}[h!]
 \centering
-\begin{tabular}{lrr}
+\begin{tabular}{llrrrr}
 \hline
-Species & SRR072232 & SRR072233\\
+ & & \multicolumn{2}{c}{SRR072232} & \multicolumn{2}{c}{SRR072233}\\
+Taxonomic level & Clade & EBI & ASaiM & EBI & ASaiM \\
 \hline
-\textit{Escherichia} unclassified & 4.85\% & 0.8\% \\
-\textit{Pseudomonas} unclassified & 1.12\% & 0.56\% \\
-\textit{Methanobrevibacter} unclassified & - & 0.24\% \\
-\textit{Deinococcus} unclassified & 0.16\% & - \\
+Class & & & & &\\
+& Methanopyri & 0.09\% & & 0.21\% & \\
 \hline
-\end{tabular}
-\caption{Relative abundances of unclassified species in ASaiM taxonomic results for both samples (SRR072233 and SRR072233)}
-\label{asaim_unexpected_species}
-\end{table}
-
-\begin{table}[h!]
-\centering
-\begin{tabular}{llrr}
+Order & & & & & \\
+& Rickettsiales & 5.71\% & & 1.43\% & \\
+& Methanopyrales & 0.09\% & & 0.21\% & \\
 \hline
-Clade & Taxonomic level & SRR072232 & SRR072233\\
+Family & & & & & \\
+& Rickettsiales mitochondria & 5.71\% & & 1.43\% & \\
+& Methanopyraceae & 0.09\% & & 0.21\% & \\
+& Paraprevotellaceae & & & 0.09\% & \\
+& Cryptosporangiaceae & & & 0.5\% & \\
 \hline
-Methanopyri & Class & 0.09\% & 0.21\% \\
-Rickettsiales & Order & 5.71\% & 1.43\% \\
-Methanopyrales & Order & 0.09\% & 0.21\% \\
-Rickettsiales mitochondria & Family & 5.71\% & 1.43\% \\
-Methanopyraceae & Family & 0.09\% & 0.21\% \\
-Paraprevotellaceae & Family & - & 0.09\% \\
-Cryptosporangiaceae & Family & - & 0.5\% \\
+Genus & & \textit{No information} & & \textit{No information} & \\
 \hline
-\end{tabular}
-\caption{Relative abundances of unexpected clades and their sub-clades in \textit{EBI metagenomics} taxonomic results for both samples (SRR072233 and SRR072233)}
-\label{ebi_unexpected_clades}
-\end{table}
-
-\begin{table}[h!]
-\centering
-\begin{tabular}{lrrrr}
+Species & & \textit{No information} & & \textit{No information} & \\
 \hline
- & \multicolumn{2}{c}{SRR072232} & \multicolumn{2}{c}{SRR072233}\\
-Taxonomic level & EBI & ASaiM & EBI & ASaiM \\
-\hline
-Domain & - & - & - & - \\
-Kingdom & - & - & - & -\\
-Phylum & - & - & - & -\\
-Class & 0.09\% & - & 0.21\% & -\\
-Order & 5.71\% & - & 1.64\% & - \\
-Family & 5.71\% & - & 2.23\% & - \\
-Genus & \textit{No information} & - & \textit{No information} & - \\
-Species & \textit{No information} & 6.13\% & \textit{No information} & 1.6\%\\
+& \textit{Escherichia} unclassified & & 4.85\% & & 0.8\% \\
+& \textit{Pseudomonas} unclassified & & 1.12\% & & 0.56\% \\
+& \textit{Methanobrevibacter} unclassified & & & & 0.24\% \\
+& \textit{Deinococcus} unclassified & & 0.16\% & & \\
 \hline
 \end{tabular}
-\caption{Relative abundances of unexpected clades at different taxonomic levels in taxonomic results of \textit{EBI metagenomics} and ASaiM for both samples (SRR072233 and SRR072233)}
+\caption{Relative abundances of unexpected clades at different taxonomic levels in taxonomic results of \textit{EBI metagenomics} and ASaiM framework for both samples (SRR072233 and SRR072233)}
 \label{unexpected_clades}
 \end{table}
 
-Comparison of taxonomic results focus then on family level (Figure \ref{family_abundances}), the most precise taxomic level for *EBI metagenomics* (Figure \ref{ebi_taxonomy}).
+With *EBI metagenomics*, taxonomic levels of unexpected clades are higher (class, order and family) than taxonomic level of unexpected clades in ASaiM framework (species, Table \ref{unexpected_clades}, Figure \ref{ebi_taxonomy}). Taxonomic assignations with *MetaPhlAN* are then more accurate and precise. As the most precise taxomic level for *EBI metagenomics* is family (Figure \ref{ebi_taxonomy}), further comparisons  focus on this level (Figure \ref{family_abundances}).
 
 \begin{figure}[h!]
     \centering
@@ -339,27 +317,41 @@ Comparison of taxonomic results focus then on family level (Figure \ref{family_a
     \begin{minipage}[c]{.49\linewidth}
     \includegraphics[width = \linewidth]{../images/SRR072233/concatenated_family_abundances.pdf}
     \end{minipage}
-    \caption{Relative abundances of expected families for SRR072232 (left) and SRR072233 (right) with comparison between expected abundances (red thin bars), abundances obtained with \textit{EBI metagenomics} (green wide bars) and abundances obtained with ASaiM (blue wide bars) and }
+    \caption{Relative abundances (percentage, log scale) of expected families for SRR072232 (left) and SRR072233 (right) with comparison between mapping-based relative abundances (red thin bars), abundances obtained with \textit{EBI metagenomics} (green wide bars) and abundances obtained with ASaiM (blue wide bars).}
     \label{family_abundances}
 \end{figure}
 
 Similarly to previous observations on raw ASaiM results, species with mapping-based abundance smaller than 0.1\% are found neither with ASaiM nor with *EBI metagenomics* (Figure \ref{family_abundances}). Nonetheless, the detection threshold seems slightly smaller for *EBI metagenomics*: for SRR072232, Listeriaceae family is detected with *EBI metagenomics* and not with ASaiM (Figure \ref{family_abundances}). On the other hand, Bacillaceae and Debaryomycetaceae families are not found with *EBI metagenomics* for both datasets (Figure \ref{family_abundances}), despite mapping-based abundance higher than 0.1\%. Used databases may be then incomplete regarding some phylogenetic markers, particularly the ones corresponding to missing families.
 
-Variations in observed abundances for *EBI metagenomics* or ASaiM correspond to variations in mapping-based abundances (Figure \ref{species_abundances}): small observed abundances for small mapping-based abundances and high observed abundances for high mapping-based abundances. For a broader comparison, a principal component analysis (PCA) is computed, for each sample, on observed families (for which abundance is not null in both *EBI metagenomics* and ASaiM results). First axis of these analyses explains most of data variability (98\% for both datasets, Figure \ref{family_pca}). Mapping-based, *EBI metagenomics* and ASaiM abundances are not discriminated on this first axis (Figure \ref{family_pca}), only on the second one which explains less than 2\% of overall data variability. Differences between mapping-based, *EBI metagenomics* and ASaiM abundances are then reduced. Hence, similar abundances for observed families are obtained for *EBI metagenomics* and ASaiM and these abundances are close to abundances computed using mapping on expected species genomes.
+Variations in observed abundances for *EBI metagenomics* or ASaiM correspond to variations in mapping-based abundances (Figure \ref{species_abundances}): small observed abundances for small mapping-based abundances and high observed abundances for high mapping-based abundances. For a broader comparison, a principal coordinate analysis (PCoA) is computed, for each sample, on Bray-Curtis distances computed on relative abundances of families (Figure \ref{family_pcoa}).
 
 \begin{figure}[h!]
     \centering
     \begin{minipage}[c]{.43\linewidth}
-    \includegraphics[width = \linewidth]{../images/SRR072232/concatenated_family_abundance_pca.pdf}
+    \includegraphics[width = \linewidth]{../images/SRR072232/concatenated_family_abundance_pcoa.pdf}
     \end{minipage} \hfill
     \begin{minipage}[c]{.43\linewidth}
-    \includegraphics[width = \linewidth]{../images/SRR072233/concatenated_family_abundance_pca.pdf}
+    \includegraphics[width = \linewidth]{../images/SRR072233/concatenated_family_abundance_pcoa.pdf}
     \end{minipage}
-    \caption{Scatter diagram of principal component analysis of the relative abundances (in percentage) of families for SRR072232 (in left) and SRR072233 (in right). Only observed families in EBI metagenomics or ASaiM are used in these analyses.}
-    \label{family_pca}
+    \caption{Scatter diagram of principal coordinate analysis of the Bray-Curtis distances computed on relative abundances of families for SRR072232 (left) and SRR072233 (right).}
+    \label{family_pcoa}
 \end{figure}
 
-ASaiM framework gives taxonomic results which are more accurate, complete (until species level) and statistically supported (based on more sequences) than *EBI metagenomics*. Moreover, community structure found with ASaiM framework is close to expected community structure of the mock datasets.
+\begin{figure}[h!]
+    \centering
+    \begin{minipage}[c]{.43\linewidth}
+    \includegraphics[width = \linewidth]{../images/SRR072232/concatenated_species_abundance_pcoa.pdf}
+    \end{minipage} \hfill
+    \begin{minipage}[c]{.43\linewidth}
+    \includegraphics[width = \linewidth]{../images/SRR072233/concatenated_species_abundance_pcoa.pdf}
+    \end{minipage}
+    \caption{Scatter diagram of principal coordinate analysis of the Bray-Curtis distances computed on relative abundances of species for SRR072232 (left) and SRR072233 (right).}
+    \label{species_pcoa}
+\end{figure}
+
+First axis of these analyses explains most of data variability (98\% for both datasets, Figure \ref{family_pcoa}). Mapping-based, *EBI metagenomics* and ASaiM abundances are not discriminated on this first axis (Figure \ref{family_pcoa}), only on the second one which explains less than 2\% of overall data variability. Differences between mapping-based, *EBI metagenomics* and ASaiM abundances are then reduced. Hence, similar abundances for observed families are obtained for *EBI metagenomics* and ASaiM and these abundances are close to abundances computed using mapping on expected species genomes.
+
+ASaiM framework gives taxonomic results which are more accurate, complete, precise and statistically supported (based on more sequences) than *EBI metagenomics*. Moreover, community structure found with ASaiM framework is close to expected community structure of the mock community.
 
 ## Functional analyses
 
