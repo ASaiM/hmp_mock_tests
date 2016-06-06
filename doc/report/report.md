@@ -1,5 +1,5 @@
 ---
-title: "Validation of ASaiM framework and its workflows on HMP mock community smaples and comparison with *EBI metagenomics* results"
+title: "Validation of ASaiM framework and its workflows on HMP mock community samples"
 subject_session: Sequence analysis
 subtitle: "Supplementary material 2"
 author: 
@@ -18,25 +18,25 @@ header-includes:
     - \usepackage{multirow}
 ---
 
-ASaiM framework, particularly the main workflow, was tested and validated on two mock metagenomic datasets from a controlled microbiota community (with 22 known microbial strains). These datasets are available on *EBI metagenomics* dataset.
+ASaiM framework and its workflows are tested and validated on two mock metagenomic datasets of a controlled microbiota community (with 22 known microbial strains). These datasets are available on *EBI metagenomics* dataset.
 
-Taxonomic and functional results produced by ASaiM framework have been extensively analyzed and compared with results obtained with *EBI metagenomics* pipleine (https://www.ebi.ac.uk/metagenomics/pipelines/1.0) [@hunter_ebi_2014]. Details about these analyses (workflows, scripts) are available on a [dedicated GitHub repository](https://github.com/ASaiM/hmp_mock_tests) and the results on [Zenodo](https://zenodo.org/).
+Taxonomic and functional results produced by ASaiM framework are extensively analyzed and compared with results obtained with [*EBI metagenomics* pipeline](https://www.ebi.ac.uk/metagenomics/pipelines/1.0) [@hunter_ebi_2014]. Details about these analyses (workflows, scripts) are available on a [dedicated GitHub repository](https://github.com/ASaiM/hmp_mock_tests) and results with all intermediary and final files on [Zenodo](https://zenodo.org/).
 
-These analyses validate ASaiM framework and its main workflow. Hence, the main workflow produces accurate and precise taxonomic assignations, wide functional results (gene families, pathways, GO slim terms) and relations between taxonomic and functional results, in few hours on a standard computer. 
+The main workflow produces accurate and precise taxonomic assignations, wide functional results (gene families, pathways, GO slim terms) and relations between taxonomic and functional results, in few hours on a standard computer. Hence, these analyses validate ASaiM framework and its main workflow. 
 
 # Data
 
-[Two HMP mock community samples](https://www.ebi.ac.uk/metagenomics/projects/SRP004311) are available on [EBI met](https://www.ebi.ac.uk/metagenomics/). Both of them contain a genomic mixture of same 22 microbial strains (Table \ref{expected_species}). The samples differ only by the abundances of the strains: in the first sample ([SRR072232](https://www.ebi.ac.uk/metagenomics/projects/SRP004311/samples/SRS121012/runs/SRR072232/results/versions/1.0)), the ribosomal RNA operon counts vary by up to four orders of magnitude per strains (Table \ref{expected_species}), wherease the second sample ([SRR072233](https://www.ebi.ac.uk/metagenomics/projects/SRP004311/samples/SRS121011/runs/SRR072233/results/versions/1.0)) contains equimolar ribosomal RNA operon counts per strain (Table \ref{expected_species}). 
+[Two HMP mock community samples](https://www.ebi.ac.uk/metagenomics/projects/SRP004311) are available on [*EBI metagenomics* database](https://www.ebi.ac.uk/metagenomics/). Both samples contain a genomic mixture of 22 microbial strains (Table \ref{expected_species}) with differences in abundances of the strains. In first sample ([SRR072232](https://www.ebi.ac.uk/metagenomics/projects/SRP004311/samples/SRS121012/runs/SRR072232/results/versions/1.0)), the rRNA operon counts vary by up to four orders of magnitude per strains (Table \ref{expected_species}), whereas second sample ([SRR072233](https://www.ebi.ac.uk/metagenomics/projects/SRP004311/samples/SRS121011/runs/SRR072233/results/versions/1.0)) contains equimolar ribosomal rRNA operon counts per strain (Table \ref{expected_species}). 
 
-Both samples were sequenced using 454 GS FLX Titanium to get 1,22,169 raw metagenomic sequences for the first dataset and 1,386,198 raw metagenomic sequences for the second dataset.
+Both samples were sequenced using 454 GS FLX Titanium to get 1,22,169 raw metagenomic sequences for first dataset and 1,386,198 raw metagenomic sequences for second dataset.
 
 # Methods
 
-Both datasets have been analyzed using ASaiM framework. The results extensively analyzed and compared to expected results and *EBI metagenomics* results. Details about these analyses (workflows, scripts) are available on a [dedicated GitHub repository](https://github.com/ASaiM/hmp_mock_tests) and the results on [Zenodo](https://zenodo.org/).
+Both datasets have been analyzed using ASaiM framework. The results are extensively analyzed and compared to expected results and *EBI metagenomics* results. Details about these analyses (workflows, scripts) are available on a [dedicated GitHub repository](https://github.com/ASaiM/hmp_mock_tests) and results with all intermediary and final files on [Zenodo](https://zenodo.org/).
 
 ## Abundance computation using mapping on reference genomes
 
-The expected abundances based on ribosomal RNA operon counts. During biological manipulations and sequencing, some bias may arise that modify the abundances of strains. Indeed, to get "real" abundances of expected strains, raw metagenomic sequences of both samples are mapped on genomes of expected strains using BWA [@li_fast_2009;@li_fast_2010].
+Expected abundances of strains are based on rRNA operon counts added for each strains to simulate the mock microbiota. To get "real" abundances of expected strains in metagenomic databases, sequences after sequencing are mapped on genomes of expected strains using BWA [@li_fast_2009;@li_fast_2010].
 
 \newpage
 \thispagestyle{empty}
@@ -104,7 +104,7 @@ Eukaryotes & Fungi & Ascomycota & Saccharomycetes & Saccharomycetales & Debaryom
 
 ## Analyses using *EBI Metagenomics*
 
-Both datasets have been analysed with [*EBI metagenomics* pipeline (Version 1.0)](https://www.ebi.ac.uk/metagenomics/pipelines/1.0) (Figure \ref{ebi_pipeline}). We downloaded the results and formatted them to help comparison with ASaiM results.
+Both datasets have been analysed with [*EBI metagenomics* pipeline (Version 1.0)](https://www.ebi.ac.uk/metagenomics/pipelines/1.0) (Figure \ref{ebi_pipeline}). Results are downloaded and formatted to help comparison with ASaiM results.
 
 \begin{figure}[h!]
     \centering
@@ -114,9 +114,9 @@ Both datasets have been analysed with [*EBI metagenomics* pipeline (Version 1.0)
     \label{ebi_pipeline}
 \end{figure}
 
-First, from OTUs with taxonomic assignation, abundances of each assigned clade are extracted. Several relative abundance measures are computed: relative abundances of clades for all OTUs and relative abundances of clades for OTUs with complete taxonomic assignation from kingdom to family. Percentage of unassigned clades (without complete taxonomic assignation) is also computed for each taxonomic level.
+OTUs with taxonomic assignation are extracted and aggregated to compute relative abundances of each clade at all taxononic levels.
 
-For functional analysis, *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}) offers 3 types of results: matches with InterPro, complete GO annotations and GO slim annotations. Here, we focus on GO slim annotations for easy comparison with ASaiM results (Figure \ref{asaim_workflow}). Annotations are formatted to extract relative abundances (in percentage) of GO slim term annotations inside each GO slim term group (cellular components, biological processes and molecular functions).
+For functional analysis, 3 types of results are generated with *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}): matches with InterPro, complete GO annotations and GO slim annotations. Here, we focus on GO slim annotations to compare with ASaiM results (Figure \ref{asaim_workflow}). Annotations are formatted to extract relative abundances (in percentage) of GO slim term annotations inside each GO slim term group (cellular components, biological processes and molecular functions).
 
 ## Analyses using ASaiM framework
 
@@ -129,7 +129,7 @@ Main workflow (Figure \ref{asaim_workflow}) of ASaiM framework is used to analyz
     \label{asaim_workflow}
 \end{figure}
 
-For these analyses, ASaiM framework is deployed on a computer with Debian GNU/Linux System, 8 cores Intel(R) Xeon(R) at 2.40GHz and 32 Go of RAM. During workflow execution, we follow size of used memory and execution time (Table \ref{computation_stats}). Indeed, workflow execution is relatively fast: < 5h and < 5h30 for datasets with 1,225,169 and 1,386,198 sequences respectively (Table \ref{computation_stats}). The main time consuming step is the functional assignation with *HUMAnN2* [@abubucker_metabolic_2012] which last $\simeq$ 64% of overall time execution (Table \ref{computation_stats}). And, the size of the process in memory is stable over workflow execution (variability inferior to 40 kb) (Table \ref{computation_stats}).
+For these analyses, ASaiM framework is deployed on a computer with Debian GNU/Linux System, 8 cores Intel(R) Xeon(R) at 2.40GHz and 32 Go of RAM. During workflow execution, size of used memory and execution time are checked (Table \ref{computation_stats}). Workflow execution is relatively fast: < 5h and < 5h30 for datasets with 1,225,169 and 1,386,198 sequences respectively (Table \ref{computation_stats}). The most time consuming step is functional assignation with *HUMAnN2* [@abubucker_metabolic_2012] which last $\simeq$ 64% of overall time execution (Table \ref{computation_stats}). Size of the process in memory is stable over workflow execution (variability inferior to 40 kb) (Table \ref{computation_stats}).
 
 \begin{table}[h!]
 \centering
@@ -152,24 +152,15 @@ Size of the process in memory (kb) & Min & 1,515,732 & 1,515,732\\
 \label{computation_stats}
 \end{table}
 
-After workflow execution, taxonomic results are formatted to extract the percentage of unassigned clades at different taxonomic levels (clades without more accurate taxonomic assignation). 
-
-No further formatting step is needed for functional results (relative abundance of gene families, pathways with and without species relation and GO slim terms) of one sample. To compare functional results (gene families and pathways) between both samples (SRR072232 and SRR072233), a workflow is developed and executed (Figure \ref{asaim_humann2_comparison_results}).
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width = .7\linewidth]{../images/asaim_humann2_comparison_results.pdf}
-    \caption{Workflow to compare ASaiM functional results (gene families or pathways) between both samples. This workflow is available with ASaiM Galaxy instance. The grey boxes correspond to data, the blue boxes to processing steps.}
-    \label{asaim_humann2_comparison_results}
-\end{figure}
+Comparative analysis workflows available with ASaiM framework are used to compare taxonomic and functional results of both datasets.
 
 ## Comparison of *EBI metagenomics* results and ASaiM results
 
 *EBI metagenomics* results and ASaiM ones are not directly comparable. Several processing steps are then needed.
 
-With *MetaPhlAn* in ASaiM workflow, relative abundance of clades is computed on assigned reads. No count is made of non assigned reads. To compare relative abundances between both pipelines, we focus on relative abundances computed on OTUS or reads with a complete taxonomic assignation from kingdom to family. These results are also compared to expected relative abundances obtained from sample descriptions (Table \ref{expected_species}). 
+With *MetaPhlAn* in ASaiM workflow, relative abundance of clades is computed on assigned reads. No count is made of non assigned reads. To compare relative abundances between both pipelines, we focus on relative abundances computed on OTUS or reads with a complete taxonomic assignation from kingdom to family. These results are also compared to relative abundances computed using mapping on genomes of expected strains. 
 
-In both *EBI metagenomics* and ASaiM workflows (Figures \ref{ebi_pipeline} and \ref{asaim_workflow}), functional matches are grouped into GO slims terms. These terms are a subset of the terms in the whole Gene Ontology with a focus on microbial metabolic functions. They give a broad overview of the ontology content. To compare *EBI metagenomics* and ASaiM results, relative abundance of GO slim terms for both samples and both workflows are concatenated and compared, given the workflow depicted in Figure \ref{go_slim_comparison_workflow}. 
+In both *EBI metagenomics* and ASaiM workflows (Figures \ref{ebi_pipeline} and \ref{asaim_workflow}), functional matches are grouped into GO slims terms. These terms are a subset of the terms in the whole Gene Ontology with a focus on microbial metabolic functions. They give a broad overview of the ontology content. To compare *EBI metagenomics* and ASaiM results, relative abundance of GO slim terms for both samples and both workflows are concatenated and compared, given workflow depicted in Figure \ref{go_slim_comparison_workflow}. 
 
 \begin{figure}[h!]
     \centering
@@ -182,7 +173,7 @@ In both *EBI metagenomics* and ASaiM workflows (Figures \ref{ebi_pipeline} and \
 
 ## Results of pretreatments in pipelines
 
-In both workflows (Figures \ref{ebi_pipeline} and \ref{asaim_workflow}), raw sequences are pre-processed before any taxonomic or functional analysis. These preprocessing steps include quality control to remove low quality, small or duplicated sequences and also rRNA sorting to sort rRNA/rDNA sequences from non rRNA sequences (Figures \ref{ebi_pipeline} and \ref{asaim_workflow}). The used tools and parameters for these pretreatments are different between *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}) and ASaiM workflow (Figure \ref{asaim_workflow}). So, even with similar raw input sequences, pretreatment outputs are different (Table \ref{pretreatment_stats}).
+In both workflows (Figures \ref{ebi_pipeline} and \ref{asaim_workflow}), raw sequences are pre-processed before any taxonomic or functional analysis. These preprocessing steps include quality control to remove low quality, small or duplicated sequences and also rRNA sorting to sort rRNA/rDNA sequences from non rRNA sequences (Figures \ref{ebi_pipeline} and \ref{asaim_workflow}). The used tools and parameters for these pretreatments are different between *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}) and ASaiM workflow (Figure \ref{asaim_workflow}), inducing different pretreatment outputs (Table \ref{pretreatment_stats}).
 
 \begin{table}[h!]
 \centering
@@ -201,19 +192,17 @@ non rDNA sequences & 988,712 & 99.1\% & 1,159,837 & 98.6\% & 1,188,534 & 99.2\% 
 \label{pretreatment_stats}
 \end{table}
 
-The first interesting point in pretreatment results is the difference in sequence number after quality control and dereplication (Table \ref{pretreatment_stats}). With ASaiM, more sequences (> 96 \%) are conserved during these first steps of quality control and dereplication than with *EBI metagenomics* (< 87 \%, Table \ref{pretreatment_stats}). This difference may be explained by threshold differences for minimum length. In *EBI metagenomics* pipeline, sequences with less than 100 nucleotides are removed (Figure \ref{ebi_pipeline}), while in ASaiM the threshold is fixed to 60 nucleotides (Figure \ref{asaim_workflow}). However, this threshold difference does not explain all the observed difference in sequence number after quality control and dereplication. Indeed, when in ASaiM quality control with PRINSEQ [@schmieder_quality_2011] is run with exactly same parameters but filtering of sequences with less than 100 nucleotides, 1,135,008 (92.6%) and 1,304,023 (94.1%) sequences are conserved for SRR072232 and SRR072233 respectively after quality control and dereplication. These proportion are still higher than the one observed with *EBI metagenomics* pipeline (Table \ref{pretreatment_stats}). Smaller length threshold with ASaiM does not then explain all difference in sequence number after quality control and dereplication. The differences come from then from the used tools and their underlying algorithms and implementations.
+Sequence number after quality control and dereplication is different in *EBI metagenomics* and ASaiM workflow results (Table \ref{pretreatment_stats}). With ASaiM, more sequences (> 96 \%) are conserved during these first steps of quality control and dereplication than with *EBI metagenomics* (< 87 \%, Table \ref{pretreatment_stats}). This difference may be explained by differences in threshold for minimum length. In *EBI metagenomics* pipeline, sequences with less than 100 nucleotides are removed, while in ASaiM the threshold is fixed to 60 nucleotides. However, this threshold difference does not explain all the observed difference in sequence number after quality control and dereplication. Indeed, when in ASaiM quality control with PRINSEQ [@schmieder_quality_2011] is run with exactly same parameters but filtering of sequences with less than 100 nucleotides, 1,135,008 (92.6%) and 1,304,023 (94.1%) sequences are conserved for SRR072232 and SRR072233 respectively after quality control and dereplication. These proportion are still higher than the one observed with *EBI metagenomics* pipeline (Table \ref{pretreatment_stats}). Smaller length threshold with ASaiM does not then explain all difference in sequence number after quality control and dereplication. Differences are induced by used tools and their underlying algorithms and implementations.
 
-In both datasets and with both workflows, few rDNA sequences are found in datasets (Table \ref{pretreatment_stats}). Indeed, these datasets are metagenomic datasets and then focus on gene sequences. Few copies of rRNA genes are found in organisms (bacteria, archeae or eukaryotes) and are then expected in metagenomic sequences. Despite small number of sequences, a difference of rRNA sequence number is observed between *EBI metagonomics* and ASaiM workflows (Table \ref{pretreatment_stats}). Higher proportions of rDNA sequences are systematically found with ASaiM workflow. Indeed, in *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}), *rRNASelector* [@lee_rrnaselector:_2011] is used to select rDNA  bacterial and archaeal sequences (no eukaryotes sequences). In ASaiM workflow (Figure \ref{asaim_workflow}), rRNA sequences are sorted using *SortMeRNA* [@kopylova_sortmerna:_2012] and 8 databases for bacteria, archaea and also eukaryotes rRNA. < 5% of all sequences are matched against databases dedicated to eukaryotes rRNA sequences, and then does not explain all differences of rRNA sequence proportions between *EBI metagenomics* and ASaiM. This difference may be due to completness of the databases: databases used by *rRNASelector* [@lee_rrnaselector:_2011] are older and probably less complete than databases used by *SortMeRNA* [@kopylova_sortmerna:_2012].
+In both datasets and with both workflows, few rDNA sequences are found in datasets (Table \ref{pretreatment_stats}). Indeed, these datasets are metagenomic datasets and then focus on gene sequences. Few copies of rRNA genes are found in organisms (bacteria, archeae or eukaryotes) and are then expected in metagenomic sequences. Despite small number of sequences, a difference of rRNA sequence number is observed between *EBI metagonomics* and ASaiM workflows (Table \ref{pretreatment_stats}): higher proportions of rDNA sequences are systematically found with ASaiM workflow. *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}) uses *rRNASelector* [@lee_rrnaselector:_2011] to select rDNA  bacterial and archaeal sequences (no eukaryotes sequences). In ASaiM workflow (Figure \ref{asaim_workflow}), rRNA sequences are sorted using *SortMeRNA* [@kopylova_sortmerna:_2012] and 8 databases for bacteria, archaea and also eukaryotes rRNA. < 5% of all sequences are matched against databases dedicated to eukaryotes rRNA sequences, and then does not explain all differences of rRNA sequence proportions between *EBI metagenomics* and ASaiM. This difference may be due to completness of the databases: databases used by *rRNASelector* [@lee_rrnaselector:_2011] are older and probably less complete than SILVA (v119) databases used by *SortMeRNA* [@kopylova_sortmerna:_2012].
 
-After pretreatments, more sequences are then conserved for taxonomic and functional analyses in ASaiM workflow than in *EBI metagenomics* pipeline, for both samples (Table \ref{pretreatment_stats}).
+After pretreatments, for both samples, more sequences are then conserved for taxonomic and functional analyses in ASaiM workflow than in *EBI metagenomics* pipeline (Table \ref{pretreatment_stats}).
 
 ## Taxonomic analyses
 
 ### Abundances of expected strains and taxonomy
 
-The expected abundances based on ribosomal RNA operon counts. During biological manipulations and sequencing, some bias may arise that modify the abundances of strains. Indeed, to get "real" abundances of expected strains, raw metagenomic sequences of both samples are mapped on genomes of expected strains. 
-
-For SRR02232, variations in abundances between species are similar using mapping than RNA operon count (Figure \ref{mapping_comparison}). Observations are different for SRR072233 (Figure \ref{mapping_comparison}): expected abundances (based on RNA operon abundances) are identical for all species, but unexpected variations exist for mapping based abundances. 
+Raw metagenomic sequences of both samples are mapped on genomes of expected strains. Relative abundances based on mapping results are compared to relative abundances based on rRNA operon counts as described in sample metadata (Figure \ref{mapping_comparison}).
 
 \begin{figure}[h!]
     \centering
@@ -227,7 +216,9 @@ For SRR02232, variations in abundances between species are similar using mapping
     \label{mapping_comparison}
 \end{figure}
 
-These differences between expected abundances (from RNA operon counts) and mapping-based abundances may be due to bias induced during biological manipulations or sequencing. As next taxonomic analyses are based on raw metagenomic sequences, abundances based on mapping counts are used on further analyses instead of abundances based on ribosomal RNA operon counts from metadata (Figure \ref{expected_taxonomy}).
+For SRR02232, similar variations in abundances between species are observed using mapping and rRNA operon count (Figure \ref{mapping_comparison}). Observations are different for SRR072233 (Figure \ref{mapping_comparison}): expected abundances (based on RNA operon abundances) are identical for all species, but unexpected variations are observed for mapping based abundances. These differences between expected abundances (from RNA operon counts) and mapping-based abundances may be due to bias induced during biological manipulations or sequencing. 
+
+As taxonomic analyses in *EBI metagenomics* and ASaiM workflows are executed on metagenomic sequences, mapping based abundances are now used as expected abundances, instead of abundances based on rRNA operon counts from metadata (Figure \ref{expected_taxonomy}).
 
 \begin{figure}[h!]
     \centering
@@ -239,9 +230,9 @@ These differences between expected abundances (from RNA operon counts) and mappi
 
 ### Raw ASaiM results
 
-In ASaiM workflow (Figure \ref{asaim_workflow}), taxonomic analysis is made using *MetaPhlAN* (2.0) [@truong_metaphlan2_2015;@segata_metagenomic_2012] on sequences after pretreatments. *MetaPhlAn* profiles the microbial community structure using a database of unique clade-specific marker genes identified from 17,000 reference genomes. This step of taxonomic assignation with *MetaPhlAn* is fast in ASaiM Galaxy instance (less than 10 minutes for > 1,100,000 sequences, Tables \ref{computation_stats} and \ref{pretreatment_stats}). 
+In ASaiM workflow (Figure \ref{asaim_workflow}), *MetaPhlAN* (2.0) [@truong_metaphlan2_2015;@segata_metagenomic_2012] is used for taxonomic analyses on sequences after pretreatments. *MetaPhlAn* profiles the microbial community structure using a database of unique clade-specific marker genes identified from 17,000 reference genomes. *MetaPhlAn* execution is fast in ASaiM workflow (less than 10 minutes for > 1,100,000 sequences, Table \ref{computation_stats}). 
 
-Raw *MetaPhlAn* results consist in a plain text file with relative abundance of clades at different taxonomic levels. Visualisation tools help to represent *MetaPhlAn* results. In ASaiM, two such tools are used: *Krona* [@ondov_interactive_2011] for interactive representations of taxonomic assignation and *GraPhlan* for static representations. These static representations are modified (legend *e.g.* colors, numbers for families) to help comparison with expected taxonomy (Figure \ref{asaim_taxonomy}).
+Raw *MetaPhlAn* results consist in a plain text file with relative abundance of clades at different taxonomic levels. Visualisation tools help to represent *MetaPhlAn* results. In ASaiM, two such tools are used: *Krona* [@ondov_interactive_2011] for interactive representations of taxonomic assignation and *GraPhlan* for static representations. Original static representations are modified (*e.g.* colors, numbers for families) to help comparison with expected taxonomy (Figure \ref{asaim_taxonomy}).
 
 \begin{figure}[h!]
     \centering
@@ -262,15 +253,15 @@ Raw *MetaPhlAn* results consist in a plain text file with relative abundance of 
     \label{species_abundances}
 \end{figure}
 
-Despite same expected species, taxonomic diversity in SRR072232 dataset is reduced compared to the one in SRR072233 dataset (Figure \ref{asaim_taxonomy}). Less taxons are found for each taxonomic levels. From 22 expected species (Table \ref{expected_species}), 17 are found for SRR072232 and 20 for SRR072233 (Figure \ref{species_abundances}). The 2 expected species (*Candidata albicans* and *Lactobacillus gasseri*) missing in SRR072233 dataset are also missing in SRR072232 dataset (Figure \ref{species_abundances}). This may be due to a lack of phylogenetic markers for these species in the database used in *MetaPhlAn*. On the other hand, few sequences of these species in SRR072233 are found using mapping on expected species genomes. The signal may be too low to detect the species. Indeed, all species with mapping-based abundance smaller than 0.1\% are not found using ASaiM for both datasets  (Figure \ref{species_abundances}).
+Despite same expected species, taxonomic diversity in SRR072232 dataset is reduced compared to the one in SRR072233 dataset (Figure \ref{asaim_taxonomy}). Less taxons are found for each taxonomic levels. And, from 22 expected species (Table \ref{expected_species}), 17 are found for SRR072232 and 20 for SRR072233 (Figure \ref{species_abundances}). The 2 expected species (*Candidata albicans* and *Lactobacillus gasseri*) missing in SRR072233 dataset are also missing in SRR072232 dataset (Figure \ref{species_abundances}). Phylogenetic markers for these species  may be missing in the database used by *MetaPhlAn*. On the other hand, few sequences of these species in SRR072233 are found using mapping on expected species genomes. The phylogenetic signal may be too low to detect these species. Hence, all species with mapping-based abundance smaller than 0.1\% are not found using ASaiM for both datasets  (Figure \ref{species_abundances}).
 
-For SRR072232 datasets, two species with mapping-based abundance higher than 0.1\% are not found: *Candida albicans* and *Bacillus cereus thuringiensis*. The first species is not found also with ASaiM in SRR072333, phylogenetic markers for this species may be lacking in *MetaPhlAn2* database. As the second species is found with ASaiM in SRR072333, same explanation based on lack on corresponding phylogenetic markers does not hold. 
+For SRR072232 datasets, two species with mapping-based abundance higher than 0.1\% are not found: *Candida albicans* and *Bacillus cereus thuringiensis*. The first species is not found also with ASaiM in SRR072333, phylogenetic markers for this species may be missing in *MetaPhlAn2* database. As the second species is found with ASaiM in SRR072333, same explanation based on incompletness of reference database. 
 
 ### Comparison with EBI results and expected taxonomy
 
-After these first comparisons between ASaiM results taxonomic and expected ones, we compare ASaiM taxonomic results and *EBI metagenomics* taxonomic results.
+After these first comparisons between ASaiM taxonomic results and expected ones, we compare ASaiM taxonomic results and *EBI metagenomics* taxonomic results.
 
-In *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}), *QIIME* [@caporaso_qiime_2010] is used on 16S sequences to identify OTUs and taxonomic assignation for these OTUs. In ASaiM (Figure \ref{asaim_workflow}), *MetaPhlAn* [@truong_metaphlan2_2015;@segata_metagenomic_2012] is computed on sequences after quality control and dereplication, without any sorting step. *MetaPhlAn* [@truong_metaphlan2_2015;@segata_metagenomic_2012] searches diverse phylogenetic markers, and not only 16S ones as *QIIME* [@caporaso_qiime_2010] does, on all sequence types (rRNA, non rRNA, ...). Inside so different sequences, the proportion of sequences with phylogenetic markers is smaller. Indeed, with *MetaPhlAn* [@truong_metaphlan2_2015;@segata_metagenomic_2012], the percentage of unassigned reads is $\simeq$ 9 times higher than with *QIIME* [@caporaso_qiime_2010] (SRR072232: 6.4\% with *EBI metagenomics* against 62.61\% with ASaiM; SRR072233: 13\% with *EBI metagenomics* against 53.93\% with ASaiM). Nevertheless, taxonomic lineages from *EBI metagenomics* are limited to family level (Figure \ref{ebi_taxonomy}), while they go to species level with ASaiM (Figure \ref{asaim_taxonomy}). Hence, with *MetaPhlAn* [@truong_metaphlan2_2015;@segata_metagenomic_2012], the taxonomic assignations are more accurate, complete (until species level) and statistically supported (based on more sequences).
+In *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}), *QIIME* [@caporaso_qiime_2010] is used on 16S sequences to identify OTUs and taxonomic assignation for these OTUs. In ASaiM (Figure \ref{asaim_workflow}), *MetaPhlAn* [@truong_metaphlan2_2015;@segata_metagenomic_2012] is executed on sequences after quality control and dereplication, without any sorting step. *MetaPhlAn* [@truong_metaphlan2_2015;@segata_metagenomic_2012] searches diverse phylogenetic markers, not only 16S ones as *QIIME* [@caporaso_qiime_2010] does, on all sequence types (rDNA, non rDNA, ...). Inside so different sequences, proportion of sequences with precise and "unique" phylogenetic markers is smaller. Indeed, with *MetaPhlAn* [@truong_metaphlan2_2015;@segata_metagenomic_2012], the percentage of unassigned reads is $\simeq$ 9 times higher than with *QIIME* [@caporaso_qiime_2010] (SRR072232: 6.4\% with *EBI metagenomics* against 62.61\% with ASaiM; SRR072233: 13\% with *EBI metagenomics* against 53.93\% with ASaiM). Nevertheless, taxonomic lineages from *EBI metagenomics* are limited to family level (Figure \ref{ebi_taxonomy}), while they go to species level with ASaiM (Figure \ref{asaim_taxonomy}). Hence, with *MetaPhlAn* [@truong_metaphlan2_2015;@segata_metagenomic_2012], taxonomic assignations are more complete (until species level) and statistically supported (based on more sequences).
 
 \begin{figure}[h!]
     \centering
@@ -279,7 +270,7 @@ In *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}), *QIIME* [@caporaso_q
     \label{ebi_taxonomy}
 \end{figure}
 
-With both *EBI metagenomics* and ASaiM, some observed taxonomic assignations are unexpected (Tables \ref{asaim_unexpected_species} and \ref{ebi_unexpected_clades}, Figures \ref{asaim_taxonomy} and \ref{ebi_taxonomy}). For ASaiM, 3 species in each sample are identified as "unclassified" (Table \ref{asaim_unexpected_species}). They are affiliated to the correct genus but not to the species. These unclassified sequences may be due to incomplete annotations in reference database, because expected species are known and observed. These expected species are observed in lower abundance than expected (Figure \ref{species_abundances}) and would be closer to expected abundances with correct annotation of unclassified species. Similarly, some observed clades and their sub-clades are unexpected in *EBI metagenomics* taxonomic results (Table \ref{ebi_unexpected_clades}). The taxonomic levels of these unexpected clades are higher (class, order and family) than unexpected taxonomic level in ASaiM (species, Table \ref{unexpected_clades}, Figure \ref{ebi_taxonomy}). Taxonomic assignations with *MetaPhlAN* [@truong_metaphlan2_2015;@segata_metagenomic_2012] are then more accurate and precise.
+With both *EBI metagenomics* and ASaiM, some observed taxonomic assignations are unexpected (Tables \ref{asaim_unexpected_species} and \ref{ebi_unexpected_clades}, Figures \ref{asaim_taxonomy} and \ref{ebi_taxonomy}). For ASaiM, 3 species in each sample are identified as "unclassified" (Table \ref{asaim_unexpected_species}). They are affiliated to the correct genus but not to correct species. Corresponding sequences may be then incompletely annotated and affiliated. The expected species (*Escherichia* unclassified, *Pseudomonas* unclassified, *Methanobrevibacter* unclassified, *Deinococcus* unclassified) are observed in datasets (Figure \ref{asaim_taxonomy}), but in lower abundance than expected. If sequences corresponding to close unclassified species are correctly affiliated, these species would have observed relative abundances closer to mapping-based abundances. The taxonomic levels of these unexpected clades are higher (class, order and family) than taxonomic level of unexpected clades in ASaiM results (species, Table \ref{unexpected_clades}, Figure \ref{ebi_taxonomy}). Taxonomic assignations with *MetaPhlAN* [@truong_metaphlan2_2015;@segata_metagenomic_2012] are then more accurate and precise.
 
 \begin{table}[h!]
 \centering
@@ -337,7 +328,7 @@ Species & \textit{No information} & 6.13\% & \textit{No information} & 1.6\%\\
 \label{unexpected_clades}
 \end{table}
 
-Taxonomic results obtained with *EBI metagenomics* pipeline are less precise than the one obtained with ASaiM workflow. Indeed, the most precise taxonomic level is family for *EBI metagenomics* (Figure \ref{ebi_taxonomy}) and species for ASaiM (Figure \ref{asaim_taxonomy}). Comparison of taxonomic results focus then on family level (Figure \ref{family_abundances}).
+Comparison of taxonomic results focus then on family level (Figure \ref{family_abundances}), the most precise taxomic level for *EBI metagenomics* (Figure \ref{ebi_taxonomy}).
 
 \begin{figure}[h!]
     \centering
@@ -351,11 +342,9 @@ Taxonomic results obtained with *EBI metagenomics* pipeline are less precise tha
     \label{family_abundances}
 \end{figure}
 
-Similarly, to previous observations on raw ASaiM results, species with mapping-based abundance smaller than 0.1\% are not found either with ASaiM or with *EBI metagenomics* (Figure \ref{family_abundances}). Nonetheless, the detection threshold seems slightly smaller for *EBI metagenomics*: for SRR072232, Listeriaceae family is detected with *EBI metagenomics* and not with ASaiM (Figure \ref{family_abundances}). On the other hand, Bacillaceae and Debaryomycetaceae families are not found with *EBI metagenomics* for both datasets (Figure \ref{family_abundances}), despite mapping-based abundance higher than 0.1\%. Used databases may be then incomplete regarding some phylogenetic markers, particularly the ones for missing families. 
+Similarly to previous observations on raw ASaiM results, species with mapping-based abundance smaller than 0.1\% are found neither with ASaiM nor with *EBI metagenomics* (Figure \ref{family_abundances}). Nonetheless, the detection threshold seems slightly smaller for *EBI metagenomics*: for SRR072232, Listeriaceae family is detected with *EBI metagenomics* and not with ASaiM (Figure \ref{family_abundances}). On the other hand, Bacillaceae and Debaryomycetaceae families are not found with *EBI metagenomics* for both datasets (Figure \ref{family_abundances}), despite mapping-based abundance higher than 0.1\%. Used databases may be then incomplete regarding some phylogenetic markers, particularly the ones corresponding to missing families. 
 
-Except missing species, variations in observed abundances for *EBI metagenomics* or ASaiM correspond to variations in mapping-based abundances (Figure \ref{species_abundances}): small observed abundances for small mapping-based abundances and high observed abundances for high mapping-based abundances. 
-
-For a broader comparison, a principal component analysis (PCA) is runned, for each sample, on observed families (for which abundance is not null in *EBI metagenomics* or ASaiM results). First axis of these analyses explains most of data variability (98\% for both datasets, Figure \ref{family_pca}). Mapping-based, *EBI metagenomics* and ASaiM abundances are not discriminated on this first axis (Figure \ref{family_pca}), only on the second one which explains less than 2\% of overall data variability. Differences between mapping-based, *EBI metagenomics* and ASaiM abundances are then reduced. Hence, similar abundances for observed families are then obtained for *EBI metagenomics* and ASaiM and these abundances are close to abundances computed using mapping to expected species.
+Variations in observed abundances for *EBI metagenomics* or ASaiM correspond to variations in mapping-based abundances (Figure \ref{species_abundances}): small observed abundances for small mapping-based abundances and high observed abundances for high mapping-based abundances. For a broader comparison, a principal component analysis (PCA) is computed, for each sample, on observed families (for which abundance is not null in both *EBI metagenomics* and ASaiM results). First axis of these analyses explains most of data variability (98\% for both datasets, Figure \ref{family_pca}). Mapping-based, *EBI metagenomics* and ASaiM abundances are not discriminated on this first axis (Figure \ref{family_pca}), only on the second one which explains less than 2\% of overall data variability. Differences between mapping-based, *EBI metagenomics* and ASaiM abundances are then reduced. Hence, similar abundances for observed families are obtained for *EBI metagenomics* and ASaiM and these abundances are close to abundances computed using mapping on expected species genomes.
 
 \begin{figure}[h!]
     \centering
@@ -369,7 +358,7 @@ For a broader comparison, a principal component analysis (PCA) is runned, for ea
     \label{family_pca}
 \end{figure}
 
-ASaiM framework gives taxonomic results which are more accurate, complete (until species level) and statistically supported (based on more sequences) than *EBI metagenomics*. Moreover, community structure found with ASaiM framework is close to expected community structure of these mock datasets.
+ASaiM framework gives taxonomic results which are more accurate, complete (until species level) and statistically supported (based on more sequences) than *EBI metagenomics*. Moreover, community structure found with ASaiM framework is close to expected community structure of the mock datasets.
 
 ## Functional analyses
 
@@ -397,9 +386,9 @@ All & Number & 98,569 & 129,691 & 487 & 500\\
 \label{humann2_informations}
 \end{table}
 
-Datasets are constitued of metagenomic sequences from genomic mixture of identical 22 microbioal strains (Table \ref{expected_species}). Differences between datasets are on abundance of these strains. Similar metabolic functions made by same species are then supposed to be found in both datasets, but with different abundances.
+The used mock datasets are constitued of metagenomic sequences from genomic mixture of identical 22 microbial strains (Table \ref{expected_species}). Differences between datasets are on abundance of these strains(Table \ref{expected_species}). Similar metabolic functions made by same species are then supposed to be found in both datasets, but with different abundances.
 
-However, differences of metabolic functions between both datasets are observed. Sets of gene families are different: 44,933 gene families are found in both samples (<46\% for both samples, Table \ref{humann2_informations}). However, different gene families have a limited impaxt on overall metabolism (< 50\% of relative abundance, Table \ref{humann2_informations}). Global metabolism functions such as pathways are similar in both datasets (> 95\% of similar pathways representing > 99.5\% of overall abundance, Table \ref{humann2_informations}). Hence, the unexpected observed differences are limited and may be due to bias induced by biological manipulations or sequencing. 
+Differences of metabolic functions between both datasets are observed. Sets of gene families are different: 44,933 gene families are found in both samples (<46\% for both samples, Table \ref{humann2_informations}). But different gene families have a limited impact on overall metabolism (< 50\% of relative abundance, Table \ref{humann2_informations}). They may correspond to gene families which are difficult to detect because they are not abundant or they are "done" by organisms in low abundances. Global metabolism functions such as pathways are similar in both datasets (> 95\% of similar pathways representing > 99.5\% of overall abundance, Table \ref{humann2_informations}). Hence, the unexpected observed differences are limited and may be due to bias induced by low abundances and detection threshold. 
 
 On the other hand, abundances of similar metabolic functions are different (Figure \ref{similar_characteristics_abundances}), as expected.
 
@@ -416,7 +405,7 @@ On the other hand, abundances of similar metabolic functions are different (Figu
     \label{similar_characteristics_abundances}
 \end{figure}
 
-With more than 90,000 gene families and almost 500 pathways, the metabolic profile of studied microbial community is too large to get a broad overview. Each gene family and pathway is precise and related to specific metabolic functions. This information is interesting when you need detailed metabolic information and to go deeply inside metabolic profil. However, to get a broad overview of the metabolic processes, UniRef50 gene families and even MetaCyc pathways are too numerous and too precise. UniRef50 gene families and their abundances are then grouped into slim Gene Ontology terms (Figure \ref{SRR072232_go_abundances}). Inside the 3 groups, the GO slim terms have similar abundances in both samples (Figure \ref{go_abundances}).
+With more than 90,000 gene families and almost 500 pathways, the metabolic profile of studied microbial community is too large to get a broad overview. Each gene family and pathway is precise and related to specific metabolic functions. This information is interesting when you need detailed metabolic information and to go deeply inside metabolic profil. However, to get a broad overview of the metabolic processes, UniRef50 gene families and even MetaCyc pathways are too numerous and too precise. UniRef50 gene families and their abundances are then grouped into slim Gene Ontology terms (Figure \ref{go_abundances}). For both datasets, we observe similar profiles of GO slim terms (Figure \ref{go_abundances}).
 
 \begin{figure}[h!]
     \centering
@@ -433,48 +422,13 @@ With more than 90,000 gene families and almost 500 pathways, the metabolic profi
     \label{go_abundances}
 \end{figure}
 
-Both communities, with same expected strains but with different abundances of these species, are similarly doing metabolic tasks. Hence, functional results obtained with ASaiM fill the expectations.
+Both communities, with same expected strains but in different abundances, have different metabolic profiles. As expected, the difference are not metabolic functions, but more on abundances of these functions.
 
 ### Comparison of *EBI metagenomics* and ASaiM results
 
-In *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}), functional analyses are based on InterPro and its identifiants. In ASaiM workflow (Figure \ref{asaim_workflow}), we have access to UniRef50 gene families and their abundances computed with *HUMAnN2*. These functional results are then not directly comparable. But, in both workflows, UniRef50 gene families and InterPro proteins are grouped into Gene Ontology slim terms to get a broad overview of functional profile of the community. These GO slim terms are grouped into 3 groups: cellular components, biological processes and molecular functions.
+In ASaiM workflow (Figure \ref{asaim_workflow}), UniRef50 gene families and their abundances are computed with *HUMAnN2*. In *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}), functional analyses are based on InterPro and its identifiants. These functional results are then not directly comparable. But, in both workflows, UniRef50 gene families and InterPro proteins are grouped into Gene Ontology slim terms to get a broad overview of functional profile of the community. 
 
-Few GO slim terms are different for *EBI metagenomics* and ASaiM (Table \ref{incomplete_go_slims}). They are negligible in term of relative abundance inside the three groups.
-
-\begin{table}[h!]
-\centering
-\begin{tabular}{llrrrr}
-\hline
- & & \multicolumn{2}{c}{SRR072232} & \multicolumn{2}{c}{SRR072233}\\
-GO id & GO name & EBI & ASaiM & EBI & ASaiM \\
-\hline
-\multicolumn{2}{l}{Cellular components} & & & & \\
-\href{http://amigo.geneontology.org/amigo/term/GO:0031012}{GO:0031012} & Extracellular matrix & 1.71 $\cdot 10^{-2}$ & - & 2.74 $\cdot 10^{-2}$ & 1.37 $\cdot 10^{-5}$ \\
-\href{http://amigo.geneontology.org/amigo/term/GO:0005667}{GO:0005667} & Transcription factor complex & 0 & - & 9.81 $\cdot 10^{-3}$ & -\\
-\href{http://amigo.geneontology.org/amigo/term/GO:0005694}{GO:0005694} & Chromosome & 2.80 & - & 2.61 & -\\
-\href{http://amigo.geneontology.org/amigo/term/GO:0005856}{GO:0005856} & Cytoskeleton & 2.23 $\cdot 10^{-1}$ & - & 8.44 $\cdot 10^{-2}$ & -\\
-\href{http://amigo.geneontology.org/amigo/term/GO:0016469}{GO:0016469} & Proton-transporting two-sector ATPase complex & 1.34 & - & 1.44 & -\\
-\href{http://amigo.geneontology.org/amigo/term/GO:0019861}{GO:0019861} & Flagellum & 9.78 $\cdot 10^{-1}$ & - & 6.24 $\cdot 10^{-1}$ & -\\
-\href{http://amigo.geneontology.org/amigo/term/GO:0005575}{GO:0005575} & Unknown cellular component & - & 19.29 & - & 19.84 \\
-\hline
-\multicolumn{2}{l}{Biological processes} & & & & \\
-\href{http://amigo.geneontology.org/amigo/term/GO:0006351}{GO:0006351} & Transcription, DNA-dependent & 3.27 & - & 3.06 & - \\
-\href{http://amigo.geneontology.org/amigo/term/GO:0044403}{GO:0044403} & Symbiosis, encompassing mutualism through parasitism & 1.91 $ \cdot 10^{-2}$ & - & 4.35 $\cdot 10^{-3}$ & - \\
-\href{http://amigo.geneontology.org/amigo/term/GO:0046039}{GO:0046039} & GTP metabolic process & 5.59 $\cdot 10^{-2}$ & - & 5.29 $\cdot 10^{-2}$ & - \\
-\href{http://amigo.geneontology.org/amigo/term/GO:0008150}{GO:0008150} & Unknown biological process & - & 6.84 & - & 5.29 \\
-\hline
-\multicolumn{2}{l}{Molecular functions} & & & & \\
-\href{http://amigo.geneontology.org/amigo/term/GO:0001071}{GO:0001071} & Nucleic acid binding transcription factor activity & 1.56 & - & 1.33 & - \\
-\href{http://amigo.geneontology.org/amigo/term/GO:0003774}{GO:0003774} & Motor activity & 9.87 $\cdot 10^{-2}$ & - & 5.32 $\cdot 10^{-2}$ & - \\
-\href{http://amigo.geneontology.org/amigo/term/GO:0045182}{GO:0045182} & Translation regulator activity & 1.38 $\cdot 10^{-3}$ & - & 0 & - \\
-\href{http://amigo.geneontology.org/amigo/term/GO:0003674}{GO:0003674} & Unknown molecular function & - & 9.34 & - & 10.88 \\
-\hline
-\end{tabular}
-\caption{GO slim terms not found in both samples (SRR072232, SRR072233) and/or with both workflows (EBI metagenomics, ASaiM), with the relative abundance (in percentage) in GO slim groups (cellular components, biological processes and molecular functions)}
-\label{incomplete_go_slims}
-\end{table}
-
-Barplot representations of GO slim term abundances for both samples and both workflows can be difficult to interpret (*e.g.* for the cellular component on Figure \ref{cellular_components}). We used then a principal component analysis (PCA) on normalized relative abundance of GO slim term abundance inside each group to simplify visualization and interpretation (Figures \ref{cellular_components} and \ref{biological_process}).
+Barplot representations of GO slim term abundances for both samples and both workflows can be difficult to interpret (*e.g.* for the cellular component on Figure \ref{cellular_components}). Pprincipal component analyses (PCA) are then computed on normalized relative abundance of GO slim term abundance inside each group to simplify visualization and interpretation (Figures \ref{cellular_components} and \ref{biological_process}).
 
 \begin{figure}[h!]
     \centering
@@ -500,7 +454,7 @@ Barplot representations of GO slim term abundances for both samples and both wor
     \label{biological_process}
 \end{figure}
 
-Scatter representation of first plan (first two axes) of the PCA is similar for the three groups (Figures \ref{cellular_components} and \ref{biological_process}). First axis explains most data variability (between 64\% and 87\%, Table \ref{pca_info}). GO slim terms found on left part of scatter representation (Figures \ref{cellular_components} and \ref{biological_process}) are highly abundant: cellular processes related to membrane and cytoplasm (Figure \ref{cellular_components}), biosynthetic processes, nitrogen compound metabolic process, small molecular metabolic process, transport and DNA metabolic process for biological processes (Figure \ref{biological_process}) and nucleotide binding for molecular functions (Figure \ref{biological_process}). This first axis does not discrimate samples or workflows (Figures \ref{cellular_components} and \ref{biological_process}). Results from ASaiM workflow are then similar in term of GO slim term abundances to the one obtained with *EBI metagenomics* pipeline.
+Scatter representation of first plan (first two axes) of the PCA is similar for the three groups (Figures \ref{cellular_components} and \ref{biological_process}). First axis explains high proportion of data variability (between 64\% and 87\%, Table \ref{pca_info}). On left part of scatter representation (Figures \ref{cellular_components} and \ref{biological_process}), GO slim terms are highly abundant with cellular processes related to membrane and cytoplasm (Figure \ref{cellular_components}), biosynthetic processes, nitrogen compound metabolic process, small molecular metabolic process, transport and DNA metabolic process for biological processes (Figure \ref{biological_process}) and nucleotide binding for molecular functions (Figure \ref{biological_process}). This first axis does not discrimate samples or workflows (Figures \ref{cellular_components} and \ref{biological_process}).
 
 \begin{table}[h!]
 \centering
@@ -521,11 +475,11 @@ The discrimination between *EBI metagenomics* and ASaiM results appears with sec
 
 None of the first two axes discriminates between samples. Variability between both samples seems then less important than variability between both workflows and mostly variability between GO slim terms.
 
-*EBI metagenomics* and ASaiM functional results are similar in terms of GO slim terms abundance: the discrimination between both workflow results appears as a secondary explanation for variability in GO slim term abundances.
+Similar function results are obtained for *EBI metagenomics* and ASaiM workflows when we look at GO slim terms abundance: the discrimination between both workflow results appears only as a secondary explanation for variability in GO slim term abundances.
 
 ## Taxonomically-related functional results
 
-In *HUMAnN2* results, abundances of gene families and pathways are stratified at the community level. We can then relate functional results to taxonomic result and answer questions such as "Which species contribute to which metabolic functions? In which proportion?". < 35\% of gene families (> 90\% of relative abundance) and > 80\% pathways (> 50\% of relative abundance) can be related to the community structure (species and their abundance, Table \ref{taxo_rel_funct_results}). 
+In *HUMAnN2* results, abundances of gene families and pathways are stratified at the community level. We can then relate functional results to taxonomic results and answer questions such as "Which species contribute to which metabolic functions? And, in which proportion?". < 35\% of gene families (> 90\% of relative abundance) and > 80\% pathways (> 50\% of relative abundance) can be then related to the community structure (species and their abundance, Table \ref{taxo_rel_funct_results}). 
 
 \begin{table}[h!]
 \centering
@@ -546,7 +500,7 @@ Associated to a species & Number & 26,219 & 41,005 & 402 & 400 \\
 \label{taxo_rel_funct_results}
 \end{table}
 
-For both samples, we observed a significant correlation between CDS number in species (data from GenBank) and number of gene families found for these species (Table \ref{correlation_information}). The correlation, not so bad, is yet not perfect. Indeed, gene families have not a direct mapping to CDS (paralogs, duplications, ...) and rely on exhaustivity of the reference database (UniRef) used by HUMAnN2. So, it may be interesting to investigate the relation between gene families corresponding to found species in UniRef and gene families found using HUMAnN2. This information is not available, but having a significant correlation between gene family number and CDS number is already a great point.
+For both samples, a significant correlation is observed between CDS number in species (data from GenBank) and number of gene families found for these species (Table \ref{correlation_information}). The correlation, not so bad, is yet not perfect. Indeed, gene families have not a direct mapping to CDS (paralogs, duplications, ...) and rely on exhaustivity of the reference database (UniRef) used by HUMAnN2. So, it may be interesting to investigate the relation between gene families corresponding to found species in UniRef and gene families found using HUMAnN2. This information is not available, but having a significant correlation between gene family number and CDS number is already great.
 
 \begin{table}[h!]
 \centering
@@ -576,7 +530,7 @@ CDS number for each strain has been extracted from GenBank given the links in Ta
 \label{correlation_information}
 \end{table}
 
-For both samples, relative abundances of gene families and pathways are highly correlated to observed relative abundance of involved species (Figure \ref{gene_family_pathway_mean} and Table \ref{correlation_information}). Sequences of an abundant species in a community are supposed to be abundant in metagenomic sequences of the community. This relation concerns all sequences, particularly sequences corresponding to gene families. For pathways, the relation is more tricky: a pathway is identified if a high proportion of gene families involved in this pathway is found. And the abundance of a pathway is proportional to the number of complete "copies" of this pathway in the species. Then, a pathway is abundant if its parts are all found in numerous copies, leading to a tricky relation between species abundance and pathway abundance. But, the high correlations between species relative abundance and mean relative pathway abundance (Figure \ref{gene_family_pathway_mean}, Table \ref{correlation_information}) confirm good pathway reconstructions in our datasets, particularly for abundant species. To accentuate previous observations and conclusion, we also observe a strong and significant correlation between species abundance difference and difference of gene family and pathway mean abundance between both samples (Table \ref{correlation_information}). 
+For both samples, relative abundances of gene families and pathways are highly correlated to observed relative abundance of involved species (Figure \ref{gene_family_pathway_mean} and Table \ref{correlation_information}). Sequences of an abundant species in a community are supposed to be abundant in metagenomic sequences of the community. This relation holds for all sequences, particularly sequences corresponding to gene families. For pathways, the relation is more tricky: a pathway is identified if a high proportion of gene families involved in this pathway is found. And the abundance of a pathway is proportional to the number of complete "copies" of this pathway in the species. Then, a pathway is abundant if its parts are all found in numerous copies, leading to a tricky relation between species abundance and pathway abundance. But, the high correlations between species relative abundance and mean relative pathway abundance (Figure \ref{gene_family_pathway_mean}, Table \ref{correlation_information}) confirm good pathway reconstructions in our datasets, particularly for abundant species. To accentuate previous observations and conclusion, we also observe a strong and significant correlation between species abundance difference and difference of gene family and pathway mean abundance between both samples (Table \ref{correlation_information}). 
 
 \begin{figure}[h!]
     \centering
@@ -590,14 +544,14 @@ For both samples, relative abundances of gene families and pathways are highly c
     \label{gene_family_pathway_mean}
 \end{figure}
 
-Hence, our approach based on MetaPhlAn2 and HUMAnN2 gives accurate and relevant taxonomically-related functional results.
+Hence, our approach based on *MetaPhlAn2* and *HUMAnN2* gives accurate and relevant taxonomically-related functional results.
 
 
 # Conclusion
 
 With ASaiM framework, raw sequences from a metagenomic dataset are fast analyzed (in few hours in a standard computer). Moreover, based on Galaxy, ASaiM framework posseses all Galaxy's strength: accessibility, reproducibility and also modularity. Numerous intermediary results can also be accessed during whole workflow execution.
 
-Taxonomic analysis using *MetaPhlAn2* gives a great insight on community structure wtih complete, accurate and statistically supported information. With *HUMAnN2* results and post-treatments on functional results, we get a broad overview of metabolic profile of studied microbial community. Furthermore, this metabolic profile is related to community structure to get information such as which species is involved in which metabolic function. This relation between function and taxonomy is really specific to ASaiM and not found in solutions like *EBI metagenomics*.
+Taxonomic analysis using *MetaPhlAn2* gives a great insight on community structure with complete, accurate and statistically supported information. With *HUMAnN2* and post-treatments on functional results, we get a broad overview of metabolic profile of studied microbial community. Furthermore, this metabolic profile is related to community structure to get information such as which species is involved in which metabolic function. This relation between function and taxonomy is really specific to ASaiM and not found in solutions like *EBI metagenomics*.
 
 ASaiM framework based on Galaxy, numerous tools and workflows is a then powerful framework to analyze microbiota from shotgun raw sequence data.
 
