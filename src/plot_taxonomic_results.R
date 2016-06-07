@@ -11,6 +11,7 @@ analyse_abundance <- function(data, data_type){
 
     # PCOA on distance matrix
     data_dist = vegdist(t(data))
+    print(data_dist)
     data_dist_pcoa = pcoa(data_dist)
     colnames(data_dist_pcoa$vectors) = c(paste('First axis (' , round(100*data_dist_pcoa$values$Relative_eig[1]), '%)', sep = ""), paste('Second axis (',
         round(100*data_dist_pcoa$values$Relative_eig[2]),'%)', sep = ""))
@@ -43,8 +44,18 @@ analyse_abundance <- function(data, data_type){
 
 }
 
+print("Order")
+order_abundances = read.table(paste(output_dir, "/order_abundance.txt", sep = ''), h = T, sep = '\t', row.names = 1)
+analyse_abundance(order_abundances, "order_abundance")
+
+print("Families")
 family_abundances = read.table(paste(output_dir, "/family_abundance.txt", sep = ''), h = T, sep = '\t', row.names = 1)
 analyse_abundance(family_abundances, "family_abundance")
 
+print("Genus")
+genus_abundances = read.table(paste(output_dir, "/genus_abundance.txt", sep = ''), h = T, sep = '\t', row.names = 1)
+analyse_abundance(genus_abundances, "genus_abundance")
+
+print("Species")
 species_abundances = read.table(paste(output_dir, "/species_abundance.txt", sep = ''), h = T, sep = '\t', row.names = 1)
 analyse_abundance(species_abundances, "species_abundance")
