@@ -55,14 +55,14 @@ if $image_update ; then
         "doc/images/concatenated_asaim_results/functional_results/cellular_component.pdf"
 
     # Concatenated GO slim terms
-    cp "results/concatenated_go_slim_terms/biological_process_pca.pdf" \
-        "doc/images/concatenated_go_slim_terms/biological_process_pca.pdf"
+    cp "results/concatenated_go_slim_terms/biological_process_pcoa.pdf" \
+        "doc/images/concatenated_go_slim_terms/biological_process_pcoa.pdf"
     cp "results/concatenated_go_slim_terms/cellular_component/24_plot_grouped_barplot_on_data_23_pdf_barplot.pdf" \
         "doc/images/concatenated_go_slim_terms/cellular_component_barplot.pdf"
-    cp "results/concatenated_go_slim_terms/cellular_component_pca.pdf" \
-        "doc/images/concatenated_go_slim_terms/cellular_component_pca.pdf"
-    cp "results/concatenated_go_slim_terms/molecular_function_pca.pdf" \
-        "doc/images/concatenated_go_slim_terms/molecular_function_pca.pdf"
+    cp "results/concatenated_go_slim_terms/cellular_component_pcoa.pdf" \
+        "doc/images/concatenated_go_slim_terms/cellular_component_pcoa.pdf"
+    cp "results/concatenated_go_slim_terms/molecular_function_pcoa.pdf" \
+        "doc/images/concatenated_go_slim_terms/molecular_function_pcoa.pdf"
 fi
 
 
