@@ -15,6 +15,8 @@ function launch_mapping_workflow {
         --gi_url $2 \
         --sample_name $sample_name \
         --output_dir $output_dir
+
+    Rscript src/compute_distance_targeted_mapping_abundance.R $output_dir"/20_join_two_datasets_on_data_7_and_data_19.tabular"
 }
 
 function format_mapping_results {
@@ -54,9 +56,9 @@ echo ""
 
 echo "Map raw sequences on references genomes and extract abundance information"
 echo "========================================================================="
-#launch_mapping_workflow "SRR072232" $asaim_galaxy_instance_url $api_key_on_asaim_galaxy_instance
+launch_mapping_workflow "SRR072232" $asaim_galaxy_instance_url $api_key_on_asaim_galaxy_instance
 echo ""
-#launch_mapping_workflow "SRR072233" $asaim_galaxy_instance_url $api_key_on_asaim_galaxy_instance
+launch_mapping_workflow "SRR072233" $asaim_galaxy_instance_url $api_key_on_asaim_galaxy_instance
 echo ""
 
 echo "Format mapping to get full taxonomy and nice representation"
