@@ -28,14 +28,22 @@ This script will
 
 - Get the input datasets and EBI result data and format them
 - Get reference genomes and mapped input datasets on them
-- Launch ASaiM workflow on both datasets (this task takes several hours). You can visualize workflows running by browsing ASaiM Galaxy instance. 
-- Export ASaiM workflow outputs (when the workflows are done)
+- Launch ASaiM workflow on both datasets (this task takes several hours). You can visualize workflows running by browsing ASaiM Galaxy instance
+
+Export results and analyze them:
+
+```
+./src/export_analyze_hmp_mock_results.sh
+```
+
+This script will
+
+- Export ASaiM workflow outputs (when the workflows are done) et generate all graphics
 - Concatenate results (EBI one and ASaiM one) to compare them
 
 # Report
 
 A [report](doc/report/report.pdf) of this analysis is available in `doc/report` directory.
-
 
 To generate the PDF from the markdown file (requiring PANDOC):
 
