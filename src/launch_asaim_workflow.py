@@ -15,9 +15,8 @@ def launch_asaim_workflow(args):
 
     input_filepaths = {'raw sequences': "data/" + args.sample_name + ".fastq"}
     file_types = {'raw sequences': "fastq"}
-    galaxy_api_commands.run_workflow(args.sample_name, workflow_file_path, input_filepaths, 
-        gi, '', export = False, file_types = file_types, 
-        check_history_state = False)
+    galaxy_api_commands.run_workflow(args.sample_name, workflow_file_path, input_filepaths,
+        gi, '', export = False, file_types = file_types, to_check_history_state = False)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -27,4 +26,3 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     launch_asaim_workflow(args)
-    
