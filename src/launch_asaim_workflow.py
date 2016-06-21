@@ -10,7 +10,7 @@ from bioblend import galaxy
 import galaxy_api_commands
 
 def launch_asaim_workflow(args):
-    workflow_file_path = "data/asaim_galaxy_workflow.ga"
+    workflow_file_path = "data/workflows/asaim_main_workflow.ga"
     gi = galaxy_api_commands.connect_to_galaxy_instance(args.gi_url, args.api_key)
 
     input_filepaths = {'raw sequences': "data/" + args.sample_name + ".fastq"}
