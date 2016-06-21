@@ -17,15 +17,15 @@ def asaim_functional_results_comparison(args):
         raw_result_filepaths = {}
         taxo_related_result_filepaths = {}
         if charac == 'gene_families':
-            raw_result_filepaths['First dataset'] = "previous_results/" + args.first_dataset + "/asaim_results/51_normalize_a_dataset_by_on_data_40_normalized_dataset.tabular" 
-            raw_result_filepaths['Second dataset'] = "previous_results/" + args.second_dataset + "/asaim_results/51_normalize_a_dataset_by_on_data_40_normalized_dataset.tabular" 
-            taxo_related_result_filepaths['First dataset'] = "previous_results/" + args.first_dataset + "/asaim_results/37_combine_metaphlan2_and_humann2_outputs_on_data_29_and_data_10_gene_family_abundances_related_to_genus_species_abundances.tabular"
-            taxo_related_result_filepaths['Second dataset'] = "previous_results/" + args.second_dataset + "/asaim_results/37_combine_metaphlan2_and_humann2_outputs_on_data_29_and_data_10_gene_family_abundances_related_to_genus_species_abundances.tabular"
+            raw_result_filepaths['First dataset'] = "results/" + args.first_dataset + "/asaim_results/51_normalize_a_dataset_by_on_data_40_normalized_dataset.tabular"
+            raw_result_filepaths['Second dataset'] = "results/" + args.second_dataset + "/asaim_results/51_normalize_a_dataset_by_on_data_40_normalized_dataset.tabular"
+            taxo_related_result_filepaths['First dataset'] = "results/" + args.first_dataset + "/asaim_results/37_combine_metaphlan2_and_humann2_outputs_on_data_29_and_data_10_gene_family_abundances_related_to_genus_species_abundances.tabular"
+            taxo_related_result_filepaths['Second dataset'] = "results/" + args.second_dataset + "/asaim_results/37_combine_metaphlan2_and_humann2_outputs_on_data_29_and_data_10_gene_family_abundances_related_to_genus_species_abundances.tabular"
         else:
-            raw_result_filepaths['First dataset'] = "previous_results/" + args.first_dataset + "/asaim_results/52_normalize_a_dataset_by_on_data_41_normalized_dataset.tabular" 
-            raw_result_filepaths['Second dataset'] = "previous_results/" + args.second_dataset + "/asaim_results/52_normalize_a_dataset_by_on_data_41_normalized_dataset.tabular" 
-            taxo_related_result_filepaths['First dataset'] = "previous_results/" + args.first_dataset + "/asaim_results/38_combine_metaphlan2_and_humann2_outputs_on_data_31_and_data_10_pathway_abundances_related_to_genus_species_abundances.tabular"
-            taxo_related_result_filepaths['Second dataset'] = "previous_results/" + args.second_dataset + "/asaim_results/38_combine_metaphlan2_and_humann2_outputs_on_data_31_and_data_10_pathway_abundances_related_to_genus_species_abundances.tabular"
+            raw_result_filepaths['First dataset'] = "results/" + args.first_dataset + "/asaim_results/52_normalize_a_dataset_by_on_data_41_normalized_dataset.tabular"
+            raw_result_filepaths['Second dataset'] = "results/" + args.second_dataset + "/asaim_results/52_normalize_a_dataset_by_on_data_41_normalized_dataset.tabular"
+            taxo_related_result_filepaths['First dataset'] = "results/" + args.first_dataset + "/asaim_results/38_combine_metaphlan2_and_humann2_outputs_on_data_31_and_data_10_pathway_abundances_related_to_genus_species_abundances.tabular"
+            taxo_related_result_filepaths['Second dataset'] = "results/" + args.second_dataset + "/asaim_results/38_combine_metaphlan2_and_humann2_outputs_on_data_31_and_data_10_pathway_abundances_related_to_genus_species_abundances.tabular"
 
         workflow_file_path = "data/workflows/asaim_functional_result_comparison.ga"
         raw_output_dir = args.output_dir + '/raw_' + charac + '/'
@@ -53,14 +53,14 @@ def asaim_functional_results_comparison(args):
         input_filepath = {}
 
         if group == 'biological_process':
-            input_filepath['First dataset'] = "previous_results/" + args.first_dataset + "/asaim_results/56_normalize_a_dataset_by_on_data_49_normalized_dataset.tabular" 
-            input_filepath['Second dataset'] = "previous_results/" + args.second_dataset + "/asaim_results/56_normalize_a_dataset_by_on_data_49_normalized_dataset.tabular" 
+            input_filepath['First dataset'] = "results/" + args.first_dataset + "/asaim_results/56_normalize_a_dataset_by_on_data_49_normalized_dataset.tabular"
+            input_filepath['Second dataset'] = "results/" + args.second_dataset + "/asaim_results/56_normalize_a_dataset_by_on_data_49_normalized_dataset.tabular"
         elif group == 'cellular_component':
-            input_filepath['First dataset'] = "previous_results/" + args.first_dataset + "/asaim_results/57_normalize_a_dataset_by_on_data_50_normalized_dataset.tabular" 
-            input_filepath['Second dataset'] = "previous_results/" + args.second_dataset + "/asaim_results/57_normalize_a_dataset_by_on_data_50_normalized_dataset.tabular" 
+            input_filepath['First dataset'] = "results/" + args.first_dataset + "/asaim_results/57_normalize_a_dataset_by_on_data_50_normalized_dataset.tabular"
+            input_filepath['Second dataset'] = "results/" + args.second_dataset + "/asaim_results/57_normalize_a_dataset_by_on_data_50_normalized_dataset.tabular"
         elif group == 'molecular_function':
-            input_filepath['First dataset'] = "previous_results/" + args.first_dataset + "/asaim_results/55_normalize_a_dataset_by_on_data_48_normalized_dataset.tabular" 
-            input_filepath['Second dataset'] = "previous_results/" + args.second_dataset + "/asaim_results/55_normalize_a_dataset_by_on_data_48_normalized_dataset.tabular" 
+            input_filepath['First dataset'] = "results/" + args.first_dataset + "/asaim_results/55_normalize_a_dataset_by_on_data_48_normalized_dataset.tabular"
+            input_filepath['Second dataset'] = "results/" + args.second_dataset + "/asaim_results/55_normalize_a_dataset_by_on_data_48_normalized_dataset.tabular"
 
         galaxy_api_commands.run_workflow(group, workflow_file_path, 
             input_filepath, gi, output_dir)

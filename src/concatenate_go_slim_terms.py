@@ -34,14 +34,14 @@ def concatenate_go_slim_terms(args):
         input_filepath = {}
 
         if group == 'biological_process':
-            input_filepath['SRR072232_asaim'] = "previous_results/SRR072232/asaim_results/56_normalize_a_dataset_by_on_data_49_normalized_dataset.tabular" 
-            input_filepath['SRR072233_asaim'] = "previous_results/SRR072233/asaim_results/56_normalize_a_dataset_by_on_data_49_normalized_dataset.tabular" 
+            input_filepath['SRR072232_asaim'] = "results/SRR072232/asaim_results/56_normalize_a_dataset_by_on_data_49_normalized_dataset.tabular"
+            input_filepath['SRR072233_asaim'] = "results/SRR072233/asaim_results/56_normalize_a_dataset_by_on_data_49_normalized_dataset.tabular"
         elif group == 'cellular_component':
-            input_filepath['SRR072232_asaim'] = "previous_results/SRR072232/asaim_results/57_normalize_a_dataset_by_on_data_50_normalized_dataset.tabular" 
-            input_filepath['SRR072233_asaim'] = "previous_results/SRR072233/asaim_results/57_normalize_a_dataset_by_on_data_50_normalized_dataset.tabular" 
+            input_filepath['SRR072232_asaim'] = "results/SRR072232/asaim_results/57_normalize_a_dataset_by_on_data_50_normalized_dataset.tabular"
+            input_filepath['SRR072233_asaim'] = "results/SRR072233/asaim_results/57_normalize_a_dataset_by_on_data_50_normalized_dataset.tabular"
         elif group == 'molecular_function':
-            input_filepath['SRR072232_asaim'] = "previous_results/SRR072232/asaim_results/55_normalize_a_dataset_by_on_data_48_normalized_dataset.tabular" 
-            input_filepath['SRR072233_asaim'] = "previous_results/SRR072233/asaim_results/55_normalize_a_dataset_by_on_data_48_normalized_dataset.tabular" 
+            input_filepath['SRR072232_asaim'] = "results/SRR072232/asaim_results/55_normalize_a_dataset_by_on_data_48_normalized_dataset.tabular"
+            input_filepath['SRR072233_asaim'] = "results/SRR072233/asaim_results/55_normalize_a_dataset_by_on_data_48_normalized_dataset.tabular"
 
         input_filepath['SRR072232_ebi'] = "results/SRR072232/EBI_results/" + group + ".txt" 
         input_filepath['SRR072233_ebi'] = "results/SRR072233/EBI_results/" + group + ".txt" 

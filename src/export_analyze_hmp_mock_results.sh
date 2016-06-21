@@ -41,8 +41,8 @@ export -f functional_results_comparison
 
 function run_graphlan_workflow {
     python src/run_graphlan_workflow.py \
-        --taxonomy_file "previous_results/"$1"/asaim_results/10_profile_of_communities_on_data_8_(metaphlan).tabular" \
-        --output_dir "previous_results/"$1"/asaim_results/graphlan_representations" \
+        --taxonomy_file "results/"$1"/asaim_results/10_profile_of_communities_on_data_8_(metaphlan).tabular" \
+        --output_dir "results/"$1"/asaim_results/graphlan_representations" \
         --api_key $3 \
         --gi_url $2
 }
@@ -102,7 +102,7 @@ function concatenate_ebi_asaim_taxonomic_results {
 
     python src/concatenate_ebi_asaim_taxonomic_results.py \
         --expected_taxonomy $result_dir"/mapping/formatted_mapping_results.txt" \
-        --asaim_result_dir "previous_results/"$sample_name"/asaim_results" \
+        --asaim_result_dir "results/"$sample_name"/asaim_results" \
         --ebi_result_dir $result_dir"/EBI_results" \
         --output_dir $output_dir
 }
