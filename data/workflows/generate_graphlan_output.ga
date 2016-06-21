@@ -2,7 +2,7 @@
     "a_galaxy_workflow": "true", 
     "annotation": "", 
     "format-version": "0.1", 
-    "name": "Generate graphlan", 
+    "name": "Generate graphlan (imported from API)", 
     "steps": {
         "0": {
             "annotation": "", 
@@ -20,7 +20,7 @@
             "outputs": [], 
             "position": {
                 "left": 206, 
-                "top": 200
+                "top": 250
             }, 
             "tool_errors": null, 
             "tool_id": null, 
@@ -40,7 +40,12 @@
                     "output_name": "output"
                 }
             }, 
-            "inputs": [], 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Export to GraPhlAn", 
+                    "name": "lefse_input"
+                }
+            ], 
             "label": null, 
             "name": "Export to GraPhlAn", 
             "outputs": [
@@ -55,12 +60,18 @@
             ], 
             "position": {
                 "left": 420, 
-                "top": 200
+                "top": 250
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
             "tool_id": "toolshed.g2.bx.psu.edu/repos/bebatut/export2graphlan/export2graphlan/0.19", 
-            "tool_state": "{\"ftop\": \"\\\"\\\"\", \"background_clades\": \"\\\"\\\"\", \"max_clade_size\": \"\\\"250\\\"\", \"def_font_size\": \"\\\"10\\\"\", \"external_annotations\": \"\\\"7\\\"\", \"sperc\": \"\\\"\\\"\", \"__page__\": 0, \"skip_rows\": \"\\\"\\\"\", \"title\": \"\\\"\\\"\", \"__rerun_remap_job_id__\": null, \"metadata_rows\": \"\\\"\\\"\", \"least_biomarkers\": \"\\\"\\\"\", \"min_clade_size\": \"\\\"0\\\"\", \"annotation_legend_font_size\": \"\\\"10\\\"\", \"fperc\": \"\\\"\\\"\", \"annotations\": \"\\\"\\\"\", \"lefse_input\": \"null\", \"background_colors\": \"\\\"\\\"\", \"def_clade_size\": \"\\\"0\\\"\", \"stop\": \"\\\"\\\"\", \"sname_row\": \"\\\"0\\\"\", \"max_font_size\": \"\\\"12\\\"\", \"fname_row\": \"\\\"0\\\"\", \"abundance_threshold\": \"\\\"0.0\\\"\", \"title_font_size\": \"\\\"15\\\"\", \"background_levels\": \"\\\"\\\"\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-master/tool-data/shared/ucsc/chrom/?.len\\\"\", \"min_font_size\": \"\\\"8\\\"\", \"most_abundant\": \"\\\"100\\\"\", \"lefse_output\": \"null\"}", 
+            "tool_shed_repository": {
+                "changeset_revision": "d7cf3b50a074", 
+                "name": "export2graphlan", 
+                "owner": "bebatut", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"ftop\": \"\\\"\\\"\", \"background_clades\": \"\\\"\\\"\", \"max_clade_size\": \"\\\"250\\\"\", \"def_font_size\": \"\\\"10\\\"\", \"external_annotations\": \"\\\"7\\\"\", \"sperc\": \"\\\"\\\"\", \"__page__\": 0, \"skip_rows\": \"\\\"\\\"\", \"title\": \"\\\"\\\"\", \"__rerun_remap_job_id__\": null, \"metadata_rows\": \"\\\"\\\"\", \"least_biomarkers\": \"\\\"\\\"\", \"min_clade_size\": \"\\\"0\\\"\", \"annotation_legend_font_size\": \"\\\"10\\\"\", \"fperc\": \"\\\"\\\"\", \"annotations\": \"\\\"\\\"\", \"lefse_input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"background_colors\": \"\\\"\\\"\", \"def_clade_size\": \"\\\"0\\\"\", \"stop\": \"\\\"\\\"\", \"sname_row\": \"\\\"0\\\"\", \"max_font_size\": \"\\\"12\\\"\", \"fname_row\": \"\\\"0\\\"\", \"abundance_threshold\": \"\\\"0.0\\\"\", \"title_font_size\": \"\\\"15\\\"\", \"input_lefse_output\": \"{\\\"input_lefse_output_test\\\": \\\"false\\\", \\\"__current_case__\\\": 1}\", \"background_levels\": \"\\\"\\\"\", \"min_font_size\": \"\\\"8\\\"\", \"most_abundant\": \"\\\"100\\\"\"}", 
             "tool_version": "0.19", 
             "type": "tool", 
             "uuid": "8d716c59-ccff-4613-99e6-febdddd86632", 
@@ -68,7 +79,7 @@
         }, 
         "2": {
             "annotation": "", 
-            "content_id": "172.21.23.6:9009/repos/bebatut/graphlan/graphlan_annotate/0.9.7", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bebatut/graphlan/graphlan_annotate/0.9.7", 
             "id": 2, 
             "input_connections": {
                 "annot": {
@@ -80,7 +91,16 @@
                     "output_name": "tree"
                 }
             }, 
-            "inputs": [], 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Generation, personalization and annotation of tree", 
+                    "name": "input_tree"
+                }, 
+                {
+                    "description": "runtime parameter for tool Generation, personalization and annotation of tree", 
+                    "name": "annot"
+                }
+            ], 
             "label": null, 
             "name": "Generation, personalization and annotation of tree", 
             "outputs": [
@@ -91,12 +111,18 @@
             ], 
             "position": {
                 "left": 793, 
-                "top": 238
+                "top": 288
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
-            "tool_id": "172.21.23.6:9009/repos/bebatut/graphlan/graphlan_annotate/0.9.7", 
-            "tool_state": "{\"input_tree\": \"null\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-master/tool-data/shared/ucsc/chrom/?.len\\\"\", \"annot\": \"null\", \"__page__\": 0}", 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bebatut/graphlan/graphlan_annotate/0.9.7", 
+            "tool_shed_repository": {
+                "changeset_revision": "83baf73b0e79", 
+                "name": "graphlan", 
+                "owner": "bebatut", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"input_tree\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-master/tool-data/shared/ucsc/chrom/?.len\\\"\", \"annot\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__page__\": 0}", 
             "tool_version": "0.9.7", 
             "type": "tool", 
             "uuid": "5193f827-22b6-4bc0-97f3-efb3f5c1319b", 
@@ -104,7 +130,7 @@
         }, 
         "3": {
             "annotation": "", 
-            "content_id": "172.21.23.6:9009/repos/bebatut/graphlan/graphlan/0.9.7", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bebatut/graphlan/graphlan/0.9.7", 
             "id": 3, 
             "input_connections": {
                 "input_tree": {
@@ -112,7 +138,12 @@
                     "output_name": "output_tree"
                 }
             }, 
-            "inputs": [], 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool GraPhlAn", 
+                    "name": "input_tree"
+                }
+            ], 
             "label": null, 
             "name": "GraPhlAn", 
             "outputs": [
@@ -139,12 +170,18 @@
             ], 
             "position": {
                 "left": 1135, 
-                "top": 224
+                "top": 274
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
-            "tool_id": "172.21.23.6:9009/repos/bebatut/graphlan/graphlan/0.9.7", 
-            "tool_state": "{\"__page__\": 0, \"format\": \"\\\"svg\\\"\", \"input_tree\": \"null\", \"__rerun_remap_job_id__\": null, \"pad\": \"\\\"2\\\"\", \"dpi\": \"\\\"\\\"\", \"size\": \"\\\"7\\\"\"}", 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bebatut/graphlan/graphlan/0.9.7", 
+            "tool_shed_repository": {
+                "changeset_revision": "83baf73b0e79", 
+                "name": "graphlan", 
+                "owner": "bebatut", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"format\": \"\\\"svg\\\"\", \"input_tree\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"pad\": \"\\\"2\\\"\", \"dpi\": \"\\\"\\\"\", \"size\": \"\\\"7\\\"\"}", 
             "tool_version": "0.9.7", 
             "type": "tool", 
             "uuid": "5a6f4211-4485-472e-baab-8c434b02f640", 
@@ -152,7 +189,7 @@
         }, 
         "4": {
             "annotation": "", 
-            "content_id": "172.21.23.6:9009/repos/bebatut/graphlan/graphlan/0.9.7", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bebatut/graphlan/graphlan/0.9.7", 
             "id": 4, 
             "input_connections": {
                 "input_tree": {
@@ -160,7 +197,12 @@
                     "output_name": "output_tree"
                 }
             }, 
-            "inputs": [], 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool GraPhlAn", 
+                    "name": "input_tree"
+                }
+            ], 
             "label": null, 
             "name": "GraPhlAn", 
             "outputs": [
@@ -187,17 +229,23 @@
             ], 
             "position": {
                 "left": 1135, 
-                "top": 441.5
+                "top": 491.5
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
-            "tool_id": "172.21.23.6:9009/repos/bebatut/graphlan/graphlan/0.9.7", 
-            "tool_state": "{\"__page__\": 0, \"format\": \"\\\"png\\\"\", \"input_tree\": \"null\", \"__rerun_remap_job_id__\": null, \"pad\": \"\\\"2\\\"\", \"dpi\": \"\\\"\\\"\", \"size\": \"\\\"7\\\"\"}", 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bebatut/graphlan/graphlan/0.9.7", 
+            "tool_shed_repository": {
+                "changeset_revision": "83baf73b0e79", 
+                "name": "graphlan", 
+                "owner": "bebatut", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"format\": \"\\\"png\\\"\", \"input_tree\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"pad\": \"\\\"2\\\"\", \"dpi\": \"\\\"\\\"\", \"size\": \"\\\"7\\\"\"}", 
             "tool_version": "0.9.7", 
             "type": "tool", 
             "uuid": "a70f3ef0-0783-475b-bc80-ab54fe803b0b", 
             "workflow_outputs": []
         }
     }, 
-    "uuid": "1b92bf0b-b139-4eac-979c-5555821a915b"
+    "uuid": "82484755-b29f-47c5-a498-93a38729d31d"
 }
