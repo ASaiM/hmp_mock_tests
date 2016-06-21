@@ -43,9 +43,9 @@ def check_history_state(gi, hist_id):
     return state
 
 def launch_workflow(wf_id, datamap, hist_id, gi, to_check_history_state = True):
-    wf_invocation_details = gi.workflows.run_workflow(wf_id, datamap, history_id=hist_id)
+    wf_invocation_details = gi.workflows.invoke_workflow(wf_id, datamap, history_id=hist_id)
     wf_invocation_id = wf_invocation_details['id']
-    wf_outputs = wf_invocation_details['outputs']
+    #wf_outputs = wf_invocation_details['outputs']
 
     if to_check_history_state:
         while check_history_state(gi, hist_id):
