@@ -24,21 +24,6 @@ function extract_unassigned_clades_perc {
 }
 export -f extract_unassigned_clades_perc
 
-function functional_results_comparison {
-    charact_output_dir=$4"/"$1
-    if [[ ! -d $charact_output_dir ]]; then
-        mkdir $charact_output_dir
-    fi
-    python src/asaim_functional_results_comparison.py \
-        --gi_url $2 \
-        --api_key $3 \
-        --characteristics $1 \
-        --first_dataset "SRR072232" \
-        --second_dataset "SRR072233" \
-        --output_dir $charact_output_dir
-}
-export -f functional_results_comparison
-
 function run_graphlan_workflow {
     python src/run_graphlan_workflow.py \
         --taxonomy_file "results/"$1"/asaim_results/10_profile_of_communities_on_data_8_(metaphlan).tabular" \
