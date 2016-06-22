@@ -7,3 +7,4 @@ data/expected_species_w_protein_nb.txt
 
 results/
 *.pyc
+logs/
