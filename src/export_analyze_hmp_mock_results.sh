@@ -69,7 +69,7 @@ output_dir="results/concatenated_asaim_results/functional_results"
 if [[ ! -d $output_dir ]]; then
     mkdir -p $output_dir
 fi
-python src/asaim_functional_results_comparison.py \
+python src/compare_asaim_functional_results.py \
     --gi_url $asaim_galaxy_instance_url \
     --api_key $api_key_on_asaim_galaxy_instance \
     --first_dataset "SRR072232" \

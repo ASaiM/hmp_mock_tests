@@ -21,7 +21,7 @@ def run_graphlan_workflow(args):
     input_filepaths['Taxonomy'] = args.taxonomy_file
     galaxy_api_commands.run_workflow('GraPhlAn representation', workflow_file_path,
         input_filepaths, gi, args.output_dir, export = True,
-        delete = True, to_check_history_state = True)
+        delete_wf = True, purge_hist = True, to_check_history_state = True)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

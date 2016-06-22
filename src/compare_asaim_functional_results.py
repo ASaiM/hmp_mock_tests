@@ -9,7 +9,7 @@ import time
 from bioblend import galaxy
 import galaxy_api_commands
 
-def asaim_functional_results_comparison(args):
+def compare_asaim_functional_results(args):
     gi = galaxy_api_commands.connect_to_galaxy_instance(args.gi_url, args.api_key)
 
     for charac in ['gene_families', 'pathways']:
@@ -31,7 +31,7 @@ def asaim_functional_results_comparison(args):
         raw_output_dir = args.output_dir + '/raw_' + charac + '/'
         if not os.path.exists(raw_output_dir):
             os.makedirs(raw_output_dir)
-        galaxy_api_commands.run_workflow('Raw ' + charac, workflow_file_path, 
+        galaxy_api_commands.run_workflow('Raw ' + charac, workflow_file_path,
             raw_result_filepaths, gi, raw_output_dir)
         print
 
@@ -39,8 +39,9 @@ def asaim_functional_results_comparison(args):
         taxo_output_dir = args.output_dir + '/taxonomically_related_' + charac + '/'
         if not os.path.exists(taxo_output_dir):
             os.makedirs(taxo_output_dir)
-        galaxy_api_commands.run_workflow('Taxonomically related ' + charac, 
-            workflow_file_path, taxo_related_result_filepaths, gi, taxo_output_dir)
+        galaxy_api_commands.run_workflow('Taxonomically related ' + charac,
+            workflow_file_path, taxo_related_result_filepaths, gi, taxo_output_dir,
+            purge_hist = True, delete_wf = True,to_check_history_state = True)
         print
 
     for group in ['biological_process', 'cellular_component', 'molecular_function']:
@@ -62,7 +63,7 @@ def asaim_functional_results_comparison(args):
             input_filepath['First dataset'] = "results/" + args.first_dataset + "/asaim_results/55_normalize_a_dataset_by_on_data_48_normalized_dataset.tabular"
             input_filepath['Second dataset'] = "results/" + args.second_dataset + "/asaim_results/55_normalize_a_dataset_by_on_data_48_normalized_dataset.tabular"
 
-        galaxy_api_commands.run_workflow(group, workflow_file_path, 
+        galaxy_api_commands.run_workflow(group, workflow_file_path,
             input_filepath, gi, output_dir)
         print
 
@@ -75,4 +76,4 @@ if __name__ == '__main__':
     parser.add_argument('--output_dir', required=True)
     args = parser.parse_args()
 
-    asaim_functional_results_comparison(args)
+    compare_asaim_functional_results(args)

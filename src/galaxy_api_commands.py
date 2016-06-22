@@ -74,7 +74,7 @@ def get_hist_id(hist_name, gi):
         raise ValueError('No history found for', hist_name)
     return hist_id
 
-def export_workflow_outputs(hist_id, output_dir, gi):
+def export_workflow_outputs(hist_id, output_dir, gi, to_purge = True):
     print "  Export history content of ", hist_id
     count = 1
     for dataset_id in gi.histories.show_history(hist_id)['state_ids']['ok']:
@@ -92,10 +92,11 @@ def export_workflow_outputs(hist_id, output_dir, gi):
         count += 1
         gi.histories.download_dataset(hist_id, dataset_id, output_filepath, 
             use_default_filename=False)
+    gi.histories.delete_history(hist_id, purge = to_purge)
 
 def run_workflow(workflow_name, workflow_file_path, input_filepaths, gi,
-        output_dir, export = True, delete = True, to_check_history_state = True,
-        file_types = {}):
+        output_dir, export = True, purge_hist = True, delete_wf = True,
+        to_check_history_state = True, file_types = {}):
     print "  Create an history for ", workflow_name, " and import input data"
     hist_id = create_history(workflow_name,gi)
     datasets_id = upload_files(input_filepaths, hist_id, gi, file_types)
@@ -107,9 +108,9 @@ def run_workflow(workflow_name, workflow_file_path, input_filepaths, gi,
 
     if export:
         print "  Export workflow results"
-        export_workflow_outputs(hist_id,output_dir,gi)
+        export_workflow_outputs(hist_id,output_dir,gi, purge_hist)
 
-    if delete:
+    if delete_wf:
         print "  Delete workflow"
         gi.workflows.delete_workflow(wf_id)
 

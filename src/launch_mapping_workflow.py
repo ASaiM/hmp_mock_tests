@@ -23,9 +23,10 @@ def launch_mapping_workflow(args):
     file_types['reference genomes'] = "fasta"
     file_types['Expected ribosomal rna operon counts'] = "tabular"
 
-    galaxy_api_commands.run_workflow('Mapping for ' + args.sample_name, 
-        workflow_file_path, input_filepaths, gi, args.output_dir, 
-        file_types = file_types)
+    galaxy_api_commands.run_workflow('Mapping for ' + args.sample_name,
+        workflow_file_path, input_filepaths, gi, args.output_dir,
+        file_types = file_types, purge_hist = True, delete_wf = True,
+        to_check_history_state = True)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

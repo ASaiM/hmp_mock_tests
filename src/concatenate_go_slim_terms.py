@@ -17,8 +17,8 @@ def launch_concatenation(workflow_name,workflow_file_path, gi, args):
     output_dir = args.output_dir + '/' + workflow_name
     if not os.path.exists(output_dir):
         os.mkdir(output_dir)
-    galaxy_api_commands.run_workflow(workflow_name, workflow_file_path, input_filepaths, 
-        gi, output_dir)
+    galaxy_api_commands.run_workflow(workflow_name, workflow_file_path, input_filepaths,
+        gi, output_dir, purge_hist = True, delete_wf = True,to_check_history_state = True)
 
 def concatenate_go_slim_terms(args):
     workflow_file_path = "data/workflows/go_slim_term_comparison.ga"
@@ -46,8 +46,9 @@ def concatenate_go_slim_terms(args):
         input_filepath['SRR072232_ebi'] = "results/SRR072232/EBI_results/" + group + ".txt" 
         input_filepath['SRR072233_ebi'] = "results/SRR072233/EBI_results/" + group + ".txt" 
 
-        galaxy_api_commands.run_workflow(group, workflow_file_path, 
-            input_filepath, gi, output_dir)
+        galaxy_api_commands.run_workflow(group, workflow_file_path,
+            input_filepath, gi, output_dir, purge_hist = True, delete_wf = True,
+            to_check_history_state = True)
         print
 
 if __name__ == '__main__':
