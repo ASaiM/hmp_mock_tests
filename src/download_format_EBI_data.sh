@@ -14,21 +14,34 @@ function download_unarchive {
 function get_rRNA_sequences_number {
     sample_name=$1
     run_name=$2
-    echo " $sample_name"
+    echo " -- $sample_name -- "
+    if [[ ! -d $sample_name ]]; then
+        mkdir $sample_name
+    fi
+    cd $sample_name
+    if [[ ! -d "EBI_results" ]]; then
+        mkdir "EBI_results"
+    fi
+
     echo "  5S sequences:"
     wget "https://www.ebi.ac.uk/metagenomics//projects/SRP004311/samples/"$run_name"/runs/"$sample_name"/results/versions/1.0/taxonomy/5S-rRNA-FASTA" >/dev/null 2>&1
     grep ">" "5S-rRNA-FASTA" | wc -l
-    rm "5S-rRNA-FASTA"
+    mv "5S-rRNA-FASTA" "EBI_results/5S_rRNA.fasta"
+    cat "EBI_results/5S_rRNA.fasta" > "EBI_results/rRNA.fasta"
 
     echo "  16S sequences:"
     wget "https://www.ebi.ac.uk/metagenomics//projects/SRP004311/samples/"$run_name"/runs/"$sample_name"/results/versions/1.0/taxonomy/16S-rRNA-FASTA" >/dev/null 2>&1
     grep ">" "16S-rRNA-FASTA" | wc -l
-    rm "16S-rRNA-FASTA"
+    mv "16S-rRNA-FASTA" "EBI_results/16S_rRNA.fasta"
+    cat "EBI_results/16S_rRNA.fasta" >> "EBI_results/rRNA.fasta"
 
     echo "  23S sequences:"
     wget "https://www.ebi.ac.uk/metagenomics//projects/SRP004311/samples/"$run_name"/runs/"$sample_name"/results/versions/1.0/taxonomy/23S-rRNA-FASTA" >/dev/null 2>&1
     grep ">" "23S-rRNA-FASTA" | wc -l
-    rm "23S-rRNA-FASTA"
+    mv "23S-rRNA-FASTA" "EBI_results/23S_rRNA.fasta"
+    cat "EBI_results/23S_rRNA.fasta" >> "EBI_results/rRNA.fasta"
+
+    cd ../
 }
 
 function download_EBI_taxonomic_results {
@@ -37,7 +50,7 @@ function download_EBI_taxonomic_results {
     echo " -- "$sample_name" -- "
     if [[ ! -d $sample_name ]]; then
         mkdir $sample_name
-    fi 
+    fi
     cd $sample_name
     if [[ ! -d "EBI_results" ]]; then
         mkdir "EBI_results"
@@ -54,6 +67,7 @@ function format_EBI_taxonomic_results {
         --ebi_taxonomic_results "results/"$sample_name"/EBI_results/taxonomic_assignation.tsv" \
         --output_dir "results/"$sample_name"/EBI_results/"
 }
+export -f format_EBI_taxonomic_results
 
 function run_graphlan_workflow {
     python src/run_graphlan_workflow.py \
@@ -62,6 +76,7 @@ function run_graphlan_workflow {
         --api_key $3 \
         --gi_url $2
 }
+export -f run_graphlan_workflow
 
 function download_EBI_functional_results {
     sample_name=$1
@@ -69,7 +84,7 @@ function download_EBI_functional_results {
     echo " -- "$sample_name" -- "
     if [[ ! -d $sample_name ]]; then
         mkdir $sample_name
-    fi 
+    fi
     cd $sample_name
     if [[ ! -d "EBI_results" ]]; then
         mkdir "EBI_results"
@@ -79,6 +94,7 @@ function download_EBI_functional_results {
     cd ../
     echo ""
 }
+export -f download_EBI_functional_results
 
 function format_EBI_functional_results {
     sample_name=$1
@@ -86,6 +102,11 @@ function format_EBI_functional_results {
         --ebi_functional_results "results/"$sample_name"/EBI_results/go_slim_annotations.csv" \
         --output_dir "results/"$sample_name"/EBI_results/"
 }
+export -f format_EBI_functional_results
+
+if [[ ! -d results ]]; then
+    mkdir results
+fi
 
 echo "Download input datasets"
 echo "======================="
@@ -97,16 +118,15 @@ echo ""
 
 echo "Get number of rRNA sequences"
 echo "============================"
+cd results
 get_rRNA_sequences_number "SRR072232" "SRS121012"
 get_rRNA_sequences_number "SRR072233" "SRS121011"
+cd ../
 echo ""
 
 echo "Download EBI taxonomic results"
 echo "=============================="
-if [[ ! -d results ]]; then
-    mkdir results
-fi
-cd results 
+cd results
 download_EBI_taxonomic_results "SRR072232" "SRS121012"
 download_EBI_taxonomic_results "SRR072233" "SRS121011"
 cd ../
@@ -114,23 +134,17 @@ echo ""
 
 echo "Format EBI taxonomic results"
 echo "============================"
-format_EBI_taxonomic_results "SRR072232"
-format_EBI_taxonomic_results "SRR072233"
+cat id.txt | parallel format_EBI_taxonomic_results {}
 echo ""
 
 echo "Run workflow to get graphlan representations"
 echo "============================================"
-run_graphlan_workflow "SRR072232" $asaim_galaxy_instance_url $api_key_on_asaim_galaxy_instance
-echo ""
-run_graphlan_workflow "SRR072233" $asaim_galaxy_instance_url $api_key_on_asaim_galaxy_instance
+cat id.txt | parallel run_graphlan_workflow {} $asaim_galaxy_instance_url $api_key_on_asaim_galaxy_instance
 echo ""
 
 echo "Download EBI functional results"
 echo "==============================="
-if [[ ! -d results ]]; then
-    mkdir results
-fi
-cd results 
+cd results
 download_EBI_functional_results "SRR072232" "SRS121012"
 download_EBI_functional_results "SRR072233" "SRS121011"
 cd ../
@@ -138,6 +152,5 @@ echo ""
 
 echo "Format EBI functional results"
 echo "============================="
-format_EBI_functional_results "SRR072232"
-format_EBI_functional_results "SRR072233"
+cat id.txt | parallel format_EBI_functional_results {}
 echo ""
