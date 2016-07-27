@@ -46,7 +46,7 @@ if [[ ! -d "reference_genomes" ]]; then
 fi
 
 cd "reference_genomes"
-python "../../src/donwload_extract_reference_genomes.py" \
+python "../../src/download_extract_reference_genomes.py" \
     --exp_taxo_file "../expected_species_w_taxonomy.txt" \
     --protein_nb_file "../expected_species_w_protein_nb.txt"
 
@@ -54,8 +54,14 @@ if [[ -f "reference_genomes.fna.gz" ]]; then
     rm "reference_genomes.fna.gz"
 fi
 cat *.fna.gz > "reference_genomes.fna.gz"
-cd ../../
+cd ../
 echo ""
+
+python "../src/download_extract_reference_rRNA.py" \
+    --exp_taxo_file "expected_species_w_taxonomy.txt" \
+    --reference_rRNA_file "reference_rRNAs.fasta" \
+    --rRNA_nb_file "expected_species_w_rRNA_nb.txt"
+cd ../
 
 echo "Map raw sequences on references genomes and extract abundance information"
 echo "========================================================================="
