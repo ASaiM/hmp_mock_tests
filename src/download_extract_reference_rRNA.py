@@ -108,9 +108,13 @@ def download_extract_reference_rRNA(exp_taxo_filepath, reference_rRNA_filepath,
             rRNA_nb_file.write(str(rRNA_23S_genes) + '\n')
 
         rRNA_nb_file.close()
-        SeqIO.write(rRNA_seq_records, reference_rRNA_filepath, "fasta")
+
         os.chdir("../")
         os.system("rm -r tmp")
+
+        output_handle = open(reference_rRNA_filepath, "w")
+        SeqIO.write(rRNA_seq_records, output_handle, "fasta")
+        output_handle.close()
 
 
 if __name__ == '__main__':
