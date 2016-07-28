@@ -77,6 +77,51 @@ Rscript src/compute_plot_correlation.R
 echo "###############################################################"
 echo "# Concatenate results (EBI one and ASaiM one) to compare them #"
 echo "###############################################################"
+function analyze_rDNA_sequences {
+  sample_name=$1
+  echo "$sample_name"
+  echo "----------"
+
+  echo "Extract proportion of eukaryotic rRNA sequences in ASaiM results"
+  python src/extract_eukaryotic_rRNA_seq_prop.py \
+    --sortmerna_euk_db "data/sortmerna_euk.fasta" \
+    --asaim_rrna_blast_report "results/"$sample_name"/asaim_results/12_alignments_on_data_7_(blast).tabular"
+  echo ""
+
+  echo "Compare EBI rRNA sequences and ASaiM rRNA sequences"
+  python src/compare_ebi_asaim_rrna_sequences.py \
+    --ebi_rrna_seq "results/"$sample_name"/EBI_results/rRNA.fasta" \
+    --asaim_rrna_seq "results/"$sample_name"/asaim_results/10_aligned_reads_on_data_7_(fasta).fasta" \
+    --asaim_non_rrna_seq "results/"$sample_name"/asaim_results/11_rejected_reads_on_data_7_(fasta).fasta"
+  echo ""
+
+  echo "Check ASaiM rRNA sequences"
+  supp_results="results/"$sample_name"/supp_results/"
+  if [[ ! -d $supp_results ]]; then
+    mkdir -p $supp_results
+  fi
+
+  echo "  Run SortMeRNA (same parameters) with reference rRNA sequences"
+  reference_rRNAs_dir="data/reference_rRNAs/"
+  sortmerna \
+    --ref $reference_rRNAs_dir"/reference_rRNAs.fasta",$reference_rRNAs_dir"/reference_rRNAs.idx" \
+    --reads "results/"$sample_name"/asaim_results/7_vsearch_dereplication_on_data_5.fasta" \
+    --aligned $supp_results"/aligned_ref_rrna" \
+    --fastx \
+    --blast "1 cigar qcov qstrand" \
+    --best 1 \
+    --min_lis 2 \
+    -e 1.0 \
+    --match 2 \
+    --mismatch -3 \
+    --gap_open 5 \
+    --gap_ext 2 \
+    -N -3
+
+  echo "  Compare results to the one obtained with ASaiM"
+
+}
+
 function concatenate_ebi_asaim_taxonomic_results {
     sample_name=$1
     result_dir="results/"$sample_name
@@ -113,6 +158,33 @@ function concatenate_go_slim_terms {
     Rscript src/plot_go_slim_pca.R
 }
 export -f concatenate_go_slim_terms
+
+echo "Analyze rDNA sequences"
+echo "======================"
+
+echo "Download SortMeRNA eukaryotic databases"
+echo "---------------------------------------"
+cd "data/"
+wget "https://raw.githubusercontent.com/biocore/sortmerna/master/rRNA_databases/silva-euk-18s-id95.fasta"
+cat "silva-euk-18s-id95.fasta" > "sortmerna_euk.fasta"
+rm "silva-euk-18s-id95.fasta"
+wget "https://raw.githubusercontent.com/biocore/sortmerna/master/rRNA_databases/silva-euk-28s-id98.fasta"
+cat "silva-euk-28s-id98.fasta" >> "sortmerna_euk.fasta"
+rm "silva-euk-28s-id98.fasta"
+cd ../
+echo ""
+
+echo "Prepare reference rRNA databases to be usable by SortMeRNA"
+echo "----------------------------------------------------------"
+reference_rRNAs_dir="data/reference_rRNAs/"
+indexdb_rna \
+  --ref $reference_rRNAs_dir"/reference_rRNAs.fasta",$reference_rRNAs_dir"/reference_rRNAs.idx" \
+  --max_pos 10000 \
+  -L 18
+
+analyze_rDNA_sequences "SRR072232"
+analyze_rDNA_sequences "SRR072233"
+echo ""
 
 echo "Concatenate EBI and ASaiM taxonomic results given expected taxonomy for each sample"
 echo "==================================================================================="
