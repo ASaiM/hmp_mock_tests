@@ -5,11 +5,22 @@ We test ASaiM framework on mock samples from HMP which have a controlled communi
 
 # Requirements
 
-- `wget`
-- `pip` and some Python modules you can install using `pip install -r requirements.txt`
+- `conda`
 - [ASaiM framework](https://github.com/ASaiM/framework) with its custom Galaxy instance launched and populated with tools and databases. You can also check [ASaiM documentation](http://asaim.readthedocs.org/en/latest/framework/index.html) for further information.
 
+Once `conda` is installed, create the `conda` environment (with all required dependencies):
+
+```
+$ conda env create -f conda_env.yml
+```
+
 # Usage
+
+Activate `conda` environment:
+
+```
+$ source activate hmp_mock
+```
 
 Generate an API key corresponding to your account on the custom Galaxy instance (in `User` menu, on top panel) of ASaiM framework, and fill the [`config.yml`](config.yml) file:
 
@@ -21,19 +32,19 @@ api_key_on_asaim_galaxy_instance: "apikey"
 Launch analyses:
 
 ```
-./src/launch_hmp_mock_analyses.sh
+$ ./src/launch_hmp_mock_analyses.sh
 ```
 
 This script will
 
-- Get the input datasets and EBI result data and format them
-- Get reference genomes and mapped input datasets on them
+- Get the input datasets, EBI result data and format them
+- Get reference genomes, reference rRNA sequences and mapped input datasets on them
 - Launch ASaiM workflow on both datasets (this task takes several hours). You can visualize workflows running by browsing ASaiM Galaxy instance
 
 Export results and analyze them:
 
 ```
-./src/export_analyze_hmp_mock_results.sh
+$ ./src/export_analyze_hmp_mock_results.sh
 ```
 
 This script will
@@ -48,5 +59,5 @@ A [report](doc/report/report.pdf) of this analysis is available in `doc/report` 
 To generate the PDF from the markdown file (requiring PANDOC):
 
 ```
-./doc/report/build.sh
+$ ./doc/report/build.sh
 ```
