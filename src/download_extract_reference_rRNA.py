@@ -5,7 +5,6 @@ import sys
 import os
 import argparse
 import re
-import time
 import wget
 import subprocess
 import tarfile
@@ -70,20 +69,17 @@ def download_extract_reference_rRNA(exp_taxo_filepath, reference_rRNA_filepath,
                             rRNA_16S_genes += 1
                         elif record.description.find("23S")!= -1 :
                             rRNA_23S_genes += 1
-                        #else:
-                        #    raise ValueError("Unknown ribosomal gene")
             else:
-                seq_filename = sp_name.lower().replace(' ','_') + '.fna'
-                filename = wget.download(ftp_link + '_genomic.fna.gz')
-                os.rename(filename, seq_filename)
-                record_iterator = SeqIO.parse(seq_filename, "fasta")
-                genome = next(record_iterator)
-
                 new_filename = sp_name.lower().replace(' ','_') + '.gff'
                 filename = wget.download(ftp_link + '_genomic.gff.gz')
                 os.rename(filename, new_filename + ".gz")
                 os.system("gunzip " + new_filename + ".gz")
                 print
+
+                record_iterator = SeqIO.parse(
+                    '../reference_genomes/acinetobacter_baumannii.fna.gz',
+                    "fasta")
+                genome = next(record_iterator)
 
                 with open(new_filename, "r") as gff_file:
                     for line in gff_file.readlines():
