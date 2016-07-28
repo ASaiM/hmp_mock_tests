@@ -57,9 +57,13 @@ cat *.fna.gz > "reference_genomes.fna.gz"
 cd ../
 echo ""
 
+if [[ ! -d "reference_rRNAs" ]]; then
+    mkdir "reference_rRNAs"
+fi
+
 python "../src/download_extract_reference_rRNA.py" \
     --exp_taxo_file "expected_species_w_taxonomy.txt" \
-    --reference_rRNA_file "reference_rRNAs.fasta" \
+    --reference_rRNA_file "reference_rRNAs/reference_rRNAs.fasta" \
     --rRNA_nb_file "expected_species_w_rRNA_nb.txt"
 cd ../
 
