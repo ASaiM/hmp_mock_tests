@@ -96,17 +96,13 @@ function analyze_rDNA_sequences {
   echo ""
 
   echo "Check ASaiM rRNA sequences"
-  supp_results="results/"$sample_name"/supp_results/"
-  if [[ ! -d $supp_results ]]; then
-    mkdir -p $supp_results
-  fi
 
   echo "  Run SortMeRNA (same parameters) with reference rRNA sequences"
   reference_rRNAs_dir="data/reference_rRNAs/"
   sortmerna \
     --ref $reference_rRNAs_dir"/reference_rRNAs.fasta",$reference_rRNAs_dir"/reference_rRNAs.idx" \
     --reads "results/"$sample_name"/asaim_results/7_vsearch_dereplication_on_data_5.fasta" \
-    --aligned $supp_results"/aligned_ref_rrna" \
+    --aligned "results/"$sample_name"/supp_results/aligned_ref_rrna" \
     --fastx \
     --blast "1 cigar qcov qstrand" \
     --best 1 \
@@ -119,6 +115,10 @@ function analyze_rDNA_sequences {
     -N -3
 
   echo "  Compare results to the one obtained with ASaiM"
+  python src/compare_raw_and_ref_sortmerna_results.py \
+    --raw_rrna_seq "results/"$sample_name"/asaim_results/10_aligned_reads_on_data_7_(fasta).fasta"\
+    --ref_rrna_seq "results/"$sample_name"/supp_results/aligned_ref_rrna.fasta"
+
 
 }
 
@@ -161,6 +161,15 @@ export -f concatenate_go_slim_terms
 
 echo "Analyze rDNA sequences"
 echo "======================"
+supp_results="results/SRR072232/supp_results/"
+if [[ ! -d $supp_results ]]; then
+  mkdir -p $supp_results
+fi
+
+supp_results="results/SRR072233/supp_results/"
+if [[ ! -d $supp_results ]]; then
+  mkdir -p $supp_results
+fi
 
 echo "Download SortMeRNA eukaryotic databases"
 echo "---------------------------------------"
@@ -182,6 +191,8 @@ indexdb_rna \
   --max_pos 10000 \
   -L 18
 
+echo "Analyze rDNA sequences"
+echo "----------------------"
 analyze_rDNA_sequences "SRR072232"
 analyze_rDNA_sequences "SRR072233"
 echo ""
