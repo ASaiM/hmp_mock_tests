@@ -41,6 +41,8 @@ echo "Download reference genomes and extract some data"
 echo "================================================"
 cd data
 
+echo "Reference genomes"
+echo "-----------------"
 if [[ ! -d "reference_genomes" ]]; then
     mkdir "reference_genomes"
 fi
@@ -57,6 +59,8 @@ cat *.fna.gz > "reference_genomes.fna.gz"
 cd ../
 echo ""
 
+echo "Reference rRNA sequences"
+echo "------------------------"
 if [[ ! -d "reference_rRNAs" ]]; then
     mkdir "reference_rRNAs"
 fi
