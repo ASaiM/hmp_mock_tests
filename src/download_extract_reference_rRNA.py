@@ -9,6 +9,8 @@ import wget
 import subprocess
 import tarfile
 from Bio import SeqIO
+from Bio.Seq import Seq
+from Bio.SeqRecord import SeqRecord
 
 def extract_pos(line):
     start = int(line[3])
@@ -17,14 +19,17 @@ def extract_pos(line):
     return start, stop, strand
 
 
-def extract_genome_part(genome, start, stop, strand):
+def extract_genome_part(genome, start, stop, strand, gene_id):
     #if strand == '-':
     #    reverse_complement_genome = genome.reverse_complement()
     #    reverse_start = (genome_size-stop)
     #    reverse_stop = (genome_size-start+1)
     #    return reverse_complement_genome[reverse_start:reverse_stop]
     #else:
-    return genome[start:stop]
+    record = SeqRecord(genome.seq[start:stop])
+    record.id = gene_id
+    record.description = gene_id
+    return record
 
 
 def download_extract_reference_rRNA(exp_taxo_filepath, reference_rRNA_filepath,
@@ -91,10 +96,14 @@ def download_extract_reference_rRNA(exp_taxo_filepath, reference_rRNA_filepath,
                         if split_line[2] != 'rRNA':
                             continue
 
+                        gene_id = split_line[8].split("Dbxref=GeneID:")[1]
+                        gene_id = gene_id.split(';')[0]
+                        gene_id = split_line[0] + ' ' + gene_id
+
                         rRNA_genes += 1
                         start, stop, strand = extract_pos(split_line)
                         rRNA_seq_records.append(extract_genome_part(genome,
-                            start, stop, strand))
+                            start, stop, strand, gene_id))
 
                         if split_line[8].find("product=5S ribosomal RNA") != -1:
                             rRNA_5S_genes += 1
