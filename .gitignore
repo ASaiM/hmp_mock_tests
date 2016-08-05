@@ -13,6 +13,8 @@ data/expected_species_w_rRNA_nb.txt
 data/mapped.txt
 data/sortmerna_euk.fasta
 data/16S_copy_number.txt
+data/cut_ref_genomes/
+data/metaphlan2_db/
 
 results/
 logs/
