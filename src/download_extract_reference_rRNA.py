@@ -76,8 +76,9 @@ def download_extract_reference_rRNA(exp_taxo_filepath, reference_rRNA_filepath,
                 os.system("gunzip " + new_filename + ".gz")
                 print
 
+                os.system("gunzip ../reference_genomes/acinetobacter_baumannii.fna.gz")
                 record_iterator = SeqIO.parse(
-                    '../reference_genomes/acinetobacter_baumannii.fna.gz',
+                    "../reference_genomes/acinetobacter_baumannii.fna",
                     "fasta")
                 genome = next(record_iterator)
 
@@ -101,6 +102,7 @@ def download_extract_reference_rRNA(exp_taxo_filepath, reference_rRNA_filepath,
                             rRNA_16S_genes += 1
                         elif split_line[8].find("product=23S ribosomal RNA") != -1:
                             rRNA_23S_genes += 1
+                os.system("gzip ../reference_genomes/acinetobacter_baumannii.fna")
 
             rRNA_nb_file.write(sp_name + '\t')
             rRNA_nb_file.write(str(rRNA_5S_genes) + '\t')
