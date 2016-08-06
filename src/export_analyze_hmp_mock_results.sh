@@ -182,11 +182,12 @@ function test_metaphlan2_on_ref_genome {
 
   gzip "data/reference_genomes/"$ref_genome".fna"
 
-  metaphlan2_db=$2
+  metaphlan2_db="data/metaphlan2_db/mpa_v20_m200"
+  output_dir="results/ref_genome_metaphlan2_assignations"
   echo "  Launch MetaPhlAn2"
   metaphlan2.py \
     "data/cut_ref_genomes/"$ref_genome".fasta" \
-    -o "results/ref_genome_metaphlan2_assignations/"$ref_genome"_metaphlan2_output.txt" \
+    -o $output_dir"/"$ref_genome"_metaphlan2_output.txt" \
     --input_type "multifasta" \
     --bowtie2_exe `which bowtie2` \
     --bowtie2db $metaphlan2_db \
@@ -199,9 +200,11 @@ function test_metaphlan2_on_ref_genome {
 
   echo "  Analyze MetaPhlAn2 assignation on cut reference genomes"
   python src/analyze_metaphlan2_output.py \
-    --metaphlan2_output "results/ref_genome_metaphlan2_assignations/"$ref_genome"_metaphlan2_output.txt" \
+    --metaphlan2_output $output_dir"/"$ref_genome"_metaphlan2_output.txt" \
     --sequence_file "data/cut_ref_genomes/"$ref_genome".fasta" \
-    --formatted_assignations "results/ref_genome_metaphlan2_assignations/"$ref_genome"_formatted_assignations.txt"
+    --formatted_assignations $output_dir"/"$ref_genome"_formatted_assignations.txt" \
+    --expected_species $ref_genome \
+    --exp_species_abundance_file $output_dir"/exp_species_abundance.txt"
 }
 
 
@@ -259,20 +262,21 @@ echo "=================="
 
 echo "Get read size distribution"
 echo "--------------------------"
-#cat id.txt | parallel get_read_size_distribution {}
+cat id.txt | parallel get_read_size_distribution {}
 echo ""
 
 echo "Prepare MetaPhlAn2 db"
 echo "---------------------"
-#wget https://bitbucket.org/biobakery/metaphlan2/get/2.5.0.zip
-#unzip 2.5.0.zip
+wget https://bitbucket.org/biobakery/metaphlan2/get/2.5.0.zip
+unzip 2.5.0.zip
 
 metaphlan2_db_dir="data/metaphlan2_db"
 if [[ ! -d $metaphlan2_db_dir ]]; then
   mkdir -p $metaphlan2_db_dir
 fi
-#mv biobakery-metaphlan2-6f2a1673af85/db_v20/* $metaphlan2_db_dir/
-#rm -rf biobakery-metaphlan2-6f2a1673af85
+mv biobakery-metaphlan2-6f2a1673af85/db_v20/* $metaphlan2_db_dir/
+rm -rf biobakery-metaphlan2-6f2a1673af85
+rm 2.5.0.zip
 
 echo "Test each reference genomes on MetaPhlAn2"
 echo "-----------------------------------------"
@@ -284,28 +288,32 @@ if [[ ! -d "results/ref_genome_metaphlan2_assignations" ]]; then
   mkdir -p "results/ref_genome_metaphlan2_assignations"
 fi
 
-test_metaphlan2_on_ref_genome "acinetobacter_baumannii" $metaphlan2_db_dir"/mpa_v20_m200"
-test_metaphlan2_on_ref_genome "actinomyces_odontolyticus" $metaphlan2_db_dir"/mpa_v20_m200"
-test_metaphlan2_on_ref_genome "bacillus_cereus_thuringiensis" $metaphlan2_db_dir"/mpa_v20_m200"
-test_metaphlan2_on_ref_genome "bacteroides_vulgatus" $metaphlan2_db_dir"/mpa_v20_m200"
-test_metaphlan2_on_ref_genome "candida_albicans" $metaphlan2_db_dir"/mpa_v20_m200"
-test_metaphlan2_on_ref_genome "clostridium_beijerinckii" $metaphlan2_db_dir"/mpa_v20_m200"
-test_metaphlan2_on_ref_genome "deinococcus_radiodurans" $metaphlan2_db_dir"/mpa_v20_m200"
-test_metaphlan2_on_ref_genome "enterococcus_faecalis" $metaphlan2_db_dir"/mpa_v20_m200"
-test_metaphlan2_on_ref_genome "escherichia_coli" $metaphlan2_db_dir"/mpa_v20_m200"
-test_metaphlan2_on_ref_genome "helicobacter_pylori" $metaphlan2_db_dir"/mpa_v20_m200"
-test_metaphlan2_on_ref_genome "lactobacillus_gasseri" $metaphlan2_db_dir"/mpa_v20_m200"
-test_metaphlan2_on_ref_genome "listeria_monocytogenes" $metaphlan2_db_dir"/mpa_v20_m200"
-test_metaphlan2_on_ref_genome "methanobrevibacter_smithii" $metaphlan2_db_dir"/mpa_v20_m200"
-test_metaphlan2_on_ref_genome "neisseria_meningitidis" $metaphlan2_db_dir"/mpa_v20_m200"
-test_metaphlan2_on_ref_genome "propionibacterium_acnes" $metaphlan2_db_dir"/mpa_v20_m200"
-test_metaphlan2_on_ref_genome "pseudomonas_aeruginosa" $metaphlan2_db_dir"/mpa_v20_m200"
-test_metaphlan2_on_ref_genome "rhodobacter_sphaeroides" $metaphlan2_db_dir"/mpa_v20_m200"
-test_metaphlan2_on_ref_genome "staphylococcus_aureus" $metaphlan2_db_dir"/mpa_v20_m200"
-test_metaphlan2_on_ref_genome "staphylococcus_epidermidis" $metaphlan2_db_dir"/mpa_v20_m200"
-test_metaphlan2_on_ref_genome "streptococcus_agalactiae" $metaphlan2_db_dir"/mpa_v20_m200"
-test_metaphlan2_on_ref_genome "streptococcus_mitis_oralis_pneumoniae" $metaphlan2_db_dir"/mpa_v20_m200"
-test_metaphlan2_on_ref_genome "streptococcus_mutans" $metaphlan2_db_dir"/mpa_v20_m200"
+if [[ -f "results/ref_genome_metaphlan2_assignations/exp_species_abundance.txt" ]]; then
+  rm "results/ref_genome_metaphlan2_assignations/exp_species_abundance.txt"
+fi
+
+test_metaphlan2_on_ref_genome "acinetobacter_baumannii"
+test_metaphlan2_on_ref_genome "actinomyces_odontolyticus"
+test_metaphlan2_on_ref_genome "bacillus_cereus_thuringiensis"
+test_metaphlan2_on_ref_genome "bacteroides_vulgatus"
+test_metaphlan2_on_ref_genome "candida_albicans"
+test_metaphlan2_on_ref_genome "clostridium_beijerinckii"
+test_metaphlan2_on_ref_genome "deinococcus_radiodurans"
+test_metaphlan2_on_ref_genome "enterococcus_faecalis"
+test_metaphlan2_on_ref_genome "escherichia_coli"
+test_metaphlan2_on_ref_genome "helicobacter_pylori"
+test_metaphlan2_on_ref_genome "lactobacillus_gasseri"
+test_metaphlan2_on_ref_genome "listeria_monocytogenes"
+test_metaphlan2_on_ref_genome "methanobrevibacter_smithii"
+test_metaphlan2_on_ref_genome "neisseria_meningitidis"
+test_metaphlan2_on_ref_genome "propionibacterium_acnes"
+test_metaphlan2_on_ref_genome "pseudomonas_aeruginosa"
+test_metaphlan2_on_ref_genome "rhodobacter_sphaeroides"
+test_metaphlan2_on_ref_genome "staphylococcus_aureus"
+test_metaphlan2_on_ref_genome "staphylococcus_epidermidis"
+test_metaphlan2_on_ref_genome "streptococcus_agalactiae"
+test_metaphlan2_on_ref_genome "streptococcus_mitis_oralis_pneumoniae"
+test_metaphlan2_on_ref_genome "streptococcus_mutans"
 
 echo "Concatenate EBI and ASaiM GO slim terms results"
 echo "==============================================="
