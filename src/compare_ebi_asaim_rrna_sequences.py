@@ -42,13 +42,13 @@ def blast_comparison(ebi_rrna_seq_not_in_asaim):
     if not os.path.exists("tmp"):
         os.makedirs("tmp")
 
-    #SeqIO.write(ebi_rrna_seq_not_in_asaim, "tmp/ebi_rrna_seq_not_in_asaim.fasta",
-    #    "fasta")
+    SeqIO.write(ebi_rrna_seq_not_in_asaim, "tmp/ebi_rrna_seq_not_in_asaim.fasta",
+        "fasta")
 
     cmd = "makeblastdb "
     cmd += ' -in "' + args.asaim_rrna_seq + '"'
     cmd += ' -dbtype nucl'
-    #os.system(cmd)
+    os.system(cmd)
     cmd = "blastn "
     cmd += ' -db "' + args.asaim_rrna_seq + '"'
     cmd += " -query tmp/ebi_rrna_seq_not_in_asaim.fasta"
