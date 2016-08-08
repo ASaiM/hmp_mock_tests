@@ -1,17 +1,10 @@
 
-@misc{aronesty_ea-utils_2011,
-	title = {ea-utils : "{Command}-line tools for processing biological sequencing data"},
-	url = {http://code.google.com/p/ea-utils},
-	author = {Aronesty, Erik},
-	year = {2011}
-}
-
-@article{camacho_blast+:_2009,
-	title = {{BLAST}+: architecture and applications},
+@article{camacho_blast_2009,
+	title = {{BLAST} +: architecture and applications},
 	volume = {10},
 	copyright = {2009 Camacho et al; licensee BioMed Central Ltd.},
 	issn = {1471-2105},
-	shorttitle = {{BLAST}+},
+	shorttitle = {{BLAST}},
 	url = {http://www.biomedcentral.com/1471-2105/10/421/abstract},
 	doi = {10.1186/1471-2105-10-421},
 	abstract = {Sequence similarity searching is a very important bioinformatics task. While Basic Local Alignment Search Tool (BLAST) outperforms exact methods through its use of heuristics, the speed of the current BLAST software is suboptimal for very long queries or database sequences. There are also some shortcomings in the user-interface of the current command-line applications.
@@ -27,6 +20,217 @@ PMID: 20003500},
 	pages = {421}
 }
 
+@article{caporaso_qiime_2010,
+	title = {{QIIME} allows analysis of high-throughput community sequencing data},
+	volume = {7},
+	copyright = {© 2010 Nature Publishing Group},
+	issn = {1548-7091},
+	url = {http://www.nature.com/nmeth/journal/v7/n5/full/nmeth.f.303.html},
+	doi = {10.1038/nmeth.f.303},
+	abstract = {To the Editor: High-throughput sequencing is revolutionizing microbial ecology studies. Efforts like the Human Microbiome Projects and the US National Ecological Observatory Network are helping us to understand the role of microbial diversity in habitats within our own bodies and throughout the planet.},
+	language = {en},
+	number = {5},
+	urldate = {2015-01-06},
+	journal = {Nature Methods},
+	author = {Caporaso, J. Gregory and Kuczynski, Justin and Stombaugh, Jesse and Bittinger, Kyle and Bushman, Frederic D. and Costello, Elizabeth K. and Fierer, Noah and Peña, Antonio Gonzalez and Goodrich, Julia K. and Gordon, Jeffrey I. and Huttley, Gavin A. and Kelley, Scott T. and Knights, Dan and Koenig, Jeremy E. and Ley, Ruth E. and Lozupone, Catherine A. and McDonald, Daniel and Muegge, Brian D. and Pirrung, Meg and Reeder, Jens and Sevinsky, Joel R. and Turnbaugh, Peter J. and Walters, William A. and Widmann, Jeremy and Yatsunenko, Tanya and Zaneveld, Jesse and Knight, Rob},
+	month = may,
+	year = {2010},
+	pages = {335--336}
+}
+
+@article{schloss_introducing_2009,
+	title = {Introducing mothur: {Open}-{Source}, {Platform}-{Independent}, {Community}-{Supported} {Software} for {Describing} and {Comparing} {Microbial} {Communities}},
+	volume = {75},
+	issn = {0099-2240, 1098-5336},
+	shorttitle = {Introducing mothur},
+	url = {http://aem.asm.org/content/75/23/7537},
+	doi = {10.1128/AEM.01541-09},
+	abstract = {mothur aims to be a comprehensive software package that allows users to use a single piece of software to analyze community sequence data. It builds upon previous tools to provide a flexible and powerful software package for analyzing sequencing data. As a case study, we used mothur to trim, screen, and align sequences; calculate distances; assign sequences to operational taxonomic units; and describe the α and β diversity of eight marine samples previously characterized by pyrosequencing of 16S rRNA gene fragments. This analysis of more than 222,000 sequences was completed in less than 2 h with a laptop computer.},
+	language = {en},
+	number = {23},
+	urldate = {2015-01-07},
+	journal = {Applied and Environmental Microbiology},
+	author = {Schloss, Patrick D. and Westcott, Sarah L. and Ryabin, Thomas and Hall, Justine R. and Hartmann, Martin and Hollister, Emily B. and Lesniewski, Ryan A. and Oakley, Brian B. and Parks, Donovan H. and Robinson, Courtney J. and Sahl, Jason W. and Stres, Blaz and Thallinger, Gerhard G. and Horn, David J. Van and Weber, Carolyn F.},
+	month = dec,
+	year = {2009},
+	pmid = {19801464},
+	pages = {7537--7541}
+}
+
+@article{segata_metagenomic_2012,
+	title = {Metagenomic microbial community profiling using unique clade-specific marker genes},
+	volume = {9},
+	copyright = {© 2012 Nature Publishing Group, a division of Macmillan Publishers Limited. All Rights Reserved.},
+	issn = {1548-7091},
+	url = {http://www.nature.com/nmeth/journal/v9/n8/full/nmeth.2066.html},
+	doi = {10.1038/nmeth.2066},
+	abstract = {Metagenomic shotgun sequencing data can identify microbes populating a microbial community and their proportions, but existing taxonomic profiling methods are inefficient for increasingly large data sets. We present an approach that uses clade-specific marker genes to unambiguously assign reads to microbial clades more accurately and {\textgreater}50× faster than current approaches. We validated our metagenomic phylogenetic analysis tool, MetaPhlAn, on terabases of short reads and provide the largest metagenomic profiling to date of the human gut. It can be accessed at http://huttenhower.sph.harvard.edu/metaphlan/.},
+	language = {en},
+	number = {8},
+	urldate = {2015-01-09},
+	journal = {Nature Methods},
+	author = {Segata, Nicola and Waldron, Levi and Ballarini, Annalisa and Narasimhan, Vagheesh and Jousson, Olivier and Huttenhower, Curtis},
+	month = aug,
+	year = {2012},
+	pages = {811--814}
+}
+
+@article{li_fast_2009,
+	title = {Fast and accurate short read alignment with {Burrows}-{Wheeler} transform},
+	volume = {25},
+	issn = {1367-4811},
+	doi = {10.1093/bioinformatics/btp324},
+	abstract = {MOTIVATION: The enormous amount of short reads generated by the new DNA sequencing technologies call for the development of fast and accurate read alignment programs. A first generation of hash table-based methods has been developed, including MAQ, which is accurate, feature rich and fast enough to align short reads from a single individual. However, MAQ does not support gapped alignment for single-end reads, which makes it unsuitable for alignment of longer reads where indels may occur frequently. The speed of MAQ is also a concern when the alignment is scaled up to the resequencing of hundreds of individuals.
+RESULTS: We implemented Burrows-Wheeler Alignment tool (BWA), a new read alignment package that is based on backward search with Burrows-Wheeler Transform (BWT), to efficiently align short sequencing reads against a large reference sequence such as the human genome, allowing mismatches and gaps. BWA supports both base space reads, e.g. from Illumina sequencing machines, and color space reads from AB SOLiD machines. Evaluations on both simulated and real data suggest that BWA is approximately 10-20x faster than MAQ, while achieving similar accuracy. In addition, BWA outputs alignment in the new standard SAM (Sequence Alignment/Map) format. Variant calling and other downstream analyses after the alignment can be achieved with the open source SAMtools software package.
+AVAILABILITY: http://maq.sourceforge.net.},
+	language = {eng},
+	number = {14},
+	journal = {Bioinformatics (Oxford, England)},
+	author = {Li, Heng and Durbin, Richard},
+	month = jul,
+	year = {2009},
+	pmid = {19451168},
+	pmcid = {PMC2705234},
+	keywords = {Algorithms, Genomics, Sequence Alignment, Sequence Analysis, DNA, software},
+	pages = {1754--1760}
+}
+
+@article{li_cd-hit:_2006,
+	title = {Cd-hit: a fast program for clustering and comparing large sets of protein or nucleotide sequences},
+	volume = {22},
+	issn = {1367-4803},
+	shorttitle = {Cd-hit},
+	doi = {10.1093/bioinformatics/btl158},
+	abstract = {MOTIVATION: In 2001 and 2002, we published two papers (Bioinformatics, 17, 282-283, Bioinformatics, 18, 77-82) describing an ultrafast protein sequence clustering program called cd-hit. This program can efficiently cluster a huge protein database with millions of sequences. However, the applications of the underlying algorithm are not limited to only protein sequences clustering, here we present several new programs using the same algorithm including cd-hit-2d, cd-hit-est and cd-hit-est-2d. Cd-hit-2d compares two protein datasets and reports similar matches between them; cd-hit-est clusters a DNA/RNA sequence database and cd-hit-est-2d compares two nucleotide datasets. All these programs can handle huge datasets with millions of sequences and can be hundreds of times faster than methods based on the popular sequence comparison and database search tools, such as BLAST.},
+	language = {eng},
+	number = {13},
+	journal = {Bioinformatics (Oxford, England)},
+	author = {Li, Weizhong and Godzik, Adam},
+	month = jul,
+	year = {2006},
+	pmid = {16731699},
+	keywords = {Algorithms, Animals, Cluster Analysis, computational biology, Databases, Nucleic Acid, Databases, Protein, DNA, Expressed Sequence Tags, Humans, Programming Languages, RNA, Sequence Analysis, DNA, Sequence Analysis, Protein, software},
+	pages = {1658--1659}
+}
+
+@article{giardine_galaxy:_2005,
+	title = {Galaxy: {A} platform for interactive large-scale genome analysis},
+	volume = {15},
+	issn = {1088-9051, 1549-5469},
+	shorttitle = {Galaxy},
+	url = {http://genome.cshlp.org/content/15/10/1451},
+	doi = {10.1101/gr.4086505},
+	abstract = {Accessing and analyzing the exponentially expanding genomic sequence and functional data pose a challenge for biomedical researchers. Here we describe an interactive system, Galaxy, that combines the power of existing genome annotation databases with a simple Web portal to enable users to search remote resources, combine data from independent queries, and visualize the results. The heart of Galaxy is a flexible history system that stores the queries from each user; performs operations such as intersections, unions, and subtractions; and links to other computational tools. Galaxy can be accessed at http://g2.bx.psu.edu.},
+	language = {en},
+	number = {10},
+	urldate = {2015-01-13},
+	journal = {Genome Research},
+	author = {Giardine, Belinda and Riemer, Cathy and Hardison, Ross C. and Burhans, Richard and Elnitski, Laura and Shah, Prachi and Zhang, Yi and Blankenberg, Daniel and Albert, Istvan and Taylor, James and Miller, Webb and Kent, W. James and Nekrutenko, Anton},
+	month = oct,
+	year = {2005},
+	pmid = {16169926},
+	pages = {1451--1455},
+	annote = {- Importance of the history system which record every action of the user- Design as a set of separate software components that work together to perform tasks- The central “core” component orchestrates the action, executes queries, and keeps track of user histories, while the user interface(s) (UIs) and operation/tool/ output libraries are implemented separately}
+}
+
+@article{abubucker_metabolic_2012,
+	title = {Metabolic {Reconstruction} for {Metagenomic} {Data} and {Its} {Application} to the {Human} {Microbiome}},
+	volume = {8},
+	url = {http://dx.doi.org/10.1371/journal.pcbi.1002358},
+	doi = {10.1371/journal.pcbi.1002358},
+	abstract = {Author SummaryThe human body is inhabited by trillions of bacteria and other microbes, which have recently been studied in many different habitats (including gut, mouth, skin, and urogenital) by the Human Microbiome Project (HMP). These microbial communities were assayed using high-throughput DNA sequencing, but it can be challenging to determine their biological functions based solely on the resulting short sequences. To reconstruct the metabolic activities of such communities, we have developed HUMAnN, a method to accurately infer community function directly from short DNA reads. The method's accuracy was validated using a collection of synthetic microbial communities. Applying HUMAnN to data from the HMP, we showed that, unlike individual microbial species, many metabolic processes were present among all body habitats. However, the frequencies of these processes varied dramatically, and some were highly enriched within individual habitats to provide niche specialization (e.g. in the gut, which is abundant in food matter but low in oxygen). Other community functions were linked specifically to properties of the human host, such as biochemical processes only present in vaginal habitats with particularly high or low pH. Studying additional environmental or disease-associated communities using HUMAnN will further improve our understanding of how the microbial organisms in a community are linked to the biological processes they carry out.},
+	number = {6},
+	urldate = {2015-01-16},
+	journal = {PLoS Comput Biol},
+	author = {Abubucker, Sahar and Segata, Nicola and Goll, Johannes and Schubert, Alyxandria M. and Izard, Jacques and Cantarel, Brandi L. and Rodriguez-Mueller, Beltran and Zucker, Jeremy and Thiagarajan, Mathangi and Henrissat, Bernard and White, Owen and Kelley, Scott T. and Methé, Barbara and Schloss, Patrick D. and Gevers, Dirk and Mitreva, Makedonka and Huttenhower, Curtis},
+	month = jun,
+	year = {2012},
+	pages = {e1002358}
+}
+
+@article{goecks_galaxy:_2010,
+	title = {Galaxy: a comprehensive approach for supporting accessible, reproducible, and transparent computational research in the life sciences},
+	volume = {11},
+	copyright = {2010 Goecks et al.; licensee BioMed Central Ltd.},
+	issn = {1465-6906},
+	shorttitle = {Galaxy},
+	url = {http://genomebiology.com/2010/11/8/R86/abstract},
+	doi = {10.1186/gb-2010-11-8-r86},
+	abstract = {Increased reliance on computational approaches in the life sciences has revealed grave concerns about how accessible and reproducible computation-reliant results truly are. Galaxy http://usegalaxy.org, an open web-based platform for genomic research, addresses these problems. Galaxy automatically tracks and manages data provenance and provides support for capturing the context and intent of computational methods. Galaxy Pages are interactive, web-based documents that provide users with a medium to communicate a complete computational analysis.
+PMID: 20738864},
+	language = {en},
+	number = {8},
+	urldate = {2015-01-30},
+	journal = {Genome Biology},
+	author = {Goecks, Jeremy and Nekrutenko, Anton and Taylor, James and \$author.lastName, \$author firstName},
+	month = aug,
+	year = {2010},
+	pmid = {20738864},
+	pages = {R86},
+	annote = {- Open, web- based platform for performing accessible, reproducible, and transparent genomic science- Concept of Reproducible Research System (Mesirov 2010)    - environment for performing and recording computational analyses and     enabling the use or inclusion of these analyses when preparing documents for     publications- significant community of users and developers (Blankenberg et al 2007)- Make computation accessible (Taylor et al 2007, Blankenberg et al 2010)    - No need for users  to program nor lean the implementation details- History: group of a series of analysis steps- Possibility of tag for categorizing and searching- Galaxy workflow: a reusable template analysis that a user can run repeatedly on different data- transparency via 3 methods: a sharing model for Galaxy items, a web-based framework for displaying shared or published Galaxy items and Pages- Galaxy page for metagenomic analysis: [Windshield splatter analysis with the Galaxy metagenomic pipeline](https://usegalaxy.org/u/aun1/p/windshield-splatter)- Taverna for workflow system (Oinn et al 2004)
+ 
+2nd reading
+- management of data provenance- accessibility    - Galaxy and accessibility [@taylor\_using\_2007,@blankenberg\_galaxy\_2010] - reproducibilty    - exacerbation of issue with NGS and comparative analyses    - Reproducible Research System (RRS) [@mesirov\_computer\_2010]    - history    - workflows- transparency     - not only reproducibility, but also communication and understanding    - open-sharing and communication of experimental results to promote accountability    and collaboration    - higher importance of analyses and methods [@schwab\_making\_2000,@robert\_reproducible\_2005]- Galaxy [16]    - Public Galaxy service [17]     - collaborative environment for performing complex analyses, with automatic and    unobstrusive ("?") provenance tracking    - basis for a system that allows transparent sharing of not only the precise    computational details underlying an analysis, but also intent, context and    narrative    - Galaxy pages    - interface following standard web usability guidelines [@nielsen\_prioritizing\_2006]:     consistency, visual feedbacks, access to help and documentation}
+}
+
+@article{kopylova_sortmerna:_2012,
+	title = {{SortMeRNA}: fast and accurate filtering of ribosomal {RNAs} in metatranscriptomic data},
+	volume = {28},
+	issn = {1367-4811},
+	shorttitle = {{SortMeRNA}},
+	doi = {10.1093/bioinformatics/bts611},
+	abstract = {MOTIVATION: The application of next-generation sequencing (NGS) technologies to RNAs directly extracted from a community of organisms yields a mixture of fragments characterizing both coding and non-coding types of RNAs. The task to distinguish among these and to further categorize the families of messenger RNAs and ribosomal RNAs (rRNAs) is an important step for examining gene expression patterns of an interactive environment and the phylogenetic classification of the constituting species.
+RESULTS: We present SortMeRNA, a new software designed to rapidly filter rRNA fragments from metatranscriptomic data. It is capable of handling large sets of reads and sorting out all fragments matching to the rRNA database with high sensitivity and low running time.},
+	language = {eng},
+	number = {24},
+	journal = {Bioinformatics (Oxford, England)},
+	author = {Kopylova, Evguenia and Noé, Laurent and Touzet, Hélène},
+	month = dec,
+	year = {2012},
+	pmid = {23071270},
+	pages = {3211--3217}
+}
+
+@article{schmieder_quality_2011,
+	title = {Quality control and preprocessing of metagenomic datasets},
+	volume = {27},
+	issn = {1367-4803, 1460-2059},
+	url = {http://bioinformatics.oxfordjournals.org/content/27/6/863},
+	doi = {10.1093/bioinformatics/btr026},
+	abstract = {Summary: Here, we present PRINSEQ for easy and rapid quality control and data preprocessing of genomic and metagenomic datasets. Summary statistics of FASTA (and QUAL) or FASTQ files are generated in tabular and graphical form and sequences can be filtered, reformatted and trimmed by a variety of options to improve downstream analysis.
+Availability and Implementation: This open-source application was implemented in Perl and can be used as a stand alone version or accessed online through a user-friendly web interface. The source code, user help and additional information are available at http://prinseq.sourceforge.net/.
+Contact: rschmied@sciences.sdsu.edu; redwards@cs.sdsu.edu},
+	language = {en},
+	number = {6},
+	urldate = {2015-04-07},
+	journal = {Bioinformatics},
+	author = {Schmieder, Robert and Edwards, Robert},
+	month = mar,
+	year = {2011},
+	pmid = {21278185},
+	pages = {863--864}
+}
+
+@article{hunter_ebi_2014,
+	title = {{EBI} metagenomics—a new resource for the analysis and archiving of metagenomic data},
+	volume = {42},
+	issn = {0305-1048, 1362-4962},
+	url = {http://nar.oxfordjournals.org/content/42/D1/D600},
+	doi = {10.1093/nar/gkt961},
+	abstract = {Metagenomics is a relatively recently established but rapidly expanding field that uses high-throughput next-generation sequencing technologies to characterize the microbial communities inhabiting different ecosystems (including oceans, lakes, soil, tundra, plants and body sites). Metagenomics brings with it a number of challenges, including the management, analysis, storage and sharing of data. In response to these challenges, we have developed a new metagenomics resource (http://www.ebi.ac.uk/metagenomics/) that allows users to easily submit raw nucleotide reads for functional and taxonomic analysis by a state-of-the-art pipeline, and have them automatically stored (together with descriptive, standards-compliant metadata) in the European Nucleotide Archive.},
+	language = {en},
+	number = {D1},
+	urldate = {2015-01-08},
+	journal = {Nucleic Acids Research},
+	author = {Hunter, Sarah and Corbett, Matthew and Denise, Hubert and Fraser, Matthew and Gonzalez-Beltran, Alejandra and Hunter, Christopher and Jones, Philip and Leinonen, Rasko and McAnulla, Craig and Maguire, Eamonn and Maslen, John and Mitchell, Alex and Nuka, Gift and Oisel, Arnaud and Pesseat, Sebastien and Radhakrishnan, Rajesh and Rocca-Serra, Philippe and Scheremetjew, Maxim and Sterk, Peter and Vaughan, Daniel and Cochrane, Guy and Field, Dawn and Sansone, Susanna-Assunta},
+	month = jan,
+	year = {2014},
+	pmid = {24165880},
+	pages = {D600--D606},
+	annote = {Description de l'interface web d'EBI metagenomics
+ }
+}
+
 @article{buchfink_fast_2015,
 	title = {Fast and sensitive protein alignment using {DIAMOND}},
 	volume = {12},
@@ -38,11 +242,46 @@ PMID: 20003500},
 	language = {en},
 	number = {1},
 	urldate = {2015-08-27},
-	journal = {Nat Meth},
+	journal = {Nature Methods},
 	author = {Buchfink, Benjamin and Xie, Chao and Huson, Daniel H.},
 	month = jan,
 	year = {2015},
-	pages = {59--60}
+	pages = {59--60},
+	annote = {
+
+
+
+20,000 times faster than bLastX on short reads and has a similar degree of sensitivity. 
+Other tools
+
+BLAT
+USEARCH
+RAPsearch2
+PAUDA (very low sensitivity)
+
+"All mapper": attempts to determine exhaustively all significant alignments for a given query
+Seed-and-extend paradigm (BLAST,...)
+
+search for matches of seeds in the ref db
+extend phase to compute a full alignment
+
+use double indexing:
+
+approach that determines the list of all seeds and their locations in both the query and references sequences
+lists sorted lexicographically and traversed in a linear manner to determine all matching seeds and their corresponding locations
+take advantage of the cache hierarchy by increasing data locality
+
+Single consecutive seeds (BLASTX, RAPSearch2): need to be short to ensure sensitivity
+Use spaced seeds (longer seeds in which only a subset of positions are used)
+
+weight of the spaced seed : number of position
+shape of the spaced seed: exact layout of positions
+
+Carefully choose the shape and the weight
+
+
+
+}
 }
 
 @article{yuan_reconstructing_2015,
@@ -62,7 +301,8 @@ Contact: yannisun@msu.edu},
 	month = jun,
 	year = {2015},
 	pmid = {26072503},
-	pages = {i35--i43}
+	pages = {i35--i43},
+	annote = {2 groups of pipelines for annotating rRNA genes in metagenomics data- *de novo* assembly tool --{\textgreater} assembled contigs --{\textgreater} genome-wide rRNA search(Laserson et al., 2011; Luo et al., 2012; Namiki et al., 2012; Peng et al., 2011; Salzberg et al., 2008; Treangen et al., 2013; Wu et al., 2012)Not optimized for rRNA detection in metagenomic data- incorporation of properties of rRNA genes (Fan et al., 2012; Miller et al., 2011)REAGO- optimized to rRNA gene recovery in metagenomic data- 3 advantages    - reduction of problem size by first discarding reads that are not likely     sequenced from rRNA genes    - guide for gene assembly by application of paired-end information to     distinguish rRNA genes from different species    - efficient scaffolding with a decision of orientation and relative position    of each contig using a profile-base homology search step- pipeline:        1. identify 16S reads: use of Infernal to align metagenomic reads to a     stochastic context-free grammar based model, trained on characterized rRNA     genes to describe both the sequence and secondary structure conservation    2. create overlap graphs: Readjoined + iterative graph pruning procedure    3. assemble 16S rRNA genes    4. scaffold 16S rRNA fragments}
 }
 
 @article{cock_ncbi_2015,
@@ -110,6 +350,35 @@ IMPORTANCE High-throughput phylogenetic analysis of microbial communities using 
 	year = {2015}
 }
 
+@article{fu_cd-hit:_2012,
+	title = {{CD}-{HIT}: accelerated for clustering the next-generation sequencing data},
+	volume = {28},
+	issn = {1367-4811},
+	shorttitle = {{CD}-{HIT}},
+	doi = {10.1093/bioinformatics/bts565},
+	abstract = {SUMMARY: CD-HIT is a widely used program for clustering biological sequences to reduce sequence redundancy and improve the performance of other sequence analyses. In response to the rapid increase in the amount of sequencing data produced by the next-generation sequencing technologies, we have developed a new CD-HIT program accelerated with a novel parallelization strategy and some other techniques to allow efficient clustering of such datasets. Our tests demonstrated very good speedup derived from the parallelization for up to ∼24 cores and a quasi-linear speedup for up to ∼8 cores. The enhanced CD-HIT is capable of handling very large datasets in much shorter time than previous versions.
+AVAILABILITY: http://cd-hit.org.
+CONTACT: liwz@sdsc.edu
+SUPPLEMENTARY INFORMATION: Supplementary data are available at Bioinformatics online.},
+	language = {eng},
+	number = {23},
+	journal = {Bioinformatics (Oxford, England)},
+	author = {Fu, Limin and Niu, Beifang and Zhu, Zhengwei and Wu, Sitao and Li, Weizhong},
+	month = dec,
+	year = {2012},
+	pmid = {23060610},
+	pmcid = {PMC3516142},
+	keywords = {Algorithms, Cluster Analysis, computational biology, Sequence Analysis, Protein, software},
+	pages = {3150--3152}
+}
+
+@misc{aronesty_ea-utils_2011,
+	title = {ea-utils : "{Command}-line tools for processing biological sequencing data"},
+	url = {http://code.google.com/p/ea-utils},
+	author = {Aronesty, Erik},
+	year = {2011}
+}
+
 @article{truong_metaphlan2_2015,
 	title = {{MetaPhlAn}2 for enhanced metagenomic taxonomic profiling},
 	volume = {12},
@@ -120,7 +389,7 @@ IMPORTANCE High-throughput phylogenetic analysis of microbial communities using 
 	language = {en},
 	number = {10},
 	urldate = {2015-10-28},
-	journal = {Nat Meth},
+	journal = {Nature Methods},
 	author = {Truong, Duy Tin and Franzosa, Eric A. and Tickle, Timothy L. and Scholz, Matthias and Weingart, George and Pasolli, Edoardo and Tett, Adrian and Huttenhower, Curtis and Segata, Nicola},
 	month = oct,
 	year = {2015},
@@ -177,44 +446,62 @@ Supplementary information: Supplementary data are available at Bioinformatics on
 	pages = {e167}
 }
 
-@article{caspi_metacyc_2014,
-	title = {The {MetaCyc} database of metabolic pathways and enzymes and the {BioCyc} collection of {Pathway}/{Genome} {Databases}},
-	volume = {42},
-	issn = {0305-1048, 1362-4962},
-	url = {http://nar.oxfordjournals.org/content/42/D1/D459},
-	doi = {10.1093/nar/gkt1103},
-	abstract = {The MetaCyc database (MetaCyc.org) is a comprehensive and freely accessible database describing metabolic pathways and enzymes from all domains of life. MetaCyc pathways are experimentally determined, mostly small-molecule metabolic pathways and are curated from the primary scientific literature. MetaCyc contains {\textgreater}2100 pathways derived from {\textgreater}37 000 publications, and is the largest curated collection of metabolic pathways currently available. BioCyc (BioCyc.org) is a collection of {\textgreater}3000 organism-specific Pathway/Genome Databases (PGDBs), each containing the full genome and predicted metabolic network of one organism, including metabolites, enzymes, reactions, metabolic pathways, predicted operons, transport systems and pathway-hole fillers. Additions to BioCyc over the past 2 years include YeastCyc, a PGDB for Saccharomyces cerevisiae, and 891 new genomes from the Human Microbiome Project. The BioCyc Web site offers a variety of tools for querying and analysis of PGDBs, including Omics Viewers and tools for comparative analysis. New developments include atom mappings in reactions, a new representation of glycan degradation pathways, improved compound structure display, better coverage of enzyme kinetic data, enhancements of the Web Groups functionality, improvements to the Omics viewers, a new representation of the Enzyme Commission system and, for the desktop version of the software, the ability to save display states.},
+@article{ondov_interactive_2011,
+	title = {Interactive metagenomic visualization in a {Web} browser},
+	volume = {12},
+	copyright = {2011 Ondov et al; licensee BioMed Central Ltd.},
+	issn = {1471-2105},
+	url = {http://www.biomedcentral.com/1471-2105/12/385/abstract},
+	doi = {10.1186/1471-2105-12-385},
+	abstract = {A critical output of metagenomic studies is the estimation of abundances of taxonomical or functional groups. The inherent uncertainty in assignments to these groups makes it important to consider both their hierarchical contexts and their prediction confidence. The current tools for visualizing metagenomic data, however, omit or distort quantitative hierarchical relationships and lack the facility for displaying secondary variables.
+PMID: 21961884},
 	language = {en},
-	number = {D1},
-	urldate = {2016-06-07},
-	journal = {Nucl. Acids Res.},
-	author = {Caspi, Ron and Altman, Tomer and Billington, Richard and Dreher, Kate and Foerster, Hartmut and Fulcher, Carol A. and Holland, Timothy A. and Keseler, Ingrid M. and Kothari, Anamika and Kubo, Aya and Krummenacker, Markus and Latendresse, Mario and Mueller, Lukas A. and Ong, Quang and Paley, Suzanne and Subhraveti, Pallavi and Weaver, Daniel S. and Weerasinghe, Deepika and Zhang, Peifen and Karp, Peter D.},
-	month = jan,
-	year = {2014},
-	pmid = {24225315},
-	pages = {D459--D471}
+	number = {1},
+	urldate = {2015-01-14},
+	journal = {BMC Bioinformatics},
+	author = {Ondov, Brian D. and Bergman, Nicholas H. and Phillippy, Adam M.},
+	month = sep,
+	year = {2011},
+	pmid = {21961884},
+	pages = {385}
 }
 
-@article{suzek_uniref_2015,
-	title = {{UniRef} clusters: a comprehensive and scalable alternative for improving sequence similarity searches},
-	volume = {31},
-	issn = {1367-4803, 1460-2059},
-	shorttitle = {{UniRef} clusters},
-	url = {http://bioinformatics.oxfordjournals.org/content/31/6/926},
-	doi = {10.1093/bioinformatics/btu739},
-	abstract = {Motivation: UniRef databases provide full-scale clustering of UniProtKB sequences and are utilized for a broad range of applications, particularly similarity-based functional annotation. Non-redundancy and intra-cluster homogeneity in UniRef were recently improved by adding a sequence length overlap threshold. Our hypothesis is that these improvements would enhance the speed and sensitivity of similarity searches and improve the consistency of annotation within clusters.
-Results: Intra-cluster molecular function consistency was examined by analysis of Gene Ontology terms. Results show that UniRef clusters bring together proteins of identical molecular function in more than 97\% of the clusters, implying that clusters are useful for annotation and can also be used to detect annotation inconsistencies. To examine coverage in similarity results, BLASTP searches against UniRef50 followed by expansion of the hit lists with cluster members demonstrated advantages compared with searches against UniProtKB sequences; the searches are concise (∼7 times shorter hit list before expansion), faster (∼6 times) and more sensitive in detection of remote similarities ({\textgreater}96\% recall at e-value {\textless}0.0001). Our results support the use of UniRef clusters as a comprehensive and scalable alternative to native sequence databases for similarity searches and reinforces its reliability for use in functional annotation.
-Availability and implementation: Web access and file download from UniProt website at http://www.uniprot.org/uniref and ftp://ftp.uniprot.org/pub/databases/uniprot/uniref. BLAST searches against UniRef are available at http://www.uniprot.org/blast/
-Contact: huang@dbi.udel.edu},
+@article{lee_rrnaselector:_2011,
+	title = {{rRNASelector}: {A} computer program for selecting ribosomal {RNA} encoding sequences from metagenomic and metatranscriptomic shotgun libraries},
+	volume = {49},
+	issn = {1225-8873, 1976-3794},
+	shorttitle = {{rRNASelector}},
+	url = {http://link.springer.com/article/10.1007/s12275-011-1213-z},
+	doi = {10.1007/s12275-011-1213-z},
+	abstract = {Metagenomic and metatranscriptomic shotgun sequencing techniques are gaining popularity as more cost-effective next-generation sequencing technologies become commercially available. The initial stage of bioinfor-matic analysis generally involves the identification of phylogenetic markers such as ribosomal RNA genes. The sequencing reads that do not code for rRNA can then be used for protein-based analysis. Hidden Markov model is a well-known method for pattern recognition. Hidden Markov models that are trained on well-curated rRNA sequence databases have been successfully used to identify DNA sequence coding for rRNAs in pro-karyotes. Here, we introduce rRNASelector, which is a computer program for selecting rRNA genes from massive metagenomic and metatranscriptomic sequences using hidden Markov models. The program successfully identified prokaryotic 5S, 26S, and 23S rRNA genes from Roche 454 FLX Titanium-based metagenomic and metatranscriptomic libraries. The rRNASelector program is available at http://sw.ezbiocloud.net/rrnaselector.},
 	language = {en},
-	number = {6},
-	urldate = {2016-06-07},
-	journal = {Bioinformatics},
-	author = {Suzek, Baris E. and Wang, Yuqi and Huang, Hongzhan and McGarvey, Peter B. and Wu, Cathy H. and Consortium, the UniProt},
-	month = mar,
+	number = {4},
+	urldate = {2015-01-09},
+	journal = {The Journal of Microbiology},
+	author = {Lee, Jae-Hak and Yi, Hana and Chun, Jongsik},
+	month = aug,
+	year = {2011},
+	keywords = {Computer program, HMMER, metagenomics, metatranscriptomics, Microbiology, rRNA, rRNASelector},
+	pages = {689--691}
+}
+
+@article{stoddard_rrndb:_2015,
+	title = {{rrnDB}: improved tools for interpreting {rRNA} gene abundance in bacteria and archaea and a new foundation for future development},
+	volume = {43},
+	issn = {0305-1048},
+	shorttitle = {{rrnDB}},
+	url = {http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4383981/},
+	doi = {10.1093/nar/gku1201},
+	abstract = {Microbiologists utilize ribosomal RNA genes as molecular markers of taxonomy in surveys of microbial communities. rRNA genes are often co-located as part of an rrn operon, and multiple copies of this operon are present in genomes across the microbial tree of life. rrn copy number variability provides valuable insight into microbial life history, but introduces systematic bias when measuring community composition in molecular surveys. Here we present an update to the ribosomal RNA operon copy number database (rrnDB), a publicly available, curated resource for copy number information for bacteria and archaea. The redesigned rrnDB (http://rrndb.umms.med.umich.edu/) brings a substantial increase in the number of genomes described, improved curation, mapping of genomes to both NCBI and RDP taxonomies, and refined tools for querying and analyzing these data. With these changes, the rrnDB is better positioned to remain a comprehensive resource under the torrent of microbial genome sequencing. The enhanced rrnDB will contribute to the analysis of molecular surveys and to research linking genomic characteristics to life history.},
+	number = {Database issue},
+	urldate = {2016-07-26},
+	journal = {Nucleic Acids Research},
+	author = {Stoddard, Steven F. and Smith, Byron J. and Hein, Robert and Roller, Benjamin R.K. and Schmidt, Thomas M.},
+	month = jan,
 	year = {2015},
-	pmid = {25398609},
-	pages = {926--932}
+	pmid = {25414355},
+	pmcid = {PMC4383981},
+	pages = {D593--D598}
 }
 
 @article{mendoza_environmental_2015,
@@ -228,30 +515,12 @@ Contact: huang@dbi.udel.edu},
 	language = {en},
 	number = {5},
 	urldate = {2016-04-13},
-	journal = {Brief Bioinform},
+	journal = {Briefings in Bioinformatics},
 	author = {Mendoza, Marie Lisandra Zepeda and Sicheritz-Pontén, Thomas and Gilbert, M. Thomas P.},
 	month = sep,
 	year = {2015},
 	pmid = {25673291},
 	pages = {745--758}
-}
-
-@article{li_sequence_2009,
-	title = {The {Sequence} {Alignment}/{Map} format and {SAMtools}},
-	volume = {25},
-	issn = {1367-4811},
-	doi = {10.1093/bioinformatics/btp352},
-	abstract = {SUMMARY: The Sequence Alignment/Map (SAM) format is a generic alignment format for storing read alignments against reference sequences, supporting short and long reads (up to 128 Mbp) produced by different sequencing platforms. It is flexible in style, compact in size, efficient in random access and is the format in which alignments from the 1000 Genomes Project are released. SAMtools implements various utilities for post-processing alignments in the SAM format, such as indexing, variant caller and alignment viewer, and thus provides universal tools for processing read alignments.
-AVAILABILITY: http://samtools.sourceforge.net.},
-	language = {eng},
-	number = {16},
-	journal = {Bioinformatics},
-	author = {Li, Heng and Handsaker, Bob and Wysoker, Alec and Fennell, Tim and Ruan, Jue and Homer, Nils and Marth, Gabor and Abecasis, Goncalo and Durbin, Richard and {1000 Genome Project Data Processing Subgroup}},
-	month = aug,
-	year = {2009},
-	pmid = {19505943},
-	pmcid = {PMC2723002},
-	pages = {2078--2079}
 }
 
 @article{li_statistical_2011,
@@ -265,7 +534,7 @@ AVAILABILITY: http://samtools.sourceforge.net.
 CONTACT: hengli@broadinstitute.org.},
 	language = {eng},
 	number = {21},
-	journal = {Bioinformatics},
+	journal = {Bioinformatics (Oxford, England)},
 	author = {Li, Heng},
 	month = nov,
 	year = {2011},
@@ -295,248 +564,77 @@ Contact: rd@sanger.ac.uk},
 	pages = {589--595}
 }
 
-@article{caporaso_qiime_2010,
-	title = {{QIIME} allows analysis of high-throughput community sequencing data},
-	volume = {7},
-	copyright = {© 2010 Nature Publishing Group},
-	issn = {1548-7091},
-	url = {http://www.nature.com/nmeth/journal/v7/n5/full/nmeth.f.303.html},
-	doi = {10.1038/nmeth.f.303},
-	abstract = {To the Editor: High-throughput sequencing is revolutionizing microbial ecology studies. Efforts like the Human Microbiome Projects and the US National Ecological Observatory Network are helping us to understand the role of microbial diversity in habitats within our own bodies and throughout the planet.},
-	language = {en},
-	number = {5},
-	urldate = {2015-01-06},
-	journal = {Nature Methods},
-	author = {Caporaso, J. Gregory and Kuczynski, Justin and Stombaugh, Jesse and Bittinger, Kyle and Bushman, Frederic D. and Costello, Elizabeth K. and Fierer, Noah and Peña, Antonio Gonzalez and Goodrich, Julia K. and Gordon, Jeffrey I. and Huttley, Gavin A. and Kelley, Scott T. and Knights, Dan and Koenig, Jeremy E. and Ley, Ruth E. and Lozupone, Catherine A. and McDonald, Daniel and Muegge, Brian D. and Pirrung, Meg and Reeder, Jens and Sevinsky, Joel R. and Turnbaugh, Peter J. and Walters, William A. and Widmann, Jeremy and Yatsunenko, Tanya and Zaneveld, Jesse and Knight, Rob},
-	month = may,
-	year = {2010},
-	pages = {335--336}
-}
-
-@article{hunter_ebi_2014,
-	title = {{EBI} metagenomics—a new resource for the analysis and archiving of metagenomic data},
+@article{caspi_metacyc_2014,
+	title = {The {MetaCyc} database of metabolic pathways and enzymes and the {BioCyc} collection of {Pathway}/{Genome} {Databases}},
 	volume = {42},
 	issn = {0305-1048, 1362-4962},
-	url = {http://nar.oxfordjournals.org/content/42/D1/D600},
-	doi = {10.1093/nar/gkt961},
-	abstract = {Metagenomics is a relatively recently established but rapidly expanding field that uses high-throughput next-generation sequencing technologies to characterize the microbial communities inhabiting different ecosystems (including oceans, lakes, soil, tundra, plants and body sites). Metagenomics brings with it a number of challenges, including the management, analysis, storage and sharing of data. In response to these challenges, we have developed a new metagenomics resource (http://www.ebi.ac.uk/metagenomics/) that allows users to easily submit raw nucleotide reads for functional and taxonomic analysis by a state-of-the-art pipeline, and have them automatically stored (together with descriptive, standards-compliant metadata) in the European Nucleotide Archive.},
+	url = {http://nar.oxfordjournals.org/content/42/D1/D459},
+	doi = {10.1093/nar/gkt1103},
+	abstract = {The MetaCyc database (MetaCyc.org) is a comprehensive and freely accessible database describing metabolic pathways and enzymes from all domains of life. MetaCyc pathways are experimentally determined, mostly small-molecule metabolic pathways and are curated from the primary scientific literature. MetaCyc contains {\textgreater}2100 pathways derived from {\textgreater}37 000 publications, and is the largest curated collection of metabolic pathways currently available. BioCyc (BioCyc.org) is a collection of {\textgreater}3000 organism-specific Pathway/Genome Databases (PGDBs), each containing the full genome and predicted metabolic network of one organism, including metabolites, enzymes, reactions, metabolic pathways, predicted operons, transport systems and pathway-hole fillers. Additions to BioCyc over the past 2 years include YeastCyc, a PGDB for Saccharomyces cerevisiae, and 891 new genomes from the Human Microbiome Project. The BioCyc Web site offers a variety of tools for querying and analysis of PGDBs, including Omics Viewers and tools for comparative analysis. New developments include atom mappings in reactions, a new representation of glycan degradation pathways, improved compound structure display, better coverage of enzyme kinetic data, enhancements of the Web Groups functionality, improvements to the Omics viewers, a new representation of the Enzyme Commission system and, for the desktop version of the software, the ability to save display states.},
 	language = {en},
 	number = {D1},
-	urldate = {2015-01-08},
-	journal = {Nucl. Acids Res.},
-	author = {Hunter, Sarah and Corbett, Matthew and Denise, Hubert and Fraser, Matthew and Gonzalez-Beltran, Alejandra and Hunter, Christopher and Jones, Philip and Leinonen, Rasko and McAnulla, Craig and Maguire, Eamonn and Maslen, John and Mitchell, Alex and Nuka, Gift and Oisel, Arnaud and Pesseat, Sebastien and Radhakrishnan, Rajesh and Rocca-Serra, Philippe and Scheremetjew, Maxim and Sterk, Peter and Vaughan, Daniel and Cochrane, Guy and Field, Dawn and Sansone, Susanna-Assunta},
+	urldate = {2016-06-07},
+	journal = {Nucleic Acids Research},
+	author = {Caspi, Ron and Altman, Tomer and Billington, Richard and Dreher, Kate and Foerster, Hartmut and Fulcher, Carol A. and Holland, Timothy A. and Keseler, Ingrid M. and Kothari, Anamika and Kubo, Aya and Krummenacker, Markus and Latendresse, Mario and Mueller, Lukas A. and Ong, Quang and Paley, Suzanne and Subhraveti, Pallavi and Weaver, Daniel S. and Weerasinghe, Deepika and Zhang, Peifen and Karp, Peter D.},
 	month = jan,
 	year = {2014},
-	pmid = {24165880},
-	pages = {D600--D606}
+	pmid = {24225315},
+	pages = {D459--D471}
 }
 
-@article{lee_rrnaselector:_2011,
-	title = {{rRNASelector}: {A} computer program for selecting ribosomal {RNA} encoding sequences from metagenomic and metatranscriptomic shotgun libraries},
-	volume = {49},
-	issn = {1225-8873, 1976-3794},
-	shorttitle = {{rRNASelector}},
-	url = {http://link.springer.com/article/10.1007/s12275-011-1213-z},
-	doi = {10.1007/s12275-011-1213-z},
-	abstract = {Metagenomic and metatranscriptomic shotgun sequencing techniques are gaining popularity as more cost-effective next-generation sequencing technologies become commercially available. The initial stage of bioinfor-matic analysis generally involves the identification of phylogenetic markers such as ribosomal RNA genes. The sequencing reads that do not code for rRNA can then be used for protein-based analysis. Hidden Markov model is a well-known method for pattern recognition. Hidden Markov models that are trained on well-curated rRNA sequence databases have been successfully used to identify DNA sequence coding for rRNAs in pro-karyotes. Here, we introduce rRNASelector, which is a computer program for selecting rRNA genes from massive metagenomic and metatranscriptomic sequences using hidden Markov models. The program successfully identified prokaryotic 5S, 26S, and 23S rRNA genes from Roche 454 FLX Titanium-based metagenomic and metatranscriptomic libraries. The rRNASelector program is available at http://sw.ezbiocloud.net/rrnaselector.},
+@article{suzek_uniref_2015,
+	title = {{UniRef} clusters: a comprehensive and scalable alternative for improving sequence similarity searches},
+	volume = {31},
+	issn = {1367-4803, 1460-2059},
+	shorttitle = {{UniRef} clusters},
+	url = {http://bioinformatics.oxfordjournals.org/content/31/6/926},
+	doi = {10.1093/bioinformatics/btu739},
+	abstract = {Motivation: UniRef databases provide full-scale clustering of UniProtKB sequences and are utilized for a broad range of applications, particularly similarity-based functional annotation. Non-redundancy and intra-cluster homogeneity in UniRef were recently improved by adding a sequence length overlap threshold. Our hypothesis is that these improvements would enhance the speed and sensitivity of similarity searches and improve the consistency of annotation within clusters.
+Results: Intra-cluster molecular function consistency was examined by analysis of Gene Ontology terms. Results show that UniRef clusters bring together proteins of identical molecular function in more than 97\% of the clusters, implying that clusters are useful for annotation and can also be used to detect annotation inconsistencies. To examine coverage in similarity results, BLASTP searches against UniRef50 followed by expansion of the hit lists with cluster members demonstrated advantages compared with searches against UniProtKB sequences; the searches are concise (∼7 times shorter hit list before expansion), faster (∼6 times) and more sensitive in detection of remote similarities ({\textgreater}96\% recall at e-value {\textless}0.0001). Our results support the use of UniRef clusters as a comprehensive and scalable alternative to native sequence databases for similarity searches and reinforces its reliability for use in functional annotation.
+Availability and implementation: Web access and file download from UniProt website at http://www.uniprot.org/uniref and ftp://ftp.uniprot.org/pub/databases/uniprot/uniref. BLAST searches against UniRef are available at http://www.uniprot.org/blast/
+Contact: huang@dbi.udel.edu},
 	language = {en},
-	number = {4},
-	urldate = {2015-01-09},
-	journal = {J Microbiol.},
-	author = {Lee, Jae-Hak and Yi, Hana and Chun, Jongsik},
-	month = aug,
-	year = {2011},
-	keywords = {Computer program, HMMER, metagenomics, metatranscriptomics, Microbiology, rRNA, rRNASelector},
-	pages = {689--691}
+	number = {6},
+	urldate = {2016-06-07},
+	journal = {Bioinformatics},
+	author = {Suzek, Baris E. and Wang, Yuqi and Huang, Hongzhan and McGarvey, Peter B. and Wu, Cathy H. and Consortium, the UniProt},
+	month = mar,
+	year = {2015},
+	pmid = {25398609},
+	pages = {926--932}
 }
 
-@article{segata_metagenomic_2012,
-	title = {Metagenomic microbial community profiling using unique clade-specific marker genes},
-	volume = {9},
-	copyright = {© 2012 Nature Publishing Group, a division of Macmillan Publishers Limited. All Rights Reserved.},
-	issn = {1548-7091},
-	url = {http://www.nature.com/nmeth/journal/v9/n8/full/nmeth.2066.html},
-	doi = {10.1038/nmeth.2066},
-	abstract = {Metagenomic shotgun sequencing data can identify microbes populating a microbial community and their proportions, but existing taxonomic profiling methods are inefficient for increasingly large data sets. We present an approach that uses clade-specific marker genes to unambiguously assign reads to microbial clades more accurately and {\textgreater}50× faster than current approaches. We validated our metagenomic phylogenetic analysis tool, MetaPhlAn, on terabases of short reads and provide the largest metagenomic profiling to date of the human gut. It can be accessed at http://huttenhower.sph.harvard.edu/metaphlan/.},
+@article{blatter_metagenomic_2016,
+	title = {The {Metagenomic} {Pizza}: a simple recipe to introduce bioinformatics to the layman},
+	volume = {22},
+	copyright = {Authors who publish with this journal agree to the following terms:  Authors retain copyright and grant the journal right of first publication with the work simultaneously licensed under a  Creative Commons Attribution License  that allows others to share the work with an acknowledgement of the work's authorship and initial publication in this journal.  Authors are able to enter into separate, additional contractual arrangements for the non-exclusive distribution of the journal's published version of the work (e.g., post it to an institutional repository or publish it in a book), with an acknowledgement of its initial publication in this journal.  Authors are permitted and encouraged to post their work online (e.g., in institutional repositories or on their website) prior to and during the submission process, as it can lead to productive exchanges, as well as earlier and greater citation of published work (See  The Effect of Open Access ).},
+	issn = {2226-6089},
+	shorttitle = {The {Metagenomic} {Pizza}},
+	url = {http://journal.embnet.org/index.php/embnetjournal/article/view/864},
 	language = {en},
-	number = {8},
-	urldate = {2015-01-09},
-	journal = {Nat Meth},
-	author = {Segata, Nicola and Waldron, Levi and Ballarini, Annalisa and Narasimhan, Vagheesh and Jousson, Olivier and Huttenhower, Curtis},
-	month = aug,
-	year = {2012},
-	pages = {811--814}
+	number = {0},
+	urldate = {2016-06-07},
+	journal = {EMBnet.journal},
+	author = {Blatter, Marie-Claude and Gerritsen, Vivienne Baillie and Palagi, Patricia M. and Bougueleret, Lydie and Xenarios, Ioannis},
+	month = apr,
+	year = {2016},
+	pages = {e864}
 }
 
-@article{li_fast_2009,
-	title = {Fast and accurate short read alignment with {Burrows}-{Wheeler} transform},
+@article{li_sequence_2009,
+	title = {The {Sequence} {Alignment}/{Map} format and {SAMtools}},
 	volume = {25},
 	issn = {1367-4811},
-	doi = {10.1093/bioinformatics/btp324},
-	abstract = {MOTIVATION: The enormous amount of short reads generated by the new DNA sequencing technologies call for the development of fast and accurate read alignment programs. A first generation of hash table-based methods has been developed, including MAQ, which is accurate, feature rich and fast enough to align short reads from a single individual. However, MAQ does not support gapped alignment for single-end reads, which makes it unsuitable for alignment of longer reads where indels may occur frequently. The speed of MAQ is also a concern when the alignment is scaled up to the resequencing of hundreds of individuals.
-RESULTS: We implemented Burrows-Wheeler Alignment tool (BWA), a new read alignment package that is based on backward search with Burrows-Wheeler Transform (BWT), to efficiently align short sequencing reads against a large reference sequence such as the human genome, allowing mismatches and gaps. BWA supports both base space reads, e.g. from Illumina sequencing machines, and color space reads from AB SOLiD machines. Evaluations on both simulated and real data suggest that BWA is approximately 10-20x faster than MAQ, while achieving similar accuracy. In addition, BWA outputs alignment in the new standard SAM (Sequence Alignment/Map) format. Variant calling and other downstream analyses after the alignment can be achieved with the open source SAMtools software package.
-AVAILABILITY: http://maq.sourceforge.net.},
+	doi = {10.1093/bioinformatics/btp352},
+	abstract = {SUMMARY: The Sequence Alignment/Map (SAM) format is a generic alignment format for storing read alignments against reference sequences, supporting short and long reads (up to 128 Mbp) produced by different sequencing platforms. It is flexible in style, compact in size, efficient in random access and is the format in which alignments from the 1000 Genomes Project are released. SAMtools implements various utilities for post-processing alignments in the SAM format, such as indexing, variant caller and alignment viewer, and thus provides universal tools for processing read alignments.
+AVAILABILITY: http://samtools.sourceforge.net.},
 	language = {eng},
-	number = {14},
-	journal = {Bioinformatics},
-	author = {Li, Heng and Durbin, Richard},
-	month = jul,
-	year = {2009},
-	pmid = {19451168},
-	pmcid = {PMC2705234},
-	keywords = {Algorithms, Genomics, Sequence Alignment, Sequence Analysis, DNA, software},
-	pages = {1754--1760}
-}
-
-@article{li_cd-hit:_2006,
-	title = {Cd-hit: a fast program for clustering and comparing large sets of protein or nucleotide sequences},
-	volume = {22},
-	issn = {1367-4803},
-	shorttitle = {Cd-hit},
-	doi = {10.1093/bioinformatics/btl158},
-	abstract = {MOTIVATION: In 2001 and 2002, we published two papers (Bioinformatics, 17, 282-283, Bioinformatics, 18, 77-82) describing an ultrafast protein sequence clustering program called cd-hit. This program can efficiently cluster a huge protein database with millions of sequences. However, the applications of the underlying algorithm are not limited to only protein sequences clustering, here we present several new programs using the same algorithm including cd-hit-2d, cd-hit-est and cd-hit-est-2d. Cd-hit-2d compares two protein datasets and reports similar matches between them; cd-hit-est clusters a DNA/RNA sequence database and cd-hit-est-2d compares two nucleotide datasets. All these programs can handle huge datasets with millions of sequences and can be hundreds of times faster than methods based on the popular sequence comparison and database search tools, such as BLAST.},
-	language = {eng},
-	number = {13},
-	journal = {Bioinformatics},
-	author = {Li, Weizhong and Godzik, Adam},
-	month = jul,
-	year = {2006},
-	pmid = {16731699},
-	keywords = {Algorithms, Animals, Cluster Analysis, computational biology, Databases, Nucleic Acid, Databases, Protein, DNA, Expressed Sequence Tags, Humans, Programming Languages, RNA, Sequence Analysis, DNA, Sequence Analysis, Protein, software},
-	pages = {1658--1659}
-}
-
-@article{kopylova_sortmerna:_2012,
-	title = {{SortMeRNA}: fast and accurate filtering of ribosomal {RNAs} in metatranscriptomic data},
-	volume = {28},
-	issn = {1367-4811},
-	shorttitle = {{SortMeRNA}},
-	doi = {10.1093/bioinformatics/bts611},
-	abstract = {MOTIVATION: The application of next-generation sequencing (NGS) technologies to RNAs directly extracted from a community of organisms yields a mixture of fragments characterizing both coding and non-coding types of RNAs. The task to distinguish among these and to further categorize the families of messenger RNAs and ribosomal RNAs (rRNAs) is an important step for examining gene expression patterns of an interactive environment and the phylogenetic classification of the constituting species.
-RESULTS: We present SortMeRNA, a new software designed to rapidly filter rRNA fragments from metatranscriptomic data. It is capable of handling large sets of reads and sorting out all fragments matching to the rRNA database with high sensitivity and low running time.},
-	language = {eng},
-	number = {24},
-	journal = {Bioinformatics},
-	author = {Kopylova, Evguenia and Noé, Laurent and Touzet, Hélène},
-	month = dec,
-	year = {2012},
-	pmid = {23071270},
-	pages = {3211--3217}
-}
-
-@article{giardine_galaxy:_2005,
-	title = {Galaxy: {A} platform for interactive large-scale genome analysis},
-	volume = {15},
-	issn = {1088-9051, 1549-5469},
-	shorttitle = {Galaxy},
-	url = {http://genome.cshlp.org/content/15/10/1451},
-	doi = {10.1101/gr.4086505},
-	abstract = {Accessing and analyzing the exponentially expanding genomic sequence and functional data pose a challenge for biomedical researchers. Here we describe an interactive system, Galaxy, that combines the power of existing genome annotation databases with a simple Web portal to enable users to search remote resources, combine data from independent queries, and visualize the results. The heart of Galaxy is a flexible history system that stores the queries from each user; performs operations such as intersections, unions, and subtractions; and links to other computational tools. Galaxy can be accessed at http://g2.bx.psu.edu.},
-	language = {en},
-	number = {10},
-	urldate = {2015-01-13},
-	journal = {Genome Res.},
-	author = {Giardine, Belinda and Riemer, Cathy and Hardison, Ross C. and Burhans, Richard and Elnitski, Laura and Shah, Prachi and Zhang, Yi and Blankenberg, Daniel and Albert, Istvan and Taylor, James and Miller, Webb and Kent, W. James and Nekrutenko, Anton},
-	month = oct,
-	year = {2005},
-	pmid = {16169926},
-	pages = {1451--1455}
-}
-
-@article{ondov_interactive_2011,
-	title = {Interactive metagenomic visualization in a {Web} browser},
-	volume = {12},
-	copyright = {2011 Ondov et al; licensee BioMed Central Ltd.},
-	issn = {1471-2105},
-	url = {http://www.biomedcentral.com/1471-2105/12/385/abstract},
-	doi = {10.1186/1471-2105-12-385},
-	abstract = {A critical output of metagenomic studies is the estimation of abundances of taxonomical or functional groups. The inherent uncertainty in assignments to these groups makes it important to consider both their hierarchical contexts and their prediction confidence. The current tools for visualizing metagenomic data, however, omit or distort quantitative hierarchical relationships and lack the facility for displaying secondary variables.
-PMID: 21961884},
-	language = {en},
-	number = {1},
-	urldate = {2015-01-14},
-	journal = {BMC Bioinformatics},
-	author = {Ondov, Brian D. and Bergman, Nicholas H. and Phillippy, Adam M.},
-	month = sep,
-	year = {2011},
-	pmid = {21961884},
-	pages = {385}
-}
-
-@article{fu_cd-hit:_2012,
-	title = {{CD}-{HIT}: accelerated for clustering the next-generation sequencing data},
-	volume = {28},
-	issn = {1367-4811},
-	shorttitle = {{CD}-{HIT}},
-	doi = {10.1093/bioinformatics/bts565},
-	abstract = {SUMMARY: CD-HIT is a widely used program for clustering biological sequences to reduce sequence redundancy and improve the performance of other sequence analyses. In response to the rapid increase in the amount of sequencing data produced by the next-generation sequencing technologies, we have developed a new CD-HIT program accelerated with a novel parallelization strategy and some other techniques to allow efficient clustering of such datasets. Our tests demonstrated very good speedup derived from the parallelization for up to ∼24 cores and a quasi-linear speedup for up to ∼8 cores. The enhanced CD-HIT is capable of handling very large datasets in much shorter time than previous versions.
-AVAILABILITY: http://cd-hit.org.
-CONTACT: liwz@sdsc.edu
-SUPPLEMENTARY INFORMATION: Supplementary data are available at Bioinformatics online.},
-	language = {eng},
-	number = {23},
-	journal = {Bioinformatics},
-	author = {Fu, Limin and Niu, Beifang and Zhu, Zhengwei and Wu, Sitao and Li, Weizhong},
-	month = dec,
-	year = {2012},
-	pmid = {23060610},
-	pmcid = {PMC3516142},
-	keywords = {Algorithms, Cluster Analysis, computational biology, Sequence Analysis, Protein, software},
-	pages = {3150--3152}
-}
-
-@article{abubucker_metabolic_2012,
-	title = {Metabolic {Reconstruction} for {Metagenomic} {Data} and {Its} {Application} to the {Human} {Microbiome}},
-	volume = {8},
-	url = {http://dx.doi.org/10.1371/journal.pcbi.1002358},
-	doi = {10.1371/journal.pcbi.1002358},
-	abstract = {Author SummaryThe human body is inhabited by trillions of bacteria and other microbes, which have recently been studied in many different habitats (including gut, mouth, skin, and urogenital) by the Human Microbiome Project (HMP). These microbial communities were assayed using high-throughput DNA sequencing, but it can be challenging to determine their biological functions based solely on the resulting short sequences. To reconstruct the metabolic activities of such communities, we have developed HUMAnN, a method to accurately infer community function directly from short DNA reads. The method's accuracy was validated using a collection of synthetic microbial communities. Applying HUMAnN to data from the HMP, we showed that, unlike individual microbial species, many metabolic processes were present among all body habitats. However, the frequencies of these processes varied dramatically, and some were highly enriched within individual habitats to provide niche specialization (e.g. in the gut, which is abundant in food matter but low in oxygen). Other community functions were linked specifically to properties of the human host, such as biochemical processes only present in vaginal habitats with particularly high or low pH. Studying additional environmental or disease-associated communities using HUMAnN will further improve our understanding of how the microbial organisms in a community are linked to the biological processes they carry out.},
-	number = {6},
-	urldate = {2015-01-16},
-	journal = {PLoS Comput Biol},
-	author = {Abubucker, Sahar and Segata, Nicola and Goll, Johannes and Schubert, Alyxandria M. and Izard, Jacques and Cantarel, Brandi L. and Rodriguez-Mueller, Beltran and Zucker, Jeremy and Thiagarajan, Mathangi and Henrissat, Bernard and White, Owen and Kelley, Scott T. and Methé, Barbara and Schloss, Patrick D. and Gevers, Dirk and Mitreva, Makedonka and Huttenhower, Curtis},
-	month = jun,
-	year = {2012},
-	pages = {e1002358}
-}
-
-@article{goecks_galaxy:_2010,
-	title = {Galaxy: a comprehensive approach for supporting accessible, reproducible, and transparent computational research in the life sciences},
-	volume = {11},
-	copyright = {2010 Goecks et al.; licensee BioMed Central Ltd.},
-	issn = {1465-6906},
-	shorttitle = {Galaxy},
-	url = {http://genomebiology.com/2010/11/8/R86/abstract},
-	doi = {10.1186/gb-2010-11-8-r86},
-	abstract = {Increased reliance on computational approaches in the life sciences has revealed grave concerns about how accessible and reproducible computation-reliant results truly are. Galaxy http://usegalaxy.org, an open web-based platform for genomic research, addresses these problems. Galaxy automatically tracks and manages data provenance and provides support for capturing the context and intent of computational methods. Galaxy Pages are interactive, web-based documents that provide users with a medium to communicate a complete computational analysis.
-PMID: 20738864},
-	language = {en},
-	number = {8},
-	urldate = {2015-01-30},
-	journal = {Genome Biology},
-	author = {Goecks, Jeremy and Nekrutenko, Anton and Taylor, James and \$author.lastName, \$author firstName},
+	number = {16},
+	journal = {Bioinformatics (Oxford, England)},
+	author = {Li, Heng and Handsaker, Bob and Wysoker, Alec and Fennell, Tim and Ruan, Jue and Homer, Nils and Marth, Gabor and Abecasis, Goncalo and Durbin, Richard and {1000 Genome Project Data Processing Subgroup}},
 	month = aug,
-	year = {2010},
-	pmid = {20738864},
-	pages = {R86}
-}
-
-@article{schmieder_quality_2011,
-	title = {Quality control and preprocessing of metagenomic datasets},
-	volume = {27},
-	issn = {1367-4803, 1460-2059},
-	url = {http://bioinformatics.oxfordjournals.org/content/27/6/863},
-	doi = {10.1093/bioinformatics/btr026},
-	abstract = {Summary: Here, we present PRINSEQ for easy and rapid quality control and data preprocessing of genomic and metagenomic datasets. Summary statistics of FASTA (and QUAL) or FASTQ files are generated in tabular and graphical form and sequences can be filtered, reformatted and trimmed by a variety of options to improve downstream analysis.
-Availability and Implementation: This open-source application was implemented in Perl and can be used as a stand alone version or accessed online through a user-friendly web interface. The source code, user help and additional information are available at http://prinseq.sourceforge.net/.
-Contact: rschmied@sciences.sdsu.edu; redwards@cs.sdsu.edu},
-	language = {en},
-	number = {6},
-	urldate = {2015-04-07},
-	journal = {Bioinformatics},
-	author = {Schmieder, Robert and Edwards, Robert},
-	month = mar,
-	year = {2011},
-	pmid = {21278185},
-	pages = {863--864}
+	year = {2009},
+	pmid = {19505943},
+	pmcid = {PMC2723002},
+	pages = {2078--2079}
 }
