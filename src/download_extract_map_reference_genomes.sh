@@ -97,3 +97,12 @@ echo "Run workflow to get graphlan representations"
 echo "============================================"
 cat id.txt | parallel run_graphlan_workflow {} $asaim_galaxy_instance_url $api_key_on_asaim_galaxy_instance
 echo ""
+
+echo "Extract mapped proteins"
+echo "======================="
+wget "ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/idmapping_selected.tab.gz"
+gunzip "idmapping_selected.tab.gz"
+python src/extract_refseq_uniref50_mapping.py \
+    --uniprot_mapping_file "idmapping_selected.tab" \
+    --refseq_uniref50_mapping_file "data/refseq_uniref50_mapping.txt"
+rm "idmapping_selected.tab"
