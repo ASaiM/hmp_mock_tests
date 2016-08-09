@@ -1,6 +1,47 @@
 #!/usr/bin/env bash
 . src/misc.sh
 
+function download_ref_genomes_and_data {
+    cd data
+
+    echo "Reference genomes"
+    echo "-----------------"
+    if [[ ! -d "reference_genomes" ]]; then
+        mkdir "reference_genomes"
+    fi
+
+    cd "reference_genomes"
+    python "../../src/download_extract_reference_genomes.py" \
+        --exp_taxo_file "../expected_species_w_taxonomy.txt" \
+        --protein_nb_file "../expected_species_w_protein_nb.txt"
+
+    if [[ -f "reference_genomes.fna.gz" ]]; then
+        rm "reference_genomes.fna.gz"
+    fi
+    cat *.fna.gz > "reference_genomes.fna.gz"
+    cd ../
+    echo ""
+
+    echo "Reference rRNA sequences"
+    echo "------------------------"
+    if [[ ! -d "reference_rRNAs" ]]; then
+        mkdir "reference_rRNAs"
+    fi
+
+    python "../src/download_extract_reference_rRNA.py" \
+        --exp_taxo_file "expected_species_w_taxonomy.txt" \
+        --reference_rRNA_file "reference_rRNAs/reference_rRNAs.fasta" \
+        --rRNA_nb_file "expected_species_w_rRNA_nb.txt"
+
+    echo "Reference proteins"
+    echo "------------------"
+
+    python "../src/download_format_reference_proteins.py" \
+        --exp_taxo_file "expected_species_w_taxonomy.txt" \
+        --reference_protein_file "reference_protein.txt"
+
+    cd ../
+}
 
 function launch_mapping_workflow {
     sample_name=$1
@@ -37,39 +78,10 @@ function run_graphlan_workflow {
 }
 export -f run_graphlan_workflow
 
+
 echo "Download reference genomes and extract some data"
 echo "================================================"
-cd data
-
-echo "Reference genomes"
-echo "-----------------"
-if [[ ! -d "reference_genomes" ]]; then
-    mkdir "reference_genomes"
-fi
-
-cd "reference_genomes"
-python "../../src/download_extract_reference_genomes.py" \
-    --exp_taxo_file "../expected_species_w_taxonomy.txt" \
-    --protein_nb_file "../expected_species_w_protein_nb.txt"
-
-if [[ -f "reference_genomes.fna.gz" ]]; then
-    rm "reference_genomes.fna.gz"
-fi
-cat *.fna.gz > "reference_genomes.fna.gz"
-cd ../
-echo ""
-
-echo "Reference rRNA sequences"
-echo "------------------------"
-if [[ ! -d "reference_rRNAs" ]]; then
-    mkdir "reference_rRNAs"
-fi
-
-python "../src/download_extract_reference_rRNA.py" \
-    --exp_taxo_file "expected_species_w_taxonomy.txt" \
-    --reference_rRNA_file "reference_rRNAs/reference_rRNAs.fasta" \
-    --rRNA_nb_file "expected_species_w_rRNA_nb.txt"
-cd ../
+download_ref_genomes_and_data
 
 echo "Map raw sequences on references genomes and extract abundance information"
 echo "========================================================================="
