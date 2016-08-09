@@ -78,6 +78,14 @@ function run_graphlan_workflow {
 }
 export -f run_graphlan_workflow
 
+function download_extract_refseq_uniref50_mapping {
+    wget "ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/idmapping_selected.tab.gz"
+    gunzip "idmapping_selected.tab.gz"
+    python src/extract_refseq_uniref50_mapping.py \
+        --uniprot_mapping_file "idmapping_selected.tab" \
+        --refseq_uniref50_mapping_file "data/refseq_uniref50_mapping.txt"
+    rm "idmapping_selected.tab"
+}
 
 echo "Download reference genomes and extract some data"
 echo "================================================"
@@ -100,9 +108,4 @@ echo ""
 
 echo "Extract mapped proteins"
 echo "======================="
-wget "ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/idmapping_selected.tab.gz"
-gunzip "idmapping_selected.tab.gz"
-python src/extract_refseq_uniref50_mapping.py \
-    --uniprot_mapping_file "idmapping_selected.tab" \
-    --refseq_uniref50_mapping_file "data/refseq_uniref50_mapping.txt"
-rm "idmapping_selected.tab"
+download_extract_refseq_uniref50_mapping
