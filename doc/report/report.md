@@ -252,7 +252,7 @@ For SRR072232 datasets, one species with mapping-based relative abundance higher
 
 After these first comparisons between ASaiM taxonomic results and expected ones, ASaiM taxonomic results can be compared to *EBI metagenomics* taxonomic results.
 
-In *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}), *QIIME* [@caporaso_qiime_2010] is used on 16S sequences to identify OTUs and taxonomic assignation for these OTUs. In ASaiM framework, *MetaPhlAn* is executed on sequences after quality control and dereplication, without any sorting step. *MetaPhlAn* searches diverse phylogenetic markers on all sequence types (rDNA, non rDNA, etc), not only 16S ones as *QIIME* [@caporaso_qiime_2010] does. Within so diverse sequences, the proportion of sequences similar to targeted phylogenetic markers is smaller. Unassigned read percentage is then $\simeq$ 9 times higher with *MetaPhlAn* than with *QIIME* (SRR072232: 6.4\% with *EBI metagenomics* against 62.61\% with ASaiM framework; SRR072233: 13\% with *EBI metagenomics* against 53.93\% with ASaiM framework). On the other hand, the raw number of assigned sequences using ASaiM framework is > 52 times higher than the raw number of assigned sequences using *EBI metagenomics* pipeline. Taxonomic assignations within ASaiM framework are then based on more sequences and more statistically supported than taxonomic assignations from *EBI metagenomics* pipeline. The most precise taxonomic level in *EBI metagenomics* results is family (Figure \ref{ebi_taxonomy}). It is more precise (species) with ASaiM framework (Figure \ref{asaim_taxonomy}). *MetaPhlAn* gives taxonomic assignations which are more complete and statistically supported.
+In *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}), *QIIME* [@caporaso_qiime_2010] is used on 16S sequences to identify OTUs and taxonomic assignation for these OTUs. In ASaiM framework, *MetaPhlAn* is executed on sequences after quality control and dereplication, without any sorting step. *MetaPhlAn* searches diverse phylogenetic markers on all sequence types (rDNA, non rDNA, etc), not only 16S ones as *QIIME* [@caporaso_qiime_2010] does. Taxonomic assignations within ASaiM framework are then based on more sequences and more statistically supported than taxonomic assignations from *EBI metagenomics* pipeline. The most precise taxonomic level in *EBI metagenomics* results is family (Figure \ref{ebi_taxonomy}). It is more precise (species) with ASaiM framework (Figure \ref{asaim_taxonomy}). *MetaPhlAn* gives taxonomic assignations which are more complete and statistically supported.
 
 \begin{figure}[h!]
     \centering
@@ -283,20 +283,21 @@ Family & & & & & \\
 & Paraprevotellaceae & & & 0.09\% & \\
 & Cryptosporangiaceae & & & 0.5\% & \\
 \hline
-Genus & & \textit{No information} & & \textit{No information} & \\
+Genus & & $^{1}$ & & $^{1}$ & \\
 \hline
-Species & & \textit{No information} & & \textit{No information} & \\
+Species & & $^{1}$ & & $^{1}$ & \\
 & \textit{Escherichia} unclassified & & 4.85\% & & 0.8\% \\
 & \textit{Pseudomonas} unclassified & & 1.12\% & & 0.56\% \\
 & \textit{Methanobrevibacter} unclassified & & & & 0.24\% \\
 & \textit{Deinococcus} unclassified & & 0.16\% & & \\
 \hline
 \end{tabular}
-\caption{Relative abundances of unexpected clades at different taxonomic levels in taxonomic results of \textit{EBI metagenomics} and ASaiM framework for both samples (SRR072233 and SRR072233)}
+\caption{Relative abundances of unexpected clades at different taxonomic levels in taxonomic results of \textit{EBI metagenomics} and ASaiM framework for both samples (SRR072233 and SRR072233).
+$^{1}$ No information for this taxonomic level with EBI metagenomics.}
 \label{unexpected_clades}
 \end{table}
 
-With *EBI metagenomics*, taxonomic levels of unexpected clades are higher (class, order and family) than taxonomic level of unexpected clades in ASaiM framework (species, Table \ref{unexpected_clades}, Figure \ref{ebi_taxonomy}). Taxonomic assignations with *MetaPhlAN* are then more accurate and precise.
+The divergence between unexpected and expected lineages occurs at higher taxonomic levels in *EBI metagenomics* results than in ASaiM framework results. Hence, with *EBI metagenomics*, unexpected classes, orders and familes are found (Table \ref{unexpected_clades}, Figure \ref{ebi_taxonomy}). Whereas with ASaiM, only unexpected species are found (Table \ref{unexpected_clades}, Figure \ref{asaim_taxonomy}). The higher levels correspond to expected clades. Taxonomic assignations with *MetaPhlAN* are then more accurate and precise.
 
 \begin{figure}[h!]
     \centering
@@ -310,9 +311,14 @@ With *EBI metagenomics*, taxonomic levels of unexpected clades are higher (class
     \label{family_abundances}
 \end{figure}
 
-As the most precise taxomic level for *EBI metagenomics* is family (Figure \ref{ebi_taxonomy}), further comparisons focus on this level (Figure \ref{family_abundances}). Similarly to previous observations on raw ASaiM results, families with mapping-based abundance smaller than 0.1\% are found neither with ASaiM nor with *EBI metagenomics* (Figure \ref{family_abundances}). Nonetheless, the detection threshold seems slightly smaller for *EBI metagenomics*: for SRR072232, Listeriaceae family is detected with *EBI metagenomics* and not with ASaiM framework (Figure \ref{family_abundances}). On the other hand, Bacillaceae and Debaryomycetaceae families are not found with *EBI metagenomics* for both datasets (Figure \ref{family_abundances}), despite mapping-based abundance higher than 0.1\%. Used databases may be then incomplete regarding some phylogenetic markers, particularly the ones corresponding to missing families.
+As the most precise taxomic level for *EBI metagenomics* is family (Figure \ref{ebi_taxonomy}), further comparisons focus on this level (Figure \ref{family_abundances}). Similarly to previous observations on raw ASaiM results, families with mapping-based abundance smaller than 0.1\% are found neither with ASaiM nor with *EBI metagenomics* (Figure \ref{family_abundances}).
 
-Variations in observed abundances for *EBI metagenomics* or ASaiM framework correspond to variations in mapping-based abundances (Figure \ref{family_abundances}): small observed abundances for small mapping-based abundances and high observed abundances for high mapping-based abundances. For a broader comparison, Bray-Curtis dissimilarity scores are computed on relative abundances of families (Table \ref{taxo_distances}, Figure \ref{family_pcoa}). With Bray-Curtis dissimilarity scores close to 0 (Table \ref{taxo_distances}), communities based on mapping, *EBI metagenomics* results or ASaiM framework results have then similar family compositions. Small differences are observed. *EBI metagenomics* results on family relative abundances are closer to expected abundances than ASaiM framework results are for SRR072232 (Figure \ref{family_pcoa}). This observation does not hold for SRR072233 (Figure \ref{family_pcoa}).
+Listeriaceae family is detected with *EBI metagenomics* but not with ASaiM. The expected abundance for this family is close to the 0.1\% threshold. *EBI metagenomics* seems then better to detect families with expected low abundance for which exp than ASaiM, at least for Listeriaceae family (Figure \ref{family_abundances}).
+
+On the other hand, both Bacillaceae and Debaryomycetaceae families are not found with *EBI metagenomics* for both datasets (Figure \ref{family_abundances}), despite mapping-based abundance higher than 0.1\%. Bacillaceae and Debaryomycetaceae are the families corresponding respectively to *Bacillus cereus
+thuringiensis* and *Candida albicans* species. Both species are either not found or hardly found with ASaiM (Figure \ref{species_abundances}) because of few phylogenetic markers for these species in *MetaPhlAn2* database. Similarly, the used databases in *EBI metagenomics* may be incomplete regarding phylogenetic markers for the missing families.
+
+Variations in observed abundances for *EBI metagenomics* or ASaiM framework correspond to variations in mapping-based abundances (Figure \ref{family_abundances}). For a broader comparison, Bray-Curtis dissimilarity scores are computed on relative abundances of families (Table \ref{taxo_distances}, Figure \ref{family_pcoa}). With Bray-Curtis dissimilarity scores close to 0 (Table \ref{taxo_distances}), communities based on mapping, *EBI metagenomics* results or ASaiM framework results have then similar family compositions. Bray-Curtis dissimilarity scores are close to 0, small differences are then observed with the different tools. For both datasets, *EBI metagenomics* results on family relative abundances are closer to expected abundances than ASaiM framework results (Table \ref{taxo_distances}). But the differences are small, particularly for SRR072233 datasets, and the scores are close to 0 (Table \ref{taxo_distances}).
 
 \begin{table}[h!]
 \centering
@@ -334,19 +340,7 @@ Species & EBI & & - & 1 & & - & 1\\
 \label{taxo_distances}
 \end{table}
 
-\begin{figure}[h!]
-    \centering
-    \begin{minipage}[c]{.43\linewidth}
-    \includegraphics[width = \linewidth]{../images/SRR072232/concatenated_family_abundance_pcoa.pdf}
-    \end{minipage} \hfill
-    \begin{minipage}[c]{.43\linewidth}
-    \includegraphics[width = \linewidth]{../images/SRR072233/concatenated_family_abundance_pcoa.pdf}
-    \end{minipage}
-    \caption{Scatter diagram of principal coordinate analysis of the Bray-Curtis dissimilarity scores computed on relative abundances of families for SRR072232 (left) and SRR072233 (right).}
-    \label{family_pcoa}
-\end{figure}
-
-For species, the observations are different (Table \ref{taxo_distances}). No information is available on species composition with *EBI metagenomics* and dissimilarity scores are then equal to 1. With ASaiM framework, dissimilarity scores are slightly higher for species than for families but they remain close to 0. Composition in term of species are then similar in expected and ASaiM framework communities.
+For species, the observations are different (Table \ref{taxo_distances}). No information is available on species composition with *EBI metagenomics* and dissimilarity scores are then equal to 1. With ASaiM framework, dissimilarity scores are slightly higher for species than for families but they remain close to 0. Composition in term of species are then similar in ASaiM framework communities and in mapping-based communities.
 
 ASaiM framework gives taxonomic results which are accurate, complete, precise and statistically supported. Moreover, the community structure found with the ASaiM framework is close to expected community structure of the mock community.
 
@@ -354,7 +348,7 @@ ASaiM framework gives taxonomic results which are accurate, complete, precise an
 
 ### ASaiM functional results
 
-In ASaiM framework, [*HUMAnN*2](http://huttenhower.sph.harvard.edu/humann2) [@abubucker_metabolic_2012] is used for functional analyses. This tool profiles presence/absence and abundance of UniRef50 gene families [@suzek_uniref_2015] and MetaCyc pathways [@caspi_metacyc_2014] from metagenomic/metatranscriptomic datasets. It then describes the metabolic profile of a microbial community with three outputs: abundances of UniRef50 gene families, coverage and abundance of MetaCyc pathways. In both samples, > 90,000 UniRef50 gene families and > 480 MetaCyc pathways (Table \ref{humann2_informations}) are reconstructed from > 1,100,000 non rDNA sequences (Table \ref{pretreatment_stats}).
+In ASaiM framework, [*HUMAnN*2](http://huttenhower.sph.harvard.edu/humann2) [@abubucker_metabolic_2012] is used for functional analyses. This tool profiles presence/absence and abundance of UniRef50 gene families [@suzek_uniref_2015] and MetaCyc pathways [@caspi_metacyc_2014] from metagenomic/metatranscriptomic datasets. It describes the metabolic profile of a microbial community with three outputs: abundances of UniRef50 gene families, coverage and abundance of MetaCyc pathways. In both samples, > 90,000 UniRef50 gene families and > 480 MetaCyc pathways (Table \ref{humann2_informations}) are reconstructed from > 1,100,000 non rDNA sequences (Table \ref{pretreatment_stats}).
 
 \begin{table}[h!]
 \centering
@@ -373,11 +367,13 @@ Relative abundance (\%) & 89.16\% & 50.67\% & 99.85\% & 99.53\%\\
 \label{humann2_informations}
 \end{table}
 
-The used mock datasets are constitued of metagenomic sequences from genomic mixture of 22 microbial strains (Table \ref{expected_species}). The datasets differ on abundance of the 22 strains (Table \ref{expected_species}). Similar metabolic functions made by same species are then supposed to be found in both datasets, but with different abundances.
+The used mock datasets are constitued of metagenomic sequences from genomic mixture of same 22 microbial strains (Table \ref{expected_species}). Same metabolic functions made by same species are then supposed to be found in both datasets. As, the datasets differ on abundance of the 22 strains (Table \ref{expected_species}), the same metabolic functions are then supposed to be found with different abundances in both datasets.
 
-Differences of metabolic functions between both datasets are observed. Sets of gene families are different: 44,933 gene families are found in both samples (< 46\% for both samples, Table \ref{humann2_informations}). But the non similar gene families have a limited impact on overall metabolism (< 50\% of relative abundance, Table \ref{humann2_informations}). They may correspond to gene families which are difficult to detect due to low abundances. Global metabolism functions such as pathways are similar in both datasets (> 95\% of similar pathways representing > 99.5\% of overall abundance, Table \ref{humann2_informations}). Hence, the unexpected observed differences are limited and may be due to bias induced by low abundances and detection threshold.
+Hence, differences of metabolic functions between both datasets are observed. The sets of gene families are different between both datasets. < 46\% identical gene families (44,933) are found in both samples (Table \ref{humann2_informations}). These identical gene families are the most abundant ones (> 50\% of relative abundance of gene families for each dataset, Table \ref{humann2_informations}). The non similar gene families may correspond to gene families which were differentially or partially sequenced, resulting then in their lack of annotation.
 
-On the other hand, abundances of similar metabolic functions are different (Figure \ref{similar_characteristics_abundances}). Hence similar metabolic functions made by same species are found in both datasets in different abundances, as expected.
+Global metabolism information such as pathways are similar in both datasets (> 95\% of similar pathways representing > 99.5\% of overall abundance, Table \ref{humann2_informations}). Indeed, a pathway is identified if a high proportion of gene families involved in this pathway is found. Not all involved gene families are then needed to identify a pathway. The impact on metagenomic sequencing are then reduced leading to similar pathway sets for both datasets.
+
+As expected, abundances of identical metabolic functions are different (Figure \ref{similar_characteristics_abundances}), because of differential abundance of species involved in function metabolization.
 
 \begin{figure}[h!]
     \centering
@@ -391,7 +387,7 @@ On the other hand, abundances of similar metabolic functions are different (Figu
     \label{similar_characteristics_abundances}
 \end{figure}
 
-With more than 90,000 gene families and almost 500 pathways, the metabolic profiles of studied microbial communities are too large to get a broad overview. Each gene family and pathway is precise and related to specific metabolic functions. This information is interesting when you need detailed metabolic information or to go deeply inside metabolic profile. To get a broad overview of the metabolic processes, UniRef50 gene families and even MetaCyc pathways are too numerous and too precise. UniRef50 gene families and their abundances are then grouped into Gene Ontology (GO) slim terms (Figure \ref{go_abundances}). Similar profiles of GO slim terms are observed for both datasets (Figure \ref{go_abundances}).
+To get a broad overview of the metabolic processes, UniRef50 gene families and their abundances are grouped into Gene Ontology (GO) slim terms (Figure \ref{go_abundances}). Similar profiles of GO slim terms are observed for both datasets (Figure \ref{go_abundances}).
 
 \begin{figure}[h!]
     \centering
@@ -408,13 +404,13 @@ With more than 90,000 gene families and almost 500 pathways, the metabolic profi
     \label{go_abundances}
 \end{figure}
 
-Both communities (with same expected strains but in different abundances) have different metabolic profiles: similar metabolic functions but in different abundances, as expected.
+Both communities (with same expected strains but in different abundances) have different metabolic profiles: identical metabolic functions but in different abundances, as expected.
 
 ### Comparison of ASaiM functional results with *EBI metagenomics* results
 
-In ASaiM framework, UniRef50 gene families and their abundances are computed with *HUMAnN2*. In *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}), functional analyses are based on InterPro proteins. These functional results can not be direct compared. In both workflows, UniRef50 gene families and InterPro proteins are grouped into Gene Ontology slim terms to get a broad overview of functional profile of the community.
+In ASaiM framework, UniRef50 gene families and their abundances are computed with *HUMAnN2*. In *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}), functional analyses are based on InterPro database. These functional results can not be direct compared. *EBI metagenomics* pipeline, InterPro proteins are grouped into Gene Ontology slim terms, as in ASaiM framework.
 
-Barplot representations of GO slim term abundances for both samples and both workflows can be difficult to interpret (*e.g.* for cellular components, Figure \ref{cellular_components}). Bray-Curtis dissimilarity scores are then computed on normalized relative abundance of GO slim term abundance inside each category to help comparisons (Table \ref{go_slim_distances}).
+Barplot representations of GO slim term abundances for both samples and both workflows can be difficult to interpret (*e.g.* for cellular components, Figure \ref{cellular_components}). Bray-Curtis dissimilarity scores are computed on normalized relative abundance of GO slim term abundance inside each category (Table \ref{go_slim_distances}).
 
 \begin{figure}[h!]
     \centering
@@ -450,15 +446,15 @@ functions & SRR072233 & EBI & & & - & 0.305\\
 \label{go_slim_distances}
 \end{table}
 
-For each category, compositions are highly more similar (dissimilarity scores close to 0) for both samples analyzed with same methods (*EBI metagenomics* or ASaiM framework) than for same sample analyzed with different methods. These composition differences between *EBI metagenomics* and ASaiM framework may come from different tools, different databases (InterPro for *EBI metagenomics*, UniRef50 for ASaiM framework) and their correspondance to GO slim terms. It is difficult to go beyond these basic comparisons and determine if a tool (*EBI metagenomics* pipeline or ASaiM framework) is better than the other one for functional results as no expected functional profile is available.
+For each category, compositions are more similar (dissimilarity scores closer to 0) for both samples analyzed with the same method (*EBI metagenomics* or ASaiM framework) than for same sample analyzed with different methods. These composition differences between *EBI metagenomics* and ASaiM framework may come from different tools, different databases (InterPro for *EBI metagenomics*, UniRef50 for ASaiM framework) and their correspondance to GO slim terms.
 
 ## Taxonomically-related functional results
 
-In *HUMAnN2* results, abundances of gene families and pathways are stratified at the community level. We can then relate functional results to taxonomic results and answer questions such as "Which taxa contribute to which metabolic functions? And, in which proportion?". < 35\% of gene families (> 90\% of relative abundance) and > 80\% pathways (> 50\% of relative abundance) can be then related to the community structure (species and their abundance, Table \ref{taxo_rel_funct_results}).
+In *HUMAnN2* results, abundances of gene families and pathways are stratified at the community level. We can then relate functional results to taxonomic results and answer questions such as "Which taxa contribute to which metabolic functions? And, in which proportion?". Less than 35\% of gene families (> 90\% of relative abundance) and > 80\% pathways (> 50\% of relative abundance) can be then related to the community structure (species and their abundance, Table \ref{taxo_rel_funct_results}).
 
 \begin{table}[h!]
 \centering
-\begin{tabular}{m{7cm}rrrr}
+\begin{tabular}{m{9cm}rrrr}
 \hline
  & \multicolumn{2}{c}{UniRef50 gene families} & \multicolumn{2}{c}{MetaCyc pathways}\\
  & SRR072232 & SRR072233 & SRR072232 & SRR072233 \\
@@ -466,16 +462,16 @@ In *HUMAnN2* results, abundances of gene families and pathways are stratified at
 Number & 26,219 & 41,005 & 402 & 400 \\
 \% of associated to a species inside all & 26.60\% & 31.62\% & 82.56\% & 80\% \\
 Relative abundance (\%) & 93.40\% & 90.24\% & 61.08\% & 51.52\%\\
-Similar & \multicolumn{2}{c}{19,815} & \multicolumn{2}{c}{363} \\
-\% of similar inside associated to a species  & 68.02\% & 48.32\% & 90.30\% & 90.75\% \\
-Relative abundance of similar inside associated to a species (\%) & 89.17\% & 44.75\% & 91.87\% & 42.70\%\\
+Identical characteristics & \multicolumn{2}{c}{19,815} & \multicolumn{2}{c}{363} \\
+\% of identical characteristics inside characteristics associated to a species  & 68.02\% & 48.32\% & 90.30\% & 90.75\% \\
+Relative abundance of identical characteristics inside characteristics associated to a species (\%) & 89.17\% & 44.75\% & 91.87\% & 42.70\%\\
 \hline
 \end{tabular}
-\caption{Global information about UniRef50 gene families and MetaCyc pathways related to species for both samples (SRR072233 and SRR072233). For each characteristics (gene families and pathways), several information is extracted: all number, number percentage and relative abundance (\%) of similar characteristics and \textit{p-value} of Wilcoxon test on relative abundance normalized by the sum of relative abundance for all similar characteristics.}
+\caption{Global information about UniRef50 gene families and MetaCyc pathways related to species for both samples (SRR072233 and SRR072233). For each characteristics (gene families and pathways), several information is extracted: all number, number percentage and relative abundance (\%) of identical characteristics and \textit{p-value} of Wilcoxon test on relative abundance normalized by the sum of relative abundance for all identical characteristics.}
 \label{taxo_rel_funct_results}
 \end{table}
 
-For both samples, a significant correlation is observed between CDS number in species and number of gene families found for these species (Table \ref{correlation_information}). The correlation, not so bad (*p-value* < 5.09 $\cdot 10^{-3}$), is yet not perfect ($r^{2}$ < 0.71). Indeed, gene families have not a direct mapping to CDS (paralogs, duplications, ...) and rely on exhaustivity of the reference database (UniRef) used by HUMAnN2. So, it may be interesting to investigate the relation between gene families corresponding to found species in UniRef and gene families found using HUMAnN2. This information is not available, but having a significant correlation between gene family number and CDS number is already great.
+For both samples, a significant correlation is observed between CDS number in species and number of gene families found for these species (Table \ref{correlation_information}). Although the correlation is significant (*p-value* < 5.09 $\cdot 10^{-3}$), it is yet not perfect ($r^{2}$ < 0.71). Hence, gene families have not a direct mapping to CDS and rely on exhaustivity of the reference database (UniRef) used by HUMAnN2.
 
 \begin{table}[h!]
 \centering
@@ -505,7 +501,7 @@ CDS number for each strain has been extracted from GenBank given the links in Ta
 \label{correlation_information}
 \end{table}
 
-For both samples, relative abundances of gene families and pathways are highly correlated to observed relative abundance of involved species (Table \ref{correlation_information}). Sequences of an abundant species in a community are supposed to be abundant in metagenomic sequences of the community. This relation holds for all sequences, particularly sequences corresponding to gene families. For pathways, the relation is more tricky: a pathway is identified if a high proportion of gene families involved in this pathway is found. And the abundance of a pathway is proportional to the number of complete "copies" of this pathway in the species. Then, a pathway is abundant if its parts are all found in numerous copies, leading to a tricky relation between species abundance and pathway abundance. But, the high correlations between species relative abundance and mean relative pathway abundance (Figure \ref{gene_family_pathway_mean}, Table \ref{correlation_information}) confirm good pathway reconstructions in our datasets, particularly for abundant species. To accentuate previous observations and conclusion, we also observe a strong and significant correlation between species abundance difference and difference of gene family and pathway mean abundance between both samples (Figure \ref{gene_family_pathway_mean}, Table \ref{correlation_information}).
+For both samples, relative abundances of gene families and pathways are highly correlated to observed relative abundance of involved species (Table \ref{correlation_information}). Sequences of an abundant species in a community are supposed to be abundant in metagenomic sequences of the community. This relation holds for all sequences, particularly sequences corresponding to gene families. For pathways, the relation is more tricky: a pathway is identified if most of the gene families that constitute them are found. The abundance of a pathway is proportional to the number of complete "copies" of this pathway in the species. Then, a pathway is abundant if its parts are all found in numerous copies, leading to a tricky relation between species abundance and pathway abundance. But, the high correlations between species relative abundance and mean relative pathway abundance (Figure \ref{gene_family_pathway_mean}, Table \ref{correlation_information}) confirm good pathway reconstructions in our datasets, particularly for abundant species. To accentuate previous observations and conclusion, we also observe a strong and significant correlation between species abundance difference and difference of gene family and pathway mean abundance between both samples (Figure \ref{gene_family_pathway_mean}, Table \ref{correlation_information}).
 
 \begin{figure}[h!]
     \centering
@@ -524,10 +520,10 @@ Hence, our approach based on *MetaPhlAn2* and *HUMAnN2* results gives accurate a
 
 # Conclusion
 
-With ASaiM framework, raw sequences from a metagenomic dataset are quickly analyzed (in few hours in a commodity computer). Moreover, based on Galaxy, ASaiM framework posseses all Galaxy's strength: accessibility, reproducibility and also modularity. Numerous intermediary results can also be accessed during whole workflow execution, allowing deep investigation of taxonomic and functional analyses of microbial communities.
+With ASaiM framework, raw sequences from a metagenomic dataset are quickly analyzed (in few hours in a commodity computer). Moreover, based on Galaxy, ASaiM framework possesses all Galaxy's strength: accessibility, reproducibility and modularity. Numerous intermediary results can also be accessed during whole workflow execution, allowing deep investigation of taxonomic and functional analyses of microbial communities.
 
-Taxonomic analysis using *MetaPhlAn2* gives a great insight on community structure with complete, accurate and statistically supported information. With *HUMAnN2* and extraction of GO slim terms, we get a broad overview of metabolic profile of studied microbial community. Furthermore, this metabolic profile is related to community structure to get information such as which species is involved in which metabolic function. This relation between function and taxonomy is really specific to the ASaiM framework and not found in solutions like *EBI metagenomics* pipeline.
+Taxonomic analysis using *MetaPhlAn2* gives a great insight on community structure with complete, accurate and statistically supported information. *HUMAnN2* and extraction of GO slim terms give a broad overview of metabolic profile of studied microbial community. Furthermore, this metabolic profile is related to community structure to get information such as which species is involved in which metabolic function. This relation between function and taxonomy is specific to the ASaiM framework and not found in solutions like *EBI metagenomics* pipeline.
 
-ASaiM framework based on Galaxy, numerous tools and workflows is a then powerful framework to analyze microbiota from shotgun raw sequence data.
+Galaxy, the numerous tools and workflows make ASaiM a powerful framework to analyze microbiota from shotgun raw sequence data.
 
 # References
