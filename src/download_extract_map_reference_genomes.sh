@@ -88,7 +88,21 @@ function download_extract_refseq_uniref50_mapping {
         --refseq_uniref50_mapping_file "data/refseq_uniref50_mapping.txt" \
         --reference_protein_file "data/reference_protein.txt"
     rm "idmapping_selected.tab"
+    echo ""
 }
+
+function extract_mapped_proteins {
+    echo $1
+    samtools index "results/"$1"/mapping/4_map_with_bwa-mem_on_data_3_and_data_1_(mapped_reads_in_bam_format).bam"
+    python src/extract_mapped_proteins.py \
+        --mapping_file "results/"$1"/mapping/4_map_with_bwa-mem_on_data_3_and_data_1_(mapped_reads_in_bam_format).bam" \
+        --reference_protein_file "data/reference_protein.txt" \
+        --refseq_uniref50_mapping_file "data/refseq_uniref50_mapping.txt" \
+        --uniref50_abund_file "results/"$1"/mapping/uniref50_abundance.txt" \
+        --uniref50_abund_per_sp_file "results/"$1"/mapping/uniref50_abundance_per_species.txt" \
+        --log "results/"$1"/mapping/uniref50_abundance_log.txt"
+}
+export -f extract_mapped_proteins
 
 echo "Download reference genomes and extract some data"
 echo "================================================"
@@ -109,6 +123,12 @@ echo "============================================"
 cat id.txt | parallel run_graphlan_workflow {} $asaim_galaxy_instance_url $api_key_on_asaim_galaxy_instance
 echo ""
 
-echo "Extract mapped proteins"
-echo "======================="
+echo "Extract information on mapped proteins, UniRef50 gene families, GO slim terms"
+echo "============================================================================="
 download_extract_refseq_uniref50_mapping
+
+echo "Extract mapped proteins and UniRef50 gene family abundances"
+echo "-----------------------------------------------------------"
+extract_mapped_proteins SRR072232
+extract_mapped_proteins SRR072233
+echo ""
