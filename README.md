@@ -11,6 +11,8 @@ We test ASaiM framework on mock samples from HMP which have a controlled communi
 Once `conda` is installed, create the `conda` environment (with all required dependencies):
 
 ```
+$ conda config --add channels biocore
+$ conda config --add channels bioconda
 $ conda env create -f conda_env.yml
 ```
 
