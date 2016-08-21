@@ -79,11 +79,14 @@ function run_graphlan_workflow {
 export -f run_graphlan_workflow
 
 function download_extract_refseq_uniref50_mapping {
+    echo "Download and format RefSeq UniRef50 mapping"
+    echo "-------------------------------------------"
     wget "ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/idmapping_selected.tab.gz"
     gunzip "idmapping_selected.tab.gz"
     python src/extract_refseq_uniref50_mapping.py \
         --uniprot_mapping_file "idmapping_selected.tab" \
-        --refseq_uniref50_mapping_file "data/refseq_uniref50_mapping.txt"
+        --refseq_uniref50_mapping_file "data/refseq_uniref50_mapping.txt" \
+        --reference_protein_file "data/reference_protein.txt"
     rm "idmapping_selected.tab"
 }
 
