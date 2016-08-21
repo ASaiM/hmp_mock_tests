@@ -357,10 +357,10 @@ In ASaiM framework, [*HUMAnN*2](http://huttenhower.sph.harvard.edu/humann2) [@ab
 & \multicolumn{2}{c}{UniRef50 gene families} & \multicolumn{2}{c}{MetaCyc pathways}\\
 & SRR072232 & SRR072233 & SRR072232 & SRR072233 \\
 \hline
-Number & 98,569 & 129,691 & 487 & 500\\
-Similar & \multicolumn{2}{c}{44,933} & \multicolumn{2}{c}{475} \\
-\% of similar inside all & 45.59\% & 34.65\% & 97.54\% & 95\% \\
-Relative abundance (\%) & 89.16\% & 50.67\% & 99.85\% & 99.53\%\\
+Number & 50,700 & 69,357 & 473 & 481\\
+Similar & \multicolumn{2}{c}{26,354} & \multicolumn{2}{c}{466} \\
+\% of similar inside all & 51.98\% & 39\% & 98.52\% & 96.88\% \\
+Relative abundance (\%) & 91.78\% & 63.76\% & 99.98\% & 99.94\%\\
 \hline
 \end{tabular}
 \caption{Global information about UniRef50 gene families and MetaCyc pathways obtained with \textit{HUMAnN2} for both samples (SRR072233 and SRR072233). For each characteristics (gene families and pathways), several information is extracted: all number, number percentage and relative abundance (\%) of similar characteristics.}
@@ -369,9 +369,9 @@ Relative abundance (\%) & 89.16\% & 50.67\% & 99.85\% & 99.53\%\\
 
 The used mock datasets are constitued of metagenomic sequences from genomic mixture of same 22 microbial strains (Table \ref{expected_species}). Same metabolic functions made by same species are then supposed to be found in both datasets. As, the datasets differ on abundance of the 22 strains (Table \ref{expected_species}), the same metabolic functions are then supposed to be found with different abundances in both datasets.
 
-Hence, differences of metabolic functions between both datasets are observed. The sets of gene families are different between both datasets. < 46\% identical gene families (44,933) are found in both samples (Table \ref{humann2_informations}). These identical gene families are the most abundant ones (> 50\% of relative abundance of gene families for each dataset, Table \ref{humann2_informations}). The non similar gene families may correspond to gene families which were differentially or partially sequenced, resulting then in their lack of annotation.
+Hence, differences of metabolic functions between both datasets are observed. The sets of gene families are different between both datasets. < 52\% identical gene families (26,354) are found in both samples (Table \ref{humann2_informations}). These identical gene families are the most abundant ones (> 63\% of relative abundance of gene families for each dataset, Table \ref{humann2_informations}). The non similar gene families may correspond to gene families which were differentially or partially sequenced, resulting then in their lack of annotation.
 
-Global metabolism information such as pathways are similar in both datasets (> 95\% of similar pathways representing > 99.5\% of overall abundance, Table \ref{humann2_informations}). Indeed, a pathway is identified if a high proportion of gene families involved in this pathway is found. Not all involved gene families are then needed to identify a pathway. The impact on metagenomic sequencing are then reduced leading to similar pathway sets for both datasets.
+Global metabolism information such as pathways are similar in both datasets (> 96\% of similar pathways representing > 99.9\% of overall abundance, Table \ref{humann2_informations}). Indeed, a pathway is identified if a high proportion of gene families involved in this pathway is found. Not all involved gene families are then needed to identify a pathway. The impact on metagenomic sequencing are then reduced leading to similar pathway sets for both datasets.
 
 As expected, abundances of identical metabolic functions are different (Figure \ref{similar_characteristics_abundances}), because of differential abundance of species involved in function metabolization.
 
