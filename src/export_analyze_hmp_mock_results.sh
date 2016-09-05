@@ -48,8 +48,8 @@ echo "============================================"
 cat id.txt | parallel run_graphlan_workflow {} $asaim_galaxy_instance_url $api_key_on_asaim_galaxy_instance
 echo ""
 
-echo "Compare functional resuls, taxonomically-related functional results and GO slim terms"
-echo "====================================================================================="
+echo "Compare functional resuls, taxonomically-related functional results and GO slim terms between datasets and also with mapping"
+echo "============================================================================================================================"
 output_dir="results/concatenated_asaim_results/functional_results"
 if [[ ! -d $output_dir ]]; then
     mkdir -p $output_dir
@@ -208,6 +208,24 @@ function test_metaphlan2_on_ref_genome {
 }
 
 
+function compare_asaim_mapping_gene_families {
+    sample_name=$1
+    echo $sample_name
+    echo "---------"
+
+    output_dir="results/"$sample_name"/mapping_asaim_comparison/"
+    if [[ ! -d $output_dir ]]; then
+        mkdir $output_dir
+    fi
+
+    python src/compare_asaim_mapping_gene_families.py \
+        --asaim_gene_families "results/"$sample_name"/asaim_results/51_normalize_a_dataset_by_on_data_39_normalized_dataset.tabular" \
+        --mapping_gene_families "results/"$sample_name"/mapping/uniref50_abundance.txt" \
+        --similar_gene_families $output_dir"similar_gene_families.txt" \
+        --asaim_specific_gene_families $output_dir"asaim_specific_gene_families.txt"
+    echo ""
+}
+export -f compare_asaim_mapping_gene_families
 
 echo "Analyze rDNA sequences"
 echo "======================"
@@ -292,28 +310,33 @@ if [[ -f "results/ref_genome_metaphlan2_assignations/exp_species_abundance.txt" 
   rm "results/ref_genome_metaphlan2_assignations/exp_species_abundance.txt"
 fi
 
-test_metaphlan2_on_ref_genome "acinetobacter_baumannii"
-test_metaphlan2_on_ref_genome "actinomyces_odontolyticus"
-test_metaphlan2_on_ref_genome "bacillus_cereus_thuringiensis"
-test_metaphlan2_on_ref_genome "bacteroides_vulgatus"
-test_metaphlan2_on_ref_genome "candida_albicans"
-test_metaphlan2_on_ref_genome "clostridium_beijerinckii"
-test_metaphlan2_on_ref_genome "deinococcus_radiodurans"
-test_metaphlan2_on_ref_genome "enterococcus_faecalis"
-test_metaphlan2_on_ref_genome "escherichia_coli"
-test_metaphlan2_on_ref_genome "helicobacter_pylori"
-test_metaphlan2_on_ref_genome "lactobacillus_gasseri"
-test_metaphlan2_on_ref_genome "listeria_monocytogenes"
-test_metaphlan2_on_ref_genome "methanobrevibacter_smithii"
-test_metaphlan2_on_ref_genome "neisseria_meningitidis"
-test_metaphlan2_on_ref_genome "propionibacterium_acnes"
-test_metaphlan2_on_ref_genome "pseudomonas_aeruginosa"
-test_metaphlan2_on_ref_genome "rhodobacter_sphaeroides"
-test_metaphlan2_on_ref_genome "staphylococcus_aureus"
-test_metaphlan2_on_ref_genome "staphylococcus_epidermidis"
-test_metaphlan2_on_ref_genome "streptococcus_agalactiae"
-test_metaphlan2_on_ref_genome "streptococcus_mitis_oralis_pneumoniae"
-test_metaphlan2_on_ref_genome "streptococcus_mutans"
+#test_metaphlan2_on_ref_genome "acinetobacter_baumannii"
+#test_metaphlan2_on_ref_genome "actinomyces_odontolyticus"
+#test_metaphlan2_on_ref_genome "bacillus_cereus_thuringiensis"
+#test_metaphlan2_on_ref_genome "bacteroides_vulgatus"
+#test_metaphlan2_on_ref_genome "candida_albicans"
+#test_metaphlan2_on_ref_genome "clostridium_beijerinckii"
+#test_metaphlan2_on_ref_genome "deinococcus_radiodurans"
+#test_metaphlan2_on_ref_genome "enterococcus_faecalis"
+#test_metaphlan2_on_ref_genome "escherichia_coli"
+#test_metaphlan2_on_ref_genome "helicobacter_pylori"
+#test_metaphlan2_on_ref_genome "lactobacillus_gasseri"
+#test_metaphlan2_on_ref_genome "listeria_monocytogenes"
+#test_metaphlan2_on_ref_genome "methanobrevibacter_smithii"
+#test_metaphlan2_on_ref_genome "neisseria_meningitidis"
+#test_metaphlan2_on_ref_genome "propionibacterium_acnes"
+#test_metaphlan2_on_ref_genome "pseudomonas_aeruginosa"
+#test_metaphlan2_on_ref_genome "rhodobacter_sphaeroides"
+#test_metaphlan2_on_ref_genome "staphylococcus_aureus"
+#test_metaphlan2_on_ref_genome "staphylococcus_epidermidis"
+#test_metaphlan2_on_ref_genome "streptococcus_agalactiae"
+#test_metaphlan2_on_ref_genome "streptococcus_mitis_oralis_pneumoniae"
+#test_metaphlan2_on_ref_genome "streptococcus_mutans"
+
+echo "Compare ASaiM and mapping gene families"
+echo "======================================="
+cat id.txt | parallel compare_asaim_mapping_gene_families {}
+echo ""
 
 echo "Concatenate EBI and ASaiM GO slim terms results"
 echo "==============================================="
