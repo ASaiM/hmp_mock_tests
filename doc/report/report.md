@@ -118,7 +118,7 @@ Taxonomic analyses in *EBI metagenomics* and ASaiM workflows are executed on met
 
 ## Analyses using *EBI Metagenomics*
 
-Both datasets have been analysed with [*EBI metagenomics* pipeline (Version 1.0)](https://www.ebi.ac.uk/metagenomics/pipelines/1.0) (Figure \ref{ebi_pipeline}). Results are downloaded from *EBI metagenomics* database and formatted to allow comparisons with ASaiM results.
+In *EBI metagenomics* database, both datasets have been analysed with [*EBI metagenomics* pipeline (Version 1.0)](https://www.ebi.ac.uk/metagenomics/pipelines/1.0) (Figure \ref{ebi_pipeline}).
 
 \begin{figure}[h!]
     \centering
@@ -128,13 +128,11 @@ Both datasets have been analysed with [*EBI metagenomics* pipeline (Version 1.0)
     \label{ebi_pipeline}
 \end{figure}
 
-OTUs with taxonomic assignation are extracted and aggregated to compute relative abundances of each clade at all taxonomic levels.
-
-For functional analysis, 3 types of results are generated with *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}): matches with InterPro, complete GO annotations and GO slim annotations. Here for comparison purpose, we focus on GO slim annotations. The annotations are formatted to extract relative abundances (in percentage) of GO slim term annotations inside each GO slim term category (cellular components, biological processes and molecular functions).
+To ease comparison with ASaiM results, *EBI metagenomics* pipeline results were downloaded from *EBI metagenomics* database and formatted. First, to compute relative abundances of each clade at all taxonomic levels, OTUs with taxonomic assignation are extracted and aggregated. Second, *EBI metagenomics* pipeline generates 3 types of functional results (Figure \ref{ebi_pipeline}): matches with InterPro, complete GO annotations and GO slim annotations. Here, we focus on GO slim annotations. The annotations are formatted to extract relative abundances (in percentage) of GO slim term annotations inside each GO slim term category (cellular components, biological processes and molecular functions).
 
 ## Analyses using ASaiM framework
 
-Main workflow (Supplementary material 1) of the ASaiM framework is used to analyze both datasets. For these analyses, ASaiM framework is deployed on a computer with Debian GNU/Linux System, 8 cores Intel(R) Xeon(R) at 2.40 GHz and 32 Go of RAM. During workflow execution, size of used memory and execution time are checked (Table \ref{computation_stats}). Workflow execution is relatively fast: < 5h and < 5h30 for datasets with 1,225,169 and 1,386,198 sequences respectively (Table \ref{computation_stats}). The most time-consuming step is functional profiling using *HUMAnN2* [@abubucker_metabolic_2012] which last $\simeq$ 64% of overall time execution (Table \ref{computation_stats}). Size of the process in memory is stable over workflow execution (variability inferior to 40 kb) (Table \ref{computation_stats}).
+Main workflow (Supplementary material 1) of the ASaiM framework is used to analyze both datasets. The ASaiM framework were deployed on a computer with Debian GNU/Linux System, 8 cores Intel(R) Xeon(R) at 2.40 GHz and 32 Go of RAM. On this computer, the workflow execution is relatively fast: < 5h and < 5h30 for datasets with 1,225,169 and 1,386,198 sequences respectively (Table \ref{computation_stats}). The most time-consuming step is functional profiling using *HUMAnN2* [@abubucker_metabolic_2012] which last $\simeq$ 64% of overall time execution (Table \ref{computation_stats}). Size of the process in memory is stable over workflow execution (variability inferior to 40 kb) (Table \ref{computation_stats}).
 
 \begin{table}[h!]
 \centering
@@ -159,20 +157,21 @@ Size of the process in memory (kb) & Min & 1,515,732 & 1,515,732\\
 \label{computation_stats}
 \end{table}
 
-Comparative analysis workflows available with the ASaiM framework are used to compare taxonomic and functional results of both datasets.
+To compare taxonomic and functional results of both datasets, we used the comparative analysis workflows available with the ASaiM framework (Supplementary material 1).
 
-To check that each expected organism can be found using same tools and databases than in ASaiM, a dataset is built for each reference genome. Each dataset has sequences randomly extracted from the corresponding reference genome such as the size distribution of sequences is identical to the one in SRR072232 databaset after quality control and dereplication, with same sequence number. Each dataset is then analyzed to extract taxonomic assignation using MetaPhlAN [@@truong_metaphlan2_2015;@segata_metagenomic_2012], as in ASaiM.
+To confirm the pretreatment step and particularly rRNA sequence extraction, we run SortMeRNA with same parameters as in ASaiM but with database with rRNAs extracted of reference genomes of expected organisms.
+
+To verify taxonomic results, we checked that each expected organism can be found using same tools and databases than in ASaiM. A dataset is then built for each reference genome. To build these datasets, the reference genome of each expected organism is randomly cut in smaller sequences such as the size distribution of sequences is identical to the one in SRR072232 databaset after quality control and dereplication, with same sequence number. Taxonomic assignation for each dataset is then extracted using MetaPhlAN [@truong_metaphlan2_2015;@segata_metagenomic_2012], as in ASaiM.
 
 ## Comparison of *EBI metagenomics* results and ASaiM results
 
-*EBI metagenomics* results and ASaiM ones are not directly comparable. Several processing steps are then needed.
+*EBI metagenomics* results and ASaiM results can be directly compared. The results have to be formatted first.
 
-To compare rRNA sequences found with both pipelines, we first compare sequence name. However, some raw sequences
-are duplicated and then eliminated during dereplication process. The corresponding names are removed. To compare rRNA sequences, we run Blast [@camacho_blast_2009] on rRNA sequences found with *EBI metagenomics* with rRNA sequences found with ASaiM as database. We consider as similar sequences the ones found with a similarity percentage higher to 98\% on more than 98\% of the sequence length and with an e-value below 1$\cdot 10^{-16}$. We also compare rRNA sequences found with ASaiM, *i.e* using general rRNA databases, with rRNA sequences found using rRNA databases focusing only on expected organism rRNA sequences. Same tool is used (SortMeRNA) with same parameters, but with different database.
+For comparison of extracted rRNA sequences, sequence name are first compared. However, rRNA sequence extraction process is executed after quality treatment and dereplication in both pipelines. Some duplicated sequences were then eliminated during dereplication process and their names removed. To compare rRNA sequences, we run Blast [@camacho_blast_2009] on rRNA sequences found with *EBI metagenomics* against rRNA sequences found with ASaiM. Sequences are considered as similar between both pipelines if the similarity percentage is higher than 98\% on more than 98\% of the sequence length and if the e-value is below 1$\cdot 10^{-16}$.
 
-With *MetaPhlAn* in ASaiM workflow, relative abundance of clades is computed on assigned reads. No count is made of non assigned reads unlike *EBI metagenomics* pipeline. To compare relative abundances between both pipelines, we focus on relative abundances computed on OTUS or reads with a complete taxonomic assignation from kingdom to family. These results are also compared to relative abundances computed using mapping of raw reads on reference genomes.
+In ASaiM framework, *MetaPhlAn* computes the relative abundance of clades only on assigned reads. No count is made of non assigned reads unlike *EBI metagenomics* pipeline. To compare relative abundances between both pipelines, we focus on relative abundances computed on OTUS or reads with a complete taxonomic assignation from kingdom to family. These results are also compared to relative mapping-based abundances.
 
-In both *EBI metagenomics* and ASaiM workflows, functional matches are grouped into GO slims terms. These terms are a subset of the terms in the whole Gene Ontology with a focus on microbial metabolic functions. They give a broad overview of the ontology content. To compare *EBI metagenomics* and ASaiM results, relative abundance of GO slim terms for both samples and both workflows are concatenated and compared, given the workflow depicted in Figure \ref{go_slim_comparison_workflow}.
+Both *EBI metagenomics* and ASaiM workflows group functional matches into GO slim terms, a subset of the terms in the whole Gene Ontology focusing on microbial metabolic functions. These GO slim terms give a broad overview of the ontology content. To compare *EBI metagenomics* and ASaiM results, relative abundance of GO slim terms for both samples and both workflows are concatenated and compared, given the workflow depicted in Figure \ref{go_slim_comparison_workflow}.
 
 \begin{figure}[h!]
     \centering
