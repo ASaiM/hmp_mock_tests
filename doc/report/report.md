@@ -211,7 +211,7 @@ In both datasets and with both workflows, few rDNA sequences are found in datase
 
 ## Taxonomic analyses
 
-The used metagenomic datasets contain sequences of 22 known microbial strains. The expected community structures inside the datasets are then known with the taxonomy and the expected relative abundances (based on mapping on reference genomes, Figure \ref{expected_taxonomy}). We can then use this information (Figure \ref{expected_taxonomy}) to analyze ASaiM framework taxonomic results and compare them to *EBI metagenomics* pipeline taxonomic results.
+Both metagenomic datasets come from a genomic mixture of 22 known microbial strains whose abundance is known (based on mapping on reference genomes, Figure \ref{expected_taxonomy}). The expected community structures inside the datasets are then known. This information can then be used to analyze ASaiM framework taxonomic results and compare them to *EBI metagenomics* pipeline taxonomic results.
 
 \begin{figure}[h!]
     \centering
@@ -222,9 +222,9 @@ The used metagenomic datasets contain sequences of 22 known microbial strains. T
 
 ### ASaiM taxonomic results
 
-In ASaiM workflow, *MetaPhlAN* (2.2.5) [@truong_metaphlan2_2015;@segata_metagenomic_2012] is used for taxonomic analyses on sequences after preprocessing. *MetaPhlAn* profiles the microbial community structure using a database of unique clade-specific marker genes identified from 17,000 reference genomes. *MetaPhlAn* execution is fast within ASaiM framework (less than 10 minutes for > 1,100,000 sequences, Table \ref{computation_stats}).
+ASaiM workflow uses *MetaPhlAN* (2.2.5) [@truong_metaphlan2_2015;@segata_metagenomic_2012] for taxonomic analyses. *MetaPhlAn* profiles the microbial community structure using a database of unique clade-specific marker genes identified from 17,000 reference genomes. *MetaPhlAn* runs fast within ASaiM framework: less than 10 minutes to assign taxonomy on > 1,100,000 sequences (Table \ref{computation_stats}).
 
-Raw *MetaPhlAn* results consist in a plain text file with relative abundance of clades at different taxonomic levels. Visualisation tools help to represent *MetaPhlAn* results: *Krona* [@ondov_interactive_2011] for interactive representations of taxonomic assignation and *GraPhlan* for static representations. Original static representations are modified (*e.g.* colors, legend) to help comparison with expected taxonomy (Figure \ref{asaim_taxonomy}).
+*MetaPhlAn* generates a plain text file with relative abundance of clades at different taxonomic levels. To visualize *MetaPhlAn* results, *Krona* [@ondov_interactive_2011] generates interactive representations of taxonomic assignation and *GraPhlan* for static representations. Original static representations are modified (*e.g.* colors, legend) to help comparison with expected taxonomy (Figure \ref{asaim_taxonomy}).
 
 \begin{figure}[h!]
     \centering
@@ -245,11 +245,13 @@ Raw *MetaPhlAn* results consist in a plain text file with relative abundance of 
     \label{species_abundances}
 \end{figure}
 
-Despite same expected species, taxonomic diversity in SRR072232 dataset is reduced compared to the one in SRR072233 dataset (Figure \ref{asaim_taxonomy}). Less taxons are found for each taxonomic levels. From the 22 expected species (Table \ref{expected_species}), 17 are found for SRR072232 and 20 for SRR072233 (Figure \ref{species_abundances}). For both datasets, the expected species *Candidata albicans* is missing. The phylogenetic markers for this species seem to be missing in *MetaPhlAn2* database as even with only sequences extracted from *Candidata albicans* reference genomes, this species is not found with *MetaPhlAn2*.
+Same species are expected in both dataset, but the taxonomic diversity in SRR072232 dataset is reduced compared to the one in SRR072233 dataset (Figure \ref{asaim_taxonomy}) with less taxons found at each taxonomic levels. 17 and 20 of the 22 expected species are found for SRR072232 and SRR072233 respectively (Figure \ref{species_abundances}).
 
-Other expected but not found species correspond to species for which few sequences of these species are found using mapping on expected species genomes (Figure \ref{species_abundances}). The phylogenetic signal may be too low to detect these species. Hence, all species with mapping-based relative abundance smaller than 0.1\% are not found using ASaiM framework for both datasets (Figure \ref{species_abundances}).
+The expected species *Candidata albicans* is missing in both dataset results, because of the used *MetaPhlAn2* database. The phylogenetic markers for this species seem to be missing in *MetaPhlAn2* database: even on a dataset with only sequences extracted from *Candidata albicans* reference genomes, this species is not found with *MetaPhlAn2*.
 
-For SRR072232 datasets, one species with mapping-based relative abundance higher than 0.1\% is not found: *Bacillus cereus thuringiensis*. On dataset with sequences extracted from *Bacillus cereus thuringiensis* reference genomes, *Bacillus cereus thuringiensis* phylogenetic markers are found in low proportion of sequences (0.14\% of sequences against 2.28\% on average for other expected species). Few phylogenetic markers for this species are found in *MetaPhlAn2* database. The phylogenetic signal may be then too low to detect this species inside whole metagenomic sequences.
+Other missing species correspond to underrepresented species, *i.e.* species whose few sequences are found using mapping (Figure \ref{species_abundances}). The phylogenetic signal is then too low to detect these species using *MetaPhlAn2*. For both datasets, ASaiM framework can not detect any species with mapping-based relative abundance smaller than 0.1\% (Figure \ref{species_abundances}).
+
+One species with mapping-based relative abundance higher than 0.1\% is not found for SRR072232 datasets: *Bacillus cereus thuringiensis*. Few phylogenetic markers for this species are found in *MetaPhlAn2* database. Indeed, on dataset with only *Bacillus cereus thuringiensis* reference genome's sequences, phylogenetic markers for *Bacillus cereus thuringiensis* are found in very low percentage of sequences (0.14\% of sequences against 2.28\% on average for other expected species). The phylogenetic signal may be then too low to detect this species inside whole metagenomic sequences.
 
 ### Comparison of ASaiM taxonomic results with EBI metagenomics taxonomic results
 
