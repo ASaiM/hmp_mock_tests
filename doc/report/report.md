@@ -535,10 +535,8 @@ Hence, ASaiM framework approach based on *MetaPhlAn2* and *HUMAnN2* results give
 
 # Conclusion
 
-With ASaiM framework, raw sequences from a metagenomic dataset are quickly analyzed (in few hours in a commodity computer). Moreover, based on Galaxy, ASaiM framework possesses all Galaxy's strength: accessibility, reproducibility and modularity. Numerous intermediary results can also be accessed during whole workflow execution, allowing deep investigation of taxonomic and functional analyses of microbial communities.
+ASaiM framework quickly analyses a raw metagenomic dataset (in few hours in a commodity computer). Taxonomic analysis using *MetaPhlAn2* gives a great insight of the community structure with complete, accurate and statistically supported information. *HUMAnN2* and extraction of GO slim terms give a broad overview of metabolic profile of studied microbial community. Furthermore, this metabolic profile can be related to the community structure to obtain information such as which species is involved in which metabolic function. This relation between function and taxonomy is specific to the ASaiM framework and not available with solutions such as *EBI metagenomics* pipeline.
 
-Taxonomic analysis using *MetaPhlAn2* gives a great insight on community structure with complete, accurate and statistically supported information. *HUMAnN2* and extraction of GO slim terms give a broad overview of metabolic profile of studied microbial community. Furthermore, this metabolic profile is related to community structure to get information such as which species is involved in which metabolic function. This relation between function and taxonomy is specific to the ASaiM framework and not found in solutions like *EBI metagenomics* pipeline.
-
-Galaxy, the numerous tools and workflows make ASaiM a powerful framework to analyze microbiota from shotgun raw sequence data.
+Based on Galaxy, ASaiM framework has all Galaxy's strength: accessibility, reproducibility and modularity. Numerous intermediary results can also be accessed during or after workflow execution, allowing deep investigation of taxonomic and functional analyses of microbial communities. Galaxy, the numerous tools and the workflows make ASaiM a powerful framework to analyze microbiota from shotgun raw sequence data.
 
 # References
