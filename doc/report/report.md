@@ -358,7 +358,7 @@ ASaiM framework gives taxonomic results which are accurate, complete, precise an
 
 ## Functional analyses
 
-We can now analyze the functional results from both pipelines. Contrary to taxonomic results, no expected results are available as a framework to help comparison. 
+We can now analyze the functional results from both pipelines. Contrary to taxonomic results, no expected results are available as a framework to help comparison.
 
 ### ASaiM functional results
 
@@ -466,7 +466,7 @@ Inside each category, compositions are more similar (dissimilarity scores closer
 
 ## Taxonomically-related functional results
 
-In *HUMAnN2* results, abundances of gene families and pathways are stratified at the community level. We can then relate functional results to taxonomic results and answer questions such as "Which taxa contribute to which metabolic functions? And, in which proportion?". Less than 35\% of gene families (> 90\% of relative abundance) and > 80\% pathways (> 50\% of relative abundance) can be then related to the community structure (species and their abundance, Table \ref{taxo_rel_funct_results}).
+*HUMAnN2* stratifies the abundances of gene families and pathways at the community level. Around 35\% of gene families (> 90\% of relative abundance) and > 80\% pathways (> 50\% of relative abundance) can be then related to the community structure (species and their abundance, Table \ref{taxo_rel_funct_results}). We can exploit this information to relate functional results to taxonomic results and answer questions such as "Which taxa contribute to which metabolic functions? And, in which proportion?".
 
 \begin{table}[h!]
 \centering
@@ -487,7 +487,7 @@ Relative abundance of identical characteristics inside characteristics associate
 \label{taxo_rel_funct_results}
 \end{table}
 
-For both samples, a significant correlation is observed between CDS number in species and number of gene families found for these species (Table \ref{correlation_information}). Although the correlation is significant (*p-value* < 5.09 $\cdot 10^{-3}$), it is yet not perfect ($r^{2}$ < 0.71). Hence, gene families have not a direct mapping to CDS and rely on exhaustivity of the reference database (UniRef) used by HUMAnN2.
+For both samples, we observe a significant correlation between CDS number in the species and number of gene families found for these species (Table \ref{correlation_information}). The correlation is significant (*p-value* < 5.09 $\cdot 10^{-3}$) but it is yet not perfect ($r^{2}$ < 0.71). Gene families can not be then directly mapped to CDS (*e.g.* to obtain expected results).
 
 \begin{table}[h!]
 \centering
@@ -517,7 +517,7 @@ CDS number for each strain has been extracted from GenBank given the links in Ta
 \label{correlation_information}
 \end{table}
 
-For both samples, relative abundances of gene families and pathways are highly correlated to observed relative abundance of involved species (Table \ref{correlation_information}). Sequences of an abundant species in a community are supposed to be abundant in metagenomic sequences of the community. This relation holds for all sequences, particularly sequences corresponding to gene families. For pathways, the relation is more tricky: a pathway is identified if most of the gene families that constitute them are found. The abundance of a pathway is proportional to the number of complete "copies" of this pathway in the species. Then, a pathway is abundant if its parts are all found in numerous copies, leading to a tricky relation between species abundance and pathway abundance. But, the high correlations between species relative abundance and mean relative pathway abundance (Figure \ref{gene_family_pathway_mean}, Table \ref{correlation_information}) confirm good pathway reconstructions in our datasets, particularly for abundant species. To accentuate previous observations and conclusion, we also observe a strong and significant correlation between species abundance difference and difference of gene family and pathway mean abundance between both samples (Figure \ref{gene_family_pathway_mean}, Table \ref{correlation_information}).
+The relative abundances of the gene families and the pathways are highly correlated to the observed relative abundance of the involved species (Table \ref{correlation_information}). The sequences of an abundant species in a community are supposed to be abundant in the metagenomic sequences of the community. This relation holds for all sequences, particularly sequences corresponding to gene families. For pathways, the relation is more tricky: a pathway is identified if most of the gene families that constitute them are found. The abundance of a pathway is proportional to the number of complete "copies" of this pathway in the species. Then, a pathway is abundant if its parts are all found in numerous copies, leading to a tricky relation between species abundance and pathway abundance. But, the high correlations between species relative abundance and mean relative pathway abundance (Figure \ref{gene_family_pathway_mean}, Table \ref{correlation_information}) confirm good pathway reconstructions in our datasets, particularly for the abundant species. To confirm the previous observations and conclusion, we also observe a strong and significant correlation between species abundance difference and difference of gene family and pathway mean abundance between both samples (Figure \ref{gene_family_pathway_mean}, Table \ref{correlation_information}).
 
 \begin{figure}[h!]
     \centering
@@ -531,8 +531,7 @@ For both samples, relative abundances of gene families and pathways are highly c
     \label{gene_family_pathway_mean}
 \end{figure}
 
-Hence, our approach based on *MetaPhlAn2* and *HUMAnN2* results gives accurate and relevant taxonomically-related functional results.
-
+Hence, ASaiM framework approach based on *MetaPhlAn2* and *HUMAnN2* results gives accurate and relevant taxonomically-related functional results.
 
 # Conclusion
 
