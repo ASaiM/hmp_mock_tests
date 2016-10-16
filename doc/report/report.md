@@ -358,9 +358,13 @@ ASaiM framework gives taxonomic results which are accurate, complete, precise an
 
 ## Functional analyses
 
+We can now analyze the functional results from both pipelines. Contrary to taxonomic results, no expected results are available as a framework to help comparison. 
+
 ### ASaiM functional results
 
-In ASaiM framework, [*HUMAnN*2](http://huttenhower.sph.harvard.edu/humann2) [@abubucker_metabolic_2012] is used for functional analyses. This tool profiles presence/absence and abundance of UniRef50 gene families [@suzek_uniref_2015] and MetaCyc pathways [@caspi_metacyc_2014] from metagenomic/metatranscriptomic datasets. It describes the metabolic profile of a microbial community with three outputs: abundances of UniRef50 gene families, coverage and abundance of MetaCyc pathways. In both samples, > 90,000 UniRef50 gene families and > 480 MetaCyc pathways (Table \ref{humann2_informations}) are reconstructed from > 1,100,000 non rDNA sequences (Table \ref{pretreatment_stats}).
+ASaiM framework uses [*HUMAnN*2](http://huttenhower.sph.harvard.edu/humann2) [@abubucker_metabolic_2012] for functional analyses. This tool profiles presence/absence and abundance of UniRef50 gene families [@suzek_uniref_2015] and MetaCyc pathways [@caspi_metacyc_2014]. The metabolic profile of a microbial community is described in three outputs: abundances of UniRef50 gene families, coverage and abundance of MetaCyc pathways.
+
+More than 90,000 UniRef50 gene families and 480 MetaCyc pathways (Table \ref{humann2_informations}) are reconstructed from > 1,100,000 non rDNA sequences of both samples (Table \ref{pretreatment_stats}).
 
 \begin{table}[h!]
 \centering
@@ -379,13 +383,13 @@ Relative abundance (\%) & 91.78\% & 63.76\% & 99.98\% & 99.94\%\\
 \label{humann2_informations}
 \end{table}
 
-The used mock datasets are constitued of metagenomic sequences from genomic mixture of same 22 microbial strains (Table \ref{expected_species}). Same metabolic functions made by same species are then supposed to be found in both datasets. As, the datasets differ on abundance of the 22 strains (Table \ref{expected_species}), the same metabolic functions are then supposed to be found with different abundances in both datasets.
+Both datasets come from a genomic mixture of 22 identical microbial strains (Table \ref{expected_species}). Same species of both datasets are implied in same metabolic functions. The same metabolic functions are then supposed to be found in both datasets, but with different abundances in both datasets (Table \ref{expected_species}),
 
-Hence, differences of metabolic functions between both datasets are observed. The sets of gene families are different between both datasets. < 52\% identical gene families (26,354) are found in both samples (Table \ref{humann2_informations}). These identical gene families are the most abundant ones (> 63\% of relative abundance of gene families for each dataset, Table \ref{humann2_informations}). The non similar gene families may correspond to gene families which were differentially or partially sequenced, resulting then in their lack of annotation.
+The sets of gene families are slightly different between both datasets: < 52\% identical gene families (26,354) are found in both samples (Table \ref{humann2_informations}). These identical gene families correspond to the most abundant ones (> 63\% of relative abundance of gene families for each dataset, Table \ref{humann2_informations}). The non similar gene families may correspond to gene families which are in low abundance, are differentially or partially sequenced or made by species which are differentially abundant.
 
-Global metabolism information such as pathways are similar in both datasets (> 96\% of similar pathways representing > 99.9\% of overall abundance, Table \ref{humann2_informations}). Indeed, a pathway is identified if a high proportion of gene families involved in this pathway is found. Not all involved gene families are then needed to identify a pathway. The impact on metagenomic sequencing are then reduced leading to similar pathway sets for both datasets.
+Global metabolism information in pathways are highly similar in both datasets: > 96\% of similar pathways representing > 99.9\% of overall abundance (Table \ref{humann2_informations}). A pathway is identified if a high proportion of gene families involved in this pathway is found. Not all involved gene families are then needed to identify a pathway. The impact on metagenomic sequencing are then reduced and similar pathway sets are then found in both datasets.
 
-As expected, abundances of identical metabolic functions are different (Figure \ref{similar_characteristics_abundances}), because of differential abundance of species involved in function metabolization.
+The abundances of identical metabolic functions are different (Figure \ref{similar_characteristics_abundances}), as expected. The differential abundance of species involved in function metabolization lead to differential abundance of these functions.
 
 \begin{figure}[h!]
     \centering
@@ -399,7 +403,7 @@ As expected, abundances of identical metabolic functions are different (Figure \
     \label{similar_characteristics_abundances}
 \end{figure}
 
-To get a broad overview of the metabolic processes, UniRef50 gene families and their abundances are grouped into Gene Ontology (GO) slim terms (Figure \ref{go_abundances}). Similar profiles of GO slim terms are observed for both datasets (Figure \ref{go_abundances}).
+UniRef50 gene families and MetaCyc pathways are somehow too specific to obtain a broad overview of the metabolic processes. In ASaiM framework, UniRef50 gene families and their abundances are grouped into Gene Ontology (GO) slim terms (Figure \ref{go_abundances}). We observe of similar profiles of GO slim terms for both datasets (Figure \ref{go_abundances}).
 
 \begin{figure}[h!]
     \centering
@@ -416,13 +420,13 @@ To get a broad overview of the metabolic processes, UniRef50 gene families and t
     \label{go_abundances}
 \end{figure}
 
-Both communities (with same expected strains but in different abundances) have different metabolic profiles: identical metabolic functions but in different abundances, as expected.
+Both communities (with same expected strains but in different abundances) have different metabolic profiles: similar metabolic functions but in different abundances, as expected.
 
 ### Comparison of ASaiM functional results with *EBI metagenomics* results
 
-In ASaiM framework, UniRef50 gene families and their abundances are computed with *HUMAnN2*. In *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}), functional analyses are based on InterPro database. These functional results can not be direct compared. *EBI metagenomics* pipeline, InterPro proteins are grouped into Gene Ontology slim terms, as in ASaiM framework.
+In ASaiM framework, *HUMAnN2* computes UniRef50 gene families and their abundances. In *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}), functional analyses are based on InterPro database. We can not directly compare these functional results. As in ASaiM framework, *EBI metagenomics* pipeline groups InterPro proteins into Gene Ontology slim terms.
 
-Barplot representations of GO slim term abundances for both samples and both workflows can be difficult to interpret (*e.g.* for cellular components, Figure \ref{cellular_components}). Bray-Curtis dissimilarity scores are computed on normalized relative abundance of GO slim term abundance inside each category (Table \ref{go_slim_distances}).
+Barplot representations of GO slim term abundances for both samples and both workflows can be difficult to interpret (*e.g.* for cellular components, Figure \ref{cellular_components}). We compute then the Bray-Curtis dissimilarity scores on normalized relative abundance of GO slim term abundance inside each category (Table \ref{go_slim_distances}).
 
 \begin{figure}[h!]
     \centering
@@ -454,11 +458,11 @@ functions & SRR072233 & EBI & & & - & 0.305\\
  & & ASaiM & & & & -\\
 \hline
 \end{tabular}
-\caption{Bray-Curtis dissimilarity scores on relative abundances of families and species for both samples (SRR072233 and SRR072233)}
+\caption{Bray-Curtis dissimilarity scores on relative abundances of families and species for both samples (SRR072232 and SRR072233)}
 \label{go_slim_distances}
 \end{table}
 
-For each category, compositions are more similar (dissimilarity scores closer to 0) for both samples analyzed with the same method (*EBI metagenomics* or ASaiM framework) than for same sample analyzed with different methods. These composition differences between *EBI metagenomics* and ASaiM framework may come from different tools, different databases (InterPro for *EBI metagenomics*, UniRef50 for ASaiM framework) and their correspondance to GO slim terms.
+Inside each category, compositions are more similar (dissimilarity scores closer to 0) for both samples analyzed with the same method (*EBI metagenomics* or ASaiM framework) than for same sample analyzed with different methods (*e.g.* SRR072232 analyzed *EBI metagenomics* and ASaiM framework). These composition differences between *EBI metagenomics* and ASaiM framework may come from the different tools, the different databases (InterPro for *EBI metagenomics*, UniRef50 for ASaiM framework) and their way to be grouped into GO slim terms.
 
 ## Taxonomically-related functional results
 
