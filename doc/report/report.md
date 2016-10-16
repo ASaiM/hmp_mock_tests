@@ -255,9 +255,7 @@ One species with mapping-based relative abundance higher than 0.1\% is not found
 
 ### Comparison of ASaiM taxonomic results with EBI metagenomics taxonomic results
 
-After these first comparisons between ASaiM taxonomic results and expected ones, ASaiM taxonomic results can be compared to *EBI metagenomics* taxonomic results.
-
-In *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}), *QIIME* [@caporaso_qiime_2010] is used on 16S sequences to identify OTUs and taxonomic assignation for these OTUs. In ASaiM framework, *MetaPhlAn* is executed on sequences after quality control and dereplication, without any sorting step. *MetaPhlAn* searches diverse phylogenetic markers on all sequence types (rDNA, non rDNA, etc), not only 16S ones as *QIIME* [@caporaso_qiime_2010] does. Taxonomic assignations within ASaiM framework are then based on more sequences and more statistically supported than taxonomic assignations from *EBI metagenomics* pipeline. The most precise taxonomic level in *EBI metagenomics* results is family (Figure \ref{ebi_taxonomy}). It is more precise (species) with ASaiM framework (Figure \ref{asaim_taxonomy}). *MetaPhlAn* gives taxonomic assignations which are more complete and statistically supported.
+We can now compare ASaiM taxonomic results to *EBI metagenomics* ones (Figure \ref{asaim_taxonomy}).
 
 \begin{figure}[h!]
     \centering
@@ -266,7 +264,11 @@ In *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}), *QIIME* [@caporaso_q
     \label{ebi_taxonomy}
 \end{figure}
 
-With both *EBI metagenomics* pipeline and ASaiM framework, some observed taxonomic assignations are unexpected (Table \ref{unexpected_clades}, Figures \ref{asaim_taxonomy} and \ref{ebi_taxonomy}). For ASaiM framework, 3 species in each sample are identified as "unclassified" (Table \ref{unexpected_clades}): they are affiliated to the correct genus but not to correct species. Corresponding sequences may be then incompletely annotated and affiliated. The expected species (*Escherichia* unclassified, *Pseudomonas* unclassified, *Methanobrevibacter* unclassified, *Deinococcus* unclassified) are observed in datasets (Figure \ref{asaim_taxonomy}), but in lower abundance than expected. If sequences corresponding to close unclassified species are correctly affiliated, these species would have observed relative abundances closer to mapping-based abundances.
+*EBI metagenomics* pipeline uses *QIIME* [@caporaso_qiime_2010] to identify Operational Taxonomic Units (OTUs) and taxonomic assignation for these OTUs. *EBI metagenomics* focuses only on taxonomic assignations of 16S sequences. In ASaiM framework, *MetaPhlAn* is executed on quality treated sequences, before any sorting step. Diverse phylogenetic markers are searched on all sequence types (rDNA, non rDNA, etc), not only 16S ones as *QIIME* [@caporaso_qiime_2010] does. 16S sequences correspond to a low proportion of over all sequences (Table \ref{pretreatment_stats}). Taxonomic assignations of *EBI metagenomics* rely then on less sequences than the ones of ASaiM framework: they are less statistically supported.
+
+The taxonomic assignations in *EBI metagenomics* go from kingdom to family (Figure \ref{ebi_taxonomy}), while in ASaiM framework *MetaPhlAn* outputs taxonomic assignations from kingdom to species (Figure \ref{asaim_taxonomy}). In ASaiM framework, the taxonomic assignations are more precise and more statistically supported than in *EBI metagenomics*.
+
+In both *EBI metagenomics* and ASaiM framework, we observe taxonomic assignations which are unexpected (Table \ref{unexpected_clades}, Figures \ref{asaim_taxonomy} and \ref{ebi_taxonomy}). While only species are found as unexpected in ASaiM framework, *EBI metagenomics* founds unexpected classes, orders and families (Table \ref{unexpected_clades}, Figure \ref{ebi_taxonomy}). For ASaiM framework, 4 species in each sample are identified as "unclassified" (Table \ref{unexpected_clades}): they are affiliated to the correct genus but not to correct species. Corresponding sequences may be highly similar in several species from the same genus and can not then be assigned to a specific species. Taxonomic assignations with *MetaPhlAN* are then more accurate (less unexpected clades and for a higher level).
 
 \begin{table}[h!]
 \centering
@@ -302,7 +304,7 @@ $^{1}$ No information for this taxonomic level with EBI metagenomics.}
 \label{unexpected_clades}
 \end{table}
 
-The divergence between unexpected and expected lineages occurs at higher taxonomic levels in *EBI metagenomics* results than in ASaiM framework results. Hence, with *EBI metagenomics*, unexpected classes, orders and familes are found (Table \ref{unexpected_clades}, Figure \ref{ebi_taxonomy}). Whereas with ASaiM, only unexpected species are found (Table \ref{unexpected_clades}, Figure \ref{asaim_taxonomy}). The higher levels correspond to expected clades. Taxonomic assignations with *MetaPhlAN* are then more accurate and precise.
+As mentioned before, the most precise taxomic level for *EBI metagenomics* is family (Figure \ref{ebi_taxonomy}). The further comparisons between *EBI metagenomics* and ASaiM framework results are then focused on this level (Figure \ref{family_abundances}).
 
 \begin{figure}[h!]
     \centering
@@ -316,14 +318,19 @@ The divergence between unexpected and expected lineages occurs at higher taxonom
     \label{family_abundances}
 \end{figure}
 
-As the most precise taxomic level for *EBI metagenomics* is family (Figure \ref{ebi_taxonomy}), further comparisons focus on this level (Figure \ref{family_abundances}). Similarly to previous observations on raw ASaiM results, families with mapping-based abundance smaller than 0.1\% are found neither with ASaiM nor with *EBI metagenomics* (Figure \ref{family_abundances}).
+Neither ASaiM nor *EBI metagenomics* found any low abundance families (mapping-based abundance smaller than 0.1\%, Figure \ref{family_abundances}), similarly to the previous observations on raw ASaiM results. Some families with higher abundances are not found too:
 
-Listeriaceae family is detected with *EBI metagenomics* but not with ASaiM. The expected abundance for this family is close to the 0.1\% threshold. *EBI metagenomics* seems then better to detect families with expected low abundance for which exp than ASaiM, at least for Listeriaceae family (Figure \ref{family_abundances}).
+- Listeriaceae family
 
-On the other hand, both Bacillaceae and Debaryomycetaceae families are not found with *EBI metagenomics* for both datasets (Figure \ref{family_abundances}), despite mapping-based abundance higher than 0.1\%. Bacillaceae and Debaryomycetaceae are the families corresponding respectively to *Bacillus cereus
-thuringiensis* and *Candida albicans* species. Both species are either not found or hardly found with ASaiM (Figure \ref{species_abundances}) because of few phylogenetic markers for these species in *MetaPhlAn2* database. Similarly, the used databases in *EBI metagenomics* may be incomplete regarding phylogenetic markers for the missing families.
+    The expected abundance for this family is close to the 0.1\% threshold. This family is detected with *EBI metagenomics* but not with ASaiM. *EBI metagenomics* may be then better to detect families with expected low abundance than ASaiM, at least for Listeriaceae family (Figure \ref{family_abundances}).
 
-Variations in observed abundances for *EBI metagenomics* or ASaiM framework correspond to variations in mapping-based abundances (Figure \ref{family_abundances}). For a broader comparison, Bray-Curtis dissimilarity scores are computed on relative abundances of families (Table \ref{taxo_distances}, Figure \ref{family_pcoa}). With Bray-Curtis dissimilarity scores close to 0 (Table \ref{taxo_distances}), communities based on mapping, *EBI metagenomics* results or ASaiM framework results have then similar family compositions. Bray-Curtis dissimilarity scores are close to 0, small differences are then observed with the different tools. For both datasets, *EBI metagenomics* results on family relative abundances are closer to expected abundances than ASaiM framework results (Table \ref{taxo_distances}). But the differences are small, particularly for SRR072233 datasets, and the scores are close to 0 (Table \ref{taxo_distances}).
+- Bacillaceae and Debaryomycetaceae families
+
+    Both of these families are not found with *EBI metagenomics* for both datasets (Figure \ref{family_abundances}), despite mapping-based abundance higher than 0.1\%. Bacillaceae and Debaryomycetaceae correspond to the family level of *Bacillus cereus thuringiensis* and *Candida albicans* species, respectively. Both species are either not found or hardly found with ASaiM (Figure \ref{species_abundances}): few phylogenetic markers for these species in *MetaPhlAn2* database. Similarly, the used databases in *EBI metagenomics* may be incomplete regarding phylogenetic markers for the missing families.
+
+Despite less sequences used for the taxonomic assignations, *EBI metagenomics* seems better to detect low abundance families than ASaiM framework.
+
+More generally, variations in observed abundances for *EBI metagenomics* or ASaiM framework correspond to variations in mapping-based abundances (Figure \ref{family_abundances}). For a broader comparison, Bray-Curtis dissimilarity scores are computed on relative abundances of families (Table \ref{taxo_distances}, Figure \ref{family_pcoa}). With scores close to 0, the communities based family compositions are then similar for mapping, *EBI metagenomics* or ASaiM framework results. Bray-Curtis dissimilarity scores are close but higher to 0, small differences are then observed between the different tools. *EBI metagenomics* results on family relative abundances are closer to expected abundances than ASaiM framework results (Table \ref{taxo_distances}). But the differences are small, particularly for SRR072233 datasets, and the scores remain close to 0 (Table \ref{taxo_distances}).
 
 \begin{table}[h!]
 \centering
@@ -347,7 +354,7 @@ Species & EBI & & - & 1 & & - & 1\\
 
 For species, the observations are different (Table \ref{taxo_distances}). No information is available on species composition with *EBI metagenomics* and dissimilarity scores are then equal to 1. With ASaiM framework, dissimilarity scores are slightly higher for species than for families but they remain close to 0. Composition in term of species are then similar in ASaiM framework communities and in mapping-based communities.
 
-ASaiM framework gives taxonomic results which are accurate, complete, precise and statistically supported. Moreover, the community structure found with the ASaiM framework is close to expected community structure of the mock community.
+ASaiM framework gives taxonomic results which are accurate, complete, precise and statistically supported. Moreover, the community structure found with the ASaiM framework is close to the expected community structure of the mock community.
 
 ## Functional analyses
 
