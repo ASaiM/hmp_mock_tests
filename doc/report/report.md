@@ -38,8 +38,6 @@ We called targeted abundances of strains, the number of 16S copies targeted in P
 
 Before any analysis of *EBI metagenomics* and ASaiM results, raw reads are mapped on reference genomes of expected strains using BWA [@li_fast_2009;@li_fast_2010] (using default parameters). We then extract "exact" abundances of expected strains in the metagenomic datasets, after DNA pooling and sequencing (*i.e.* not based on targeted rRNA operon counts in PCR).
 
-Similar community compositions are observed using mapping-based relative abundances of strains or targeted relative abundance (Figure \ref{mapping_comparison}): the Bray-Curtis dissimilarity scores are smaller than 0.5 (0.338 for SRR02232 and 0.479 for SRR072233). For SRR02232, similar variations in relative abundances between the species are then observed using both mapping and targeted abundances (Figure \ref{mapping_comparison}). However, different observations are made for SRR072233 (Figure \ref{mapping_comparison}): identical targeted abundances are expected for all species, but variations are observed for mapping based abundances. The variation of 16S gene copy number between the species can explain the differences between targeted abundances and mapping-based abundances. Indeed, the targeted abundances are based on 16S copy number targeted in PCR. But, the number of 16S gene copies is not identical in the strains (from 1 for *Candida albicans* to 14 for *Clostridium beijerinckii*). Hence, even with identical targeted abundances (*e.g.* for SRR072233), a species with twice 16S gene copies in its genome would be found twice less abundant in mapping-based relative abundance results. The 16S gene copy number variation induces then difference between the relative abundance based on mapping reads on whole genome and the relative abundance based on the targeted 16S gene counts.
-
 \newpage
 \thispagestyle{empty}
 \newgeometry{top=2cm, bottom=2cm, left=2cm, right=2cm}
@@ -101,6 +99,8 @@ Eukaryotes & Fungi & Ascomycota & Saccharomycetes & Saccharomycetales & Debaryom
 \end{landscape}
 \newpage
 \restoregeometry
+
+Similar community compositions are observed using mapping-based relative abundances of strains or targeted relative abundance (Figure \ref{mapping_comparison}): the Bray-Curtis dissimilarity scores are smaller than 0.5 (0.338 for SRR02232 and 0.479 for SRR072233). For SRR02232, similar variations in relative abundances between the species are then observed using both mapping and targeted abundances (Figure \ref{mapping_comparison}). However, different observations are made for SRR072233 (Figure \ref{mapping_comparison}): identical targeted abundances are expected for all species, but variations are observed for mapping based abundances. The variation of 16S gene copy number between the species can explain the differences between targeted abundances and mapping-based abundances. Indeed, the targeted abundances are based on 16S copy number targeted in PCR. But, the number of 16S gene copies is not identical in the strains (from 1 for *Candida albicans* to 14 for *Clostridium beijerinckii*). Hence, even with identical targeted abundances (*e.g.* for SRR072233), a species with twice 16S gene copies in its genome would be found twice less abundant in mapping-based relative abundance results. The 16S gene copy number variation induces then a difference between the relative abundance based on mapping reads on whole genome and the relative abundance based on the targeted 16S gene counts.
 
 \begin{figure}[h!]
     \centering
@@ -330,7 +330,7 @@ Neither ASaiM nor *EBI metagenomics* found any low abundance families (mapping-b
 
 Despite less sequences used for the taxonomic assignations, *EBI metagenomics* seems better to detect low abundance families than ASaiM framework.
 
-More generally, variations in observed abundances for *EBI metagenomics* or ASaiM framework correspond to variations in mapping-based abundances (Figure \ref{family_abundances}). For a broader comparison, Bray-Curtis dissimilarity scores are computed on relative abundances of families (Table \ref{taxo_distances}, Figure \ref{family_pcoa}). With scores close to 0, the communities based family compositions are then similar for mapping, *EBI metagenomics* or ASaiM framework results. Bray-Curtis dissimilarity scores are close but higher to 0, small differences are then observed between the different tools. *EBI metagenomics* results on family relative abundances are closer to expected abundances than ASaiM framework results (Table \ref{taxo_distances}). But the differences are small, particularly for SRR072233 datasets, and the scores remain close to 0 (Table \ref{taxo_distances}).
+More generally, variations in observed abundances for *EBI metagenomics* or ASaiM framework correspond to variations in mapping-based abundances (Figure \ref{family_abundances}). For a broader comparison, Bray-Curtis dissimilarity scores are computed on relative abundances of families (Table \ref{taxo_distances}). With scores close to 0, the communities based family compositions are then similar for mapping, *EBI metagenomics* or ASaiM framework results. Bray-Curtis dissimilarity scores are close but higher to 0, small differences are then observed between the different tools. *EBI metagenomics* results on family relative abundances are closer to expected abundances than ASaiM framework results (Table \ref{taxo_distances}). But the differences are small, particularly for SRR072233 datasets, and the scores remain close to 0 (Table \ref{taxo_distances}).
 
 \begin{table}[h!]
 \centering
@@ -389,8 +389,6 @@ The sets of gene families are slightly different between both datasets: < 52\% i
 
 Global metabolism information in pathways are highly similar in both datasets: > 96\% of similar pathways representing > 99.9\% of overall abundance (Table \ref{humann2_informations}). A pathway is identified if a high proportion of gene families involved in this pathway is found. Not all involved gene families are then needed to identify a pathway. The impact on metagenomic sequencing are then reduced and similar pathway sets are then found in both datasets.
 
-The abundances of identical metabolic functions are different (Figure \ref{similar_characteristics_abundances}), as expected. The differential abundance of species involved in function metabolization lead to differential abundance of these functions.
-
 \begin{figure}[h!]
     \centering
     \begin{minipage}[c]{.49\linewidth}
@@ -402,6 +400,8 @@ The abundances of identical metabolic functions are different (Figure \ref{simil
     \caption{Normalized relative abundances (\%) for similar UniRef50 gene families (left) and MetaCyc pathways (right) for both samples (SRR072233 and SRR072233). The relative abundances of each similar characteristics (gene families or pathways) is computed with \textit{HUMAnN2} and normalized by the sum of relative abundance for all similar characteristics.}
     \label{similar_characteristics_abundances}
 \end{figure}
+
+The abundances of identical metabolic functions are different (Figure \ref{similar_characteristics_abundances}), as expected. The differential abundance of species involved in function metabolization lead to differential abundance of these functions.
 
 UniRef50 gene families and MetaCyc pathways are somehow too specific to obtain a broad overview of the metabolic processes. In ASaiM framework, UniRef50 gene families and their abundances are grouped into Gene Ontology (GO) slim terms (Figure \ref{go_abundances}). We observe of similar profiles of GO slim terms for both datasets (Figure \ref{go_abundances}).
 
