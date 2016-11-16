@@ -6,8 +6,8 @@ author:
     - Bérénice Batut
     - Clémence Defois
     - Kévin Gravouil
-    - Eric Peyretaillade
     - Jean-François Brugère
+    - Eric Peyretaillade
     - Pierre Peyret
 address: EA-4678 CIDAM, Clermont Université, Université d’Auvergne, Clermont-Ferrand, France
 geometry: margin=2.5cm
@@ -26,17 +26,17 @@ For these datasets, the ASaiM framework produces accurate and precise taxonomic 
 
 # Data
 
-On [*EBI metagenomics* database](https://www.ebi.ac.uk/metagenomics/), [two mock community samples](https://www.ebi.ac.uk/metagenomics/projects/SRP004311) for Human Microbiome Project (HMP) are available. Both samples contain a genomic mixture of 22 microbial strains whose differ in their abundance (Table \ref{expected_species}). In first sample ([SRR072232](https://www.ebi.ac.uk/metagenomics/projects/SRP004311/samples/SRS121012/runs/SRR072232/results/versions/1.0)), the targeted 16S copies in PCR: vary by up to four orders of magnitude between the strains (Table \ref{expected_species}), whereas in second sample ([SRR072233](https://www.ebi.ac.uk/metagenomics/projects/SRP004311/samples/SRS121011/runs/SRR072233/results/versions/1.0))same 16S copy number is targeted in PCR for each strain (Table \ref{expected_species}). The pooled DNA of both samples were sequenced using 454 GS FLX Titanium. 1,225,169 and 1,386,198 raw metagenomic sequences are then respectively obtained for the first dataset (SRR072232) and the second dataset (SRR072233).
+On [*EBI metagenomics* database](https://www.ebi.ac.uk/metagenomics/), [two mock community samples](https://www.ebi.ac.uk/metagenomics/projects/SRP004311) for Human Microbiome Project (HMP) are available. Both samples contain a genomic mixture of 22 known microbial strains which are targeted based on 16S abundance (Table \ref{expected_species}). In first sample ([SRR072232](https://www.ebi.ac.uk/metagenomics/projects/SRP004311/samples/SRS121012/runs/SRR072232/results/versions/1.0)), the targeted 16S copies of the strains vary by up to four orders of magnitude between the strains (Table \ref{expected_species}), whereas in second sample ([SRR072233](https://www.ebi.ac.uk/metagenomics/projects/SRP004311/samples/SRS121011/runs/SRR072233/results/versions/1.0)) same 16S copy number is targeted for each strain (Table \ref{expected_species}). After pooling, the DNA of the strains of both samples were sequenced using 454 GS FLX Titanium. 1,225,169 and 1,386,198 raw metagenomic sequences are then respectively obtained for the first dataset (SRR072232) and the second dataset (SRR072233).
 
 # Methods
 
-Both datasets have been analyzed using the ASaiM framework. The results are extensively analyzed and compared to expected results from reference genome information and to *EBI metagenomics* results. Details about these analyses (workflows, scripts) are available on a [dedicated GitHub repository](https://github.com/ASaiM/hmp_mock_tests).
+Both datasets have been analyzed using the ASaiM framework. The results are extensively analyzed and compared to expected results from reference genome information and to *EBI metagenomics* results. Details about these analyses (workflows, scripts) are available on a dedicated GitHub repository ([https://github.com/ASaiM/hmp_mock_tests](https://github.com/ASaiM/hmp_mock_tests)).
 
 ## Abundance computation using mapping on reference genomes
 
-We called targeted abundances of strains, the number of 16S copies targeted in PCR and added to the pooled DNA to build the community before sequencing.
+In both datasets, abundance of each strain is targeted based on 16S quantity to build the genomic mixture before sequencing. But these targeted abundances may be not reflect the final abundances (*e.g.* 16S copy number variation, sequencing bias). We have a known composition of the datasets with an expected abundances before sequencing but no information about the real abundance of the strains after sequencing.
 
-Before any analysis of *EBI metagenomics* and ASaiM results, raw reads are mapped on reference genomes of expected strains using BWA [@li_fast_2009;@li_fast_2010] (using default parameters). We then extract "exact" abundances of expected strains in the metagenomic datasets, after DNA pooling and sequencing (*i.e.* not based on targeted rRNA operon counts in PCR).
+Before any analysis of *EBI metagenomics* and ASaiM results, we need more insights in the real abundance of the strains after sequencing. We mapped raw reads on reference genomes of expected strains using BWA [@li_fast_2009;@li_fast_2010] (using default parameters). We then extract the "exact" abundances of expected strains in the metagenomic datasets, after DNA pooling and sequencing (*i.e.* not based on targeted rRNA operon counts in PCR).
 
 \newpage
 \thispagestyle{empty}
@@ -100,7 +100,7 @@ Eukaryotes & Fungi & Ascomycota & Saccharomycetes & Saccharomycetales & Debaryom
 \newpage
 \restoregeometry
 
-Similar community compositions are observed using mapping-based relative abundances of strains or targeted relative abundance (Figure \ref{mapping_comparison}): the Bray-Curtis dissimilarity scores are smaller than 0.5 (0.338 for SRR02232 and 0.479 for SRR072233). For SRR02232, similar variations in relative abundances between the species are then observed using both mapping and targeted abundances (Figure \ref{mapping_comparison}). However, different observations are made for SRR072233 (Figure \ref{mapping_comparison}): identical targeted abundances are expected for all species, but variations are observed for mapping based abundances. The variation of 16S gene copy number between the species can explain the differences between targeted abundances and mapping-based abundances. Indeed, the targeted abundances are based on 16S copy number targeted in PCR. But, the number of 16S gene copies is not identical in the strains (from 1 for *Candida albicans* to 14 for *Clostridium beijerinckii*). Hence, even with identical targeted abundances (*e.g.* for SRR072233), a species with twice 16S gene copies in its genome would be found twice less abundant in mapping-based relative abundance results. The 16S gene copy number variation induces then a difference between the relative abundance based on mapping reads on whole genome and the relative abundance based on the targeted 16S gene counts.
+Similar community compositions are observed using mapping-based relative abundances of strains or targeted relative abundance (Figure \ref{mapping_comparison}): the Bray-Curtis dissimilarity scores are smaller than 0.5 (0.338 for SRR02232 and 0.479 for SRR072233). For SRR02232, similar variations in relative abundances between the species are then observed using both mapping and targeted abundances (Figure \ref{mapping_comparison}). However, different observations are made for SRR072233 (Figure \ref{mapping_comparison}): identical targeted abundances are expected for all species, but variations are observed for mapping based abundances. The variation of 16S gene copy number between the species can explain the differences between targeted abundances and mapping-based abundances. Indeed, the targeted abundances are based on 16S copy number targeted in PCR to build the DNA pool. But, the number of 16S gene copies is not identical in the strains (from 1 for *Candida albicans* to 14 for *Clostridium beijerinckii*). Hence, even with identical targeted abundances (*e.g.* for SRR072233), a species with twice 16S gene copies in its genome would be found twice less abundant in mapping-based relative abundance results. The 16S gene copy number variation induces then a difference between the relative abundance based on mapping reads on whole genome and the relative abundance based on the targeted 16S gene counts.
 
 \begin{figure}[h!]
     \centering
@@ -159,15 +159,11 @@ Size of the process in memory (kb) & Min & 1,515,732 & 1,515,732\\
 
 To compare taxonomic and functional results of both datasets, we used the comparative analysis workflows available with the ASaiM framework (Supplementary material 1).
 
-To confirm the pretreatment step and particularly rRNA sequence extraction, we run SortMeRNA with same parameters as in ASaiM but with database with rRNAs extracted of reference genomes of expected organisms.
-
 To verify taxonomic results, we checked that each expected organism can be found using same tools and databases than in ASaiM. A dataset is then built for each reference genome. To build these datasets, the reference genome of each expected organism is randomly cut in smaller sequences such as the size distribution of sequences is identical to the one in SRR072232 databaset after quality control and dereplication, with same sequence number. Taxonomic assignation for each dataset is then extracted using MetaPhlAN [@truong_metaphlan2_2015;@segata_metagenomic_2012], as in ASaiM.
 
 ## Comparison of *EBI metagenomics* results and ASaiM results
 
-*EBI metagenomics* results and ASaiM results can be directly compared. The results have to be formatted first.
-
-For comparison of extracted rRNA sequences, sequence name are first compared. However, rRNA sequence extraction process is executed after quality treatment and dereplication in both pipelines. Some duplicated sequences were then eliminated during dereplication process and their names removed. To compare rRNA sequences, we run Blast [@camacho_blast_2009] on rRNA sequences found with *EBI metagenomics* against rRNA sequences found with ASaiM. Sequences are considered as similar between both pipelines if the similarity percentage is higher than 98\% on more than 98\% of the sequence length and if the e-value is below 1$\cdot 10^{-16}$.
+The first step in comparison of *EBI metagenomics* results and ASaiM results is the comparison of rRNA sequences extracted with both methods to determine if similar rRNA sequences are found with both methods. We first compare the extracted rRNA sequences using the names of the corresponding raw sequences. However, rRNA sequence extraction process is executed after quality treatment and dereplication in both pipelines. Some duplicated sequences were then eliminated during dereplication process and the pool of sequences are then not comparable using only their names. To compare rRNA sequences, we run Blast [@camacho_blast_2009] on rRNA sequences found with *EBI metagenomics* against rRNA sequences found with ASaiM. Sequences are considered as similar between both pipelines if the similarity percentage is higher than 98\% on more than 98\% of the sequence length and if the e-value is below 1$\cdot 10^{-16}$. We also compare to expected rRNA sequences: we run SortMeRNA with same parameters as in ASaiM but with a database made of rRNAs extracted from the reference genomes of the expected organisms.
 
 In ASaiM framework, *MetaPhlAn* computes the relative abundance of clades only on assigned reads. No count is made of non assigned reads unlike *EBI metagenomics* pipeline. To compare relative abundances between both pipelines, we focus on relative abundances computed on OTUS or reads with a complete taxonomic assignation from kingdom to family. These results are also compared to relative mapping-based abundances.
 
@@ -205,7 +201,7 @@ non rDNA sequences & 988,169 & 99.05\% & 1,159,837 & 98.6\% & 1,188,050 & 99.19\
 \label{pretreatment_stats}
 \end{table}
 
-The number of conserved sequence after quality control and dereplication are different between both pipelines (Table \ref{pretreatment_stats}). ASaiM framework conserves more sequences (> 96 \%) during these first steps of quality control and dereplication than *EBI metagenomics* does (< 87 \%, Table \ref{pretreatment_stats}). These differences may come from the difference of minimal length sequence. In *EBI metagenomics* pipeline, sequences with less than 100 nucleotides are removed, while in ASaiM the threshold is fixed to 60 nucleotides. More sequences are then conserved with ASaiM. However, this threshold difference explain only small part of observed difference in sequence number after quality control and dereplication. Indeed, if quality control in ASaiM framework is run with same length threshold as in *EBI metagenomics* pipeline, more sequences are eliminated (7.4% and 5.9%) than with standard length threshold (Table \ref{pretreatment_stats}). These proportions remain lower than the one observed with *EBI metagenomics* pipeline (Table \ref{pretreatment_stats}). Sequence number differences after quality control and dereplication are then induced moderately by smaller length thresholds in ASaiM. Main sequence number difference are more probably induced by the different used tools, their underlying algorithms and implementations.
+The number of sequence after quality control and dereplication are different between both pipelines (Table \ref{pretreatment_stats}). ASaiM framework conserves more sequences (> 96 \%) during these first steps of quality control and dereplication than *EBI metagenomics* does (< 87 \%, Table \ref{pretreatment_stats}). These differences may come from the difference of minimal length sequence. In *EBI metagenomics* pipeline, sequences with less than 100 nucleotides are removed, while in ASaiM the threshold is fixed to 60 nucleotides. More sequences are then conserved with ASaiM. However, this threshold difference explain only small part of observed difference in sequence number after quality control and dereplication. Indeed, if quality control in ASaiM framework is run with same length threshold as in *EBI metagenomics* pipeline, more sequences are eliminated (7.4% and 5.9%) than with standard length threshold (Table \ref{pretreatment_stats}). These proportions remain lower than the one observed with *EBI metagenomics* pipeline (Table \ref{pretreatment_stats}). Sequence number differences after quality control and dereplication are then induced moderately by smaller length thresholds in ASaiM. Main sequence number difference are more probably induced by the different used tools, their underlying algorithms and implementations.
 
 In both datasets and with both workflows, few rDNA sequences are found in datasets (Table \ref{pretreatment_stats}). These datasets are composed of whole genome metagenomic sequences. Few copies of rDNA genes are present in organisms (bacteria, archeae or eukaryotes) and are then expected in metagenomic sequences, as observed for the datasets. Nevertheless, higher proportions of rDNA sequences are found with ASaiM framework (1-1.4\%) than with *EBI metagonomics* (0.8-0.9\%, Table \ref{pretreatment_stats}). In *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}) *rRNASelector* [@lee_rrnaselector:_2011] is used to select rDNA bacterial and archaeal sequences. In ASaiM framework, sequences are sorted using *SortMeRNA* [@kopylova_sortmerna:_2012] and databases with bacteria, archaea and also eukaryotes rDNA sequences. Differences of rRNA reference databases, particularly the use of eukaryotic database in ASaiM, may then explain the differences in rRNA sequence proportions extracted by both workflows. In ASaiM framework, 0.03-0.05\% of all sequences are matched against databases dedicated to eukaryotic rDNA sequences, but this small proportion does however not explain the whole difference of rDNA sequence proportion between *EBI metagenomics* and ASaiM framework. The rRNA sequences found with *EBI metagenomics* correspond to a subset of rRNA sequences found with ASaiM: more than 97\% of rRNA sequences found with *EBI metagenomics* are similarly also found as rRNA sequences with ASaiM framework, less than 2.5\% of rRNA sequences found with *EBI metagenomics* are identified as non rRNA sequences with ASaiM framework, the other sequences (<60) may correspond to sequences differentially filtered or trimmed during quality control. *EBI metagenomics* and ASaiM pipelines extract then similar rRNA sequences and these sequences corresponds to sequences from expected organisms. A high proportion (80-86\%) of rRNA sequences found with ASaiM and its general rRNA databases are also found with  SortMeRNA and databases constitued only of rRNA sequences from expected organisms, and 98.8-99.3\% of rRNA sequences found with expected organism rRNA sequence databases are found with ASaiM general databases. Hence, sequence sorting in ASaiM extracts rRNA/rDNA sequences close to rRNA sequences of expected organisms.
 
@@ -249,13 +245,13 @@ Same species are expected in both dataset, but the taxonomic diversity in SRR072
 
 The expected species *Candidata albicans* is missing in both dataset results, because of the used *MetaPhlAn2* database. The phylogenetic markers for this species seem to be missing in *MetaPhlAn2* database: even on a dataset with only sequences extracted from *Candidata albicans* reference genomes, this species is not found with *MetaPhlAn2*.
 
-Other missing species correspond to underrepresented species, *i.e.* species whose few sequences are found using mapping (Figure \ref{species_abundances}). The phylogenetic signal is then too low to detect these species using *MetaPhlAn2*. For both datasets, ASaiM framework can not detect any species with mapping-based relative abundance smaller than 0.1\% (Figure \ref{species_abundances}).
+Other missing species (*e.g.* *Enterococcus faecalis* or *Lactobacillus gasseri*) correspond to underrepresented species, *i.e.* species whose few sequences are found using mapping (Figure \ref{species_abundances}). The phylogenetic signal is then too low to detect these species using *MetaPhlAn2*. Indeed, for both datasets, ASaiM framework can not detect any species with mapping-based relative abundance smaller than 0.1\% (Figure \ref{species_abundances}).
 
 One species with mapping-based relative abundance higher than 0.1\% is not found for SRR072232 datasets: *Bacillus cereus thuringiensis*. Few phylogenetic markers for this species are found in *MetaPhlAn2* database. Indeed, on dataset with only *Bacillus cereus thuringiensis* reference genome's sequences, phylogenetic markers for *Bacillus cereus thuringiensis* are found in very low percentage of sequences (0.14\% of sequences against 2.28\% on average for other expected species). The phylogenetic signal may be then too low to detect this species inside whole metagenomic sequences.
 
 ### Comparison of ASaiM taxonomic results with EBI metagenomics taxonomic results
 
-We can now compare ASaiM taxonomic results to *EBI metagenomics* ones (Figure \ref{asaim_taxonomy}).
+We can now compare ASaiM taxonomic results to *EBI metagenomics* ones.
 
 \begin{figure}[h!]
     \centering
@@ -264,7 +260,7 @@ We can now compare ASaiM taxonomic results to *EBI metagenomics* ones (Figure \r
     \label{ebi_taxonomy}
 \end{figure}
 
-*EBI metagenomics* pipeline uses *QIIME* [@caporaso_qiime_2010] to identify Operational Taxonomic Units (OTUs) and taxonomic assignation for these OTUs. *EBI metagenomics* focuses only on taxonomic assignations of 16S sequences. In ASaiM framework, *MetaPhlAn* is executed on quality treated sequences, before any sorting step. Diverse phylogenetic markers are searched on all sequence types (rDNA, non rDNA, etc), not only 16S ones as *QIIME* [@caporaso_qiime_2010] does. 16S sequences correspond to a low proportion of over all sequences (Table \ref{pretreatment_stats}). Taxonomic assignations of *EBI metagenomics* rely then on less sequences than the ones of ASaiM framework: they are less statistically supported.
+*EBI metagenomics* pipeline uses *QIIME* [@caporaso_qiime_2010] to identify Operational Taxonomic Units (OTUs) and taxonomic assignation for these OTUs. *EBI metagenomics* focuses on taxonomic assignations of 16S sequences. In ASaiM framework, *MetaPhlAn* is executed on quality treated sequences, before any sorting step. Diverse phylogenetic markers are searched on all sequence types (rDNA, non rDNA), not only 16S ones as *QIIME* [@caporaso_qiime_2010] does. In both datasets, 16S sequences represent a low proportion of sequences (Table \ref{pretreatment_stats}). Taxonomic assignations of *EBI metagenomics* rely then on less sequences than the ones of ASaiM framework: they are less statistically supported.
 
 The taxonomic assignations in *EBI metagenomics* go from kingdom to family (Figure \ref{ebi_taxonomy}), while in ASaiM framework *MetaPhlAn* outputs taxonomic assignations from kingdom to species (Figure \ref{asaim_taxonomy}). In ASaiM framework, the taxonomic assignations are more precise and more statistically supported than in *EBI metagenomics*.
 
@@ -304,7 +300,7 @@ $^{1}$ No information for this taxonomic level with EBI metagenomics.}
 \label{unexpected_clades}
 \end{table}
 
-As mentioned before, the most precise taxomic level for *EBI metagenomics* is family (Figure \ref{ebi_taxonomy}). The further comparisons between *EBI metagenomics* and ASaiM framework results are then focused on this level (Figure \ref{family_abundances}).
+As mentioned before, the most precise taxonomic level for *EBI metagenomics* is family (Figure \ref{ebi_taxonomy}). The further comparisons between *EBI metagenomics* and ASaiM framework results are then focused on this level (Figure \ref{family_abundances}).
 
 \begin{figure}[h!]
     \centering
@@ -358,13 +354,13 @@ ASaiM framework gives taxonomic results which are accurate, complete, precise an
 
 ## Functional analyses
 
-We can now analyze the functional results from both pipelines. Contrary to taxonomic results, no expected results are available as a framework to help comparison.
+Contrary to taxonomic results, no expected results are available as a framework to help comparison.
 
 ### ASaiM functional results
 
 ASaiM framework uses [*HUMAnN*2](http://huttenhower.sph.harvard.edu/humann2) [@abubucker_metabolic_2012] for functional analyses. This tool profiles presence/absence and abundance of UniRef50 gene families [@suzek_uniref_2015] and MetaCyc pathways [@caspi_metacyc_2014]. The metabolic profile of a microbial community is described in three outputs: abundances of UniRef50 gene families, coverage and abundance of MetaCyc pathways.
 
-More than 90,000 UniRef50 gene families and 480 MetaCyc pathways (Table \ref{humann2_informations}) are reconstructed from > 1,100,000 non rDNA sequences of both samples (Table \ref{pretreatment_stats}).
+More than 50,000 UniRef50 gene families and 480 MetaCyc pathways (Table \ref{humann2_informations}) are reconstructed from > 1,100,000 non rDNA sequences of both samples (Table \ref{pretreatment_stats}).
 
 \begin{table}[h!]
 \centering
@@ -385,7 +381,7 @@ Relative abundance (\%) & 91.78\% & 63.76\% & 99.98\% & 99.94\%\\
 
 Both datasets come from a genomic mixture of 22 identical microbial strains (Table \ref{expected_species}). Same species of both datasets are implied in same metabolic functions. The same metabolic functions are then supposed to be found in both datasets, but with different abundances in both datasets (Table \ref{expected_species}),
 
-The sets of gene families are slightly different between both datasets: < 52\% identical gene families (26,354) are found in both samples (Table \ref{humann2_informations}). These identical gene families correspond to the most abundant ones (> 63\% of relative abundance of gene families for each dataset, Table \ref{humann2_informations}). The non similar gene families may correspond to gene families which are in low abundance, are differentially or partially sequenced or made by species which are differentially abundant.
+The sets of gene families are slightly different between both datasets: < 52\% identical gene families (26,354) are found in both samples (Table \ref{humann2_informations}). These identical gene families correspond to the most abundant ones (> 63\% of relative abundance of gene families for each dataset, Table \ref{humann2_informations}). The non similar gene families may correspond to gene families which are in low abundance, are differentially or partially sequenced or made by species which are in small abundance.
 
 Global metabolism information in pathways are highly similar in both datasets: > 96\% of similar pathways representing > 99.9\% of overall abundance (Table \ref{humann2_informations}). A pathway is identified if a high proportion of gene families involved in this pathway is found. Not all involved gene families are then needed to identify a pathway. The impact on metagenomic sequencing are then reduced and similar pathway sets are then found in both datasets.
 
