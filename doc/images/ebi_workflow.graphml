@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:java="http://www.yworks.com/xml/yfiles-common/1.0/java" xmlns:sys="http://www.yworks.com/xml/yfiles-common/markup/primitives/2.0" xmlns:x="http://www.yworks.com/xml/yfiles-common/markup/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:y="http://www.yworks.com/xml/graphml" xmlns:yed="http://www.yworks.com/xml/yed/3" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://www.yworks.com/xml/schema/graphml/1.1/ygraphml.xsd">
-  <!--Created by yEd 3.14.2-->
+  <!--Created by yEd 3.16.1-->
   <key attr.name="Description" attr.type="string" for="graph" id="d0"/>
   <key for="port" id="d1" yfiles.type="portgraphics"/>
   <key for="port" id="d2" yfiles.type="portgeometry"/>
@@ -20,7 +20,7 @@
           <y:Geometry height="47.360000000000014" width="94.35999999999967" x="127.04000000000036" y="384.47599999999994"/>
           <y:Fill color="#C0C0C0" color2="#808080" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" modelName="custom" textColor="#000000" visible="true" width="64.884765625" x="14.737617187499836" y="7.547187500000007">Raw 
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="64.884765625" x="14.737617187499836" y="7.547187500000007">Raw 
 sequences<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -37,7 +37,7 @@ sequences<y:LabelModel>
           <y:Geometry height="172.3119999999999" width="239.45599999999996" x="251.40000000000006" y="322.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="159.4609375" modelName="custom" textColor="#000000" visible="true" width="216.595703125" x="11.43014843749998" y="6.425531249999949">Quality control
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="159.4609375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="216.595703125" x="11.43014843749998" y="6.425531249999949">Quality control
 
 - Trim low quality (low quality ends 
 and sequences with &gt; 10% N 
@@ -64,7 +64,7 @@ with RepeatMasker
           <y:Geometry height="34.69999999999999" width="94.35999999999967" x="520.856" y="390.8059999999999"/>
           <y:Fill color="#C0C0C0" color2="#808080" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" modelName="custom" textColor="#000000" visible="true" width="66.015625" x="14.172187499999836" y="1.2171875000000227">Processed 
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="66.015625" x="14.172187499999836" y="1.2171875000000227">Processed 
 sequences<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -81,7 +81,7 @@ sequences<y:LabelModel>
           <y:Geometry height="43.39999999999998" width="116.0" x="645.2159999999997" y="386.45599999999996"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" modelName="custom" textColor="#000000" visible="true" width="89.318359375" x="13.3408203125" y="5.567187499999989">rRNA selection
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="90.71875" x="12.640625" y="5.567187499999989">rDNA selection
 (rRNASelector)<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -98,7 +98,7 @@ sequences<y:LabelModel>
           <y:Geometry height="34.69999999999999" width="94.35999999999956" x="727.3814999999998" y="321.756"/>
           <y:Fill color="#C0C0C0" color2="#808080" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" modelName="custom" textColor="#000000" visible="true" width="64.884765625" x="14.737617187499723" y="1.2171875000000227">rRNA 
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="64.884765625" x="14.737617187499723" y="1.2171875000000227">rDNA 
 sequences<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -115,7 +115,7 @@ sequences<y:LabelModel>
           <y:Geometry height="34.69999999999999" width="98.83499999999924" x="713.144" y="459.85599999999994"/>
           <y:Fill color="#C0C0C0" color2="#808080" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" modelName="custom" textColor="#000000" visible="true" width="64.919921875" x="16.957539062499563" y="1.2171875000000227">Non rRNA 
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="66.3203125" x="16.257343749999563" y="1.217187499999966">Non rDNA 
 sequences<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -132,7 +132,7 @@ sequences<y:LabelModel>
           <y:Geometry height="43.39999999999998" width="83.47999999999996" x="851.7414999999994" y="317.406"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" modelName="custom" textColor="#000000" visible="true" width="62.875" x="10.302500000000009" y="5.567187499999989">16S rRNA 
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="64.275390625" x="9.602304687500009" y="5.567187499999989">16S rDNA 
 selection<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -149,7 +149,7 @@ selection<y:LabelModel>
           <y:Geometry height="34.69999999999999" width="94.35999999999967" x="965.2214999999994" y="321.756"/>
           <y:Fill color="#C0C0C0" color2="#808080" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" modelName="custom" textColor="#000000" visible="true" width="64.884765625" x="14.737617187499836" y="1.2171875000000227">16S rRNA 
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="64.884765625" x="14.737617187499836" y="1.2171875000000227">16S rDNA 
 sequences<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -166,7 +166,7 @@ sequences<y:LabelModel>
           <y:Geometry height="53.0" width="94.35999999999962" x="1087.1249393617056" y="312.606"/>
           <y:Fill color="#96E196" color2="#54CE54" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="46.3984375" modelName="custom" textColor="#000000" visible="true" width="72.37890625" x="10.990546874999836" y="3.30078125">Taxonomic 
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="46.3984375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="72.37890625" x="10.990546874999836" y="3.30078125">Taxonomic 
 analyses
 (QIIME)<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -184,7 +184,7 @@ analyses
           <y:Geometry height="43.39999999999998" width="136.59999999999985" x="833.4719408269758" y="455.506"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" modelName="custom" textColor="#000000" visible="true" width="93.431640625" x="21.584179687499955" y="5.567187499999989">CDS prediction
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="93.431640625" x="21.584179687499955" y="5.567187499999989">CDS prediction
 (FragGeneScan)<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -201,7 +201,7 @@ analyses
           <y:Geometry height="34.69999999999999" width="94.35999999999967" x="991.5648816539522" y="459.85599999999994"/>
           <y:Fill color="#C0C0C0" color2="#808080" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" modelName="custom" textColor="#000000" visible="true" width="61.919921875" x="16.220039062499836" y="1.2171875000000227">Predicted 
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="61.919921875" x="16.220039062499836" y="1.217187499999966">Predicted 
 CDS<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -218,7 +218,7 @@ CDS<y:LabelModel>
           <y:Geometry height="53.0" width="115.99999999999994" x="1107.4178224809284" y="450.70599999999996"/>
           <y:Fill color="#FF9696" color2="#FF6B6B" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="46.3984375" modelName="custom" textColor="#000000" visible="true" width="84.390625" x="15.8046875" y="3.30078125">Functional 
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="46.3984375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="84.390625" x="15.8046875" y="3.30078125">Functional 
 analyses
 (InterProScan)<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -231,13 +231,12 @@ analyses
       </data>
     </node>
     <node id="n12">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="com.yworks.flowchart.userMessage">
           <y:Geometry height="26.8021844660193" width="696.5406464479282" x="1116.4753544796938" y="565.400760252933"/>
           <y:Fill color="#DBDBDB" color2="#DBDBDB" transparent="false"/>
           <y:BorderStyle color="#808080" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.1328125" modelName="custom" textColor="#000000" visible="true" width="42.0390625" x="327.25079197396417" y="4.334685983009649">Tables<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="42.0390625" x="327.25079197396417" y="4.334685983009649">Tables<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -248,13 +247,12 @@ analyses
       </data>
     </node>
     <node id="n13">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="com.yworks.flowchart.userMessage">
           <y:Geometry height="26.8021844660193" width="1070.5871166988327" x="125.84747815534024" y="565.400760252933"/>
           <y:Fill color="#DBDBDB" color2="#DBDBDB" transparent="false"/>
           <y:BorderStyle color="#808080" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.1328125" modelName="custom" textColor="#000000" visible="true" width="65.23046875" x="502.6783239744163" y="4.334685983009649">Sequences<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="65.23046875" x="502.67832397441634" y="4.334685983009649">Sequences<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -270,7 +268,7 @@ analyses
           <y:Geometry height="34.69999999999999" width="94.35999999999967" x="1244.910763307905" y="459.8559999999999"/>
           <y:Fill color="#C0C0C0" color2="#808080" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" modelName="custom" textColor="#000000" visible="true" width="53.69921875" x="20.330390624999836" y="1.217187499999966">InterPro 
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="53.69921875" x="20.330390624999836" y="1.2171875000000227">InterPro 
 matches<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -287,7 +285,7 @@ matches<y:LabelModel>
           <y:Geometry height="39.049999999999955" width="151.03741811855025" x="1209.0283787234118" y="319.581"/>
           <y:Fill color="#C0C0C0" color2="#808080" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" modelName="custom" textColor="#000000" visible="true" width="132.865234375" x="9.086091871775125" y="3.3921874999999773">OTUs with taxonomic 
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="132.865234375" x="9.086091871775125" y="3.3921874999999773">OTUs with taxonomic 
 assignations<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -304,7 +302,7 @@ assignations<y:LabelModel>
           <y:Geometry height="65.99689595878596" width="83.47999999999996" x="1360.7637041348812" y="444.20755202060695"/>
           <y:Fill color="#FF9696" color2="#FF6B6B" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="60.53125" modelName="custom" textColor="#000000" visible="true" width="60.630859375" x="11.424570312500009" y="2.7328229793929495">Annotate 
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="60.53125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="60.630859375" x="11.424570312500009" y="2.7328229793929495">Annotate 
 InterPro 
 matches 
 with GO<y:LabelModel>
@@ -323,7 +321,7 @@ with GO<y:LabelModel>
           <y:Geometry height="34.700000000000045" width="104.8134743118112" x="1465.7366449618578" y="459.8559999999999"/>
           <y:Fill color="#C0C0C0" color2="#808080" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" modelName="custom" textColor="#000000" visible="true" width="85.345703125" x="9.733885593405603" y="1.2171875000000227">Complete GO 
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="85.345703125" x="9.733885593405603" y="1.2171875000000227">Complete GO 
 annotations<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -340,7 +338,7 @@ annotations<y:LabelModel>
           <y:Geometry height="65.99689595878596" width="83.47999999999996" x="1592.0430601006456" y="444.20755202060695"/>
           <y:Fill color="#FF9696" color2="#FF6B6B" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="46.3984375" modelName="custom" textColor="#000000" visible="true" width="66.525390625" x="8.477304687500009" y="9.79922922939295">Group into
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="46.3984375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="66.525390625" x="8.477304687500009" y="9.79922922939295">Group into
 GO slim
 terms<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -358,7 +356,7 @@ terms<y:LabelModel>
           <y:Geometry height="34.700000000000045" width="116.0" x="1697.0160009276221" y="459.8559999999999"/>
           <y:Fill color="#C0C0C0" color2="#808080" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" modelName="custom" textColor="#000000" visible="true" width="84.9296875" x="15.53515625" y="1.2171875000000227">GO slim term 
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="84.9296875" x="15.53515625" y="1.2171875000000227">GO slim term 
 abundance<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -480,7 +478,6 @@ abundance<y:LabelModel>
       </data>
     </edge>
     <edge id="e11" source="n11" target="n14">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -491,7 +488,6 @@ abundance<y:LabelModel>
       </data>
     </edge>
     <edge id="e12" source="n8" target="n15">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -502,7 +498,6 @@ abundance<y:LabelModel>
       </data>
     </edge>
     <edge id="e13" source="n14" target="n16">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -513,7 +508,6 @@ abundance<y:LabelModel>
       </data>
     </edge>
     <edge id="e14" source="n16" target="n17">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -524,7 +518,6 @@ abundance<y:LabelModel>
       </data>
     </edge>
     <edge id="e15" source="n17" target="n18">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -535,7 +528,6 @@ abundance<y:LabelModel>
       </data>
     </edge>
     <edge id="e16" source="n18" target="n19">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
