@@ -2,14 +2,6 @@
 title: "Validation of the ASaiM framework and its workflows on HMP mock community samples"
 subject_session: Sequence analysis
 subtitle: "Supplementary material 2"
-author:
-    - Bérénice Batut
-    - Clémence Defois
-    - Kévin Gravouil
-    - Jean-François Brugère
-    - Eric Peyretaillade
-    - Pierre Peyret
-address: EA-4678 CIDAM, Clermont Université, Université d’Auvergne, Clermont-Ferrand, France
 geometry: margin=2.5cm
 year: 2016
 header-includes:
