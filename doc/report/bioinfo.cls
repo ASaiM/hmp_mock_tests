@@ -501,23 +501,24 @@
 %  }
   %\hfill\includegraphics{OUP_First_SBk_Bot_8401.eps}}
   %\vskip2pt
-  \rule{6.2in}{2\p@}\par%
+  \vskip2pt
+  \rule{400pt}{2\p@}\par%
   \helvetica
   \hbox to \textwidth{%
-  \parbox[t]{6.5in}{%
-    \vspace*{1pt}
+  \parbox[t]{36.5pc}{%
+    \vspace*{3pt}
     \ifx\@subtitle\@empty
     \else
-    {\helveticacn\fontsize{14}{21}\selectfont\raggedright \@subtitle \par}%
+    {\helveticacn\fontsize{12}{21}\selectfont\raggedright \@subtitle \par}%
     \vspace{7.5\p@}
     \fi
-    {\helveticabold\fontsize{18}{23}\selectfont\raggedright \@title \par}%
+    {\helveticabold\fontsize{16}{23}\selectfont\raggedright \@title \par}%
     \vspace{8.8\p@}
-    {\helveticabold\boldmath\fontsize{12}{15}\selectfont\raggedright \@author \par}%
+    {\helveticabold\boldmath\fontsize{10}{15}\selectfont\raggedright \@author \par}%
         \vspace{9\p@}
-    {\helveticacn\fontsize{9}{12}\selectfont\raggedright \@address \par}%
+    {\helveticacn\fontsize{7}{12}\selectfont\raggedright \@address \par}%
     \vspace{6\p@}
-    {\helveticacn\fontsize{8.5}{12}\selectfont\raggedright \@corresp \par}%
+    {\helveticacn\fontsize{7}{12}\selectfont\raggedright \@corresp \par}%
     \vspace{2\p@}
     %{\helvetica\fontsize{8.5}{12}\selectfont\raggedright \@editor \par}
     %\vspace{4\p@}
@@ -535,7 +536,7 @@
     }%
   }
   \vspace{13.5\p@}%
-  \rule{6.2in}{2\p@}%
+  \rule{400pt}{2\p@}%
   \vspace{12\p@ plus 6\p@ minus 6\p@}%
   \vspace{\extraspace}
   }
