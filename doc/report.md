@@ -1,16 +1,14 @@
 ---
-title: "Validation of the ASaiM framework and its workflows on HMP mock community samples"
-subject_session: Sequence analysis
-subtitle: "Supplementary material 2"
-geometry: margin=2.5cm
-year: 2016
 header-includes:
     - \usepackage{dirtree}
     - \usepackage{geometry}
     - \usepackage{pdflscape}
     - \usepackage{array}
     - \usepackage{multirow}
+    - \usepackage{graphicx}
+title: Validation of the ASaiM framework and its workflows on HMP mock community samples
 ---
+
 
 The ASaiM framework and its workflows have been tested and validated on two mock metagenomic data of an artificial community (with 22 known microbial strains). The datasets are available on *EBI metagenomics* database (project accession number: [SRP004311](https://www.ebi.ac.uk/metagenomics/projects/SRP004311)). First we checked that the targeted abundances (based on number of
 PCR product) from both mock datasets were similar to the effective abundance (by mapping reads on reference genomes). Second, taxonomic and functional results produced by the ASaiM framework have been extensively analyzed and compared to expectations and to results obtained with the [*EBI metagenomics* pipeline](https://www.ebi.ac.uk/metagenomics/pipelines/1.0) [@hunter_ebi_2014].
@@ -98,14 +96,17 @@ Similar community compositions are observed using mapping-based relative abundan
 \begin{figure}[h!]
     \centering
     \begin{minipage}[c]{.49\linewidth}
-    \includegraphics[width = \linewidth]{../images/SRR072232/mapping_expectation_barplot.pdf}
+    \includegraphics[width = \linewidth]{doc/images/SRR072232/mapping_expectation_barplot.pdf}
     \end{minipage} \hfill
     \begin{minipage}[c]{.49\linewidth}
-    \includegraphics[width = \linewidth]{../images/SRR072233/mapping_expectation_barplot.pdf}
+    \includegraphics[width = \linewidth]{doc/images/SRR072233/mapping_expectation_barplot.pdf}
     \end{minipage}
     \caption{Comparison of relative abundances (percentage, in log scale) between expectation given the ribosomal RNA operon counts (green, Table \ref{expected_species}) and mapping against reference genomes for both samples (SRR072232 on left, SRR072233 on right)}
     \label{mapping_comparison}
 \end{figure}
+
+
+
 
 Taxonomic analyses in *EBI metagenomics* and ASaiM workflows are executed on metagenomic sequences, *i.e.* on data after DNA pooling and sequencing. Mapping-based relatives abundances computed on raw metagenomic sequences are then more appropriate expected abundance information than the relative abundances based on 16S counts. We will then use this information in the next sections.
 
@@ -115,13 +116,14 @@ In *EBI metagenomics* database, both datasets have been analysed with [*EBI meta
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width = \linewidth]{../images/ebi_workflow.pdf}
+    \includegraphics[width = \linewidth]{doc/images/ebi_workflow.pdf}
     \caption{\textit{EBI metagenomics} pipeline (version 1.0).
     The grey boxes correspond to data, the blue boxes to pretreatment steps, the red boxes to functional analysis steps and the green boxes to taxonomic analysis steps.}
     \label{ebi_pipeline}
 \end{figure}
 
 To ease comparison with ASaiM results, *EBI metagenomics* pipeline results were downloaded from *EBI metagenomics* database and formatted. First, to compute relative abundances of each clade at all taxonomic levels, OTUs with taxonomic assignation are extracted and aggregated. Second, *EBI metagenomics* pipeline generates 3 types of functional results (Figure \ref{ebi_pipeline}): matches with InterPro, complete GO annotations and GO slim annotations. Here, we focus on GO slim annotations. The annotations are formatted to extract relative abundances (in percentage) of GO slim term annotations inside each GO slim term category (cellular components, biological processes and molecular functions).
+
 
 ## Analyses using ASaiM framework
 
@@ -164,7 +166,7 @@ Both *EBI metagenomics* and ASaiM workflows group functional matches into GO sli
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width = \linewidth]{../images/go_slim_comparison_workflow.pdf}
+    \includegraphics[width = \linewidth]{doc/images/go_slim_comparison_workflow.pdf}
     \caption{Workflow to compare GO slim annotation abundances between samples (SRR072232, SRR072233) and workflows (\textit{EBI metagenomics}, ASaiM). This workflow is available with ASaiM Galaxy instance. The grey boxes correspond to data, the blue boxes to processing steps.}
     \label{go_slim_comparison_workflow}
 \end{figure}
@@ -179,7 +181,7 @@ The tools and the parameters in the ASaiM framework differ from the ones used in
 
 \begin{table}[h!]
 \centering
-\begin{tabular}{lrrrrrrrr}
+\begin{tabular}{m{4cm}rrrrrrrr}
 \hline
  & \multicolumn{4}{c}{SRR072232} & \multicolumn{4}{c}{SRR072233} \\
 Sequences & \multicolumn{2}{c}{EBI} & \multicolumn{2}{c}{ASaiM} & \multicolumn{2}{c}{EBI} & \multicolumn{2}{c}{ASaiM} \\
@@ -196,7 +198,7 @@ non rDNA sequences & 988,169 & 99.05\% & 1,159,837 & 98.6\% & 1,188,050 & 99.19\
 
 The number of sequence after quality control and dereplication are different between both pipelines (Table \ref{pretreatment_stats}). ASaiM framework conserves more sequences (> 96 \%) during these first steps of quality control and dereplication than *EBI metagenomics* does (< 87 \%, Table \ref{pretreatment_stats}). These differences may come from the difference of minimal length sequence. In *EBI metagenomics* pipeline, sequences with less than 100 nucleotides are removed, while in ASaiM the threshold is fixed to 60 nucleotides. More sequences are then conserved with ASaiM. However, this threshold difference explain only small part of observed difference in sequence number after quality control and dereplication. Indeed, if quality control in ASaiM framework is run with same length threshold as in *EBI metagenomics* pipeline, more sequences are eliminated (7.4% and 5.9%) than with standard length threshold (Table \ref{pretreatment_stats}). These proportions remain lower than the one observed with *EBI metagenomics* pipeline (Table \ref{pretreatment_stats}). Sequence number differences after quality control and dereplication are then induced moderately by smaller length thresholds in ASaiM. Main sequence number difference are more probably induced by the different used tools, their underlying algorithms and implementations.
 
-In both datasets and with both workflows, few rDNA sequences are found in datasets (Table \ref{pretreatment_stats}). These datasets are composed of whole genome metagenomic sequences. Few copies of rDNA genes are present in organisms (bacteria, archeae or eukaryotes) and are then expected in metagenomic sequences, as observed for the datasets. Nevertheless, higher proportions of rDNA sequences are found with ASaiM framework (1-1.4\%) than with *EBI metagonomics* (0.8-0.9\%, Table \ref{pretreatment_stats}). In *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}) *rRNASelector* [@lee_rrnaselector:_2011] is used to select rDNA bacterial and archaeal sequences. In ASaiM framework, sequences are sorted using *SortMeRNA* [@kopylova_sortmerna:_2012] and databases with bacteria, archaea and also eukaryotes rDNA sequences. Differences of rDNA reference databases, particularly the use of eukaryotic database in ASaiM, may then explain the differences in rDNA sequence proportions extracted by both workflows. In ASaiM framework, 0.03-0.05\% of all sequences are matched against databases dedicated to eukaryotic rDNA sequences, but this small proportion does however not explain the whole difference of rDNA sequence proportion between *EBI metagenomics* and ASaiM framework. The rDNA sequences found with *EBI metagenomics* correspond to a subset of rDNA sequences found with ASaiM: more than 97\% of rDNA sequences found with *EBI metagenomics* are similarly also found as rDNA sequences with ASaiM framework, less than 2.5\% of rDNA sequences found with *EBI metagenomics* are identified as non rDNA sequences with ASaiM framework, the other sequences (<60) may correspond to sequences differentially filtered or trimmed during quality control. *EBI metagenomics* and ASaiM pipelines extract then similar rDNA sequences and these sequences corresponds to sequences from expected organisms. A high proportion (80-86\%) of rDNA sequences found with ASaiM and its general rDNA databases are also found with  SortMeRNA and databases constitued only of rRNA sequences from expected organisms, and 98.8-99.3\% of rDNA sequences found with expected organism rRNA sequence databases are found with ASaiM general databases. Hence, sequence sorting in ASaiM extracts rRNA/rDNA sequences close to rDNA sequences of expected organisms.
+In both datasets and with both workflows, few rDNA sequences are found in datasets (Table \ref{pretreatment_stats}). These datasets are composed of whole genome metagenomic sequences. Few copies of rDNA genes are present in organisms (bacteria, archeae or eukaryotes) and are then expected in metagenomic sequences, as observed for the datasets. Nevertheless, higher proportions of rDNA sequences are found with ASaiM framework (1-1.4\%) than with *EBI metagonomics* (0.8-0.9\%, Table \ref{pretreatment_stats}). In *EBI metagenomics* pipeline (Figure \ref{ebi_pipeline}) *rRNASelector* [@lee_rrnaselector:_2011] is used to select rDNA bacterial and archaeal sequences. In ASaiM framework, sequences are sorted using *SortMeRNA* [@kopylova_sortmerna:_2012] and databases with bacteria, archaea and also eukaryotes rDNA sequences. Differences of rDNA reference databases, particularly the use of eukaryotic database in ASaiM, may then explain the differences in rDNA sequence proportions extracted by both workflows. In ASaiM framework, 0.03-0.05\% of all sequences are matched against databases dedicated to eukaryotic rDNA sequences, but this small proportion does however not explain the whole difference of rDNA sequence proportion between *EBI metagenomics* and ASaiM framework. The rDNA sequences found with *EBI metagenomics* correspond to a subset of rDNA sequences found with ASaiM: more than 97\% of rDNA sequences found with *EBI metagenomics* are similarly also found as rDNA sequences with ASaiM framework, less than 2.5\% of rDNA sequences found with *EBI metagenomics* are identified as non rDNA sequences with ASaiM framework, the other sequences (<60) may correspond to sequences differentially filtered or trimmed during quality control. *EBI metagenomics* and ASaiM pipelines extract then similar rDNA sequences and these sequences corresponds to sequences from expected organisms. A high proportion (80-86\%) of rDNA sequences found with ASaiM and its general rDNA databases are also found with SortMeRNA and databases constitued only of rRNA sequences from expected organisms, and 98.8-99.3\% of rDNA sequences found with expected organism rRNA sequence databases are found with ASaiM general databases. Hence, sequence sorting in ASaiM extracts rRNA/rDNA sequences close to rDNA sequences of expected organisms.
 
 ## Taxonomic analyses
 
@@ -204,7 +206,7 @@ Both metagenomic datasets come from a genomic mixture of 22 known microbial stra
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width = \linewidth]{../images/expected_taxonomy.pdf}
+    \includegraphics[width = \linewidth]{doc/images/expected_taxonomy.pdf}
     \caption{Expected taxonomy for SRR072232 (left) and SRR072233 (right) from domains to species. Circle diameters at each taxonomic levels are proportional to mapping-based relative abundance of corresponding taxon.}
     \label{expected_taxonomy}
 \end{figure}
@@ -217,7 +219,7 @@ ASaiM workflow uses *MetaPhlAN* (2.2.5) [@truong_metaphlan2_2015;@segata_metagen
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width = \linewidth]{../images/asaim_taxonomy.pdf}
+    \includegraphics[width = \linewidth]{doc/images/asaim_taxonomy.pdf}
     \caption{Taxonomy for SRR072232 (left) and SRR072233 (right) from domains to species, found with ASaiM framework. Circle diameters at each taxonomic levels are proportional to relative abundance of corresponding taxon. Colors and family numbers are the same as the ones used in Figure \ref{expected_taxonomy}. Gray circles and lines represent unexpected lineages.}
     \label{asaim_taxonomy}
 \end{figure}
@@ -225,10 +227,10 @@ ASaiM workflow uses *MetaPhlAN* (2.2.5) [@truong_metaphlan2_2015;@segata_metagen
 \begin{figure}[h!]
     \centering
     \begin{minipage}[c]{.49\linewidth}
-    \includegraphics[width = \linewidth]{../images/SRR072232/species_abundances.pdf}
+    \includegraphics[width = \linewidth]{doc/images/SRR072232/species_abundances.pdf}
     \end{minipage} \hfill
     \begin{minipage}[c]{.49\linewidth}
-    \includegraphics[width = \linewidth]{../images/SRR072233/species_abundances.pdf}
+    \includegraphics[width = \linewidth]{doc/images/SRR072233/species_abundances.pdf}
     \end{minipage}
     \caption{Relative abundances (percentage in log scale) of expected species for SRR072232 (left) and SRR072232 (right) with comparison between expected abundances (based on mapping counts, red thin bars) and abundances obtained with ASaiM (blue wide bars)}
     \label{species_abundances}
@@ -248,7 +250,7 @@ We can now compare ASaiM taxonomic results to *EBI metagenomics* ones.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width = \linewidth]{../images/ebi_taxonomy.pdf}
+    \includegraphics[width = \linewidth]{doc/images/ebi_taxonomy.pdf}
     \caption{Taxonomy for SRR072232 (left) and SRR072233 (right) from domains to families, found with EBI metagenomics pipeline. Circle diameters at each taxonomic levels are proportional to relative abundance of corresponding taxon. Colors and family numbers are the same as the ones used in Figure \ref{expected_taxonomy}. Gray circles and lines represent unexpected lineages.}
     \label{ebi_taxonomy}
 \end{figure}
@@ -297,10 +299,10 @@ As mentioned before, the most precise taxonomic level for *EBI metagenomics* is 
 \begin{figure}[h!]
     \centering
     \begin{minipage}[c]{.49\linewidth}
-    \includegraphics[width = \linewidth]{../images/SRR072232/concatenated_family_abundances.pdf}
+    \includegraphics[width = \linewidth]{doc/images/SRR072232/concatenated_family_abundances.pdf}
     \end{minipage} \hfill
     \begin{minipage}[c]{.49\linewidth}
-    \includegraphics[width = \linewidth]{../images/SRR072233/concatenated_family_abundances.pdf}
+    \includegraphics[width = \linewidth]{doc/images/SRR072233/concatenated_family_abundances.pdf}
     \end{minipage}
     \caption{Relative abundances (percentage, log scale) of expected families for SRR072232 (left) and SRR072233 (right) with comparison between mapping-based relative abundances (red thin bars), abundances obtained with \textit{EBI metagenomics} (green wide bars) and abundances obtained with ASaiM (blue wide bars).}
     \label{family_abundances}
@@ -379,10 +381,10 @@ The sets of gene families are slightly different between both datasets: < 52\% i
 \begin{figure}[h!]
     \centering
     \begin{minipage}[c]{.49\linewidth}
-    \includegraphics[width = \linewidth]{../images/concatenated_asaim_results/functional_results/raw_gene_families.pdf}
+    \includegraphics[width = \linewidth]{doc/images/concatenated_asaim_results/functional_results/raw_gene_families.pdf}
     \end{minipage} \hfill
     \begin{minipage}[c]{.49\linewidth}
-    \includegraphics[width = \linewidth]{../images/concatenated_asaim_results/functional_results/raw_pathways.pdf}
+    \includegraphics[width = \linewidth]{doc/images/concatenated_asaim_results/functional_results/raw_pathways.pdf}
     \end{minipage}
     \caption{Normalized relative abundances (\%) for similar UniRef50 gene families (left) and MetaCyc pathways (right) for both samples (SRR072233 and SRR072233). The relative abundances of each similar characteristics (gene families or pathways) is computed with \textit{HUMAnN2} and normalized by the sum of relative abundance for all similar characteristics.}
     \label{similar_characteristics_abundances}
@@ -394,13 +396,13 @@ UniRef50 gene families and MetaCyc pathways are somehow too specific to obtain a
 \begin{figure}[h!]
     \centering
     \begin{minipage}[c]{.49\linewidth}
-    \includegraphics[width = \linewidth]{../images/concatenated_asaim_results/functional_results/cellular_component.pdf}
+    \includegraphics[width = \linewidth]{doc/images/concatenated_asaim_results/functional_results/cellular_component.pdf}
     \end{minipage} \hfill
     \begin{minipage}[c]{.49\linewidth}
-    \includegraphics[width = \linewidth]{../images/concatenated_asaim_results/functional_results/biological_process.pdf}
+    \includegraphics[width = \linewidth]{doc/images/concatenated_asaim_results/functional_results/biological_process.pdf}
     \end{minipage}
     \begin{minipage}[c]{.49\linewidth}
-    \includegraphics[width = \linewidth]{../images/concatenated_asaim_results/functional_results/molecular_function.pdf}
+    \includegraphics[width = \linewidth]{doc/images/concatenated_asaim_results/functional_results/molecular_function.pdf}
     \end{minipage}
     \caption{Relative abundances of GO slim terms in SRR072232 and SRR072233 for cellular components (top left), biological processes (top right) and molecular function (bottom)}
     \label{go_abundances}
@@ -418,7 +420,7 @@ Barplot representations of GO slim term abundances for both samples and both wor
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width = .55\linewidth]{../images/concatenated_go_slim_terms/cellular_component_barplot.pdf}
+    \includegraphics[width = .55\linewidth]{doc/images/concatenated_go_slim_terms/cellular_component_barplot.pdf}
     \caption{Barplot representation (logarithm scale) of the normalized relative abundances (in percentage) of the cellular component GO slim terms for both samples (SRR072233 and SRR072233) and both workflows (\textit{EBI metagenomics} and ASaiM). The relative abundances of each GO slim terms is normalized by the sum of relative abundance for the found cellular component GO slim terms in both samples and with both workflows.}
     \label{cellular_components}
 \end{figure}
@@ -458,7 +460,7 @@ Inside each category, compositions are more similar (dissimilarity scores closer
 
 \begin{table}[h!]
 \centering
-\begin{tabular}{m{9cm}rrrr}
+\begin{tabular}{m{6cm}rrrr}
 \hline
  & \multicolumn{2}{c}{UniRef50 gene families} & \multicolumn{2}{c}{MetaCyc pathways}\\
  & SRR072232 & SRR072233 & SRR072232 & SRR072233 \\
@@ -479,7 +481,7 @@ For both samples, we observe a significant correlation between CDS number in the
 
 \begin{table}[h!]
 \centering
-\begin{tabular}{llrrrr}
+\begin{tabular}{m{4cm}lrrrr}
 \hline
  & & \multicolumn{2}{c}{UniRef50 gene families} & \multicolumn{2}{c}{MetaCyc pathways}\\
  & & SRR072232 & SRR072233 & SRR072232 & SRR072233 \\
@@ -510,10 +512,10 @@ The relative abundances of the gene families and the pathways are highly correla
 \begin{figure}[h!]
     \centering
     \begin{minipage}[c]{.43\linewidth}
-    \includegraphics[width = \linewidth]{../images/concatenated_asaim_results/functional_results/taxonomically_related_gene_families.pdf}
+    \includegraphics[width = \linewidth]{doc/images/concatenated_asaim_results/functional_results/taxonomically_related_gene_families.pdf}
     \end{minipage} \hfill
     \begin{minipage}[c]{.43\linewidth}
-    \includegraphics[width = \linewidth]{../images/concatenated_asaim_results/functional_results/taxonomically_related_pathways.pdf}
+    \includegraphics[width = \linewidth]{doc/images/concatenated_asaim_results/functional_results/taxonomically_related_pathways.pdf}
     \end{minipage}
     \caption{Difference in mean abundances for gene families (left) and pathways (right) in function of difference of related species abundance between both samples. Correlation coefficients and p-values are detailed in Table \ref{correlation_information}}
     \label{gene_family_pathway_mean}

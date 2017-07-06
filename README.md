@@ -61,5 +61,5 @@ A [report](doc/report/report.pdf) of this analysis is available in `doc/report` 
 To generate the PDF from the markdown file (requiring PANDOC):
 
 ```
-$ ./doc/report/build.sh
+$ pandoc -s doc/report.md -t latex -o doc/report.pdf --bibliography="doc/references.bib" -N
 ```
