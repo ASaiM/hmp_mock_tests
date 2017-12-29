@@ -19,69 +19,60 @@ For these datasets, the ASaiM framework produces accurate and precise taxonomic 
 
 On [*EBI metagenomics* database](https://www.ebi.ac.uk/metagenomics/), [two mock community samples](https://www.ebi.ac.uk/metagenomics/projects/SRP004311) for Human Microbiome Project (HMP) are available. Both samples contain a genomic mixture of 22 known microbial strains. Relative abundance of each strain has been targeted using the number of PCR product of their respective 16S sequences (Table \ref{expected_species}). In first sample ([SRR072232](https://www.ebi.ac.uk/metagenomics/projects/SRP004311/samples/SRS121012/runs/SRR072232/results/versions/1.0)), the targeted 16S copies of the strains vary by up to four orders of magnitude between the strains (Table \ref{expected_species}), whereas in second sample ([SRR072233](https://www.ebi.ac.uk/metagenomics/projects/SRP004311/samples/SRS121011/runs/SRR072233/results/versions/1.0)) the same 16S copy number is targeted for each strain (Table \ref{expected_species}). After pooling, the DNA of the strains of both samples were sequenced using 454 GS FLX Titanium. 1,225,169 and 1,386,198 raw metagenomic sequences are then respectively obtained for the first dataset (SRR072232) and the second dataset (SRR072233).
 
-# Methods
-
-Both datasets have been analyzed using the ASaiM framework. The results are extensively analyzed and compared to expected results from reference genome information and to *EBI metagenomics* results. Details about these analyses (workflows, scripts) are available on a dedicated GitHub repository ([https://github.com/ASaiM/hmp_mock_tests](https://github.com/ASaiM/hmp_mock_tests)).
-
-## Abundance computation using mapping on reference genomes
-
-In both datasets, abundance of each strain is targeted based on 16S quantity to build the genomic mixture before sequencing. But these targeted abundances may be not reflect the final abundances (*e.g.* 16S copy number variation, sequencing bias). We have a known composition of the datasets with an expected abundances before sequencing but no information about the real abundance of the strains after sequencing.
-
-Before any analysis of *EBI metagenomics* and ASaiM results, we need more insights in the real abundance of the strains after sequencing. We mapped raw reads on reference genomes of expected strains using BWA 0.7.12 [@li_fast_2009;@li_fast_2010] (using default parameters). We then extract the "exact" abundances of expected strains in the metagenomic datasets, after DNA pooling and sequencing (*i.e.* not based on targeted rRNA operon counts in PCR).
-
 \newpage
 \thispagestyle{empty}
-\newgeometry{top=2cm, bottom=2cm, left=2cm, right=2cm}
+\newgeometry{top=1cm, bottom=1cm, left=1.5cm, right=1.5cm}
 \begin{landscape}
 \begin{table}
-\begin{tabular}{llm{2.5cm}llllm{2.5cm}m{2.5cm}|rr}
+\footnotesize
+\begin{tabular}{lm{2cm}llllm{2.5cm}m{2.25cm}|rr}
 \hline
-\multicolumn{9}{c|}{Taxonomy} & \multicolumn{2}{c}{Targeted abundances (\%)}\\
-Domain & Kingdom & Phylum & Class & Order & Family & Genus & Species & Strains & SRR072232 & SRR072233 \\
+\multicolumn{8}{c|}{Taxonomy} & \multicolumn{2}{c}{Targeted abundances (\%)}\\
+Kingdom & Phylum & Class & Order & Family & Genus & Species & Strains & SRR072232 & SRR072233 \\
 \hline
-Archaea & Archaea & Euryarchaeota & Methanobacteria & Methanobacteriales& Methanobacteriaceae & \textit{Methanobrevibacter} & \textit{Methanobrevibacter smithii} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000016525.1_ASM1652v1/}{ATCC 35061} & 1.797 $\cdot 10^{1}$ & 4.545 \\
+Archaea & Euryarchaeota & Methanobacteria & Methanobacteriales& Methanobacteriaceae & \textit{Methanobrevibacter} & \textit{Methanobrevibacter smithii} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000016525.1_ASM1652v1/}{ATCC 35061} & 1.797 $\cdot 10^{1}$ & 4.545 \\
 \hline
-Bacteria & Bacteria & Actinobacteria & Actinobacteria & Actinomycetales & Actinomycetaceae & \textit{Actinomyces} & \textit{Actinomyces odontolyticus} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000154225.1_ASM15422v1/}{ATCC 17982} & 1.797 $\cdot 10^{-2}$ & 4.545 \\
-\cline{6-11}
- &  &  &  &  & Propionibacteriaceae & \textit{Propionibacterium} & \textit{Propionibacterium acnes} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000008345.1_ASM834v1/}{DSM 16379} & 1.797 $\cdot 10^{-1}$ & 4.545 \\
-\cline{3-11}
- & & Bacteroidetes & Bacteroidia & Bacteroidales & Bacteroidaceae & \textit{Bacteroides} & \textit{Bacteroides vulgatus} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000012825.1_ASM1282v1/}{ATCC 8482} & 1.797 $\cdot 10^{-2}$ & 4.545 \\
-\cline{3-11}
-& & Deinococcus-Thermus & Deinococci & Deinococcales & Deinococcaceae & \textit{Deinococcus} & \textit{Deinococcus radiodurans} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000008565.1_ASM856v1/}{DSM 20539} & 1.797 $\cdot 10^{-2}$ & 4.545 \\
-\cline{3-11}
-& & Firmicutes & Bacilli & Bacillales & Bacillaceae & \textit{Bacillus} & \textit{Bacillus cereus thuringiensis} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000008005.1_ASM800v1/}{ATCC 10987} & 1.797 & 4.545\\
-\cline{6-11}
-& & & & & Listeriaceae & \textit{Listeria} & \textit{Listeria monocytogenes} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000196035.1_ASM19603v1/}{ATCC BAA-679} & 1.797 $\cdot 10^{-1}$ & 4.545 \\
-\cline{6-11}
-& & & & & Staphylococcaceae & \textit{Staphylococcus} & \textit{Staphylococcus aureus} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000153665.1_ASM15366v1/}{ATCC BAA-1718} & 1.797 & 4.545 \\
-\cline{8-11}
-& & & & & & & \textit{Staphylococcus epidermidis} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000007645.1_ASM764v1/}{ATCC 12228} & 1.797 $\cdot 10^{1}$ & 4.545 \\
-\cline{5-11}
-& & & & Lactobacillales & Enterococcaceae & \textit{Enterococcus} & \textit{Enterococcus faecalis} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000172575.2_ASM17257v2/}{ATCC 47077} & 1.797 $\cdot 10^{-2}$ & 4.545\\
-\cline{6-11}
-& & & & & Lactobacillaceae & \textit{Lactobacillus} & \textit{Lactobacillus gasseri} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000014425.1_ASM1442v1/}{DSM 20243} & 1.797 $\cdot 10^{-2}$ & 4.545\\
-\cline{6-11}
-& & & & & Streptococcaceae & \textit{Streptococcus} & \textit{Streptococcus agalactiae} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000007265.1_ASM726v1/}{ATCC BAA-611} & 1.797 & 4.545\\
-\cline{8-11}
-& & & & & & & \textit{Streptococcus mutans} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000007465.2_ASM746v2/}{ATCC 700610} & 1.797 $\cdot 10^{1}$ & 4.545\\
-\cline{8-11}
-& & & & & & & \textit{Streptococcus mitis oralis pneumoniae} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000006885.1_ASM688v1/}{ATCC BAA-334} & 1.797 $\cdot 10^{-2}$ & 4.545\\
-\cline{4-11}
-& & & Clostridia & Clostridiales & Clostridiaceae & \textit{Clostridium} & \textit{Clostridium beijerinckii} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000016965.1_ASM1696v1/}{ATCC 51743} & 1.797 & 4.545\\
-\cline{3-11}
-& & Proteobacteria & Alphaproteobacteria & Rhodobacterales & Rhodobacteraceae & \textit{Rhodobacter} & \textit{Rhodobacter sphaeroides} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000012905.2_ASM1290v2/}{ATCC 17023} & 1.797 $\cdot 10^{1}$ & 4.545\\
-\cline{4-11}
-& & & Betaproteobacteria & Neisseriales & Neisseriaceae & \textit{Neisseria} & \textit{Neisseria meningitidis} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000008805.1_ASM880v1/}{ATCC BAA-335} & 1.797 $\cdot 10^{-1}$ & 4.545\\
-\cline{4-11}
-& & & Epsilonproteobacteria & Campylobacterales & Helicobacteraceae & \textit{Helicobacter} & \textit{Helicobacter pylori} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000008525.1_ASM852v1/}{ATCC 700392} & 1.797 $\cdot 10^{-1}$ & 4.545\\
-\cline{4-11}
-& & & Gammaproteobacteria & Pseudomonadales & Moraxellaceae & \textit{Acinetobacter} & \textit{Acinetobacter baumannii} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000015425.1_ASM1542v1/}{ATCC 17978} & 1.797 $\cdot 10^{-1}$ & 4.545\\
-\cline{6-11}
-& & & & & Pseudomonadaceae & \textit{Pseudomonas} & \textit{Pseudomonas aeruginosa} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000006765.1_ASM676v1/}{ATCC 47085} & 1.797 & 4.545\\
-\cline{5-11}
-& & & & Enterobacteriales & Enterobacteriaceae & \textit{Escherichia} & \textit{Escherichia coli} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000005845.2_ASM584v2/}{ATCC 70096} & 1.797 $\cdot 10^{1}$ & 4.545\\
+Bacteria & Actinobacteria & Actinobacteria & Actinomycetales & Actinomycetaceae & \textit{Actinomyces} & \textit{Actinomyces odontolyticus} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000154225.1_ASM15422v1/}{ATCC 17982} & 1.797 $\cdot 10^{-2}$ & 4.545 \\
+\cline{5-10}
+ &  &  &  & Propionibacteriaceae & \textit{Propionibacterium} & \textit{Propionibacterium acnes} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000008345.1_ASM834v1/}{DSM 16379} & 1.797 $\cdot 10^{-1}$ & 4.545 \\
+\cline{2-10}
+ & Bacteroidetes & Bacteroidia & Bacteroidales & Bacteroidaceae & \textit{Bacteroides} & \textit{Bacteroides vulgatus} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000012825.1_ASM1282v1/}{ATCC 8482} & 1.797 $\cdot 10^{-2}$ & 4.545 \\
+\cline{2-10}
+& Deinococcus-Thermus & Deinococci & Deinococcales & Deinococcaceae & \textit{Deinococcus} & \textit{Deinococcus radiodurans} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000008565.1_ASM856v1/}{DSM 20539} & 1.797 $\cdot 10^{-2}$ & 4.545 \\
+\cline{2-10}
+& Firmicutes & Bacilli & Bacillales & Bacillaceae & \textit{Bacillus} & \textit{Bacillus cereus thuringiensis} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000008005.1_ASM800v1/}{ATCC 10987} & 1.797 & 4.545\\
+\cline{5-10}
+& & & & Listeriaceae & \textit{Listeria} & \textit{Listeria monocytogenes} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000196035.1_ASM19603v1/}{ATCC BAA-679} & 1.797 $\cdot 10^{-1}$ & 4.545 \\
+\cline{5-10}
+& & & & Staphylococcaceae & \textit{Staphylococcus} & \textit{Staphylococcus aureus} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000153665.1_ASM15366v1/}{ATCC BAA-1718} & 1.797 & 4.545 \\
+\cline{7-10}
+& & & & & & \textit{Staphylococcus epidermidis} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000007645.1_ASM764v1/}{ATCC 12228} & 1.797 $\cdot 10^{1}$ & 4.545 \\
+\cline{4-10}
+& & & Lactobacillales & Enterococcaceae & \textit{Enterococcus} & \textit{Enterococcus faecalis} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000172575.2_ASM17257v2/}{ATCC 47077} & 1.797 $\cdot 10^{-2}$ & 4.545\\
+\cline{5-10}
+& & & & Lactobacillaceae & \textit{Lactobacillus} & \textit{Lactobacillus gasseri} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000014425.1_ASM1442v1/}{DSM 20243} & 1.797 $\cdot 10^{-2}$ & 4.545\\
+\cline{5-10}
+& & & & Streptococcaceae & \textit{Streptococcus} & \textit{Streptococcus agalactiae} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000007265.1_ASM726v1/}{ATCC BAA-611} & 1.797 & 4.545\\
+\cline{7-10}
+& & & & & & \textit{Streptococcus mutans} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000007465.2_ASM746v2/}{ATCC 700610} & 1.797 $\cdot 10^{1}$ & 4.545\\
+\cline{7-10}
+& & & & & & \textit{Streptococcus mitis oralis pneumoniae} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000006885.1_ASM688v1/}{ATCC BAA-334} & 1.797 $\cdot 10^{-2}$ & 4.545\\
+\cline{3-10}
+& & Clostridia & Clostridiales & Clostridiaceae & \textit{Clostridium} & \textit{Clostridium beijerinckii} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000016965.1_ASM1696v1/}{ATCC 51743} & 1.797 & 4.545\\
+\cline{2-10}
+& Proteobacteria & Alphaproteobacteria & Rhodobacterales & Rhodobacteraceae & \textit{Rhodobacter} & \textit{Rhodobacter sphaeroides} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000012905.2_ASM1290v2/}{ATCC 17023} & 1.797 $\cdot 10^{1}$ & 4.545\\
+\cline{3-10}
+& & Betaproteobacteria & Neisseriales & Neisseriaceae & \textit{Neisseria} & \textit{Neisseria meningitidis} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000008805.1_ASM880v1/}{ATCC BAA-335} & 1.797 $\cdot 10^{-1}$ & 4.545\\
+\cline{3-10}
+& & Epsilonproteobacteria & Campylobacterales & Helicobacteraceae & \textit{Helicobacter} & \textit{Helicobacter pylori} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000008525.1_ASM852v1/}{ATCC 700392} & 1.797 $\cdot 10^{-1}$ & 4.545\\
+\cline{3-10}
+& & Gammaproteobacteria & Pseudomonadales & Moraxellaceae & \textit{Acinetobacter} & \textit{Acinetobacter baumannii} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000015425.1_ASM1542v1/}{ATCC 17978} & 1.797 $\cdot 10^{-1}$ & 4.545\\
+\cline{5-10}
+& & & & Pseudomonadaceae & \textit{Pseudomonas} & \textit{Pseudomonas aeruginosa} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000006765.1_ASM676v1/}{ATCC 47085} & 1.797 & 4.545\\
+\cline{4-10}
+& & & Enterobacteriales & Enterobacteriaceae & \textit{Escherichia} & \textit{Escherichia coli} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000005845.2_ASM584v2/}{ATCC 70096} & 1.797 $\cdot 10^{1}$ & 4.545\\
 \hline
-Eukaryotes & Fungi & Ascomycota & Saccharomycetes & Saccharomycetales & Debaryomycetaceae & \textit{Candida} & \textit{Candida albicans} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000182965.2_ASM18296v2/}{SC5314} & 1.797 $\cdot 10^{-2}$ & 4.545 \\
+Fungi & Ascomycota & Saccharomycetes & Saccharomycetales & Debaryomycetaceae & \textit{Candida} & \textit{Candida albicans} & \href{ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000182965.2_ASM18296v2/}{SC5314} & 1.797 $\cdot 10^{-2}$ & 4.545 \\
 \hline
 \end{tabular}
 \caption{Expected strains, their taxonomy and their targeted relative abundance (percentage) based on 16S gene copy counts (abundance, from metadata on \textit{EBI metagenomics} database) on both samples (SRR072232 and SRR072233)}
@@ -90,6 +81,16 @@ Eukaryotes & Fungi & Ascomycota & Saccharomycetes & Saccharomycetales & Debaryom
 \end{landscape}
 \newpage
 \restoregeometry
+
+# Methods
+
+Both datasets have been analyzed using the ASaiM framework. The results are extensively analyzed and compared to expected results from reference genome information and to *EBI metagenomics* results. Details about these analyses (workflows, scripts) are available on a dedicated GitHub repository ([https://github.com/ASaiM/hmp_mock_tests](https://github.com/ASaiM/hmp_mock_tests)).
+
+## Abundance computation using mapping on reference genomes
+
+In both datasets, abundance of each strain is targeted based on 16S quantity to build the genomic mixture before sequencing. But these targeted abundances may not reflect the final abundances (*e.g.* 16S copy number variation, sequencing bias). We have a known composition of the datasets with an expected abundances before sequencing but no information about the real abundance of the strains after sequencing.
+
+Before any analysis of *EBI metagenomics* and ASaiM results, we need more insights in the real abundance of the strains after sequencing. We mapped raw reads on reference genomes of expected strains using BWA 0.7.12 [@li_fast_2009;@li_fast_2010] (using default parameters). We then extract the "exact" abundances of expected strains in the metagenomic datasets, after DNA pooling and sequencing (*i.e.* not based on targeted rRNA operon counts in PCR).
 
 Similar community compositions are observed using mapping-based relative abundances of strains or targeted relative abundance (Figure \ref{mapping_comparison}): the Bray-Curtis dissimilarity scores are smaller than 0.5 (0.338 for SRR02232 and 0.479 for SRR072233). However, for SRR072233 (Figure \ref{mapping_comparison}), identical targeted abundances are expected for all species, but variations are observed for mapping based abundances. The variation of 16S gene copy number between the species can explain the differences between targeted abundances and mapping-based abundances. Indeed, the targeted abundances are based on 16S copy number targeted in PCR to build the DNA pool. But, the number of 16S gene copies is not identical in the strains (from 1 for *Candida albicans* to 14 for *Clostridium beijerinckii*). Hence, even with identical targeted abundances (*e.g.* for SRR072233), we expect that a species with two 16S gene copies in its genome would be found twice less abundant in mapping-based relative abundance results. The 16S gene copy number variation induces then a difference between the relative abundance based on mapping reads on whole genome and the expected relative abundance based on the targeted 16S gene counts.
 
@@ -104,9 +105,6 @@ Similar community compositions are observed using mapping-based relative abundan
     \caption{Comparison of relative abundances (percentage, in log scale) between expectation given the ribosomal RNA operon counts (green, Table \ref{expected_species}) and mapping against reference genomes for both samples (SRR072232 on left, SRR072233 on right)}
     \label{mapping_comparison}
 \end{figure}
-
-
-
 
 Taxonomic analyses in *EBI metagenomics* and ASaiM workflows are executed on metagenomic sequences, *i.e.* on data after DNA pooling and sequencing. Mapping-based relatives abundances computed on raw metagenomic sequences are then more appropriate expected abundance information than the relative abundances based on 16S counts. We will then use this information in the next sections.
 
@@ -130,6 +128,7 @@ To ease comparison with ASaiM results, *EBI metagenomics* pipeline results were 
 Main workflow (Supplementary material 1) of the ASaiM framework is used to analyze both datasets. The ASaiM framework were deployed on a computer with Debian GNU/Linux System, 8 cores Intel(R) Xeon(R) at 2.40 GHz and 32 Go of RAM. On this computer, the workflow execution is relatively fast: < 5h and < 5h30 for datasets with 1,225,169 and 1,386,198 sequences respectively (Table \ref{computation_stats}). The most time-consuming step is functional profiling using *HUMAnN2* [@abubucker_metabolic_2012] which last $\simeq$ 64% of overall time execution (Table \ref{computation_stats}). Size of the process in memory is stable over workflow execution (variability inferior to 40 kb) (Table \ref{computation_stats}).
 
 \begin{table}[h!]
+\small
 \centering
 \begin{tabular}{llrr}
 \hline
@@ -180,6 +179,7 @@ In both workflows, raw sequences are pre-processed before any taxonomic or funct
 The tools and the parameters in the ASaiM framework differ from the ones used in *EBI metagenomics* pipeline. We then observe different preprocessing outputs (Table \ref{pretreatment_stats}).
 
 \begin{table}[h!]
+\footnotesize
 \centering
 \begin{tabular}{m{4cm}rrrrrrrr}
 \hline
@@ -262,6 +262,7 @@ The taxonomic assignations in *EBI metagenomics* go from kingdom to family (Figu
 In both *EBI metagenomics* and ASaiM framework, we observe taxonomic assignations which are unexpected (Table \ref{unexpected_clades}, Figures \ref{asaim_taxonomy} and \ref{ebi_taxonomy}). While only species are found as unexpected in ASaiM framework, *EBI metagenomics* founds unexpected classes, orders and families (Table \ref{unexpected_clades}, Figure \ref{ebi_taxonomy}). For ASaiM framework, 4 species in each sample are identified as "unclassified" (Table \ref{unexpected_clades}): they are affiliated to the correct genus but not to correct species. Corresponding sequences may be highly similar in several species from the same genus and can not then be assigned to a specific species. Taxonomic assignations with *MetaPhlAN* are then more accurate (less unexpected clades and for a higher level).
 
 \begin{table}[h!]
+\small
 \centering
 \begin{tabular}{llrrrr}
 \hline
@@ -321,6 +322,7 @@ Neither ASaiM nor *EBI metagenomics* found any low abundance families (mapping-b
 Despite fewer sequences used for the taxonomic assignations, *EBI metagenomics* seems better to detect low abundance families than ASaiM framework.
 
 \begin{table}[h!]
+\small
 \centering
 \begin{tabular}{ll|ccc|ccc}
 \hline
@@ -342,7 +344,7 @@ Species & EBI & & - & 1 & & - & 1\\
 
 More generally, variations in observed abundances for *EBI metagenomics* or ASaiM framework correspond to variations in mapping-based abundances (Figure \ref{family_abundances}). For a broader comparison, Bray-Curtis dissimilarity scores are computed on relative abundances of families (Table \ref{taxo_distances}). With scores close to 0, the communities based family compositions are then similar for mapping, *EBI metagenomics* or ASaiM framework results. Bray-Curtis dissimilarity scores are close but higher than 0, small differences are then observed between the different tools. *EBI metagenomics* results on family relative abundances are closer to expected abundances than ASaiM framework results (Table \ref{taxo_distances}). But the differences are small, particularly for SRR072233 datasets, and the scores remain close to 0 (Table \ref{taxo_distances}).
 
-For species, the observations are different (Table \ref{taxo_distances}). No information is available on species composition with *EBI metagenomics* and dissimilarity scores are then equal to 1. With ASaiM framework, dissimilarity scores are slightly higher for species than for families but they remain close to 0. 
+For species, the observations are different (Table \ref{taxo_distances}). No information is available on species composition with *EBI metagenomics* and dissimilarity scores are then equal to 1. With ASaiM framework, dissimilarity scores are slightly higher for species than for families but they remain close to 0.
 Thus the ASaiM framework is almost as good as the EBI metagenomic pipeline at family level, but contrary to EBI metagenomic pipeline ASaiM performs very well at the species level when compared to mapping-based communities.
 
 ASaiM framework gives taxonomic results which are accurate, complete, precise and statistically supported. Moreover, the community structure found with the ASaiM framework is close to the expected community structure of the mock community.
@@ -358,6 +360,7 @@ ASaiM framework uses [*HUMAnN*2](http://huttenhower.sph.harvard.edu/humann2) [@a
 More than 50,000 UniRef50 gene families and 480 MetaCyc pathways (Table \ref{humann2_informations}) are reconstructed from > 1,100,000 non rDNA sequences of both samples (Table \ref{pretreatment_stats}).
 
 \begin{table}[h!]
+\small
 \centering
 \begin{tabular}{lrrrr}
 \hline
@@ -426,6 +429,7 @@ Barplot representations of GO slim term abundances for both samples and both wor
 \end{figure}
 
 \begin{table}[h!]
+\small
 \centering
 \begin{tabular}{lllrrrr}
 \hline
@@ -459,6 +463,7 @@ Inside each category, compositions are more similar (dissimilarity scores closer
 *HUMAnN2* stratifies the abundances of gene families and pathways at the community level. Around 35\% of gene families (> 90\% of relative abundance) and > 80\% pathways (> 50\% of relative abundance) can be then related to the community structure (species and their abundance, Table \ref{taxo_rel_funct_results}). We can exploit this information to relate functional results to taxonomic results and answer questions such as "Which taxa contribute to which metabolic functions? And, in which proportion?".
 
 \begin{table}[h!]
+\small
 \centering
 \begin{tabular}{m{6cm}rrrr}
 \hline
@@ -480,6 +485,7 @@ Relative abundance of identical characteristics inside characteristics associate
 For both samples, we observe a significant correlation between CDS number in the species and number of gene families found for these species (Table \ref{correlation_information}). The correlation is significant (*p-value* < 5.09 $\cdot 10^{-3}$) but it is yet not perfect ($r^{2}$ < 0.71). Gene families can not be then directly mapped to CDS (*e.g.* to obtain expected results).
 
 \begin{table}[h!]
+\small
 \centering
 \begin{tabular}{m{4cm}lrrrr}
 \hline
